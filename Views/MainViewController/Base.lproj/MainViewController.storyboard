@@ -35,6 +35,9 @@
                     <navigationItem key="navigationItem" title="Things To Do" id="8Qf-8c-six">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pUI-Al-n5u">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addTapped:" destination="iTy-qR-5pr" id="iz7-Id-Eea"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
