@@ -11,5 +11,6 @@ import RealmSwift
 
 class ToDoListItem: Object {
     @objc dynamic var name = ""
-    @objc dynamic var done = false
+    @objc dynamic var preFireDuration = 0
+    @objc dynamic var fireDuration = 0
 }

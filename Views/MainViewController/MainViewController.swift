@@ -9,9 +9,11 @@
 import RealmSwift
 import UIKit
 
-class MainViewController: UITableViewController {
+class MainViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     
     var realm: Realm!
+    
     var toDoList: Results<ToDoListItem>{
         get {
             return realm.objects(ToDoListItem.self)
@@ -20,50 +22,14 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.dataSource = self
+        tableView.delegate = self
         realm = try! Realm()
     }
     
-    //MARK - Add DataSource Methods
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toDoList.count
-    }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let item = toDoList[indexPath.row]
-        cell.textLabel!.text = item.name
-        cell.accessoryType = item.done == true ? .checkmark : .none
-        
-        return cell
-    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = toDoList[indexPath.row]
-        
-        try! realm.write {
-            item.done = !item.done
-        }
-        
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let item = toDoList[indexPath.row]
-            
-            try! realm.write {
-                realm.delete(item)
-            }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-    }
-
-    @IBAction func addTapped(_ sender: UIBarButtonItem) {
+    @IBAction func addTapped(_ sender: Any) {
         let alert = UIAlertController(title: "New ToDo", message: "What do you want to do?", preferredStyle: .alert)
         alert.addTextField { (UITextField) in
             UITextField.placeholder = "Create new ToDo item"
@@ -75,7 +41,7 @@ class MainViewController: UITableViewController {
             
             let newToDoListItem = ToDoListItem()
             newToDoListItem.name = todoItemTextField.text!
-            newToDoListItem.done = false
+//            newToDoListItem.done = false
             
             try! self.realm.write {
                 self.realm.add(newToDoListItem)
@@ -89,3 +55,50 @@ class MainViewController: UITableViewController {
     
 }
 
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return toDoList.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
+        let item = toDoList[indexPath.row]
+        
+//        cell.textLabel!.text = item.name
+        cell.nameLabel.text = item.name
+        cell.preFireLabel.text = "\(item.preFireDuration)"
+        cell.fireDuration.text = "\(item.fireDuration)"
+//        cell.accessoryType = item.done == true ? .checkmark : .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = toDoList[indexPath.row]
+        
+//        try! realm.write {
+//            item.done = !item.done
+//        }
+//        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let item = toDoList[indexPath.row]
+            
+            try! realm.write {
+                realm.delete(item)
+            }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+}
