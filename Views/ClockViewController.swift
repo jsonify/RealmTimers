@@ -9,10 +9,19 @@
 import UIKit
 
 class ClockViewController: UIViewController {
-
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        getCurrentTime()
+    }
+    
+    func getCurrentTime() {
+        let currentDateTime = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        timeLabel.text = "\(dateFormatter.string(from: currentDateTime))"
     }
 }

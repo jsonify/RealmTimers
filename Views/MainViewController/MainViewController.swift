@@ -80,7 +80,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = toDoList[indexPath.row]
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Clock") as? ClockViewController {
-            // vc.selectedImage = pictures[indexPath.row]
+//             vc.selectedImage = pictures[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
 //        try! realm.write {
