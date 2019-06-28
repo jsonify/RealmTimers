@@ -79,7 +79,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1hk-cg-xd8" kind="presentation" id="wNZ-7b-Aa4"/>
+                                    <segue destination="Vmg-tW-fS5" kind="presentation" id="wNZ-7b-Aa4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,11 +127,18 @@
             </objects>
             <point key="canvasLocation" x="4159" y="-175"/>
         </scene>
-        <!--AddTimerViewController-->
-        <scene sceneID="qf5-Ea-Lwl">
+        <!--View Controller-->
+        <scene sceneID="UiW-65-r0h">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddTimerViewController" id="1hk-cg-xd8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Nm-1l-gc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Vmg-tW-fS5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NYY-JU-V3S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.4004173801369863" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bjR-Uh-m1J"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iVQ-zg-eCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4390" y="197"/>
         </scene>
