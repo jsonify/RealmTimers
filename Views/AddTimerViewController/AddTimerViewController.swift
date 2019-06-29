@@ -10,6 +10,7 @@ import UIKit
 
 class AddTimerViewController: UIViewController {
 
+//    @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timerTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
@@ -17,7 +18,8 @@ class AddTimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        popupView.addShadowAndRoundedCorners()
+//        popupView.backgroundColor = Theme.accentColor
         
     }
     

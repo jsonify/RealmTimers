@@ -19,6 +19,8 @@ class MainCell: UITableViewCell {
         super.awakeFromNib()
         
         cardView.addShadowAndRoundedCorners()
+        nameLabel.font = UIFont(name: Theme.timerFontName, size: 50)
+        preFireLabel.font = UIFont(name: Theme.titleFontName, size: 2)
     }
 
 }
