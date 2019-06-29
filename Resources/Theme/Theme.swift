@@ -10,7 +10,7 @@ import UIKit
 
 class Theme {
     // Fonts
-    static let titleFontName = "AbrilFatface-Regular"
+    static let titleFontName = "Abril Fatface"
     static let timerFontName = "LibreBaskerville-Regular"
     static let timerSubFontName = "SourceSansPro-Regular"
     

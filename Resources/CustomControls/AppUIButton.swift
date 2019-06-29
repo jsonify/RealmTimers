@@ -15,7 +15,7 @@ class AppUIButton: UIButton {
         
         backgroundColor = Theme.accentColor
         layer.cornerRadius = frame.height / 2
-        setTitleColor(UIColor.white, for: .normal)
+        setTitleColor(Theme.primaryColor, for: .normal)
     }
 
 }

@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="LibreBaskerville-Regular.ttf">
+            <string>LibreBaskerville-Regular</string>
+        </array>
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
@@ -56,7 +59,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-1e-Y3J">
                                                             <rect key="frame" x="8" y="26" width="358" height="36"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                            <fontDescription key="fontDescription" name="LibreBaskerville-Regular" family="Libre Baskerville" pointSize="25"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

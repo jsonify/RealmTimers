@@ -20,6 +20,8 @@ class AddTimerViewController: UIViewController {
         super.viewDidLoad()
 //        popupView.addShadowAndRoundedCorners()
 //        popupView.backgroundColor = Theme.accentColor
+        titleLabel.textColor = UIColor.white
+//        titleLabel.font = UIFont(name: Theme.titleFontName, size: 30)
         
     }
     

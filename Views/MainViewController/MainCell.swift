@@ -19,8 +19,10 @@ class MainCell: UITableViewCell {
         super.awakeFromNib()
         
         cardView.addShadowAndRoundedCorners()
-        nameLabel.font = UIFont(name: Theme.timerFontName, size: 50)
-        preFireLabel.font = UIFont(name: Theme.titleFontName, size: 2)
+        
+        // figure out how to get custom font override to work
+//        nameLabel.font = UIFont(name: Theme.timerFontName, size: 25)
+//        preFireLabel.font = UIFont(name: Theme.titleFontName, size: 2)
     }
 
 }
