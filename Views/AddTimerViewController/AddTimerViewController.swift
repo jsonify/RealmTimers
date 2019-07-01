@@ -16,12 +16,12 @@ class AddTimerViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
+    var doneSaving: (() -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        popupView.addShadowAndRoundedCorners()
-//        popupView.backgroundColor = Theme.accentColor
+        
         titleLabel.textColor = UIColor.white
-//        titleLabel.font = UIFont(name: Theme.titleFontName, size: 30)
         
     }
     
@@ -30,6 +30,9 @@ class AddTimerViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
+        if let doneSaving = doneSaving {
+            doneSaving()
+        }
         dismiss(animated: true)
     }
     

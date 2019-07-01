@@ -27,7 +27,11 @@ class MainViewController: UIViewController {
         realm = try! Realm()
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddTimerSegue" {
+            let popup = segue.destination as! AddTimerViewController
+        }
+    }
     
     @IBAction func addTapped(_ sender: Any) {
         let alert = UIAlertController(title: "New ToDo", message: "What do you want to do?", preferredStyle: .alert)
