@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ToDoListItem: Object {
+class TimerModel: Object {
     @objc dynamic var name = ""
     @objc dynamic var preFireDuration = 0
     @objc dynamic var fireDuration = 0

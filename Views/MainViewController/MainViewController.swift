@@ -14,9 +14,9 @@ class MainViewController: UIViewController {
     
     var realm: Realm!
     
-    var toDoList: Results<ToDoListItem>{
+    var timerItem: Results<TimerModel>{
         get {
-            return realm.objects(ToDoListItem.self)
+            return realm.objects(TimerModel.self)
         }
     }
     
@@ -29,7 +29,11 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddTimerSegue" {
+            print("seque reached")
             let popup = segue.destination as! AddTimerViewController
+            popup.doneSaving = { [weak self] in
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -41,16 +45,16 @@ class MainViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (UIAlertAction) -> Void in
-            let todoItemTextField = (alert.textFields?.first)! as UITextField
+            let timerItemTextField = (alert.textFields?.first)! as UITextField
             
-            let newToDoListItem = ToDoListItem()
-            newToDoListItem.name = todoItemTextField.text!
+            let newTimerItem = TimerModel()
+            newTimerItem.name = timerItemTextField.text!
 //            newToDoListItem.done = false
             
             try! self.realm.write {
-                self.realm.add(newToDoListItem)
+                self.realm.add(newTimerItem)
                 
-                self.tableView.insertRows(at: [IndexPath.init(row: self.toDoList.count-1, section: 0)], with: .automatic)
+                self.tableView.insertRows(at: [IndexPath.init(row: self.timerItem.count-1, section: 0)], with: .automatic)
             }
         }))
         
@@ -62,7 +66,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toDoList.count
+        return timerItem.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -70,7 +74,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
-        let item = toDoList[indexPath.row]
+        let item = timerItem[indexPath.row]
         
 //        cell.textLabel!.text = item.name
         cell.nameLabel.text = item.name
@@ -82,7 +86,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = toDoList[indexPath.row]
+        let item = timerItem[indexPath.row]
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Clock") as? ClockViewController {
 //             vc.selectedImage = pictures[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
@@ -99,7 +103,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let item = toDoList[indexPath.row]
+            let item = timerItem[indexPath.row]
             
             try! realm.write {
                 realm.delete(item)

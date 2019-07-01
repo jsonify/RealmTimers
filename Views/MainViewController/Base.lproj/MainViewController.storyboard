@@ -88,7 +88,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1hk-cg-xd8" kind="presentation" modalTransitionStyle="coverVertical" id="wNZ-7b-Aa4"/>
+                                    <segue destination="1hk-cg-xd8" kind="presentation" identifier="toAddTimerSegue" modalTransitionStyle="coverVertical" id="wNZ-7b-Aa4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -142,7 +142,7 @@
                 <viewControllerPlaceholder storyboardName="AddTimerViewController" id="1hk-cg-xd8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Nm-1l-gc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4390" y="197"/>
+            <point key="canvasLocation" x="4309" y="62"/>
         </scene>
     </scenes>
     <resources>
