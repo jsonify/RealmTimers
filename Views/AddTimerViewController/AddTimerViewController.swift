@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTimerViewController: UIViewController {
+class AddTimerViewController: UITableViewController {
 
 //    @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var sectionLabel: UILabel!
