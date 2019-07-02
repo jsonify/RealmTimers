@@ -29,7 +29,6 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddTimerSegue" {
-            print("seque reached")
             let popup = segue.destination as! AddTimerViewController
             popup.doneSaving = { [weak self] in
                 self?.tableView.reloadData()
@@ -91,6 +90,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 //             vc.selectedImage = pictures[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
+//         MAKE THIS FOR EDITING THE TIMER DETAILS
 //        try! realm.write {
 //            item.done = !item.done
 //        }

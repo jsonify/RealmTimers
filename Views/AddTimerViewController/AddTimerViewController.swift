@@ -11,17 +11,19 @@ import UIKit
 class AddTimerViewController: UIViewController {
 
 //    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var timerTextField: UITextField!
+    @IBOutlet weak var sectionLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var fireTimePicker: UIDatePicker!
+    @IBOutlet weak var preFireDurationTextField: UITextField!
+    @IBOutlet weak var fireDurationTextField: UITextField!
     
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.textColor = UIColor.white
+        sectionLabel.textColor = UIColor.white
         
     }
     
@@ -30,11 +32,16 @@ class AddTimerViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        timerFunctions.createTimer(timerModel: TimerModel(name: timerTextField.text!, preFireDuration: 0, fireDuration: 19))
+        let currentDateTime = fireTimePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        
+        timerFunctions.createTimer(timerModel: TimerModel(name: "\(dateFormatter.string(from: currentDateTime))", preFireDuration: preFireDurationTextField!.text ?? "0", fireDuration: fireDurationTextField!.text ?? "0"))
         if let doneSaving = doneSaving {
             doneSaving()
             
         }
+        print(fireDurationTextField!.text)
         dismiss(animated: true)
     }
     
