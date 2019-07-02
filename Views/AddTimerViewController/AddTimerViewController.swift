@@ -24,6 +24,7 @@ class AddTimerViewController: UIViewController {
         super.viewDidLoad()
         
         sectionLabel.textColor = UIColor.white
+        self.hideKeyboardWhenTappedAround()
         
     }
     
