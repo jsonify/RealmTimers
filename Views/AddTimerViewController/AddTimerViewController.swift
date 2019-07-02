@@ -17,7 +17,7 @@ class AddTimerViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     var doneSaving: (() -> ())?
-    
+    var timerFunctions = TimerFunctions()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,8 +30,10 @@ class AddTimerViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
+        timerFunctions.createTimer(timerModel: TimerModel(name: timerTextField.text!, preFireDuration: 0, fireDuration: 19))
         if let doneSaving = doneSaving {
             doneSaving()
+            
         }
         dismiss(animated: true)
     }

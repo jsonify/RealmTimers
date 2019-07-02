@@ -7,9 +7,19 @@
 //
 
 import Foundation
+import RealmSwift
 
 class TimerFunctions {
-    static func createTimer(timerModel: TimerModel) {
+    var realm = try! Realm()
+    
+    func createTimer(timerModel: TimerModel) {
         
+        do {
+            try! realm.write {
+                realm.add(timerModel)
+            }
+        } catch {
+            print("Error saving name: \(error)")
+        }
     }
 }
