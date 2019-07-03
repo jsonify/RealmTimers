@@ -36,30 +36,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func addTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "New ToDo", message: "What do you want to do?", preferredStyle: .alert)
-        alert.addTextField { (UITextField) in
-            UITextField.placeholder = "Create new ToDo item"
-        }
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (UIAlertAction) -> Void in
-            let timerItemTextField = (alert.textFields?.first)! as UITextField
-            
-            let newTimerItem = TimerModel()
-            newTimerItem.name = timerItemTextField.text!
-//            newToDoListItem.done = false
-            
-            try! self.realm.write {
-                self.realm.add(newTimerItem)
-                
-                self.tableView.insertRows(at: [IndexPath.init(row: self.timerItem.count-1, section: 0)], with: .automatic)
-            }
-        }))
-        
-        present(alert, animated: true)
-    }
-    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -75,11 +51,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
         let item = timerItem[indexPath.row]
         
-//        cell.textLabel!.text = item.name
         cell.nameLabel.text = item.name
-        cell.preFireLabel.text = "\(item.preFireDuration)"
-        cell.fireDuration.text = "\(item.fireDuration)"
-//        cell.accessoryType = item.done == true ? .checkmark : .none
+        cell.preFireLabel.text = "\(item.preFireDuration) minutes"
+        cell.fireDuration.text = "\(item.fireDuration) minutes"
         
         return cell
     }

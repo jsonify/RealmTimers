@@ -15,17 +15,34 @@ class AddTimerViewController: UITableViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var fireTimePicker: UIDatePicker!
-    @IBOutlet weak var preFireDurationTextField: UITextField!
-    @IBOutlet weak var fireDurationTextField: UITextField!
+    
+    
+    @IBOutlet weak var preFireDurationSlider: UISlider!
+    var preFireDuration = 0
+    @IBOutlet weak var fireDurationSlider: UISlider!
+    var fireDuration = 0
     
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setStartingSliderValues()
         sectionLabel.textColor = UIColor.white
         self.hideKeyboardWhenTappedAround()
         
+    }
+    
+    func setStartingSliderValues() {
+        preFireDuration = Int(preFireDurationSlider.value) * 10
+        fireDuration = Int(fireDurationSlider.value) * 10
+    }
+    
+    @IBAction func changePreFire(_ sender: UISlider) {
+        preFireDuration = Int(preFireDurationSlider.value) * 10
+        print(preFireDuration)
+    }
+    @IBAction func changeFire(_ sender: UISlider) {
+        fireDuration = Int(fireDurationSlider.value) * 10
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
@@ -37,12 +54,13 @@ class AddTimerViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         
-        timerFunctions.createTimer(timerModel: TimerModel(name: "\(dateFormatter.string(from: currentDateTime))", preFireDuration: preFireDurationTextField!.text ?? "0", fireDuration: fireDurationTextField!.text ?? "0"))
+        timerFunctions.createTimer(timerModel: TimerModel(name: "\(dateFormatter.string(from: currentDateTime))", preFireDuration:
+            "\(preFireDuration)", fireDuration: "\(fireDuration)"))
         if let doneSaving = doneSaving {
             doneSaving()
             
         }
-        print(fireDurationTextField!.text)
+        
         dismiss(animated: true)
     }
     
