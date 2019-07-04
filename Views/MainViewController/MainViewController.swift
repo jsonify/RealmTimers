@@ -75,14 +75,48 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let item = timerItem[indexPath.row]
-            try! realm.write {
-                realm.delete(item)
-            }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+            self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
         }
+        return UISwipeActionsConfiguration(actions: [edit])
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let timerName = timerItem[indexPath.row]
+        
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
+            
+            let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete \(timerName.name)?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction) in
+                actionPerformed(false)
+            }))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alertAction) in
+                // Perform delete
+                try! self.realm.write {
+                    self.realm.delete(timerName)
+                }
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                actionPerformed(true)
+            }))
+            
+            self.present(alert, animated: true)
+            
+        }
+        delete.image = #imageLiteral(resourceName: "duration-icon")
+        
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let item = timerItem[indexPath.row]
+//            try! realm.write {
+//                realm.delete(item)
+//            }
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
+//    }
     
 }
