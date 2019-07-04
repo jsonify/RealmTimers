@@ -76,16 +76,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+        let edit = UIContextualAction(style: .normal, title: "") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
             self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
+            actionPerformed(true)
         }
+        edit.image = #imageLiteral(resourceName: "pencil")
+        edit.backgroundColor = Theme.edit
         return UISwipeActionsConfiguration(actions: [edit])
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let timerName = timerItem[indexPath.row]
         
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
+        let delete = UIContextualAction(style: .destructive, title: "") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             
             let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete \(timerName.name)?", preferredStyle: .alert)
             
@@ -104,7 +107,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true)
             
         }
-        delete.image = #imageLiteral(resourceName: "duration-icon")
+        delete.image = #imageLiteral(resourceName: "delete")
         
         return UISwipeActionsConfiguration(actions: [delete])
     }
