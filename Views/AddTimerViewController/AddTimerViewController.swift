@@ -15,12 +15,14 @@ class AddTimerViewController: UITableViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var fireTimePicker: UIDatePicker!
-    
+    var timer = TimerModel()
     
     @IBOutlet weak var preFireDurationSlider: UISlider!
     var preFireDuration = 0
     @IBOutlet weak var fireDurationSlider: UISlider!
     var fireDuration = 0
+    
+    var timerIndexToEdit: Int?
     
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
@@ -29,6 +31,10 @@ class AddTimerViewController: UITableViewController {
         setStartingSliderValues()
         sectionLabel.textColor = UIColor.white
         self.hideKeyboardWhenTappedAround()
+        
+//        if let index = timerIndexToEdit {
+//            
+//        }
         
     }
     
