@@ -5,7 +5,7 @@
 //  Created by Jason on 6/28/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
-
+import RealmSwift
 import UIKit
 
 class AddTimerViewController: UITableViewController {
@@ -26,15 +26,23 @@ class AddTimerViewController: UITableViewController {
     
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
+    
+    var timerModel: Results<TimerModel>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStartingSliderValues()
         sectionLabel.textColor = UIColor.white
         self.hideKeyboardWhenTappedAround()
         
-//        if let index = timerIndexToEdit {
-//            
-//        }
+        if let index = timerIndexToEdit {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm a"
+            
+            
+            let timer = timerModel?[index]
+            fireTimePicker.setDate(dateFormatter.date(from: timer?.name ?? "7:00 am") ?? Date(), animated: true)
+        }
         
     }
     

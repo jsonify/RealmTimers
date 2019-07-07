@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var realm: Realm!
-    
+    var timerIndexToEdit: Int?
     var timerItem: Results<TimerModel>{
         get {
             return realm.objects(TimerModel.self)
@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddTimerSegue" {
             let popup = segue.destination as! AddTimerViewController
+            popup.timerIndexToEdit = timerIndexToEdit
             popup.doneSaving = { [weak self] in
                 self?.tableView.reloadData()
             }
@@ -77,6 +78,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+            self.timerIndexToEdit = indexPath.row
             self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
             actionPerformed(true)
         }
@@ -111,15 +113,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [delete])
     }
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let item = timerItem[indexPath.row]
-//            try! realm.write {
-//                realm.delete(item)
-//            }
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
-//    }
-    
 }
