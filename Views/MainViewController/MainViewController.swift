@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var realm: Realm!
-    var timerIndexToEdit: Int?
+//    var timerIndexToEdit: Int?
     var timerItem: Results<TimerModel>{
         get {
             return realm.objects(TimerModel.self)
@@ -76,16 +76,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let edit = UIContextualAction(style: .normal, title: "") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
-            self.timerIndexToEdit = indexPath.row
-            self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
-            actionPerformed(true)
-        }
-        edit.image = #imageLiteral(resourceName: "pencil")
-        edit.backgroundColor = Theme.edit
-        return UISwipeActionsConfiguration(actions: [edit])
-    }
+    // TODO: V2.1 Future feature that allows to edit timer:
+//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let edit = UIContextualAction(style: .normal, title: "") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+//            self.timerIndexToEdit = indexPath.row
+//            self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
+//            actionPerformed(true)
+//        }
+//        edit.image = #imageLiteral(resourceName: "pencil")
+//        edit.backgroundColor = Theme.edit
+//        return UISwipeActionsConfiguration(actions: [edit])
+//    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let timerName = timerItem[indexPath.row]

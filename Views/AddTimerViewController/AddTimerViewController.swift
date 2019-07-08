@@ -22,7 +22,7 @@ class AddTimerViewController: UITableViewController {
     @IBOutlet weak var fireDurationSlider: UISlider!
     var fireDuration = 0
     
-    var timerIndexToEdit: Int?
+//    var timerIndexToEdit: Int?
     
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
@@ -35,14 +35,20 @@ class AddTimerViewController: UITableViewController {
         sectionLabel.textColor = UIColor.white
         self.hideKeyboardWhenTappedAround()
         
-        if let index = timerIndexToEdit {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "hh:mm a"
-            
-            
-            let timer = timerModel?[index]
-            fireTimePicker.setDate(dateFormatter.date(from: timer?.name ?? "7:00 am") ?? Date(), animated: true)
-        }
+        /* TODO: V2.1 Future feature that allows to edit timer
+         Issue: Currently, I'm not able to get the info from the
+         Realm object, even though I've added a dateFormatter
+         and called the object at the index that I need.
+        */
+//        if let index = timerIndexToEdit {
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "hh:mm a"
+//
+//
+//            let timer = timerModel?[index]
+////            fireTimePicker.setDate(dateFormatter.date(from: timer?.name ?? "7:00 am") ?? Date(), animated: true)
+//            preFireDurationSlider.setValue((timer?.preFireDuration as! NSString).floatValue, animated: true)
+//        }
         
     }
     
