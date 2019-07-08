@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var realm: Realm!
-//    var timerIndexToEdit: Int?
+    var timerIndexToEdit: Int?
     var timerItem: Results<TimerModel>{
         get {
             return realm.objects(TimerModel.self)
@@ -30,11 +30,14 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddTimerSegue" {
             let popup = segue.destination as! AddTimerViewController
-//            popup.timerIndexToEdit = timerIndexToEdit
             popup.doneSaving = { [weak self] in
                 self?.tableView.reloadData()
             }
         }
+//        else if segue.identifier == "toClockSegue" {
+//            let timer = segue.destination as! ClockViewController
+//            timer.timerIndexToEdit = self.timerIndexToEdit
+//        }
     }
     
 }
@@ -60,16 +63,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = timerItem[indexPath.row]
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Clock") as? ClockViewController {
-//             vc.selectedImage = pictures[indexPath.row]
+            vc.timerIndexToEdit = indexPath.row
             navigationController?.pushViewController(vc, animated: true)
         }
-//         MAKE THIS FOR EDITING THE TIMER DETAILS
-//        try! realm.write {
-//            item.done = !item.done
-//        }
-//        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

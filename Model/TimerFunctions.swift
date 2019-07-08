@@ -13,13 +13,8 @@ class TimerFunctions {
     var realm = try! Realm()
     
     func createTimer(timerModel: TimerModel) {
-        
-        do {
-            try! realm.write {
-                realm.add(timerModel)
-            }
-        } catch {
-            print("Error saving name: \(error)")
+        try! realm.write {
+            realm.add(timerModel)
         }
     }
 }
