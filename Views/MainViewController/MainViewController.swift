@@ -5,7 +5,7 @@
 //  Created by Jason on 6/26/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
-
+import SwiftDate
 import RealmSwift
 import UIKit
 
@@ -55,7 +55,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
         let item = timerItem[indexPath.row]
         
-        cell.nameLabel.text = item.name
+        cell.nameLabel.text = item.name.toString()
         cell.preFireLabel.text = "\(item.preFireDuration) minutes"
         cell.fireDuration.text = "\(item.fireDuration) minutes"
         

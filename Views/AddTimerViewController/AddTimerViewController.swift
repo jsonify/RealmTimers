@@ -74,7 +74,7 @@ class AddTimerViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         
-        timerFunctions.createTimer(timerModel: TimerModel(name: "\(dateFormatter.string(from: currentDateTime))", preFireDuration:
+        timerFunctions.createTimer(timerModel: TimerModel(name: currentDateTime, preFireDuration:
             "\(preFireDuration)", fireDuration: "\(fireDuration)"))
         if let doneSaving = doneSaving {
             doneSaving()
