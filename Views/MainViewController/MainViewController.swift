@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddTimerSegue" {
             let popup = segue.destination as! AddTimerViewController
-            popup.timerIndexToEdit = timerIndexToEdit
+//            popup.timerIndexToEdit = timerIndexToEdit
             popup.doneSaving = { [weak self] in
                 self?.tableView.reloadData()
             }
