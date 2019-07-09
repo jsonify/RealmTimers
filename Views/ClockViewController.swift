@@ -28,7 +28,9 @@ class ClockViewController: UIViewController {
         timeLabel.text = formatTime(date: Date())
         getTimerData()
         wakerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
-        
+        delayWithSeconds(5) {
+            print("This in the function")
+        }
     }
     
     @objc func getTimerData() {
@@ -57,6 +59,12 @@ class ClockViewController: UIViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         wakerTimer?.invalidate()
+    }
+    
+    func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: timerTime) {
+            print("Hello there.")
+        }
     }
     
     func formatTime(date:Date) -> String {
