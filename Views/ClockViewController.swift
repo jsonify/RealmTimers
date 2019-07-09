@@ -13,6 +13,7 @@ import UIKit
 class ClockViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var preFireTimeLabel: UILabel!
     
     var timerIndexToEdit: Int?
     var timerTime = Date()
@@ -21,8 +22,8 @@ class ClockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getCurrentTime()
+
+        timeLabel.text = formatTime(date: Date())
         getTimerData()
         
     }
@@ -32,21 +33,27 @@ class ClockViewController: UIViewController {
         let timer = realm.objects(TimerModel.self)
         
         if let index = timerIndexToEdit {
+            
 //            let currentTimer = timer[index].name
 //            let time = DateInRegion(components: {
 //                $0.hour = currentTimer?.hour
 //                $0.minute = currentTimer?.minute
 //            })
+            timerTime = timer[index].name
             preFireDuration = Int(timer[index].preFireDuration)!
             fireDuration = Int(timer[index].fireDuration)!
-//            print(time)
+//            print(formatTime(date: timerTime))
+            let preFiredTime = timerTime - preFireDuration.minutes
+            print(formatTime(date: preFiredTime))
+            //show what time the preFire will execute
+            preFireTimeLabel.text = formatTime(date: preFiredTime)
+            //
         }
     }
     
-    func getCurrentTime() {
-        let currentDateTime = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .medium
-        timeLabel.text = "\(dateFormatter.string(from: currentDateTime))"
+    func formatTime(date:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
     }
 }

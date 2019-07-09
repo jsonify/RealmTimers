@@ -54,14 +54,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
         let item = timerItem[indexPath.row]
-        
-        cell.nameLabel.text = item.name.toString()
+
+        cell.nameLabel.text = "\(formatTime(date: item.name))"
         cell.preFireLabel.text = "\(item.preFireDuration) minutes"
         cell.fireDuration.text = "\(item.fireDuration) minutes"
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Clock") as? ClockViewController {
             vc.timerIndexToEdit = indexPath.row
@@ -110,5 +110,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         delete.image = #imageLiteral(resourceName: "delete")
         
         return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func formatTime(date:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
     }
 }
