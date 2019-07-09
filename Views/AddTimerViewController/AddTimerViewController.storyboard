@@ -126,7 +126,7 @@
                                                                 <action selector="saveTapped:" destination="6P9-5Q-scL" eventType="touchUpInside" id="hn8-I1-t6q"/>
                                                             </connections>
                                                         </button>
-                                                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="hBT-p4-7gn">
+                                                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="hBT-p4-7gn">
                                                             <rect key="frame" x="64" y="377" width="306" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <connections>
@@ -183,6 +183,13 @@
                                                                 <action selector="changePreFire:" destination="6P9-5Q-scL" eventType="valueChanged" id="WBm-oV-DWC"/>
                                                             </connections>
                                                         </slider>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3a-ln-HEn">
+                                                            <rect key="frame" x="326" y="333" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" name="EditColor"/>
                                                 </view>
@@ -212,6 +219,7 @@
                         <outlet property="preFireDurationSlider" destination="hBT-p4-7gn" id="wA7-cZ-qlM"/>
                         <outlet property="saveButton" destination="YE0-mb-No9" id="4Yj-pj-x5p"/>
                         <outlet property="sectionLabel" destination="yDG-01-pwL" id="lR0-U6-Ajx"/>
+                        <outlet property="tempTimeLabel" destination="l3a-ln-HEn" id="Vup-gs-soV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYA-Oz-X3e" userLabel="First Responder" sceneMemberID="firstResponder"/>

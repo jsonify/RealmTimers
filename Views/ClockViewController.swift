@@ -14,7 +14,9 @@ class ClockViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var preFireTimeLabel: UILabel!
+    @IBOutlet weak var fireTimeLabel: UILabel!
     
+    var hasFired = false
     var timerIndexToEdit: Int?
     var timerTime = Date()
     var wakerTimer: Timer?
@@ -25,12 +27,8 @@ class ClockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        timeLabel.text = formatTime(date: Date())
         getTimerData()
-        wakerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
-        delayWithSeconds(5) {
-            print("This in the function")
-        }
+        wakerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
     }
     
     @objc func getTimerData() {
@@ -38,33 +36,31 @@ class ClockViewController: UIViewController {
         let timer = realm.objects(TimerModel.self)
         
         if let index = timerIndexToEdit {
+            timeLabel.text = formatTime(date: Date())
             timerTime = timer[index].name
-            preFireDuration = Int(timer[index].preFireDuration)!
-            fireDuration = Int(timer[index].fireDuration)!
-//            print(formatTime(date: timerTime))
-            let preFiredTime = timerTime - preFireDuration.minutes
-            print(formatTime(date: preFiredTime))
-            //show what time the preFire will execute
-            preFireTimeLabel.text = formatTime(date: preFiredTime)
-            let fakePre = formatTime(date: Date() + 6.minutes)
+            fireTimeLabel.text = formatTime(date: timerTime)
             
-            print(fakePre)
-            if fakePre == formatTime(date: preFiredTime) {
-                print("Yes, fake.")
-            }
-            if formatTime(date: preFiredTime) == formatTime(date: Date()) {
+            // PreFire Work
+            preFireDuration = Int(timer[index].preFireDuration)!
+            let preFiredTime = timerTime - preFireDuration.minutes
+            preFireTimeLabel.text = formatTime(date: preFiredTime)
+            
+            let now = Date()
+            let formatter = DateFormatter()
+            
+            formatter.timeZone = TimeZone.current
+            formatter.dateFormat = "hh:mm a"
+            
+            if formatter.string(from: preFiredTime) == formatter.string(from: now) && !hasFired {
+                // show wake prefire sequence
                 print("it worked")
+                wakerTimer?.invalidate()
             }
         }
-    }
-    override func viewDidDisappear(_ animated: Bool) {
-        wakerTimer?.invalidate()
     }
     
-    func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
-        DispatchQueue.main.asyncAfter(deadline: timerTime) {
-            print("Hello there.")
-        }
+    override func viewDidDisappear(_ animated: Bool) {
+        wakerTimer?.invalidate()
     }
     
     func formatTime(date:Date) -> String {
@@ -72,4 +68,24 @@ class ClockViewController: UIViewController {
         formatter.timeStyle = .short
         return formatter.string(from: date)
     }
+}
+
+extension Date {
+    
+    func adding(minutes: Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
+    
+    func addSeconds(_ seconds: Int) -> Date {
+        let seconds: TimeInterval = Double(seconds)
+        let newDate: Date = self.addingTimeInterval(seconds)
+        return newDate
+    }
+    
+    func addMinutes(_ minutes: Int) -> Date {
+        let seconds: TimeInterval = Double(minutes) * 60
+        let newDate: Date = self.addingTimeInterval(seconds)
+        return newDate
+    }
+    
 }

@@ -22,7 +22,8 @@ class AddTimerViewController: UITableViewController {
     @IBOutlet weak var fireDurationSlider: UISlider!
     var fireDuration = 0
     
-//    var timerIndexToEdit: Int?
+    @IBOutlet weak var tempTimeLabel: UILabel!
+    //    var timerIndexToEdit: Int?
     
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
@@ -58,12 +59,13 @@ class AddTimerViewController: UITableViewController {
     }
     
     @IBAction func changePreFire(_ sender: UISlider) {
-        preFireDuration = Int(preFireDurationSlider.value) * 10
-        print(preFireDuration)
+        preFireDuration = Int(preFireDurationSlider.value)
+        tempTimeLabel.text = "\(preFireDuration)"
+//        print(preFireDuration)
     }
-    @IBAction func changeFire(_ sender: UISlider) {
-        fireDuration = Int(fireDurationSlider.value) * 10
-    }
+//    @IBAction func changeFire(_ sender: UISlider) {
+//        fireDuration = Int(fireDurationSlider.value) * 10
+//    }
     
     @IBAction func cancelTapped(_ sender: Any) {
         dismiss(animated: true)
