@@ -53,10 +53,16 @@ class ClockViewController: UIViewController {
             
             if formatter.string(from: preFiredTime) == formatter.string(from: now) && !hasFired {
                 // show wake prefire sequence
+                showPreFireVC()
                 print("it worked")
-                wakerTimer?.invalidate()
+//                wakerTimer?.invalidate()
             }
         }
+    }
+    
+    func showPreFireVC() {
+        let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "boom") as! PreFireViewController
+        self.present(preFireVC, animated: true, completion: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -67,6 +73,9 @@ class ClockViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         return formatter.string(from: date)
+    }
+    @IBAction func closeTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
