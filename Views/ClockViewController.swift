@@ -54,8 +54,10 @@ class ClockViewController: UIViewController {
             if formatter.string(from: preFiredTime) == formatter.string(from: now) && !hasFired {
                 // show wake prefire sequence
                 showPreFireVC()
-                print("it worked")
-//                wakerTimer?.invalidate()
+                // need to add timer that changes the hasFired as a bool for 1 minute
+                // so that if someone clicks the X, the timer doesn't fire again
+                
+                wakerTimer?.invalidate()
             }
         }
     }
