@@ -65,7 +65,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Clock") as? ClockViewController {
             vc.timerIndexToEdit = indexPath.row
-            navigationController?.pushViewController(vc, animated: true)
+            present(vc, animated: true)
         }
     }
     
