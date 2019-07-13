@@ -6,6 +6,7 @@
 //  Copyright © 2019 Jason. All rights reserved.
 //
 import MBCircularProgressBar
+import RealmSwift
 import UIKit
 
 class PreFireViewController: UIViewController {
@@ -13,11 +14,21 @@ class PreFireViewController: UIViewController {
 //    circle progress indicator
 //   https://www.youtube.com/watch?v=aylHkGVg-P4
     @IBOutlet weak var progressView: MBCircularProgressBarView!
+//    var timer = TimerModel()
+    var preFireTime: Int?
+    var realm: Realm!
+    var timerItem: Results<TimerModel>{
+        get {
+            return realm.objects(TimerModel.self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
        self.progressView.value = 0
         // get the preFire time
+        realm = try! Realm()
+        print("\(timerItem[0].preFireDuration)")
     }
     
     override func viewDidAppear(_ animated: Bool) {

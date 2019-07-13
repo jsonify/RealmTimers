@@ -128,6 +128,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
                                         <color key="value" name="EditColor"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="countdown" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
