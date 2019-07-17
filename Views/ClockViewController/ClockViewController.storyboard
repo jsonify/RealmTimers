@@ -74,6 +74,18 @@
                                             <action selector="closeTapped:" destination="tAH-Ij-2NC" eventType="touchUpInside" id="66n-tf-OVE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-b6-xXm" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
+                                        <rect key="frame" x="316" y="794" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="GreyedOutColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="fab">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="tAH-Ij-2NC" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="e5v-YP-Aiq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.22352941179999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -115,35 +127,10 @@
                                     <action selector="closeTapped:" destination="tAH-Ij-2NC" eventType="touchUpInside" id="l3J-sg-9JP"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPs-YA-ZY3" customClass="MBCircularProgressBarView">
-                                <rect key="frame" x="87" y="517" width="240" height="219"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="61"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                        <color key="value" name="EditColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="countdown" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="b15-2T-0IT" firstAttribute="trailing" secondItem="MPs-YA-ZY3" secondAttribute="trailing" constant="87" id="162-e4-pSg"/>
-                            <constraint firstItem="MPs-YA-ZY3" firstAttribute="leading" secondItem="b15-2T-0IT" secondAttribute="leading" constant="87" id="Qqk-8Y-FnS"/>
-                            <constraint firstItem="MPs-YA-ZY3" firstAttribute="top" secondItem="b15-2T-0IT" secondAttribute="top" constant="473" id="ima-AA-xlV"/>
-                            <constraint firstItem="b15-2T-0IT" firstAttribute="bottom" secondItem="MPs-YA-ZY3" secondAttribute="bottom" constant="126" id="xw4-yM-XQ2"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b15-2T-0IT"/>
                     </view>
-                    <connections>
-                        <outlet property="progressView" destination="MPs-YA-ZY3" id="vf6-Ct-6h7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9F2-7H-dGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,8 +139,9 @@
     </scenes>
     <resources>
         <image name="delete" width="50" height="50"/>
-        <namedColor name="EditColor">
-            <color red="0.36470588235294116" green="0.5725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="fab" width="60" height="60"/>
+        <namedColor name="GreyedOutColor">
+            <color red="0.63921568627450975" green="0.62745098039215685" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

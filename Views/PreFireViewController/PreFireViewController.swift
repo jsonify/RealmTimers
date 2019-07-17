@@ -10,10 +10,7 @@ import RealmSwift
 import UIKit
 
 class PreFireViewController: UIViewController {
-    
-//    circle progress indicator
-//   https://www.youtube.com/watch?v=aylHkGVg-P4
-    @IBOutlet weak var progressView: MBCircularProgressBarView!
+
 //    var timer = TimerModel()
     var preFireTime: Int?
     var realm: Realm!
@@ -25,7 +22,6 @@ class PreFireViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.progressView.value = 0
         // get the preFire time
         realm = try! Realm()
         print("\(timerItem[0].preFireDuration)")
@@ -35,10 +31,7 @@ class PreFireViewController: UIViewController {
         super.viewDidAppear(animated)
         
         UIView.animate(withDuration: 10.0) {
-            self.progressView.value = 60
-            if self.progressView.value == 30 {
-                self.progressView.progressColor = UIColor.green
-            }
+            
         }
     }
 

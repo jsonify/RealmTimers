@@ -40,6 +40,12 @@ class MainViewController: UIViewController {
 //        }
     }
     
+    @IBAction func deleteTapped(_ sender: UIButton) {
+        try! self.realm.write {
+            self.realm.deleteAll()
+            tableView.reloadData()
+        }
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
