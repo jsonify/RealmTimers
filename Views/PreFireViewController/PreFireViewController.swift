@@ -78,12 +78,15 @@ class PreFireViewController: UIViewController {
         }
     }
     
+    //fix timing to match label
+    
     func drawCircle() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = 1
         basicAnimation.duration = CFTimeInterval(preFireTime)
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
+        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         shapeLayer.add(basicAnimation, forKey: nil)
     }
     
