@@ -134,24 +134,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ih1-oo-q4Z" customClass="CircularProgressView" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="157" y="173" width="100" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="4Z6-11-zy7"/>
-                                    <constraint firstAttribute="height" constant="100" id="eC5-FF-WMP"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ih1-oo-q4Z" firstAttribute="centerX" secondItem="RPd-nm-hYZ" secondAttribute="centerX" id="Fa4-IC-Jbr"/>
-                            <constraint firstItem="ih1-oo-q4Z" firstAttribute="top" secondItem="b15-2T-0IT" secondAttribute="top" constant="129" id="Ox9-CS-EWq"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b15-2T-0IT"/>
                     </view>
                     <connections>
-                        <outlet property="circularProgressView" destination="ih1-oo-q4Z" id="wrt-RO-j7B"/>
                         <outlet property="pfDuration" destination="oAG-If-j2s" id="Jrk-PS-gvd"/>
                     </connections>
                 </viewController>

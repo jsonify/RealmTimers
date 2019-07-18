@@ -35,18 +35,13 @@ class PreFireViewController: UIViewController {
         super.viewDidLoad()
         pfDurTime = preFireTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-//            self.pfDurTime = self.pfDurTime - 1
-//            self.pfDuration.text = "\(self.pfDurTime)"
-//        })
-
         
         //try to use this to envoke a slight delay
 //        self.perform(#selector(animateProgress), with: nil, afterDelay: 2.0)
         
 //        let preFireSeconds = preFireTime
 //        pfDuration.text = "\(preFireSeconds!)"
-//        drawPreFireCircle1(color: UIColor.red)
+        drawPreFireCircle1(color: UIColor.red)
         
     }
     
@@ -54,14 +49,6 @@ class PreFireViewController: UIViewController {
         let center = view.center
         let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 *  CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
-        
-        // to change color of pfDuration
-//        switch <#value#> {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
         
         shapeLayer.strokeColor = color.cgColor
         shapeLayer.lineWidth = 10
@@ -90,16 +77,8 @@ class PreFireViewController: UIViewController {
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         basicAnimation.isRemovedOnCompletion = false
-        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         shapeLayer.add(basicAnimation, forKey: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        UIView.animate(withDuration: 10.0) {
-            
-        }
     }
 
     @IBAction func closeTapped(_ sender: UIButton) {
