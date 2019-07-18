@@ -39,11 +39,14 @@ class PreFireViewController: UIViewController {
 //            self.pfDurTime = self.pfDurTime - 1
 //            self.pfDuration.text = "\(self.pfDurTime)"
 //        })
+
         
+        //try to use this to envoke a slight delay
+//        self.perform(#selector(animateProgress), with: nil, afterDelay: 2.0)
         
-        let preFireSeconds = preFireTime
+//        let preFireSeconds = preFireTime
 //        pfDuration.text = "\(preFireSeconds!)"
-        drawPreFireCircle1(color: UIColor.red)
+//        drawPreFireCircle1(color: UIColor.red)
         
     }
     
@@ -85,6 +88,7 @@ class PreFireViewController: UIViewController {
         basicAnimation.toValue = 1
         basicAnimation.duration = CFTimeInterval(preFireTime)
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         basicAnimation.isRemovedOnCompletion = false
         basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         shapeLayer.add(basicAnimation, forKey: nil)
