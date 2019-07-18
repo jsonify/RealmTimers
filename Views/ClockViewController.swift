@@ -62,8 +62,13 @@ class ClockViewController: UIViewController {
         }
     }
     
+    @IBAction func showPreFireTapped(_ sender: Any) {
+        showPreFireVC()
+    }
+    
     func showPreFireVC() {
         let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "boom") as! PreFireViewController
+        preFireVC.preFireTime = preFireDuration
         self.present(preFireVC, animated: true, completion: nil)
     }
     

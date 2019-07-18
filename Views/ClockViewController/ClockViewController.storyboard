@@ -83,7 +83,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="tAH-Ij-2NC" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="e5v-YP-Aiq"/>
+                                            <action selector="showPreFireTapped:" destination="ljv-3F-WUT" eventType="touchUpInside" id="ugA-mV-2Q7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -127,10 +127,20 @@
                                     <action selector="closeTapped:" destination="tAH-Ij-2NC" eventType="touchUpInside" id="l3J-sg-9JP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAG-If-j2s">
+                                <rect key="frame" x="20" y="720" width="374" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="b15-2T-0IT"/>
                     </view>
+                    <connections>
+                        <outlet property="pfDuration" destination="oAG-If-j2s" id="Jrk-PS-gvd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9F2-7H-dGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
