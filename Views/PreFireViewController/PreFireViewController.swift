@@ -10,6 +10,7 @@ import RealmSwift
 import UIKit
 
 class PreFireViewController: UIViewController {
+    @IBOutlet weak var circularProgressView: CircularProgressView!
     
     var timer = Timer()
     var preFireTime: Int!
@@ -34,17 +35,33 @@ class PreFireViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pfDurTime = preFireTime
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
 //        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
 //            self.pfDurTime = self.pfDurTime - 1
 //            self.pfDuration.text = "\(self.pfDurTime)"
 //        })
+        let cp = CircularProgressView(frame: CGRect(x: 10.0, y: 10.0, width: 100.0, height: 100.0))
+        cp.trackColor = UIColor.red
+        cp.progressColor = UIColor.yellow
+        self.view.addSubview(cp)
+        cp.tag = 101
+        cp.center = self.view.center
         
         
-        let preFireSeconds = preFireTime
+        self.perform(#selector(animateProgress), with: nil, afterDelay: 2.0)
+        
+        circularProgressView.trackColor = UIColor.white
+        circularProgressView.progressColor = UIColor.purple
+    
+        circularProgressView.progressWithAnimation(duration: 10.0, value: 0.6)
+//        let preFireSeconds = preFireTime
 //        pfDuration.text = "\(preFireSeconds!)"
-        drawPreFireCircle1(color: UIColor.red)
+//        drawPreFireCircle1(color: UIColor.red)
         
+    }
+    @objc func animateProgress() {
+        let cP = self.view.viewWithTag(101) as! CircularProgressView
+        cP.progressWithAnimation(duration: 1.0, value: 0.7)
     }
     
     func drawPreFireCircle1(color: UIColor) {
