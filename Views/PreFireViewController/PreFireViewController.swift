@@ -2,88 +2,99 @@
 //  PreFireViewController.swift
 //  RealmTimers
 //
-//  Created by Jason on 7/8/19.
+//  Created by Jason on 7/18/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
-import MBCircularProgressBar
-import RealmSwift
+
 import UIKit
 
-class PreFireViewController: UIViewController {
-    
-    var timer = Timer()
+class PreFireViewController: UIViewController, CAAnimationDelegate {
     var preFireTime: Int!
-    @IBOutlet weak var pfDuration: UILabel!
-    let preFireDurationLabel: UILabel = {
-       let label = UILabel()
-//        label.text = "Start"
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 32)
-        label.textColor = UIColor.white
-        return label
-    }()
-    var pfLabel: UILabel!
-    var pfDurTime = 0 {
-        didSet {
-            pfDuration.text = "\(pfDurTime)"
-        }
-    }
     
-    var shapeLayer = CAShapeLayer()
+    let gradient = CAGradientLayer()
+    // list of array holding 2 colors
+    var gradientSet = [[CGColor]]()
+    // current gradient index
+    var currentGradient: Int = 0
+    
+    // colors to be added to the set
+    let colorOne = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor
+    let colorTwo = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).cgColor
+    let colorThree = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1).cgColor
+    
+    
+    // create outlet in the storyboard with type CountdownProgressBar
+
+    @IBOutlet weak var countdownProgressBar: CountdownProgressBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pfDurTime = preFireTime
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-        
-        //try to use this to envoke a slight delay
-//        self.perform(#selector(animateProgress), with: nil, afterDelay: 2.0)
-        
-//        let preFireSeconds = preFireTime
-//        pfDuration.text = "\(preFireSeconds!)"
-        drawPreFireCircle1(color: UIColor.red)
-        
+        // Do any additional setup after loading the view.
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
-    func drawPreFireCircle1(color: UIColor) {
-        let center = view.center
-        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 *  CGFloat.pi, clockwise: true)
-        shapeLayer.path = circularPath.cgPath
-        
-        shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = 10
-        shapeLayer.strokeEnd = 0
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineCap = CAShapeLayerLineCap.round
-        view.layer.addSublayer(shapeLayer)
-        drawCircle()
-    }
-    
-    @objc func countDownDuration() {
-        self.pfDurTime = self.pfDurTime - 1
-        self.pfDuration.text = "\(self.pfDurTime)"
-        if pfDurTime == 0 {
-            pfDuration.text = "End"
-            timer.invalidate()
-        }
-    }
-    
-    //fix timing to match label
-    
-    func drawCircle() {
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        basicAnimation.toValue = 1
-        basicAnimation.duration = CFTimeInterval(preFireTime)
-        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        basicAnimation.isRemovedOnCompletion = false
-        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        shapeLayer.add(basicAnimation, forKey: nil)
-    }
-
-    @IBAction func closeTapped(_ sender: UIButton) {
+    @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        createGradientView()
+        countdownProgressBar.startCoundown(duration: 10, showPulse: true)
+    }
+    
+    /// Creates gradient view
+    
+    func createGradientView() {
+        
+        // overlap the colors and make it 3 sets of colors
+        gradientSet.append([colorOne, colorTwo])
+        gradientSet.append([colorTwo, colorThree])
+        gradientSet.append([colorThree, colorOne])
+        
+        // set the gradient size to be the entire screen
+        gradient.frame = self.view.bounds
+        gradient.colors = gradientSet[currentGradient]
+        gradient.startPoint = CGPoint(x:0, y:0)
+        gradient.endPoint = CGPoint(x:1, y:1)
+        gradient.drawsAsynchronously = true
+        
+        self.view.layer.insertSublayer(gradient, at: 0)
+        
+        animateGradient()
+    }
+    
+    @objc func handleTap() {
+        print("Tapped")
+        
+        countdownProgressBar.startCoundown(duration: 10, showPulse: true)
+    }
+    
+    func animateGradient() {
+        // cycle through all the colors, feel free to add more to the set
+        if currentGradient < gradientSet.count - 1 {
+            currentGradient += 1
+        } else {
+            currentGradient = 0
+        }
+        
+        // animate over 3 seconds
+        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
+        gradientChangeAnimation.duration = 3.0
+        gradientChangeAnimation.toValue = gradientSet[currentGradient]
+        gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+        gradientChangeAnimation.isRemovedOnCompletion = false
+        gradientChangeAnimation.delegate = self
+        gradient.add(gradientChangeAnimation, forKey: "gradientChangeAnimation")
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+        // if our gradient animation ended animating, restart the animation by changing the color set
+        if flag {
+            gradient.colors = gradientSet[currentGradient]
+            animateGradient()
+        }
+    }
 }
-
