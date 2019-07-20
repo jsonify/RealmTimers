@@ -68,6 +68,12 @@ class ClockViewController: UIViewController {
     
     func showPreFireVC() {
         let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "boom") as! PreFireViewController
+//        print(preFireDuration)
+        
+        // when tapping the button that calls this method,
+        // inject the variable preFireTime in the CountdownProgressBar class
+        // with the preFireDuration
+        
         preFireVC.preFireTime = preFireDuration
         self.present(preFireVC, animated: true, completion: nil)
     }

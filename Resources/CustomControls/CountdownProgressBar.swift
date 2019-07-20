@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import RealmSwift
 import UIKit
 
 class CountdownProgressBar: UIView {
@@ -13,14 +14,10 @@ class CountdownProgressBar: UIView {
     
     var preFireTime: Int!
     var preFireDuration = 0
-    var clockViewController: ClockViewController?
+//    var clockViewController: ClockViewController?
     
+//    private var duration = 0
     private var duration = 0
-//    private var duration = 0 {
-//        didSet {
-//            duration = clockViewController!.preFireDuration
-//        }
-//    }
     private var remainingTime = 0
     private var showPulse = false
     
@@ -70,21 +67,28 @@ class CountdownProgressBar: UIView {
     // called when creating programmatically
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         loadLayers()
+//        loadTime()
     }
     
     // called when creating via storyboard
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadLayers()
-        clockViewController?.preFireDuration = 0
+//        loadTime()
+        print("PreFireTime: \(preFireTime)")
     }
     
     deinit {
         timer.invalidate()
     }
     
+//    private func loadTime() {
+//        bring in prefire from ClockViewController
+//
+//        let preFireVC = PreFireViewController()
+//        preFireVC.preFireTime = preFireTime
+//    }
     
     private lazy var foregroundGradientLayer: CAGradientLayer = {
         let foregroundGradientLayer = CAGradientLayer()
@@ -120,6 +124,7 @@ class CountdownProgressBar: UIView {
         // give the CAShapeLayers the circular path to follow
         // pulse and foreground layers will be the masks over the gradient layers
         // add the background CAShapeLayer and the 2 CAGradientLayer as a sublayer
+        
         pulseLayer.path = circularPath.cgPath
         
         pulseGradientLayer.mask = pulseLayer
@@ -154,6 +159,7 @@ class CountdownProgressBar: UIView {
     }
     
     private func animateForegroundLayer() {
+        
         let foregroundAnimation = CABasicAnimation(keyPath: "strokeEnd")
         foregroundAnimation.fromValue = 0
         foregroundAnimation.toValue = 1
