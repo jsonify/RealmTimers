@@ -19,7 +19,7 @@ class CountdownProgressBar: UIView {
     
     var preFireTime: Int!
     var preFireDuration = 0
-    var multiplier = ClockStyle.seconds.rawValue
+    var multiplier = ClockStyle.debug.rawValue
     
     private var duration = 0
     private var remainingTime = 0
@@ -37,7 +37,7 @@ class CountdownProgressBar: UIView {
     // foreground layer that will be animated
     private lazy var foregroundLayer: CAShapeLayer = {
         let foregroundLayer = CAShapeLayer()
-        foregroundLayer.lineWidth = 10
+        foregroundLayer.lineWidth = 30
         foregroundLayer.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         foregroundLayer.lineCap = .round
         foregroundLayer.fillColor = UIColor.clear.cgColor
@@ -112,7 +112,7 @@ class CountdownProgressBar: UIView {
         let centerPoint = CGPoint(x: frame.width/2 , y: frame.height/2)
         // create a circular path that is just slightly smaller than the view
         // set the start angle to be 12 o'clock and end angle to be 360 degrees clockwise
-        let circularPath = UIBezierPath(arcCenter: centerPoint, radius: bounds.width / 2 - 20, startAngle: -CGFloat.pi/2,
+        let circularPath = UIBezierPath(arcCenter: centerPoint, radius: bounds.width / 2 - 50, startAngle: -CGFloat.pi/2,
                                         endAngle: 2 * CGFloat.pi - CGFloat.pi/2, clockwise: true)
         
         // give the CAShapeLayers the circular path to follow
@@ -137,7 +137,7 @@ class CountdownProgressBar: UIView {
         
         addSubview(remainingTimeLabel)
         
-        print(remainingTimeLabel.frame)
+//        print(remainingTimeLabel.frame)
         
     }
     
@@ -187,13 +187,25 @@ class CountdownProgressBar: UIView {
     @objc private func handleTimerTick() {
         remainingTime -= 1
         if remainingTime > 0 {
-            // do the thing when the time runs out
-            // greenScreen()
-            
-        }
-        else {
+//            print("Duration: \(duration), Remaining: \(remainingTime)")
+            if remainingTime == (duration - duration/4) {
+                backgroundLayer.strokeColor = UIColor.blue.cgColor
+                print("Quarter 1 done")
+            } else if remainingTime == (duration - duration/2) {
+                backgroundLayer.strokeColor = UIColor.yellow.cgColor
+                print("Quarter 2 done")
+            } else if remainingTime == (duration - (duration/2 + duration/4)) {
+                backgroundLayer.strokeColor = UIColor.green.cgColor
+                print("Quarter 3 done")
+            }
+                
+        } else {
             remainingTime = 0
             timer.invalidate()
+            // TODO: do the thing when the time runs out
+            // greenScreen()
+//            let changeStuff = PreFireViewController()
+//            changeStuff.view.backgroundColor = UIColor.green
         }
 
         DispatchQueue.main.async {

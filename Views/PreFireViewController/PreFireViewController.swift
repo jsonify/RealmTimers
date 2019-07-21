@@ -41,8 +41,7 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         createGradientView()
-        print(preFireTime)
-        countdownProgressBar.startCoundown(duration: preFireTime, showPulse: true)
+        countdownProgressBar.startCoundown(duration: preFireTime, showPulse: false)
     }
     
     /// Creates gradient view

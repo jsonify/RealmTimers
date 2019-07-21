@@ -127,16 +127,16 @@
                                     <action selector="closeTapped:" destination="tAH-Ij-2NC" eventType="touchUpInside" id="nHW-J0-Ujw"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-Pm-bSx" customClass="CountdownProgressBar" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-Pm-bSx" customClass="CountdownProgressBar" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="19" y="239" width="375" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="top" secondItem="b15-2T-0IT" secondAttribute="top" constant="284" id="bBt-LN-3By"/>
-                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="leading" secondItem="b15-2T-0IT" secondAttribute="leading" constant="87" id="dnV-c4-f3D"/>
-                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="centerY" secondItem="RPd-nm-hYZ" secondAttribute="centerY" id="hYP-N3-F0Y"/>
+                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="top" secondItem="b15-2T-0IT" secondAttribute="top" constant="195" id="bBt-LN-3By"/>
+                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="leading" secondItem="b15-2T-0IT" secondAttribute="leading" constant="19" id="dnV-c4-f3D"/>
+                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="centerY" secondItem="RPd-nm-hYZ" secondAttribute="centerY" constant="-21.5" id="hYP-N3-F0Y"/>
                             <constraint firstItem="kSY-Pm-bSx" firstAttribute="centerX" secondItem="RPd-nm-hYZ" secondAttribute="centerX" id="luL-RB-Ms0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b15-2T-0IT"/>
