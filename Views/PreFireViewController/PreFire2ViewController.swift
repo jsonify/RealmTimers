@@ -9,22 +9,17 @@ import MBCircularProgressBar
 import RealmSwift
 import UIKit
 
-enum ClockStyle: Int {
-    case seconds = 60
-    case debug = 1
-}
-
 class PreFire2ViewController: UIViewController {
     
     @IBOutlet weak var pfDuration: UILabel!
 
     var timer = Timer()
     var preFireTime: Int!
-    var multiplier = ClockStyle.seconds.rawValue
+//    var multiplier = ClockStyle.seconds.rawValue
     var shapeLayer = CAShapeLayer()
     var pfDurTime = 0 {
         didSet {
-            pfDuration.text = "\(pfDurTime * multiplier)"
+            pfDuration.text = "\(pfDurTime)"
         }
     }
     

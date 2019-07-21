@@ -8,15 +8,19 @@ import Foundation
 import RealmSwift
 import UIKit
 
+enum ClockStyle: Int {
+    case seconds = 60
+    case debug = 1
+}
+
 class CountdownProgressBar: UIView {
     
     private var timer = Timer()
     
     var preFireTime: Int!
     var preFireDuration = 0
-//    var clockViewController: ClockViewController?
+    var multiplier = ClockStyle.seconds.rawValue
     
-//    private var duration = 0
     private var duration = 0
     private var remainingTime = 0
     private var showPulse = false
@@ -68,27 +72,17 @@ class CountdownProgressBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadLayers()
-//        loadTime()
     }
     
     // called when creating via storyboard
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadLayers()
-//        loadTime()
-        print("PreFireTime: \(preFireTime)")
     }
     
     deinit {
         timer.invalidate()
     }
-    
-//    private func loadTime() {
-//        bring in prefire from ClockViewController
-//
-//        let preFireVC = PreFireViewController()
-//        preFireVC.preFireTime = preFireTime
-//    }
     
     private lazy var foregroundGradientLayer: CAGradientLayer = {
         let foregroundGradientLayer = CAGradientLayer()
@@ -193,15 +187,17 @@ class CountdownProgressBar: UIView {
     @objc private func handleTimerTick() {
         remainingTime -= 1
         if remainingTime > 0 {
+            // do the thing when the time runs out
+            // greenScreen()
             
         }
         else {
             remainingTime = 0
             timer.invalidate()
         }
-        
+
         DispatchQueue.main.async {
-            self.remainingTimeLabel.text = "\(String.init(format: "%.1f", self.remainingTime))"
+            self.remainingTimeLabel.text = "\(self.remainingTime)"
         }
     }
     
@@ -217,12 +213,12 @@ class CountdownProgressBar: UIView {
      */
     
     func startCoundown(duration: Int, showPulse: Bool = false) {
-        self.duration = duration
+        self.duration = duration * multiplier
         self.showPulse = showPulse
-        remainingTime = duration
+        remainingTime = duration * multiplier
         remainingTimeLabel.text = "\(remainingTime)"
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(handleTimerTick), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleTimerTick), userInfo: nil, repeats: true)
         beginAnimation()
         
     }

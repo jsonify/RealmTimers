@@ -29,8 +29,6 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(preFireTime)
-//        countdownProgressBar.preFireTime = preFireTime
         // Do any additional setup after loading the view.
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
@@ -43,6 +41,7 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         createGradientView()
+        print(preFireTime)
         countdownProgressBar.startCoundown(duration: preFireTime, showPulse: true)
     }
     
