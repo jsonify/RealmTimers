@@ -17,6 +17,8 @@ class CountdownProgressBar: UIView {
     
     private var timer = Timer()
     
+    var preFireVC = PreFireViewController()
+    
     var preFireTime: Int!
     var preFireDuration = 0
     var multiplier = ClockStyle.debug.rawValue
@@ -203,9 +205,7 @@ class CountdownProgressBar: UIView {
             remainingTime = 0
             timer.invalidate()
             // TODO: do the thing when the time runs out
-            // greenScreen()
-//            let changeStuff = PreFireViewController()
-//            changeStuff.view.backgroundColor = UIColor.green
+            preFireVC.sayHello()
         }
 
         DispatchQueue.main.async {

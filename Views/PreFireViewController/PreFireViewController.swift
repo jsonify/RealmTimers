@@ -10,6 +10,11 @@ import UIKit
 
 class PreFireViewController: UIViewController, CAAnimationDelegate {
     var preFireTime: Int!
+    var fireNow = false {
+        didSet {
+            sayHello()
+        }
+    }
     
     let gradient = CAGradientLayer()
     // list of array holding 2 colors
@@ -33,6 +38,12 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
+    func sayHello() {
+        // TODO: Get this to work
+        gradient.removeFromSuperlayer()
+        self.view.backgroundColor = UIColor.green
+    }
+    
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -42,6 +53,7 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
         super.viewDidLayoutSubviews()
         createGradientView()
         countdownProgressBar.startCoundown(duration: preFireTime, showPulse: false)
+        print(fireNow)
     }
     
     /// Creates gradient view

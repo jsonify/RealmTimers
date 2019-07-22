@@ -6,10 +6,12 @@
 //  Copyright © 2019 Jason. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
+import UIKit
+
 
 class TimerFunctions {
+    
     var realm = try! Realm()
     
     func createTimer(timerModel: TimerModel) {
