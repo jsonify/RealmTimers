@@ -10,12 +10,7 @@ import UIKit
 
 class PreFireViewController: UIViewController, CAAnimationDelegate {
     var preFireTime: Int!
-    var fireNow = false {
-        didSet {
-            sayHello()
-        }
-    }
-    
+    var fireNow = false
     
     // create outlet in the storyboard with type CountdownProgressBar
 
@@ -28,14 +23,14 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
     }
     
     func sayHello() {
-//        view.backgroundColor = UIColor.green
+        //TODO: get the background green
+        view.backgroundColor = UIColor.green
         print("timer done")
     }
-    
-    @IBAction func closeTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
 
+    @IBAction func close(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

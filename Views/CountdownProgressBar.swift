@@ -186,6 +186,15 @@ class CountdownProgressBar: UIView {
         pulseLayer.add(groupedAnimation, forKey: "pulseAnimation")
     }
     
+    fileprivate func removeTimerLayers() {
+        // use this to remove this countdown timer view after timer done
+        foregroundLayer.removeFromSuperlayer()
+        backgroundLayer.removeFromSuperlayer()
+        remainingTimeLabel.removeFromSuperview()
+        foregroundGradientLayer.removeFromSuperlayer()
+        pulseGradientLayer.removeFromSuperlayer()
+    }
+    
     @objc private func handleTimerTick() {
         remainingTime -= 1
         if remainingTime > 0 {
@@ -203,8 +212,8 @@ class CountdownProgressBar: UIView {
             timer.invalidate()
             // TODO: do the thing when the time runs out
             preFireVC.sayHello()
-            // use this to remove this countdown timer view after timer done
-            layer.removeFromSuperlayer()
+            removeTimerLayers()
+            
         }
 
         DispatchQueue.main.async {

@@ -6,37 +6,51 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Pre Fire View Controller-->
-        <scene sceneID="NCi-5w-BeC">
+        <scene sceneID="XBs-S6-72d">
             <objects>
-                <viewController storyboardIdentifier="PreFireViewController" id="Bej-oE-5AI" customClass="PreFireViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kzj-nc-xjg">
+                <viewController storyboardIdentifier="PreFireViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tAH-Ij-2NC" customClass="PreFireViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RPd-nm-hYZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atG-eX-Ru5">
-                                <rect key="frame" x="87" y="197" width="240" height="365"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVY-CB-3gB">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="EditColor"/>
+                                <color key="tintColor" red="0.60788255710000005" green="0.62530738340000003" blue="0.58675157909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="delete"/>
+                                <connections>
+                                    <action selector="close:" destination="tAH-Ij-2NC" eventType="touchUpInside" id="K2v-AK-8LB"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-Pm-bSx" customClass="CountdownProgressBar" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="19" y="239" width="375" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="GeC-nY-cDm"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="top" secondItem="b15-2T-0IT" secondAttribute="top" constant="195" id="bBt-LN-3By"/>
+                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="leading" secondItem="b15-2T-0IT" secondAttribute="leading" constant="19" id="dnV-c4-f3D"/>
+                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="centerY" secondItem="RPd-nm-hYZ" secondAttribute="centerY" constant="-21.5" id="hYP-N3-F0Y"/>
+                            <constraint firstItem="kSY-Pm-bSx" firstAttribute="centerX" secondItem="RPd-nm-hYZ" secondAttribute="centerX" id="luL-RB-Ms0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b15-2T-0IT"/>
                     </view>
+                    <connections>
+                        <outlet property="countdownProgressBar" destination="kSY-Pm-bSx" id="cUI-Mf-Z3u"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nbP-L3-GYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9F2-7H-dGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5471.0144927536239" y="115.84821428571428"/>
+            <point key="canvasLocation" x="6279.7101449275369" y="108.48214285714285"/>
         </scene>
     </scenes>
     <resources>
-        <namedColor name="EditColor">
-            <color red="0.36470588235294116" green="0.5725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="delete" width="50" height="50"/>
     </resources>
 </document>
