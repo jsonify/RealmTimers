@@ -192,13 +192,10 @@ class CountdownProgressBar: UIView {
 //            print("Duration: \(duration), Remaining: \(remainingTime)")
             if remainingTime == (duration - duration/4) {
                 backgroundLayer.strokeColor = UIColor.blue.cgColor
-                print("Quarter 1 done")
             } else if remainingTime == (duration - duration/2) {
                 backgroundLayer.strokeColor = UIColor.yellow.cgColor
-                print("Quarter 2 done")
             } else if remainingTime == (duration - (duration/2 + duration/4)) {
                 backgroundLayer.strokeColor = UIColor.green.cgColor
-                print("Quarter 3 done")
             }
                 
         } else {
@@ -206,6 +203,8 @@ class CountdownProgressBar: UIView {
             timer.invalidate()
             // TODO: do the thing when the time runs out
             preFireVC.sayHello()
+            // use this to remove this countdown timer view after timer done
+            layer.removeFromSuperlayer()
         }
 
         DispatchQueue.main.async {
