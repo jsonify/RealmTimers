@@ -142,7 +142,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         // with the preFireDuration
         
         preFireVC.preFireTime = preFireDuration
-        self.present(preFireVC, animated: true, completion: nil)
+        self.present(preFireVC, animated: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

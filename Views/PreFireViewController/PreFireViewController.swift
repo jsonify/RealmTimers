@@ -12,9 +12,11 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
     var preFireTime: Int!
     var fireNow = false
     
+    @IBOutlet weak var wakeView: UIView!
     // create outlet in the storyboard with type CountdownProgressBar
 
     @IBOutlet weak var countdownProgressBar: CountdownProgressBar!
+    @IBOutlet weak var wakeImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +25,12 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
     }
     
     func sayHello() {
-        //TODO: get the background green
-        view.backgroundColor = UIColor.green
-        print("timer done")
+        print("method called")
+//        if wakeView == nil {
+//            print("this is nil")
+//        }
+//        wakeView?.backgroundColor = UIColor.green
+//        wakeImageView.backgroundColor = UIColor.green
     }
 
     @IBAction func close(_ sender: UIButton) {

@@ -35,6 +35,8 @@ class AddTimerViewController: UITableViewController {
         setStartingSliderValues()
         sectionLabel.textColor = UIColor.white
         self.hideKeyboardWhenTappedAround()
+    
+        fireTimePicker.setDate(NSDate(timeIntervalSinceNow: 60) as Date, animated: false)
         
         /* TODO: V2.1 Future feature that allows to edit timer
          Issue: Currently, I'm not able to get the info from the
@@ -61,7 +63,6 @@ class AddTimerViewController: UITableViewController {
     @IBAction func changePreFire(_ sender: UISlider) {
         preFireDuration = Int(preFireDurationSlider.value)
         tempTimeLabel.text = "\(preFireDuration)"
-//        print(preFireDuration)
     }
 //    @IBAction func changeFire(_ sender: UISlider) {
 //        fireDuration = Int(fireDurationSlider.value) * 10

@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vhs-wh-DHQ">
+                                <rect key="frame" x="40" y="248" width="333" height="399"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVY-CB-3gB">
                                 <rect key="frame" x="20" y="44" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -27,12 +31,17 @@
                                     <action selector="close:" destination="tAH-Ij-2NC" eventType="touchUpInside" id="K2v-AK-8LB"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-Pm-bSx" customClass="CountdownProgressBar" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="19" y="239" width="375" height="375"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-Pm-bSx" customClass="CountdownProgressBar" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="19" y="239" width="376" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGZ-av-Uqn">
+                                <rect key="frame" x="87" y="86" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kSY-Pm-bSx" firstAttribute="top" secondItem="b15-2T-0IT" secondAttribute="top" constant="195" id="bBt-LN-3By"/>
                             <constraint firstItem="kSY-Pm-bSx" firstAttribute="leading" secondItem="b15-2T-0IT" secondAttribute="leading" constant="19" id="dnV-c4-f3D"/>
@@ -43,6 +52,8 @@
                     </view>
                     <connections>
                         <outlet property="countdownProgressBar" destination="kSY-Pm-bSx" id="cUI-Mf-Z3u"/>
+                        <outlet property="wakeImageView" destination="Vhs-wh-DHQ" id="o04-HE-jE7"/>
+                        <outlet property="wakeView" destination="WGZ-av-Uqn" id="hpz-SG-Z2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9F2-7H-dGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -198,7 +198,6 @@ class CountdownProgressBar: UIView {
     @objc private func handleTimerTick() {
         remainingTime -= 1
         if remainingTime > 0 {
-//            print("Duration: \(duration), Remaining: \(remainingTime)")
             if remainingTime == (duration - duration/4) {
                 backgroundLayer.strokeColor = UIColor.blue.cgColor
             } else if remainingTime == (duration - duration/2) {
@@ -206,14 +205,11 @@ class CountdownProgressBar: UIView {
             } else if remainingTime == (duration - (duration/2 + duration/4)) {
                 backgroundLayer.strokeColor = UIColor.green.cgColor
             }
-                
         } else {
             remainingTime = 0
             timer.invalidate()
-            // TODO: do the thing when the time runs out
-            preFireVC.sayHello()
             removeTimerLayers()
-            
+            preFireVC.sayHello()
         }
 
         DispatchQueue.main.async {
