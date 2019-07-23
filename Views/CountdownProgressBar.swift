@@ -8,27 +8,25 @@ import Foundation
 import RealmSwift
 import UIKit
 
-enum ClockStyle: Int {
-    case seconds = 60
-    case debug = 1
-}
+
 
 class CountdownProgressBar: UIView {
     
-    private var timer = Timer()
     
     var preFireVC = PreFireViewController()
     
     var preFireTime: Int!
     var preFireDuration = 0
-    var multiplier = ClockStyle.debug.rawValue
+
     
-    private var duration = 0
-    private var remainingTime = 0
-    private var showPulse = false
+//    private var timer = Timer()
+//    private var duration = 0
+//    private var remainingTime = 0
+
+//    private var showPulse = false
     
     // label that will show the remaining time
-    private lazy var remainingTimeLabel: UILabel = {
+    lazy var remainingTimeLabel: UILabel = {
         let remainingTimeLabel = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0)
             , size: CGSize(width: bounds.width, height: bounds.height)))
         remainingTimeLabel.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
@@ -37,7 +35,7 @@ class CountdownProgressBar: UIView {
     }()
     
     // foreground layer that will be animated
-    private lazy var foregroundLayer: CAShapeLayer = {
+    lazy var foregroundLayer: CAShapeLayer = {
         let foregroundLayer = CAShapeLayer()
         foregroundLayer.lineWidth = 30
         foregroundLayer.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
@@ -49,7 +47,7 @@ class CountdownProgressBar: UIView {
     }()
     
     // background layer to show a gray path
-    private lazy var backgroundLayer: CAShapeLayer = {
+    lazy var backgroundLayer: CAShapeLayer = {
         let backgroundLayer = CAShapeLayer()
         backgroundLayer.lineWidth = 10
         backgroundLayer.strokeColor = UIColor.lightGray.cgColor
@@ -60,7 +58,7 @@ class CountdownProgressBar: UIView {
     }()
     
     // layer that will be used to get the pulsing effect animation
-    private lazy var pulseLayer: CAShapeLayer = {
+    lazy var pulseLayer: CAShapeLayer = {
         let pulseLayer = CAShapeLayer()
         pulseLayer.lineWidth = 10
         pulseLayer.strokeColor = UIColor.lightGray.cgColor
@@ -81,10 +79,10 @@ class CountdownProgressBar: UIView {
         super.init(coder: aDecoder)
         loadLayers()
     }
-    
-    deinit {
-        timer.invalidate()
-    }
+//
+//    deinit {
+//        timer.invalidate()
+//    }
     
     private lazy var foregroundGradientLayer: CAGradientLayer = {
         let foregroundGradientLayer = CAGradientLayer()
@@ -143,7 +141,7 @@ class CountdownProgressBar: UIView {
         
     }
     
-    private func beginAnimation() {
+    func beginAnimation(showPulse: Bool) {
         
         animateForegroundLayer()
         
@@ -153,13 +151,14 @@ class CountdownProgressBar: UIView {
         }
         
     }
+//    var duration = preFireVC.duration
     
     private func animateForegroundLayer() {
         
         let foregroundAnimation = CABasicAnimation(keyPath: "strokeEnd")
         foregroundAnimation.fromValue = 0
         foregroundAnimation.toValue = 1
-        foregroundAnimation.duration = CFTimeInterval(duration)
+        foregroundAnimation.duration = CFTimeInterval(preFireVC.duration)
         foregroundAnimation.fillMode = CAMediaTimingFillMode.forwards
         foregroundAnimation.isRemovedOnCompletion = false
         foregroundAnimation.delegate = self
@@ -195,27 +194,27 @@ class CountdownProgressBar: UIView {
         pulseGradientLayer.removeFromSuperlayer()
     }
     
-    @objc private func handleTimerTick() {
-        remainingTime -= 1
-        if remainingTime > 0 {
-            if remainingTime == (duration - duration/4) {
-                backgroundLayer.strokeColor = UIColor.blue.cgColor
-            } else if remainingTime == (duration - duration/2) {
-                backgroundLayer.strokeColor = UIColor.yellow.cgColor
-            } else if remainingTime == (duration - (duration/2 + duration/4)) {
-                backgroundLayer.strokeColor = UIColor.green.cgColor
-            }
-        } else {
-            remainingTime = 0
-            timer.invalidate()
-            removeTimerLayers()
-            preFireVC.sayHello()
-        }
-
-        DispatchQueue.main.async {
-            self.remainingTimeLabel.text = "\(self.remainingTime)"
-        }
-    }
+//    @objc private func handleTimerTick() {
+//        remainingTime -= 1
+//        if remainingTime > 0 {
+//            if remainingTime == (duration - duration/4) {
+//                backgroundLayer.strokeColor = UIColor.blue.cgColor
+//            } else if remainingTime == (duration - duration/2) {
+//                backgroundLayer.strokeColor = UIColor.yellow.cgColor
+//            } else if remainingTime == (duration - (duration/2 + duration/4)) {
+//                backgroundLayer.strokeColor = UIColor.green.cgColor
+//            }
+//        } else {
+//            remainingTime = 0
+//            timer.invalidate()
+//            removeTimerLayers()
+//            preFireVC.sayHello()
+//        }
+//
+//        DispatchQueue.main.async {
+//            self.remainingTimeLabel.text = "\(self.remainingTime)"
+//        }
+//    }
     
     //MARK: - Public Functions
     
@@ -228,22 +227,22 @@ class CountdownProgressBar: UIView {
      - Returns: null.
      */
     
-    func startCoundown(duration: Int, showPulse: Bool = false) {
-        self.duration = duration * multiplier
-        self.showPulse = showPulse
-        remainingTime = duration * multiplier
-        remainingTimeLabel.text = "\(remainingTime)"
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleTimerTick), userInfo: nil, repeats: true)
-        beginAnimation()
-        
-    }
+//    func startCoundown(duration: Int, showPulse: Bool = false) {
+//        self.duration = duration * multiplier
+//        self.showPulse = showPulse
+//        remainingTime = duration * multiplier
+//        remainingTimeLabel.text = "\(remainingTime)"
+//        timer.invalidate()
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleTimerTick), userInfo: nil, repeats: true)
+//        beginAnimation()
+//        
+//    }
     
 }
 
 extension CountdownProgressBar: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         pulseLayer.removeAllAnimations()
-        timer.invalidate()
+//        timer.invalidate()
     }
 }

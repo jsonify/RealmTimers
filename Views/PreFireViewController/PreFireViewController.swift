@@ -8,9 +8,21 @@
 
 import UIKit
 
+enum ClockStyle: Int {
+    case seconds = 60
+    case debug = 1
+}
+
 class PreFireViewController: UIViewController, CAAnimationDelegate {
     var preFireTime: Int!
     var fireNow = false
+    
+    private var timer = Timer()
+    var duration = 0
+    private var remainingTime = 0
+    var showPulse = false
+    
+    var multiplier = ClockStyle.debug.rawValue
     
     @IBOutlet weak var wakeView: UIView!
     // create outlet in the storyboard with type CountdownProgressBar
@@ -23,6 +35,39 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
 <<<<<<< HEAD
         // Do any additional setup after loading the view.
 
+    }
+    
+    @objc private func handleTimerTick() {
+        remainingTime -= 1
+        if remainingTime > 0 {
+            if remainingTime == (duration - duration/4) {
+//                backgroundLayer.strokeColor = UIColor.blue.cgColor
+            } else if remainingTime == (duration - duration/2) {
+//                backgroundLayer.strokeColor = UIColor.yellow.cgColor
+            } else if remainingTime == (duration - (duration/2 + duration/4)) {
+//                backgroundLayer.strokeColor = UIColor.green.cgColor
+            }
+        } else {
+            remainingTime = 0
+            timer.invalidate()
+//            removeTimerLayers()
+//            preFireVC.sayHello()
+        }
+        
+        DispatchQueue.main.async {
+            self.countdownProgressBar.remainingTimeLabel.text = "\(self.remainingTime)"
+        }
+    }
+    
+    func startCoundown(duration: Int, showPulse: Bool = false) {
+        self.duration = duration * multiplier
+        self.showPulse = showPulse
+        remainingTime = duration * multiplier
+        countdownProgressBar.remainingTimeLabel.text = "\(remainingTime)"
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleTimerTick), userInfo: nil, repeats: true)
+        countdownProgressBar.beginAnimation(showPulse: showPulse)
+        
     }
     
     func sayHello() {
@@ -79,7 +124,7 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        countdownProgressBar.startCoundown(duration: preFireTime, showPulse: false)
+        startCoundown(duration: preFireTime, showPulse: false)
 //        createGradientView()
     }
     
