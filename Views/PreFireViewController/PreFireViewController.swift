@@ -2,154 +2,93 @@
 //  PreFireViewController.swift
 //  RealmTimers
 //
-//  Created by Jason on 7/18/19.
+//  Created by Jason on 7/8/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
-
+import MBCircularProgressBar
+import RealmSwift
 import UIKit
 
-enum ClockStyle: Int {
-    case seconds = 60
-    case debug = 1
-}
-
-class PreFireViewController: UIViewController, CAAnimationDelegate {
+class PreFireViewController: UIViewController {
+    
+    var timer = Timer()
     var preFireTime: Int!
-    var fireNow = false
+    @IBOutlet weak var pfDuration: UILabel!
+    let preFireDurationLabel: UILabel = {
+       let label = UILabel()
+//        label.text = "Start"
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.textColor = UIColor.white
+        return label
+    }()
+    var pfLabel: UILabel!
+    var pfDurTime = 0 {
+        didSet {
+            pfDuration.text = "\(pfDurTime)"
+        }
+    }
     
-    private var timer = Timer()
-    var duration = 0
-    private var remainingTime = 0
-    var showPulse = false
-    
-    var multiplier = ClockStyle.debug.rawValue
-    
-    @IBOutlet weak var wakeView: UIView!
-    // create outlet in the storyboard with type CountdownProgressBar
-
-    @IBOutlet weak var countdownProgressBar: CountdownProgressBar!
-    @IBOutlet weak var wakeImageView: UIImageView!
+    var shapeLayer = CAShapeLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-        // Do any additional setup after loading the view.
-
-    }
-    
-    @objc private func handleTimerTick() {
-        remainingTime -= 1
-        if remainingTime > 0 {
-            if remainingTime == (duration - duration/4) {
-//                backgroundLayer.strokeColor = UIColor.blue.cgColor
-            } else if remainingTime == (duration - duration/2) {
-//                backgroundLayer.strokeColor = UIColor.yellow.cgColor
-            } else if remainingTime == (duration - (duration/2 + duration/4)) {
-//                backgroundLayer.strokeColor = UIColor.green.cgColor
-            }
-        } else {
-            remainingTime = 0
-            timer.invalidate()
-//            removeTimerLayers()
-//            preFireVC.sayHello()
-        }
-        
-        DispatchQueue.main.async {
-            self.countdownProgressBar.remainingTimeLabel.text = "\(self.remainingTime)"
-        }
-    }
-    
-    func startCoundown(duration: Int, showPulse: Bool = false) {
-        self.duration = duration * multiplier
-        self.showPulse = showPulse
-        remainingTime = duration * multiplier
-        countdownProgressBar.remainingTimeLabel.text = "\(remainingTime)"
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleTimerTick), userInfo: nil, repeats: true)
-        countdownProgressBar.beginAnimation(showPulse: showPulse)
-        
-    }
-    
-    func sayHello() {
-        print("method called")
-//        if wakeView == nil {
-//            print("this is nil")
-//        }
-//        wakeView?.backgroundColor = UIColor.green
-//        wakeImageView.backgroundColor = UIColor.green
-    }
-
-    @IBAction func close(_ sender: UIButton) {
-        dismiss(animated: true)
-=======
         pfDurTime = preFireTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-//            self.pfDurTime = self.pfDurTime - 1
-//            self.pfDuration.text = "\(self.pfDurTime)"
-//        })
-
         
         //try to use this to envoke a slight delay
 //        self.perform(#selector(animateProgress), with: nil, afterDelay: 2.0)
         
 //        let preFireSeconds = preFireTime
 //        pfDuration.text = "\(preFireSeconds!)"
-//        drawPreFireCircle1(color: UIColor.red)
+        drawPreFireCircle1(color: UIColor.red)
         
     }
     
     func drawPreFireCircle1(color: UIColor) {
-        let center = view.center
-        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 *  CGFloat.pi, clockwise: true)
+        let centerPoint = view.center
+//        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 *  CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: centerPoint, radius: view.frame.width / 2 - 50, startAngle: -CGFloat.pi/2,
+                                        endAngle: 2 * CGFloat.pi - CGFloat.pi/2, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         
-        // to change color of pfDuration
-//        switch <#value#> {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-        
         shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = 10
+        shapeLayer.lineWidth = 50
         shapeLayer.strokeEnd = 0
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         view.layer.addSublayer(shapeLayer)
         drawCircle()
->>>>>>> parent of 4997beb... finished cleanup
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        startCoundown(duration: preFireTime, showPulse: false)
-//        createGradientView()
+    @objc func countDownDuration() {
+        self.pfDurTime = self.pfDurTime - 1
+        self.pfDuration.text = "\(self.pfDurTime)"
+        if pfDurTime == (preFireTime - (preFireTime/4)) {
+            shapeLayer.strokeColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            view.backgroundColor = .red
+            print("Q1")
+        } else if pfDurTime == (preFireTime - (preFireTime/2)) {
+            shapeLayer.strokeColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+           print("Q2")
+        } else if pfDurTime == (preFireTime - (preFireTime/2 + preFireTime/4)) {
+            shapeLayer.strokeColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+            print("Q3")
+        }
+        if pfDurTime == 0 {
+            shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            pfDuration.text = "End"
+            timer.invalidate()
+            fireTime()
+        }
     }
     
-    /// Creates gradient view
+    func fireTime() {
+        view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+    }
     
-<<<<<<< HEAD
-//    func createGradientView() {
-//
-//        // overlap the colors and make it 3 sets of colors
-//        gradientSet.append([colorOne, colorTwo])
-//        gradientSet.append([colorTwo, colorThree])
-//        gradientSet.append([colorThree, colorOne])
-//
-//        // set the gradient size to be the entire screen
-//        gradient.frame = self.view.bounds
-//        gradient.colors = gradientSet[currentGradient]
-//        gradient.startPoint = CGPoint(x:0, y:0)
-//        gradient.endPoint = CGPoint(x:1, y:1)
-//        gradient.drawsAsynchronously = true
-//
-//        self.view.layer.insertSublayer(gradient, at: 0)
-//
-//        animateGradient()
-//    }
-=======
     func drawCircle() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = 1
@@ -157,53 +96,13 @@ class PreFireViewController: UIViewController, CAAnimationDelegate {
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         basicAnimation.isRemovedOnCompletion = false
-        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         shapeLayer.add(basicAnimation, forKey: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        UIView.animate(withDuration: 10.0) {
-            
-        }
     }
 
     @IBAction func closeTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
->>>>>>> parent of 4997beb... finished cleanup
     
-//    @objc func handleTap() {
-//        print("Tapped")
-//
-//        countdownProgressBar.startCoundown(duration: preFireTime, showPulse: true)
-//    }
-//
-//    func animateGradient() {
-//        // cycle through all the colors, feel free to add more to the set
-//        if currentGradient < gradientSet.count - 1 {
-//            currentGradient += 1
-//        } else {
-//            currentGradient = 0
-//        }
-//
-//        // animate over 3 seconds
-//        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-//        gradientChangeAnimation.duration = 3.0
-//        gradientChangeAnimation.toValue = gradientSet[currentGradient]
-//        gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
-//        gradientChangeAnimation.isRemovedOnCompletion = false
-//        gradientChangeAnimation.delegate = self
-//        gradient.add(gradientChangeAnimation, forKey: "gradientChangeAnimation")
-//    }
-//
-//    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-//
-//        // if our gradient animation ended animating, restart the animation by changing the color set
-//        if flag {
-//            gradient.colors = gradientSet[currentGradient]
-//            animateGradient()
-//        }
-//    }
 }
+
