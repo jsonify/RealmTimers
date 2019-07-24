@@ -20,6 +20,11 @@ class Theme {
     static let backgroundColor = UIColor(named: "BackgroundColor")
     static let edit = UIColor(named: "EditColor")
     static let delete = UIColor(named: "DeleteColor")
-    static let greyedOut = UIColor(named: "GreyedOutColor")
+    
+    static let darkBackgroundColor = UIColor(named: "DarkBackgroundColor")
+    static let pinkAccentColor = UIColor(named: "PinkAccentColor")
+    static let pastelOrange = UIColor(named: "PastelOrangeColor")
+    static let pastelGreenColor = UIColor(named: "PastelGreenColor")
+    static let pastelBlueColor = UIColor(named: "PastelBlueColor")
 
 }
