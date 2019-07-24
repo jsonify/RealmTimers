@@ -35,10 +35,6 @@ class PreFireViewController: UIViewController {
         super.viewDidLoad()
         pfDurTime = preFireTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-//            self.pfDurTime = self.pfDurTime - 1
-//            self.pfDuration.text = "\(self.pfDurTime)"
-//        })
 
         
         //try to use this to envoke a slight delay
@@ -46,17 +42,14 @@ class PreFireViewController: UIViewController {
         
 //        let preFireSeconds = preFireTime
 //        pfDuration.text = "\(preFireSeconds!)"
-//        drawPreFireCircle1(color: UIColor.red)
+        drawPreFireCircle1(color: UIColor.red)
         
     }
     
     func drawPreFireCircle1(color: UIColor) {
         let centerPoint = view.center
-//        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 *  CGFloat.pi, clockwise: true)
-        let circularPath = UIBezierPath(arcCenter: centerPoint, radius: view.frame.width / 2 - 50, startAngle: -CGFloat.pi/2,
-                                        endAngle: 2 * CGFloat.pi - CGFloat.pi/2, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: centerPoint, radius: view.frame.width / 2 - 50, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi - CGFloat.pi/2, clockwise: true)
         shapeLayer.path = circularPath.cgPath
-        
         shapeLayer.strokeColor = color.cgColor
         shapeLayer.lineWidth = 50
         shapeLayer.strokeEnd = 0
@@ -72,15 +65,12 @@ class PreFireViewController: UIViewController {
         if pfDurTime == (preFireTime - (preFireTime/4)) {
             shapeLayer.strokeColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
             view.backgroundColor = .red
-            print("Q1")
         } else if pfDurTime == (preFireTime - (preFireTime/2)) {
             shapeLayer.strokeColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-           print("Q2")
         } else if pfDurTime == (preFireTime - (preFireTime/2 + preFireTime/4)) {
             shapeLayer.strokeColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-            print("Q3")
         }
         if pfDurTime == 0 {
             shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -101,16 +91,8 @@ class PreFireViewController: UIViewController {
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         basicAnimation.isRemovedOnCompletion = false
-        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         shapeLayer.add(basicAnimation, forKey: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        UIView.animate(withDuration: 10.0) {
-            
-        }
     }
 
     @IBAction func closeTapped(_ sender: UIButton) {
