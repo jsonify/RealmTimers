@@ -134,7 +134,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     }
     
     func showPreFireVC() {
-        let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "PreFireViewController") as! PreFireViewController
+        let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "boom") as! PreFireViewController
 //        print(preFireDuration)
         
         // when tapping the button that calls this method,
