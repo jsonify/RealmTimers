@@ -9,6 +9,10 @@
 import RealmSwift
 import UIKit
 
+enum ClockStyle: Int {
+    case seconds = 60
+    case debug = 1
+}
 
 class TimerFunctions {
     

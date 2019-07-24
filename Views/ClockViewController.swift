@@ -23,6 +23,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     var preFireDuration = 0
     var fireDuration = 0
+    var multiplier = ClockStyle.debug.rawValue
     
     let gradient = CAGradientLayer()
     // list of array holding 2 colors
@@ -109,6 +110,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
             
             // PreFire Work
             preFireDuration = Int(timer[index].preFireDuration)!
+            fireDuration = Int(timer[index].fireDuration)!
             let preFiredTime = timerTime - preFireDuration.minutes
             preFireTimeLabel.text = formatTime(date: preFiredTime)
             
@@ -135,13 +137,8 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     func showPreFireVC() {
         let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "boom") as! PreFireViewController
-//        print(preFireDuration)
-        
-        // when tapping the button that calls this method,
-        // inject the variable preFireTime in the CountdownProgressBar class
-        // with the preFireDuration
-        
-        preFireVC.preFireTime = preFireDuration
+        preFireVC.fireDuration = fireDuration * multiplier
+        preFireVC.preFireTime = preFireDuration * multiplier
         self.present(preFireVC, animated: true)
     }
     
@@ -160,7 +157,6 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
 }
 
 extension Date {
-    
     func adding(minutes: Int) -> Date {
         return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
     }
@@ -176,5 +172,4 @@ extension Date {
         let newDate: Date = self.addingTimeInterval(seconds)
         return newDate
     }
-    
 }

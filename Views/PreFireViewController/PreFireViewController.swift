@@ -11,8 +11,10 @@ import UIKit
 
 class PreFireViewController: UIViewController {
     
-    var timer = Timer()
+    var timerPreFire = Timer()
+    var timerDuration = Timer()
     var preFireTime: Int!
+    var fireDuration: Int!
     @IBOutlet weak var pfDuration: UILabel!
     let preFireDurationLabel: UILabel = {
        let label = UILabel()
@@ -33,17 +35,11 @@ class PreFireViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(String(describing: fireDuration))")
+        print("\(String(describing: preFireTime))")
         pfDurTime = preFireTime
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-
-        
-        //try to use this to envoke a slight delay
-//        self.perform(#selector(animateProgress), with: nil, afterDelay: 2.0)
-        
-//        let preFireSeconds = preFireTime
-//        pfDuration.text = "\(preFireSeconds!)"
+        timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
         drawPreFireCircle1(color: UIColor.red)
-        
     }
     
     func drawPreFireCircle1(color: UIColor) {
@@ -60,8 +56,8 @@ class PreFireViewController: UIViewController {
     }
     
     @objc func countDownDuration() {
-        self.pfDurTime = self.pfDurTime - 1
-        self.pfDuration.text = "\(self.pfDurTime)"
+        pfDurTime = pfDurTime - 1
+        pfDuration.text = "\(pfDurTime)"
         if pfDurTime == (preFireTime - (preFireTime/4)) {
             shapeLayer.strokeColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
             view.backgroundColor = .red
@@ -74,14 +70,19 @@ class PreFireViewController: UIViewController {
         }
         if pfDurTime == 0 {
             shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             pfDuration.text = "End"
-            timer.invalidate()
-            fireTime()
+            timerPreFire.invalidate()
+            timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
         }
     }
     
-    func fireTime() {
-        view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+    @objc func fireTime() {
+        fireDuration = fireDuration - 1
+        if fireDuration == 0 {
+//            dismiss(animated: true)
+            print("Times up!")
+        }
     }
     
     func drawCircle() {
