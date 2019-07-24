@@ -5,7 +5,7 @@
 //  Created by Jason on 7/8/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
-import MBCircularProgressBar
+
 import RealmSwift
 import UIKit
 
@@ -56,14 +56,6 @@ class PreFireViewController: UIViewController {
         let circularPath = UIBezierPath(arcCenter: centerPoint, radius: view.frame.width / 2 - 50, startAngle: -CGFloat.pi/2,
                                         endAngle: 2 * CGFloat.pi - CGFloat.pi/2, clockwise: true)
         shapeLayer.path = circularPath.cgPath
-        
-        // to change color of pfDuration
-//        switch <#value#> {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
         
         shapeLayer.strokeColor = color.cgColor
         shapeLayer.lineWidth = 50

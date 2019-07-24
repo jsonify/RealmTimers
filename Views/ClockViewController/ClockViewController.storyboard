@@ -109,6 +109,49 @@
             </objects>
             <point key="canvasLocation" x="5460.8695652173919" y="115.84821428571428"/>
         </scene>
+        <!--Pre Fire View Controller-->
+        <scene sceneID="wyI-DR-weD">
+            <objects>
+                <viewController storyboardIdentifier="boom" id="uGH-Lw-WHL" customClass="PreFireViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pNa-rg-xRu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXq-iY-LHb">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.60788255710000005" green="0.62530738340000003" blue="0.58675157909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="delete"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJV-zb-dMd" customClass="CountdownProgressBar" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="19" y="239" width="376" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-ww-Qqc">
+                                <rect key="frame" x="160" y="778" width="94" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wJV-zb-dMd" firstAttribute="centerY" secondItem="pNa-rg-xRu" secondAttribute="centerY" constant="-21.5" id="2WS-0r-ytT"/>
+                            <constraint firstItem="wJV-zb-dMd" firstAttribute="leading" secondItem="UqN-PK-VlO" secondAttribute="leading" constant="19" id="MNm-eT-ccX"/>
+                            <constraint firstItem="wJV-zb-dMd" firstAttribute="centerX" secondItem="pNa-rg-xRu" secondAttribute="centerX" id="fYk-0W-uIZ"/>
+                            <constraint firstItem="wJV-zb-dMd" firstAttribute="top" secondItem="UqN-PK-VlO" secondAttribute="top" constant="195" id="xzu-Ky-Kvv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UqN-PK-VlO"/>
+                    </view>
+                    <connections>
+                        <outlet property="pfDuration" destination="sAG-ww-Qqc" id="OUk-ET-wvB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTh-b3-Mk4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6256" y="109"/>
+        </scene>
     </scenes>
     <resources>
         <image name="delete" width="50" height="50"/>
