@@ -35,7 +35,7 @@
                                                     <rect key="frame" x="0.0" y="106" width="414" height="777"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDB-FU-NGb">
-                                                            <rect key="frame" x="129" y="51" width="151" height="54"/>
+                                                            <rect key="frame" x="128.5" y="51" width="151" height="54"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="54" id="r88-GE-Tql"/>
                                                                 <constraint firstAttribute="width" constant="151" id="t1n-f7-8Ll"/>

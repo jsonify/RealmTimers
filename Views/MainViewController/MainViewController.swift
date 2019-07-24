@@ -11,6 +11,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var settingsButton: AppUIButton!
     
     var realm: Realm!
     var timerIndexToEdit: Int?
@@ -46,7 +47,11 @@ class MainViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
+    
 }
+
+// Mark:- TableView Functions
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
