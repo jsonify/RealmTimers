@@ -67,8 +67,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let item = timerItem[indexPath.row]
 
         cell.nameLabel.text = "\(formatTime(date: item.name))"
-        cell.preFireLabel.text = "\(item.preFireDuration) minutes"
-        cell.fireDuration.text = "\(item.fireDuration) minutes"
+        cell.preFireLabel.text = "\(item.preFireDuration) min"
         
         return cell
     }

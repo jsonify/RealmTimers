@@ -109,8 +109,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
             fireTimeLabel.text = formatTime(date: timerTime)
             
             // PreFire Work
-            preFireDuration = Int(timer[index].preFireDuration)!
-            fireDuration = Int(timer[index].fireDuration)!
+             preFireDuration = Int(timer[index].preFireDuration)!
             let preFiredTime = timerTime - preFireDuration.minutes
             preFireTimeLabel.text = formatTime(date: preFiredTime)
             

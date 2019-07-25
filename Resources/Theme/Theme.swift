@@ -22,7 +22,8 @@ class Theme {
     static let delete = UIColor(named: "DeleteColor")
     
     static let darkBackgroundColor = UIColor(named: "DarkBackgroundColor")
-    static let pinkAccentColor = UIColor(named: "PinkAccentColor")
+    static let pinkTintColor = UIColor(named: "PinkTintColor")
+    static let darkBlueColor = UIColor(named: "DarkBlueColor")
     static let pastelOrange = UIColor(named: "PastelOrangeColor")
     static let pastelGreenColor = UIColor(named: "PastelGreenColor")
     static let pastelBlueColor = UIColor(named: "PastelBlueColor")
