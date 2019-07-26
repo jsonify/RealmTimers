@@ -90,7 +90,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="QpE-U2-leN">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="77"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5h-Kr-gj2">
+                                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5h-Kr-gj2">
                                                 <rect key="frame" x="0.0" y="0.0" width="73" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="73" id="73s-kG-cFE"/>
@@ -102,7 +102,7 @@
                                                     <action selector="preFireDurationSelected:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="AWR-Kj-UHA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYp-vY-2jE">
+                                            <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYp-vY-2jE">
                                                 <rect key="frame" x="97" y="0.0" width="77" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="77" id="i9X-NV-MPC"/>
@@ -114,7 +114,7 @@
                                                     <action selector="preFireDurationSelected:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="ChL-8A-u1d"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlu-hJ-hay">
+                                            <button opaque="NO" tag="45" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlu-hJ-hay">
                                                 <rect key="frame" x="198" y="0.0" width="77" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="77" id="Hdo-lf-XF4"/>
@@ -126,7 +126,7 @@
                                                     <action selector="preFireDurationSelected:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="cQz-p0-nLF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVV-eh-ye4">
+                                            <button opaque="NO" tag="60" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVV-eh-ye4">
                                                 <rect key="frame" x="299" y="0.0" width="75" height="77"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="Y9y-zp-UGm"/>

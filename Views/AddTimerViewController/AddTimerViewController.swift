@@ -76,32 +76,49 @@ class AddTimerViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func saveTapped(_ sender: Any) {
+    @IBAction func saveTapped(_ sender: UIButton) {
         let currentDateTime = fireTimePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
-        let preFireAmount: PreFireDuration = getSelectedPreFireDuration()
+        
+        let preFireAmount = getSelectedPreFireDuration()
         //TODO:- translate preFireAmount into an actual duration
-        preFireDuration = preFireAmount.hashValue
-        print(preFireDuration)
+//        timerFunctions.createTimer(timerModel: TimerModel(name: currentDateTime, preFireDuration:
+//                    "\(preFireDuration)"))
         timerFunctions.createTimer(timerModel: TimerModel(name: currentDateTime, preFireDuration:
-                    "\(preFireDuration)"))
+                            "\(preFireAmount)"))
         if let doneSaving = doneSaving {
             doneSaving()
         }
         
         dismiss(animated: true)
     }
-    
-    func getSelectedPreFireDuration() -> PreFireDuration {
-        for (index, button) in preFireDurationButtons.enumerated() {
-            // TODO:- use sender.tag to identify the button
-            if button.tintColor == Theme.pinkTintColor {
-                return PreFireDuration(rawValue: index + 1) ?? .q2
+  
+        func getSelectedPreFireDuration() -> Int {
+            for (index, button) in preFireDurationButtons.enumerated() {
+                // TODO:- use sender.tag to identify the button
+    //            if button.tag == index {
+    //                print(button.tag)
+    //            }
+                if button.tintColor == Theme.pinkTintColor {
+                    return button.tag
+                }
             }
+            
+            return 30
         }
-        
-        return .q2
-    }
+//    func getSelectedPreFireDuration() -> PreFireDuration {
+//        for (index, button) in preFireDurationButtons.enumerated() {
+//            // TODO:- use sender.tag to identify the button
+////            if button.tag == index {
+////                print(button.tag)
+////            }
+//            if button.tintColor == Theme.pinkTintColor {
+//                return PreFireDuration(rawValue: index + 1) ?? .q2
+//            }
+//        }
+//
+//        return .q2
+//    }
     
 }
