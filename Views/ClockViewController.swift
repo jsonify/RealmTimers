@@ -38,7 +38,6 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         getTimerData()
         wakerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
     }
@@ -136,7 +135,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     func showPreFireVC() {
         let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "boom") as! PreFireViewController
-        preFireVC.fireDuration = fireDuration * multiplier
+//        preFireVC.fireDuration = fireDuration * multiplier
         preFireVC.preFireTime = preFireDuration * multiplier
         self.present(preFireVC, animated: true)
     }
