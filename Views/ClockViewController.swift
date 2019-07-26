@@ -32,9 +32,12 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     var currentGradient: Int = 0
     
     // colors to be added to the set
-    let colorOne = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor
-    let colorTwo = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).cgColor
-    let colorThree = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1).cgColor
+    let colorOne = Theme.darkBlueColor!.cgColor
+        let colorTwo = Theme.pinkTintColor!.cgColor
+        let colorThree = Theme.pastelOrange!.cgColor
+//    let colorOne = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor
+//    let colorTwo = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).cgColor
+//    let colorThree = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1).cgColor
     
     override func viewDidLoad() {
         super.viewDidLoad()
