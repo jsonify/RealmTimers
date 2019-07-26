@@ -17,8 +17,8 @@ class PreFireViewController: UIViewController {
     var fireDuration: Int!
     @IBOutlet weak var pfDuration: UILabel!
     let preFireDurationLabel: UILabel = {
-       let label = UILabel()
-//        label.text = "Start"
+        let label = UILabel()
+        //        label.text = "Start"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 32)
         label.textColor = UIColor.white
@@ -80,7 +80,7 @@ class PreFireViewController: UIViewController {
     @objc func fireTime() {
         fireDuration = fireDuration - 1
         if fireDuration == 0 {
-//            dismiss(animated: true)
+            //            dismiss(animated: true)
             print("Times up!")
         }
     }
@@ -95,8 +95,9 @@ class PreFireViewController: UIViewController {
         basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         shapeLayer.add(basicAnimation, forKey: nil)
     }
-
+    
     @IBAction func closeTapped(_ sender: UIButton) {
+        timerPreFire.invalidate()
         dismiss(animated: true, completion: nil)
     }
     

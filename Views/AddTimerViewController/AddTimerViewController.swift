@@ -19,10 +19,10 @@ class AddTimerViewController: UIViewController {
     
     var timer = TimerModel()
     
-    @IBOutlet weak var preFireDurationSlider: UISlider!
+//    @IBOutlet weak var preFireDurationSlider: UISlider!
     var preFireDuration = 0
     
-    @IBOutlet weak var tempTimeLabel: UILabel!
+//    @IBOutlet weak var tempTimeLabel: UILabel!
     //    var timerIndexToEdit: Int?
     
     var doneSaving: (() -> ())?
@@ -33,7 +33,7 @@ class AddTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setStartingSliderValues()
+//        setStartingSliderValues()
         self.hideKeyboardWhenTappedAround()
     
         fireTimePicker.setDate(NSDate(timeIntervalSinceNow: 60) as Date, animated: false)
@@ -62,14 +62,14 @@ class AddTimerViewController: UIViewController {
         sender.tintColor = Theme.pinkTintColor
     }
     
-    func setStartingSliderValues() {
-        preFireDuration = Int(preFireDurationSlider.value) * 10
-    }
+//    func setStartingSliderValues() {
+//        preFireDuration = Int(preFireDurationSlider.value) * 10
+//    }
     
-    @IBAction func changePreFire(_ sender: UISlider) {
-        preFireDuration = Int(preFireDurationSlider.value)
-        tempTimeLabel.text = "\(preFireDuration)"
-    }
+//    @IBAction func changePreFire(_ sender: UISlider) {
+//        preFireDuration = Int(preFireDurationSlider.value)
+//        tempTimeLabel.text = "\(preFireDuration)"
+//    }
 
     
     @IBAction func cancelTapped(_ sender: Any) {
