@@ -18,15 +18,15 @@ class PreFireViewController: UIViewController {
     @IBOutlet weak var pfDuration: UILabel!
     let preFireDurationLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 32)
-        label.textColor = UIColor.white
+//        label.textAlignment = .center
+//        label.font = UIFont.boldSystemFont(ofSize: 32)
+//        label.textColor = UIColor.white
         return label
     }()
     var pfLabel: UILabel!
     var pfDurTime = 0 {
         didSet {
-            pfDuration.text = "\(pfDurTime)\nseconds\nleft"
+            pfDuration.text = "\(pfDurTime)"
         }
     }
     
@@ -50,7 +50,7 @@ class PreFireViewController: UIViewController {
         setupDurationLabel()
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-        drawPreFireCircle1(color: UIColor.red)
+        drawPreFireCircle1(color: UIColor.green)
     }
     
     func drawPreFireCircle1(color: UIColor) {
@@ -68,21 +68,21 @@ class PreFireViewController: UIViewController {
     
     @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
-        pfDuration.text = "\(pfDurTime)\nseconds\nleft"
+        pfDuration.text = "\(pfDurTime)"
         if pfDurTime == (preFireTime - (preFireTime/4)) {
-            shapeLayer.strokeColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-            view.backgroundColor = .red
+            shapeLayer.strokeColor = #colorLiteral(red: 0.7568627596, green: 0.6892270425, blue: 0.2031356938, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.3803921569, blue: 0.8901960784, alpha: 1)
         } else if pfDurTime == (preFireTime - (preFireTime/2)) {
-            shapeLayer.strokeColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-            view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            shapeLayer.strokeColor = #colorLiteral(red: 0.07886815806, green: 0.8549019694, blue: 0.7889860416, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.01176470588, blue: 0.01960784314, alpha: 1)
         } else if pfDurTime == (preFireTime - (preFireTime/2 + preFireTime/4)) {
-            shapeLayer.strokeColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-            view.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+            shapeLayer.strokeColor = #colorLiteral(red: 0.1550070187, green: 0.2095842698, blue: 0.9921568627, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.05882352941, alpha: 1)
         }
         if pfDurTime == 0 {
             shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-            pfDuration.text = "\(fireDuration)\nseconds\nleft"
+            pfDuration.text = "\(fireDuration)"
             timerPreFire.invalidate()
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
         }
@@ -90,7 +90,7 @@ class PreFireViewController: UIViewController {
     
     @objc func fireTime() {
         fireDuration = fireDuration - 1
-        pfDuration.text = "\(fireDuration)\nseconds\nleft"
+//        pfDuration.text = "\(fireDuration)"
         if fireDuration == 0 {
             timerDuration.invalidate()
             dismiss(animated: true)
