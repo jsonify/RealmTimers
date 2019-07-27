@@ -140,9 +140,8 @@
                                 <rect key="frame" x="19" y="239" width="376" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-ww-Qqc">
-                                <rect key="frame" x="160" y="778" width="94" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-ww-Qqc">
+                                <rect key="frame" x="160" y="424" width="94" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -151,7 +150,9 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="centerY" secondItem="pNa-rg-xRu" secondAttribute="centerY" constant="-21.5" id="2WS-0r-ytT"/>
+                            <constraint firstItem="sAG-ww-Qqc" firstAttribute="centerX" secondItem="pNa-rg-xRu" secondAttribute="centerX" id="FTf-Yp-1yd"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="leading" secondItem="UqN-PK-VlO" secondAttribute="leading" constant="19" id="MNm-eT-ccX"/>
+                            <constraint firstItem="sAG-ww-Qqc" firstAttribute="centerY" secondItem="pNa-rg-xRu" secondAttribute="centerY" id="dW3-1U-YMa"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="centerX" secondItem="pNa-rg-xRu" secondAttribute="centerX" id="fYk-0W-uIZ"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="top" secondItem="UqN-PK-VlO" secondAttribute="top" constant="195" id="xzu-Ky-Kvv"/>
                         </constraints>
