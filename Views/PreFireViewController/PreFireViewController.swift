@@ -84,13 +84,19 @@ class PreFireViewController: UIViewController {
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             pfDuration.text = "\(fireDuration)"
             timerPreFire.invalidate()
+            
+            showPresent()
+            
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
         }
     }
     
+    func showPresent() {
+        
+    }
+    
     @objc func fireTime() {
         fireDuration = fireDuration - 1
-//        pfDuration.text = "\(fireDuration)"
         if fireDuration == 0 {
             timerDuration.invalidate()
             dismiss(animated: true)
