@@ -41,20 +41,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="present" translatesAutoresizingMaskIntoConstraints="NO" id="0hj-Mw-lyv">
+                                <rect key="frame" x="20" y="239" width="374" height="375"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" name="PreViolet"/>
                         <constraints>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="centerY" secondItem="pNa-rg-xRu" secondAttribute="centerY" constant="-21.5" id="2WS-0r-ytT"/>
                             <constraint firstItem="sAG-ww-Qqc" firstAttribute="centerX" secondItem="pNa-rg-xRu" secondAttribute="centerX" id="FTf-Yp-1yd"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="leading" secondItem="UqN-PK-VlO" secondAttribute="leading" constant="19" id="MNm-eT-ccX"/>
+                            <constraint firstItem="0hj-Mw-lyv" firstAttribute="centerY" secondItem="sAG-ww-Qqc" secondAttribute="centerY" constant="-22" id="OOk-FY-oUH"/>
+                            <constraint firstItem="0hj-Mw-lyv" firstAttribute="leading" secondItem="UqN-PK-VlO" secondAttribute="leading" constant="20" id="RNC-FV-ARv"/>
                             <constraint firstItem="sAG-ww-Qqc" firstAttribute="centerY" secondItem="pNa-rg-xRu" secondAttribute="centerY" id="dW3-1U-YMa"/>
+                            <constraint firstItem="0hj-Mw-lyv" firstAttribute="centerX" secondItem="sAG-ww-Qqc" secondAttribute="centerX" id="fOh-iY-gA4"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="centerX" secondItem="pNa-rg-xRu" secondAttribute="centerX" id="fYk-0W-uIZ"/>
+                            <constraint firstItem="0hj-Mw-lyv" firstAttribute="top" secondItem="UqN-PK-VlO" secondAttribute="top" constant="195" id="lwm-Lg-YPI"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="top" secondItem="UqN-PK-VlO" secondAttribute="top" constant="195" id="xzu-Ky-Kvv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UqN-PK-VlO"/>
                     </view>
                     <connections>
                         <outlet property="pfDuration" destination="sAG-ww-Qqc" id="OUk-ET-wvB"/>
+                        <outlet property="presentView" destination="0hj-Mw-lyv" id="RQx-Qu-fkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTh-b3-Mk4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -64,6 +72,7 @@
     </scenes>
     <resources>
         <image name="delete" width="50" height="50"/>
+        <image name="present" width="256" height="256"/>
         <namedColor name="PreViolet">
             <color red="0.45490196078431372" green="0.21176470588235294" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

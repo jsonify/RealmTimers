@@ -18,9 +18,6 @@ class PreFireViewController: UIViewController {
     @IBOutlet weak var pfDuration: UILabel!
     let preFireDurationLabel: UILabel = {
         let label = UILabel()
-//        label.textAlignment = .center
-//        label.font = UIFont.boldSystemFont(ofSize: 32)
-//        label.textColor = UIColor.white
         return label
     }()
     var pfLabel: UILabel!
@@ -29,8 +26,8 @@ class PreFireViewController: UIViewController {
             pfDuration.text = "\(pfDurTime)"
         }
     }
-    
     var shapeLayer = CAShapeLayer()
+    @IBOutlet weak var presentView: UIImageView!
     
     fileprivate func setupDurationLabel() {
         pfDuration.translatesAutoresizingMaskIntoConstraints = false
@@ -82,17 +79,18 @@ class PreFireViewController: UIViewController {
         if pfDurTime == 0 {
             shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-            pfDuration.text = "\(fireDuration)"
             timerPreFire.invalidate()
             
+            // if text is ever needed to show
+//            pfDuration.text = "\(fireDuration)"
             showPresent()
-            
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
         }
     }
     
     func showPresent() {
-        
+        presentView.isHidden = false
+        shapeLayer.removeFromSuperlayer()
     }
     
     @objc func fireTime() {
