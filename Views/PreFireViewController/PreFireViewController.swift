@@ -15,6 +15,7 @@ class PreFireViewController: UIViewController {
     var timerDuration = Timer()
     var preFireTime: Int!
     var fireDuration = 0
+    @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var pfDuration: UILabel!
     let preFireDurationLabel: UILabel = {
         let label = UILabel()
@@ -26,6 +27,9 @@ class PreFireViewController: UIViewController {
             pfDuration.text = "\(pfDurTime)"
         }
     }
+    
+    var characterPicked = false
+    
     var shapeLayer = CAShapeLayer()
     @IBOutlet weak var presentView: UIImageView!
     
@@ -48,6 +52,7 @@ class PreFireViewController: UIViewController {
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
         drawPreFireCircle1(color: UIColor.green)
+        
     }
     
     func drawPreFireCircle1(color: UIColor) {
@@ -89,9 +94,24 @@ class PreFireViewController: UIViewController {
     }
     
     func showPresent() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
+        presentView.addGestureRecognizer(tapGesture)
+        presentView.isUserInteractionEnabled = true
         presentView.isHidden = false
         shapeLayer.removeFromSuperlayer()
+        pfDuration.removeFromSuperview()
+        
     }
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+            // if the tapped view is a UIImageView then set it to imageview
+            if (gesture.view as? UIImageView) != nil {
+                print("Image Tapped")
+                presentView.removeFromSuperview()
+                randomlyPickCharacter()
+                //Here you can initiate your new ViewController
+
+            }
+        }
     
     @objc func fireTime() {
         fireDuration = fireDuration - 1
@@ -110,6 +130,20 @@ class PreFireViewController: UIViewController {
         basicAnimation.isRemovedOnCompletion = false
         basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         shapeLayer.add(basicAnimation, forKey: nil)
+    }
+    
+    func randomlyPickCharacter() {
+        characterPicked = false
+        let numberOfImages: UInt32 = 12
+        let random = arc4random_uniform(numberOfImages)
+        let imageName = "character_\(random)"
+        if characterPicked == false {
+            characterImage.image = UIImage(named: imageName)
+            print("\(String(describing: characterImage.image))")
+//            characterButton.setImage(myImage, for: UIControlState.normal)
+            
+            characterPicked = true
+        }
     }
     
     @IBAction func closeTapped(_ sender: UIButton) {

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,18 +61,16 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIf-gP-UIZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIf-gP-UIZ">
                                         <rect key="frame" x="14" y="55" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="delete"/>
                                         <connections>
                                             <action selector="closeTapped:" destination="ljv-3F-WUT" eventType="touchUpInside" id="1VW-qZ-jrZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-b6-xXm" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-b6-xXm" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
                                         <rect key="frame" x="316" y="794" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" name="GreyedOutColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="fab">
@@ -87,8 +83,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Z2H-YE-C1V" firstAttribute="centerY" secondItem="RKx-wT-q4g" secondAttribute="centerY" id="CD1-3W-7ic"/>
-                                    <constraint firstItem="Z2H-YE-C1V" firstAttribute="centerX" secondItem="RKx-wT-q4g" secondAttribute="centerX" id="odn-H3-xKV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Orr-b6-xXm" secondAttribute="trailing" constant="38" id="3nB-gi-Sr6"/>
+                                    <constraint firstItem="Z2H-YE-C1V" firstAttribute="centerX" secondItem="RKx-wT-q4g" secondAttribute="centerX" id="7Pa-sy-9qz"/>
+                                    <constraint firstItem="Z2H-YE-C1V" firstAttribute="centerY" secondItem="RKx-wT-q4g" secondAttribute="centerY" id="MRC-wM-zix"/>
+                                    <constraint firstItem="Orr-b6-xXm" firstAttribute="bottom" secondItem="RKx-wT-q4g" secondAttribute="bottomMargin" id="bK6-4o-yaH"/>
+                                    <constraint firstItem="RIf-gP-UIZ" firstAttribute="leading" secondItem="RKx-wT-q4g" secondAttribute="leading" constant="14" id="tiP-AJ-yvY"/>
+                                    <constraint firstItem="RIf-gP-UIZ" firstAttribute="top" secondItem="RKx-wT-q4g" secondAttribute="top" constant="55" id="wWv-CM-OIL"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -97,16 +97,17 @@
                                         <exclude reference="8Ix-XJ-pQ7"/>
                                         <exclude reference="SWg-yh-sBe"/>
                                         <exclude reference="qce-0C-2IT"/>
+                                        <exclude reference="Orr-b6-xXm"/>
                                     </mask>
                                 </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RKx-wT-q4g" firstAttribute="top" secondItem="xa6-uT-lTg" secondAttribute="top" constant="-44" id="QAq-p2-NcK"/>
-                            <constraint firstItem="xa6-uT-lTg" firstAttribute="bottom" secondItem="RKx-wT-q4g" secondAttribute="bottom" constant="-34" id="ol9-kk-wfL"/>
-                            <constraint firstItem="xa6-uT-lTg" firstAttribute="trailing" secondItem="RKx-wT-q4g" secondAttribute="trailing" id="uZY-2K-dO6"/>
-                            <constraint firstItem="RKx-wT-q4g" firstAttribute="leading" secondItem="xa6-uT-lTg" secondAttribute="leading" id="yBR-qf-yEa"/>
+                            <constraint firstItem="RKx-wT-q4g" firstAttribute="top" secondItem="FAs-K7-SUb" secondAttribute="topMargin" constant="-44" id="6dV-WK-otk"/>
+                            <constraint firstItem="RKx-wT-q4g" firstAttribute="centerY" secondItem="FAs-K7-SUb" secondAttribute="centerY" id="L7c-ja-aAl"/>
+                            <constraint firstItem="RKx-wT-q4g" firstAttribute="leading" secondItem="xa6-uT-lTg" secondAttribute="leading" id="NK5-MP-azf"/>
+                            <constraint firstItem="RKx-wT-q4g" firstAttribute="centerX" secondItem="FAs-K7-SUb" secondAttribute="centerX" id="o2G-LD-qfP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xa6-uT-lTg"/>
                     </view>

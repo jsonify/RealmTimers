@@ -26,7 +26,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     var preFireDuration = 0
     var fireDuration = 0
-    var multiplier = ClockStyle.debug.rawValue
+    var multiplier = ClockStyle.seconds.rawValue
     
     let gradient = CAGradientLayer()
     // list of array holding 2 colors
