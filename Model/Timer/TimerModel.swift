@@ -5,17 +5,17 @@
 //  Created by Jason on 6/26/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
-//import SwiftDate
+
 import Foundation
 import RealmSwift
 
 class TimerModel: Object {
-    @objc dynamic var name = Date()
+    @objc dynamic var timerTime = Date()
     @objc dynamic var preFireDuration = ""
     
-    convenience init(name: Date, preFireDuration: String) {
+    convenience init(timerTime: Date, preFireDuration: String) {
         self.init()
-        self.name = name
+        self.timerTime = timerTime
         self.preFireDuration = preFireDuration
     }
     

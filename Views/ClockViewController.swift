@@ -111,7 +111,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         
         if let index = timerIndexToEdit {
             timeLabel.text = formatTime(date: Date())
-            timerTime = timer[index].name
+            timerTime = timer[index].timerTime
             fireTimeLabel.text = formatTime(date: timerTime)
             
             // PreFire Work

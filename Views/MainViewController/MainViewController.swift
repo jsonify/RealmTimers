@@ -5,6 +5,7 @@
 //  Created by Jason on 6/26/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
+
 import SwiftDate
 import RealmSwift
 import UIKit
@@ -66,7 +67,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
         let item = timerItem[indexPath.row]
 
-        cell.nameLabel.text = "\(formatTime(date: item.name))"
+        cell.nameLabel.text = "\(formatTime(date: item.timerTime))"
         cell.preFireLabel.text = "\(item.preFireDuration) min"
         
         return cell
@@ -100,7 +101,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let delete = UIContextualAction(style: .destructive, title: "") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             
-            let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete \(timerName.name)?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete \(timerName.timerTime)?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction) in
                 actionPerformed(false)
