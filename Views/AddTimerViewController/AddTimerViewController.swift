@@ -23,12 +23,14 @@ class AddTimerViewController: UIViewController {
     var timerModel: Results<TimerModel>?
     
     var preFireDuration = 0
+    var timerName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         configureTimePicker()
     }
+    
     
     fileprivate func configureTimePicker() {
         fireTimePicker.setDate(NSDate(timeIntervalSinceNow: 60) as Date, animated: false)
@@ -47,13 +49,18 @@ class AddTimerViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: UIButton) {
+//        print("\(String(describing: nameTextField.text))")
         let currentDateTime = fireTimePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
-        
+        if nameTextField.text!.isEmpty {
+            timerName = "New Timer"
+        } else {
+            timerName = nameTextField.text
+        }
         let preFireAmount = getSelectedPreFireDuration()
         
-        timerFunctions.createTimer(timerModel: TimerModel(timerTime: currentDateTime, preFireDuration:
+        timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration:
             "\(preFireAmount)"))
         if let doneSaving = doneSaving {
             doneSaving()

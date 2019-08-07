@@ -10,11 +10,15 @@ import Foundation
 import RealmSwift
 
 class TimerModel: Object {
+    @objc dynamic var id: String!
+    @objc dynamic var timerName = ""
     @objc dynamic var timerTime = Date()
     @objc dynamic var preFireDuration = ""
     
-    convenience init(timerTime: Date, preFireDuration: String) {
+    convenience init(timerName: String,timerTime: Date, preFireDuration: String) {
         self.init()
+        id = UUID().uuidString
+        self.timerName = timerName
         self.timerTime = timerTime
         self.preFireDuration = preFireDuration
     }
