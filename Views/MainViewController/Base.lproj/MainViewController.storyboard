@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="abm-5L-Rju">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="abm-5L-Rju">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -82,18 +82,15 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJx-Ns-lcb">
-                                <rect key="frame" x="289" y="761" width="60" height="60"/>
+                                <rect key="frame" x="229" y="761" width="120" height="120"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="fab">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Usr-f7-m4p" kind="show" id="eaE-be-X5k"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-om-aJo" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="165" y="600" width="44" height="44"/>
+                                <rect key="frame" x="165" y="584" width="44" height="44"/>
                                 <color key="backgroundColor" name="PinkAccentColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="fab">
@@ -120,8 +117,7 @@
                         <constraints>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="centerX" secondItem="8z2-om-aJo" secondAttribute="centerX" id="EWt-fk-zci"/>
                             <constraint firstItem="dJx-Ns-lcb" firstAttribute="top" secondItem="gzK-32-aT1" secondAttribute="bottom" constant="94" id="KJX-Yv-qgP"/>
-                            <constraint firstItem="Cox-pl-ndX" firstAttribute="bottom" secondItem="8z2-om-aJo" secondAttribute="bottom" constant="23" id="KLY-iN-TQA"/>
-                            <constraint firstItem="8z2-om-aJo" firstAttribute="top" secondItem="Cox-pl-ndX" secondAttribute="top" constant="600" id="Oxc-gK-7wi"/>
+                            <constraint firstItem="Cox-pl-ndX" firstAttribute="bottom" secondItem="8z2-om-aJo" secondAttribute="bottom" constant="39" id="KLY-iN-TQA"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="leading" secondItem="Cox-pl-ndX" secondAttribute="leading" id="Yv6-p2-zSO"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="top" secondItem="Cox-pl-ndX" secondAttribute="top" constant="105" id="fGT-8f-YjK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dJx-Ns-lcb" secondAttribute="trailing" constant="10" id="rMn-Zh-3c6"/>
@@ -161,14 +157,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Nm-1l-gc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3825" y="644"/>
-        </scene>
-        <!--SettingsViewController-->
-        <scene sceneID="7qJ-po-VSB">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SettingsViewController" id="Usr-f7-m4p" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bWg-dF-3T0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4492.753623188406" y="234.375"/>
         </scene>
     </scenes>
     <resources>
