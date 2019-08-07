@@ -66,7 +66,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
         let item = timerItem[indexPath.row]
-
+        cell.timerNameLabel.text = item.timerName
         cell.nameLabel.text = "\(formatTime(date: item.timerTime))"
         cell.preFireLabel.text = "\(item.preFireDuration) min"
         

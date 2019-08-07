@@ -11,6 +11,7 @@ import UIKit
 class MainCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var timerNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var preFireLabel: UILabel!
     @IBOutlet weak var fireDuration: UILabel!
