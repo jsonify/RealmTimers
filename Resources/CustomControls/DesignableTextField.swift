@@ -50,7 +50,10 @@ class DesignableTextField: UITextField {
             leftViewMode = .never
         }
         
-//        attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        attributedPlaceholder = NSAttributedString(string: "placeholder text" , attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+//        self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
+//        attributedPlaceholder = NSAttributedString(string: "Placeholder Text", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        
     }
     
 

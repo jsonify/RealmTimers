@@ -79,3 +79,14 @@ class AddTimerViewController: UIViewController {
         return 30
     }
 }
+
+extension UITextField{
+    @IBInspectable var placeholderColor: UIColor {
+        get {
+            return self.attributedPlaceholder?.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? UIColor ?? .lightText
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "", attributes: [.foregroundColor: newValue])
+        }
+    }
+}
