@@ -16,6 +16,7 @@ class AddTimerViewController: UIViewController {
     @IBOutlet var preFireDurationButtons: [UIButton]!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet var menuItemView: [UIView]!
     
     var timer = TimerModel()
     var doneSaving: (() -> ())?
@@ -29,6 +30,10 @@ class AddTimerViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         configureTimePicker()
+        for item in menuItemView {
+            item.addShadowAndRoundedCorners()
+            
+        }
     }
     
     

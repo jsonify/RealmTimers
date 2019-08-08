@@ -28,7 +28,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-70-sn2" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="16" y="617" width="135" height="50"/>
-                                <color key="backgroundColor" name="PinkAccentColor"/>
+                                <color key="backgroundColor" name="PreBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="JVk-CF-QTw"/>
                                     <constraint firstAttribute="height" constant="50" id="aR8-lw-xwg"/>
@@ -40,6 +40,10 @@
                                     <action selector="cancelTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="KkQ-p4-Pl7"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXL-6U-kCl">
+                                <rect key="frame" x="16" y="170" width="343" height="209"/>
+                                <color key="backgroundColor" white="0.25" alpha="0.55432988559999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLU-W2-6Mb">
                                 <rect key="frame" x="77" y="218" width="219" height="150"/>
                                 <color key="tintColor" name="BackgroundColor"/>
@@ -49,7 +53,7 @@
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-qC-vWI" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="224" y="617" width="135" height="50"/>
-                                <color key="backgroundColor" name="PinkAccentColor"/>
+                                <color key="backgroundColor" name="PreBlue"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -57,8 +61,8 @@
                                     <action selector="saveTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="zjw-r8-Bkg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-UJ-CJl">
-                                <rect key="frame" x="0.0" y="179" width="375" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-UJ-CJl">
+                                <rect key="frame" x="33" y="179" width="309" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="sec-HT-cjQ"/>
                                 </constraints>
@@ -82,7 +86,7 @@
                                             </button>
                                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYp-vY-2jE">
                                                 <rect key="frame" x="88" y="0.0" width="77" height="77"/>
-                                                <color key="tintColor" name="PinkTintColor"/>
+                                                <color key="tintColor" name="PreBlue"/>
                                                 <state key="normal" image="pie2"/>
                                                 <connections>
                                                     <action selector="preFireDurationSelected:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="ChL-8A-u1d"/>
@@ -155,8 +159,8 @@
                                     <constraint firstItem="QQg-uZ-3Vs" firstAttribute="centerX" secondItem="40V-CX-49e" secondAttribute="centerX" id="tBm-fs-Mea"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pre-Fire Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3s-0H-qLQ">
-                                <rect key="frame" x="0.0" y="407" width="375" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pre-Fire Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3s-0H-qLQ">
+                                <rect key="frame" x="33" y="407" width="309" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="RDb-zo-Z9X"/>
                                 </constraints>
@@ -174,7 +178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-bW-Zkq" customClass="DesignableTextField" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="62" y="89" width="251" height="57"/>
+                                <rect key="frame" x="16" y="89" width="343" height="57"/>
                                 <color key="backgroundColor" white="0.25" alpha="0.55432988558028173" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -192,6 +196,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gf-MD-VMJ">
+                                <rect key="frame" x="14" y="407" width="345" height="173"/>
+                                <color key="backgroundColor" white="0.25" alpha="0.55432988559999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.070588235289999995" green="0.078431372550000003" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -200,28 +208,36 @@
                             <constraint firstItem="PYf-bW-Zkq" firstAttribute="top" secondItem="4Pc-FS-lWW" secondAttribute="bottom" constant="37.5" id="3Tb-AK-Q8K"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="top" secondItem="PYf-bW-Zkq" secondAttribute="bottom" constant="33" id="4n8-Vc-EeN"/>
                             <constraint firstItem="p3s-0H-qLQ" firstAttribute="top" secondItem="nLU-W2-6Mb" secondAttribute="bottom" constant="39" id="4z4-CP-aHu"/>
+                            <constraint firstItem="MXL-6U-kCl" firstAttribute="top" secondItem="PYf-bW-Zkq" secondAttribute="bottom" constant="24" id="54P-RI-cDp"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="top" secondItem="5iY-WR-PcU" secondAttribute="top" constant="20" id="5QS-0K-6Zz"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="trailing" secondItem="a2q-qC-vWI" secondAttribute="trailing" id="5bW-iQ-dob"/>
                             <constraint firstItem="lIe-70-sn2" firstAttribute="bottom" secondItem="5iY-WR-PcU" secondAttribute="bottom" id="Bwv-EP-FEY"/>
                             <constraint firstItem="hfB-gV-Zyv" firstAttribute="leading" secondItem="gHe-xc-y4g" secondAttribute="leadingMargin" id="Ceh-kd-wCp"/>
-                            <constraint firstItem="PYf-bW-Zkq" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="62" id="EVf-e3-LSg"/>
+                            <constraint firstItem="PYf-bW-Zkq" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="16" id="EVf-e3-LSg"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="-1" id="FsI-64-ymz"/>
                             <constraint firstItem="lIe-70-sn2" firstAttribute="top" secondItem="hfB-gV-Zyv" secondAttribute="bottom" constant="44" id="JjD-wv-1Bl"/>
                             <constraint firstItem="0kc-iL-HnP" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" id="KH5-Kd-ACT"/>
                             <constraint firstItem="a2q-qC-vWI" firstAttribute="trailing" secondItem="gHe-xc-y4g" secondAttribute="trailingMargin" id="NCI-Fh-g1V"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="centerX" secondItem="PYf-bW-Zkq" secondAttribute="centerX" constant="-1" id="OES-Mp-cpr"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="centerX" secondItem="hfB-gV-Zyv" secondAttribute="centerX" id="OET-in-MR4"/>
+                            <constraint firstItem="p3s-0H-qLQ" firstAttribute="top" secondItem="MXL-6U-kCl" secondAttribute="bottom" constant="28" id="RFl-KD-DWp"/>
+                            <constraint firstItem="lIe-70-sn2" firstAttribute="top" secondItem="5gf-MD-VMJ" secondAttribute="bottom" constant="37" id="VYY-kd-PrW"/>
                             <constraint firstItem="0kc-iL-HnP" firstAttribute="top" secondItem="5iY-WR-PcU" secondAttribute="top" id="Zfq-sU-XM0"/>
+                            <constraint firstItem="MXL-6U-kCl" firstAttribute="leading" secondItem="hfB-gV-Zyv" secondAttribute="leading" id="aqn-Of-M7r"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="top" secondItem="p3s-0H-qLQ" secondAttribute="top" id="b3g-Y2-eSr"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="trailing" secondItem="p3s-0H-qLQ" secondAttribute="trailing" id="dGj-9s-7kS"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="centerX" secondItem="hfB-gV-Zyv" secondAttribute="centerX" id="dtf-7v-I2F"/>
                             <constraint firstItem="0kc-iL-HnP" firstAttribute="trailing" secondItem="5iY-WR-PcU" secondAttribute="trailing" id="feY-TB-YKU"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="leading" secondItem="p3s-0H-qLQ" secondAttribute="leading" id="fts-1s-yGU"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="top" secondItem="8i1-UJ-CJl" secondAttribute="bottom" constant="7" id="gDK-IM-0A6"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="77" id="hQ7-iM-K9w"/>
                             <constraint firstItem="lIe-70-sn2" firstAttribute="baseline" secondItem="a2q-qC-vWI" secondAttribute="firstBaseline" id="jcv-LH-u2b"/>
-                            <constraint firstItem="4Pc-FS-lWW" firstAttribute="trailing" secondItem="8i1-UJ-CJl" secondAttribute="trailing" constant="-1" id="l2c-T5-aDt"/>
+                            <constraint firstItem="4Pc-FS-lWW" firstAttribute="trailing" secondItem="8i1-UJ-CJl" secondAttribute="trailing" constant="32" id="l2c-T5-aDt"/>
+                            <constraint firstItem="MXL-6U-kCl" firstAttribute="trailing" secondItem="a2q-qC-vWI" secondAttribute="trailing" id="lBu-HP-AR2"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="centerX" secondItem="gHe-xc-y4g" secondAttribute="centerX" constant="-1" id="pyE-YW-vm0"/>
                             <constraint firstItem="a2q-qC-vWI" firstAttribute="leading" secondItem="lIe-70-sn2" secondAttribute="trailing" constant="73" id="qUn-dk-AYv"/>
                             <constraint firstItem="hfB-gV-Zyv" firstAttribute="leading" secondItem="lIe-70-sn2" secondAttribute="leading" id="qy0-NU-bi9"/>
-                            <constraint firstItem="4Pc-FS-lWW" firstAttribute="leading" secondItem="8i1-UJ-CJl" secondAttribute="leading" constant="-1" id="r0c-Je-Fth"/>
+                            <constraint firstItem="4Pc-FS-lWW" firstAttribute="leading" secondItem="8i1-UJ-CJl" secondAttribute="leading" constant="-34" id="r0c-Je-Fth"/>
                             <constraint firstItem="5iY-WR-PcU" firstAttribute="trailing" secondItem="hfB-gV-Zyv" secondAttribute="trailing" constant="18" id="vCW-FU-2Cx"/>
                             <constraint firstItem="hfB-gV-Zyv" firstAttribute="top" secondItem="nLU-W2-6Mb" secondAttribute="bottom" constant="68" id="wXx-bN-1JT"/>
                         </constraints>
@@ -236,6 +252,8 @@
                         <outletCollection property="preFireDurationButtons" destination="tlu-hJ-hay" collectionClass="NSMutableArray" id="Bqq-3V-jFa"/>
                         <outletCollection property="preFireDurationButtons" destination="rVV-eh-ye4" collectionClass="NSMutableArray" id="lz9-Ga-DFm"/>
                         <outletCollection property="preFireDurationButtons" destination="VYp-vY-2jE" collectionClass="NSMutableArray" id="tkF-2A-jYe"/>
+                        <outletCollection property="menuItemView" destination="MXL-6U-kCl" collectionClass="NSMutableArray" id="5Sl-9i-aqc"/>
+                        <outletCollection property="menuItemView" destination="5gf-MD-VMJ" collectionClass="NSMutableArray" id="oJb-QA-qaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apL-mN-cN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -255,11 +273,8 @@
         <namedColor name="DarkBlueColor">
             <color red="0.13725490196078433" green="0.19607843137254902" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PinkAccentColor">
-            <color red="1" green="0.50588235294117645" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PinkTintColor">
-            <color red="1" green="0.50588235294117645" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="PreBlue">
+            <color red="0.17254901960784313" green="0.38039215686274508" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
