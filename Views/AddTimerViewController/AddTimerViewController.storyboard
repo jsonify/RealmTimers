@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LibreBaskerville-Regular.ttf">
+            <string>LibreBaskerville-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Add Timer View Controller-->
         <scene sceneID="plB-Ii-LA6">
@@ -17,6 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night-sky" translatesAutoresizingMaskIntoConstraints="NO" id="0kc-iL-HnP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-70-sn2" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="16" y="617" width="135" height="50"/>
                                 <color key="backgroundColor" name="PinkAccentColor"/>
@@ -53,7 +62,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="sec-HT-cjQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="LibreBaskerville-Regular" family="Libre Baskerville" pointSize="17"/>
                                 <color key="textColor" name="BackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -151,30 +160,42 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="RDb-zo-Z9X"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="LibreBaskerville-Regular" family="Libre Baskerville" pointSize="17"/>
                                 <color key="textColor" name="BackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-bW-Zkq">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Click to enter name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-bW-Zkq" customClass="DesignableTextField" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="62" y="106" width="251" height="34"/>
+                                <color key="backgroundColor" white="0.25" alpha="0.34284220952394368" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="T4h-xm-zhN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="LibreBaskerville-Regular" family="Libre Baskerville" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.text">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pc-FS-lWW">
                                 <rect key="frame" x="0.0" y="67" width="375" height="31.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31.5" id="TUw-Et-f3z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="LibreBaskerville-Regular" family="Libre Baskerville" pointSize="17"/>
                                 <color key="textColor" name="BackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="DarkBackgroundColor"/>
+                        <color key="backgroundColor" red="0.070588235289999995" green="0.078431372550000003" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="bottom" secondItem="5iY-WR-PcU" secondAttribute="bottom" id="0JV-tV-rsm"/>
                             <constraint firstItem="lIe-70-sn2" firstAttribute="top" secondItem="a2q-qC-vWI" secondAttribute="top" id="3Fx-k5-drZ"/>
                             <constraint firstItem="PYf-bW-Zkq" firstAttribute="top" secondItem="4Pc-FS-lWW" secondAttribute="bottom" constant="7.5" id="3Tb-AK-Q8K"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="top" secondItem="PYf-bW-Zkq" secondAttribute="bottom" constant="39" id="4n8-Vc-EeN"/>
@@ -185,10 +206,13 @@
                             <constraint firstItem="PYf-bW-Zkq" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="62" id="EVf-e3-LSg"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" id="FsI-64-ymz"/>
                             <constraint firstItem="lIe-70-sn2" firstAttribute="top" secondItem="hfB-gV-Zyv" secondAttribute="bottom" constant="44" id="JjD-wv-1Bl"/>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" id="KH5-Kd-ACT"/>
                             <constraint firstItem="a2q-qC-vWI" firstAttribute="trailing" secondItem="gHe-xc-y4g" secondAttribute="trailingMargin" id="NCI-Fh-g1V"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="centerX" secondItem="PYf-bW-Zkq" secondAttribute="centerX" id="OES-Mp-cpr"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="centerX" secondItem="hfB-gV-Zyv" secondAttribute="centerX" id="OET-in-MR4"/>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="top" secondItem="5iY-WR-PcU" secondAttribute="top" id="Zfq-sU-XM0"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="trailing" secondItem="p3s-0H-qLQ" secondAttribute="trailing" id="dGj-9s-7kS"/>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="trailing" secondItem="5iY-WR-PcU" secondAttribute="trailing" id="feY-TB-YKU"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="leading" secondItem="p3s-0H-qLQ" secondAttribute="leading" id="fts-1s-yGU"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="top" secondItem="8i1-UJ-CJl" secondAttribute="bottom" constant="7" id="gDK-IM-0A6"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="77" id="hQ7-iM-K9w"/>
@@ -220,15 +244,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="night-sky" width="1280" height="1920"/>
         <image name="pie1" width="77" height="77"/>
         <image name="pie2" width="77" height="77"/>
         <image name="pie3" width="77" height="77"/>
         <image name="pie4" width="75" height="75"/>
         <namedColor name="BackgroundColor">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="DarkBackgroundColor">
-            <color red="0.0078431372549019607" green="0.054901960784313725" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DarkBlueColor">
             <color red="0.13725490196078433" green="0.19607843137254902" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
