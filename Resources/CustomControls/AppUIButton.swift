@@ -13,7 +13,7 @@ class AppUIButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        backgroundColor = Theme.pinkTintColor
+        backgroundColor = #colorLiteral(red: 0.1545447111, green: 0.3621617556, blue: 0.9042051435, alpha: 1)
         layer.cornerRadius = frame.height / 2
         setTitleColor(Theme.primaryColor, for: .normal)
     }
