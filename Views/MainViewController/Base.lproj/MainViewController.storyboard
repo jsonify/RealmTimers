@@ -93,14 +93,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJx-Ns-lcb">
-                                <rect key="frame" x="289" y="761" width="60" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="fab">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-om-aJo" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="165" y="584" width="44" height="44"/>
                                 <color key="backgroundColor" name="PinkAccentColor"/>
@@ -112,9 +104,9 @@
                                     <segue destination="1hk-cg-xd8" kind="presentation" identifier="toAddTimerSegue" modalTransitionStyle="coverVertical" id="wNZ-7b-Aa4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFk-b9-2Vi" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="75" y="808" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFk-b9-2Vi">
+                                <rect key="frame" x="20" y="587" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" name="DeleteColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="fab">
@@ -124,25 +116,27 @@
                                     <action selector="deleteTapped:" destination="abm-5L-Rju" eventType="touchUpInside" id="FZW-6q-gp4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJx-Ns-lcb">
+                                <rect key="frame" x="299" y="589" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="fab">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="DarkBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="centerX" secondItem="8z2-om-aJo" secondAttribute="centerX" id="EWt-fk-zci"/>
-                            <constraint firstItem="dJx-Ns-lcb" firstAttribute="top" secondItem="gzK-32-aT1" secondAttribute="bottom" constant="94" id="KJX-Yv-qgP"/>
                             <constraint firstItem="Cox-pl-ndX" firstAttribute="bottom" secondItem="8z2-om-aJo" secondAttribute="bottom" constant="39" id="KLY-iN-TQA"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="leading" secondItem="Cox-pl-ndX" secondAttribute="leading" id="Yv6-p2-zSO"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="top" secondItem="Cox-pl-ndX" secondAttribute="top" constant="105" id="fGT-8f-YjK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dJx-Ns-lcb" secondAttribute="trailing" constant="10" id="rMn-Zh-3c6"/>
                             <constraint firstItem="8z2-om-aJo" firstAttribute="leading" secondItem="Cox-pl-ndX" secondAttribute="leading" constant="165" id="toV-Fu-4Og"/>
                             <constraint firstItem="8z2-om-aJo" firstAttribute="centerX" secondItem="QbN-O3-kLB" secondAttribute="centerX" id="wKZ-w0-AhX"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="bottom" secondItem="Cox-pl-ndX" secondAttribute="bottom" id="xdI-uw-QmL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cox-pl-ndX"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="bFk-b9-2Vi"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="mcE-ub-lW8"/>
                     <connections>
