@@ -16,6 +16,9 @@ class Theme {
     
     // Colors
     static let primaryColor = UIColor(named: "PrimaryColor")
+    static let tintColor = UIColor(named: "TintColor")
+    static let darkTintColor = UIColor(named: "DarkTintColor")
+    
     static let accentColor = UIColor(named: "AccentColor")
     static let backgroundColor = UIColor(named: "BackgroundColor")
     static let edit = UIColor(named: "EditColor")
