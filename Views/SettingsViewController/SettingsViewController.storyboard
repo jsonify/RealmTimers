@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yNf-5s-XvX">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="pNQ-gL-x7C">
+            <objects>
+                <viewController id="yNf-5s-XvX" customClass="SettingsViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cWh-AL-zA8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ivy-final" translatesAutoresizingMaskIntoConstraints="NO" id="snV-aM-Iwr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Daf-Cd-Wh3" customClass="FloatingActionButton" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="127.5" y="529" width="120" height="120"/>
+                                <color key="backgroundColor" name="TintColor"/>
+                                <color key="tintColor" name="PrimaryColor"/>
+                                <state key="normal" image="fab"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeTapped:" destination="yNf-5s-XvX" eventType="touchUpInside" id="kXJ-0J-1bh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="snV-aM-Iwr" secondAttribute="bottom" id="LS8-sd-4n2"/>
+                            <constraint firstItem="SdA-JY-3q9" firstAttribute="bottom" secondItem="Daf-Cd-Wh3" secondAttribute="bottom" constant="18" id="Lom-eJ-37r"/>
+                            <constraint firstItem="Daf-Cd-Wh3" firstAttribute="centerX" secondItem="cWh-AL-zA8" secondAttribute="centerX" id="OH9-1A-2iY"/>
+                            <constraint firstItem="snV-aM-Iwr" firstAttribute="leading" secondItem="SdA-JY-3q9" secondAttribute="leading" id="WdC-jw-8Mi"/>
+                            <constraint firstItem="snV-aM-Iwr" firstAttribute="top" secondItem="cWh-AL-zA8" secondAttribute="top" id="bT3-mr-a0K"/>
+                            <constraint firstItem="snV-aM-Iwr" firstAttribute="trailing" secondItem="SdA-JY-3q9" secondAttribute="trailing" id="rSX-qn-4I4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SdA-JY-3q9"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="Daf-Cd-Wh3" id="Rui-ut-Pup"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0G4-X5-aN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4557.971014492754" y="213.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="fab" width="60" height="60"/>
+        <image name="ivy-final" width="1333" height="2000"/>
+        <namedColor name="PrimaryColor">
+            <color red="0.75686274509803919" green="0.76078431372549016" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TintColor">
+            <color red="0.23137254901960785" green="0.30196078431372547" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

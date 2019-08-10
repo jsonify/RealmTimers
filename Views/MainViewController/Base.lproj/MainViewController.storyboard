@@ -129,6 +129,9 @@
                                         <state key="normal" image="settings">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="iuz-tj-7Tv" kind="show" identifier="toSettingsSegue" id="Xhr-8a-ej4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23137254901960785" green="0.30196078431372547" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,6 +195,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Nm-1l-gc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3825" y="644"/>
+        </scene>
+        <!--SettingsViewController-->
+        <scene sceneID="qrT-FR-v0y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingsViewController" id="iuz-tj-7Tv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1m-gx-HrU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4558" y="214"/>
         </scene>
     </scenes>
     <resources>
