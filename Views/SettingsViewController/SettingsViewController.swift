@@ -10,11 +10,15 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var soundView: UIViewX!
+    @IBOutlet weak var generalView: UIViewX!
     @IBOutlet weak var closeButton: FloatingActionButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         closeButton.transform = CGAffineTransform(translationX: view.frame.width - 260, y: 0)
-        // Do any additional setup after loading the view.
+        soundView.addShadowAndRoundedCorners()
+        generalView.addShadowAndRoundedCorners()
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
