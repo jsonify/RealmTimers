@@ -63,7 +63,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="0.6832911532" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.23137254900000001" green="0.30196078430000001" blue="0.40784313729999999" alpha="0.83126100349999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="UDI-1e-Y3J" secondAttribute="trailing" id="5kC-fN-L3F"/>
                                                         <constraint firstItem="h0V-qu-6qb" firstAttribute="top" secondItem="RkT-oD-0UV" secondAttribute="top" constant="70" id="69D-dp-sHf"/>
@@ -93,53 +93,82 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-om-aJo" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="165" y="584" width="44" height="44"/>
-                                <color key="backgroundColor" name="PinkAccentColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="fab">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="1hk-cg-xd8" kind="presentation" identifier="toAddTimerSegue" modalTransitionStyle="coverVertical" id="wNZ-7b-Aa4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFk-b9-2Vi">
-                                <rect key="frame" x="20" y="587" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" name="DeleteColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="fab">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteTapped:" destination="abm-5L-Rju" eventType="touchUpInside" id="FZW-6q-gp4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJx-Ns-lcb">
+                            <view alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BI8-3T-QuP" customClass="UIViewX" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="179" y="467" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-om-aJo">
+                                        <rect key="frame" x="70" y="63" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="PrimaryColor"/>
+                                        <state key="normal" image="edit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="1hk-cg-xd8" kind="presentation" identifier="toAddTimerSegue" modalTransitionStyle="coverVertical" id="wNZ-7b-Aa4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFk-b9-2Vi">
+                                        <rect key="frame" x="35" y="128" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="PrimaryColor"/>
+                                        <state key="normal" image="trash">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteTapped:" destination="abm-5L-Rju" eventType="touchUpInside" id="FZW-6q-gp4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJx-Ns-lcb">
+                                        <rect key="frame" x="135" y="29" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="PrimaryColor"/>
+                                        <state key="normal" image="settings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.30196078431372547" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="150"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkv-hk-jlW" customClass="FloatingActionButton" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="299" y="589" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="fab">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <color key="backgroundColor" name="TintColor"/>
+                                <color key="tintColor" name="PrimaryColor"/>
+                                <state key="normal" image="fab"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="menuTapped:" destination="abm-5L-Rju" eventType="touchUpInside" id="aiU-bT-Jfj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="DarkBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gzK-32-aT1" firstAttribute="centerX" secondItem="8z2-om-aJo" secondAttribute="centerX" id="EWt-fk-zci"/>
-                            <constraint firstItem="Cox-pl-ndX" firstAttribute="bottom" secondItem="8z2-om-aJo" secondAttribute="bottom" constant="39" id="KLY-iN-TQA"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="leading" secondItem="Cox-pl-ndX" secondAttribute="leading" id="Yv6-p2-zSO"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="top" secondItem="Cox-pl-ndX" secondAttribute="top" constant="105" id="fGT-8f-YjK"/>
-                            <constraint firstItem="8z2-om-aJo" firstAttribute="leading" secondItem="Cox-pl-ndX" secondAttribute="leading" constant="165" id="toV-Fu-4Og"/>
-                            <constraint firstItem="8z2-om-aJo" firstAttribute="centerX" secondItem="QbN-O3-kLB" secondAttribute="centerX" id="wKZ-w0-AhX"/>
+                            <constraint firstItem="gzK-32-aT1" firstAttribute="trailing" secondItem="Cox-pl-ndX" secondAttribute="trailing" id="qES-XF-JPd"/>
+                            <constraint firstItem="gzK-32-aT1" firstAttribute="leading" secondItem="Cox-pl-ndX" secondAttribute="leading" id="uoY-LK-WTh"/>
                             <constraint firstItem="gzK-32-aT1" firstAttribute="bottom" secondItem="Cox-pl-ndX" secondAttribute="bottom" id="xdI-uw-QmL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cox-pl-ndX"/>
                     </view>
                     <navigationItem key="navigationItem" id="mcE-ub-lW8"/>
                     <connections>
+                        <outlet property="deleteTimersButton" destination="bFk-b9-2Vi" id="cSo-mm-mPK"/>
+                        <outlet property="menuView" destination="BI8-3T-QuP" id="yhF-Ao-4gh"/>
+                        <outlet property="newTimerButton" destination="8z2-om-aJo" id="hth-ik-zHb"/>
                         <outlet property="settingsButton" destination="dJx-Ns-lcb" id="mXj-Cb-hnu"/>
                         <outlet property="tableView" destination="gzK-32-aT1" id="OOv-7L-RZz"/>
                     </connections>
@@ -167,15 +196,18 @@
     </scenes>
     <resources>
         <image name="bonfire" width="3248" height="4872"/>
+        <image name="edit" width="28" height="28"/>
         <image name="fab" width="60" height="60"/>
+        <image name="settings" width="28" height="24"/>
+        <image name="trash" width="26" height="28"/>
         <namedColor name="DarkBackgroundColor">
             <color red="0.0078431372549019607" green="0.054901960784313725" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="DeleteColor">
-            <color red="0.90980392156862744" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="PrimaryColor">
+            <color red="0.75686274509803919" green="0.76078431372549016" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PinkAccentColor">
-            <color red="1" green="0.50588235294117645" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="TintColor">
+            <color red="0.23137254901960785" green="0.30196078431372547" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

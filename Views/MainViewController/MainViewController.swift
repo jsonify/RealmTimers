@@ -11,9 +11,12 @@ import RealmSwift
 import UIKit
 
 class MainViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var settingsButton: AppUIButton!
-    
+    @IBOutlet weak var newTimerButton: UIButton!
+    @IBOutlet weak var deleteTimersButton: UIButton!
+    @IBOutlet weak var menuView: UIViewX!
     var realm: Realm!
     var timerIndexToEdit: Int?
     var timerItem: Results<TimerModel>{
@@ -27,6 +30,38 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         realm = try! Realm()
+        menuConfigure()
+    }
+    func menuConfigure() {
+        closeMenu()
+    }
+    @IBAction func menuTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+            if self.menuView.transform == .identity {
+                self.closeMenu()
+            } else {
+                self.menuView.transform = .identity
+            }
+        })
+        UIView.animate(withDuration: 0.5, delay: 0.2, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+            if self.menuView.transform == .identity {
+                self.settingsButton.transform = .identity
+                self.newTimerButton.transform = .identity
+                self.deleteTimersButton.transform = .identity
+            } else {
+                
+            }
+        })
+    }
+    
+    fileprivate func closeMenu() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+            self.menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: 15)
+            self.newTimerButton.transform = CGAffineTransform(translationX: 11, y: 11)
+            self.deleteTimersButton.transform = CGAffineTransform(translationX: 15, y: 0)
+            
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
