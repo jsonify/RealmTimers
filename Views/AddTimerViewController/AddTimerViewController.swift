@@ -44,9 +44,9 @@ class AddTimerViewController: UIViewController {
     }
     
     @IBAction func preFireDurationSelected(_ sender: UIButton) {
-        preFireDurationButtons.forEach({ $0.tintColor = Theme.darkBlueColor })
+        preFireDurationButtons.forEach({ $0.tintColor = Theme.tintColor })
         
-        sender.tintColor = Theme.pinkTintColor
+        sender.tintColor = Theme.primaryColor
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
@@ -76,7 +76,7 @@ class AddTimerViewController: UIViewController {
     
     func getSelectedPreFireDuration() -> Int {
         for (_, button) in preFireDurationButtons.enumerated() {
-            if button.tintColor == Theme.pinkTintColor {
+            if button.tintColor == Theme.primaryColor {
                 return button.tag
             }
         }

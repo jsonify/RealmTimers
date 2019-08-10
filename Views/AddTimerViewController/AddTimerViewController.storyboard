@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night-sky" translatesAutoresizingMaskIntoConstraints="NO" id="0kc-iL-HnP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asphalt2" translatesAutoresizingMaskIntoConstraints="NO" id="0kc-iL-HnP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -278,7 +278,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="night-sky" width="1280" height="1920"/>
+        <image name="asphalt2" width="2712" height="3313"/>
         <image name="pie1" width="77" height="77"/>
         <image name="pie2" width="77" height="77"/>
         <image name="pie3" width="77" height="77"/>
