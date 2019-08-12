@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asphalt2" translatesAutoresizingMaskIntoConstraints="NO" id="0kc-iL-HnP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonfire" translatesAutoresizingMaskIntoConstraints="NO" id="0kc-iL-HnP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -42,7 +42,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXL-6U-kCl">
                                 <rect key="frame" x="16" y="170" width="343" height="236"/>
-                                <color key="backgroundColor" white="0.25" alpha="0.55432988559999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.30196078430000001" blue="0.40784313729999999" alpha="0.83126100349999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLU-W2-6Mb">
                                 <rect key="frame" x="77" y="218" width="219" height="177"/>
@@ -72,7 +72,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gf-MD-VMJ">
                                 <rect key="frame" x="14" y="434" width="345" height="146"/>
-                                <color key="backgroundColor" white="0.25" alpha="0.55432988559999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.30196078430000001" blue="0.40784313729999999" alpha="0.83126100349999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfB-gV-Zyv">
                                 <rect key="frame" x="16" y="463" width="341" height="110"/>
@@ -86,7 +86,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="2mb-pi-NBd"/>
                                                     <constraint firstAttribute="width" constant="50" id="Hyz-aX-PWF"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.23137254901960785" green="0.30196078431372547" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="pie1"/>
                                                 <connections>
                                                     <action selector="preFireDurationSelected:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="AWR-Kj-UHA"/>
@@ -110,7 +110,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="Cs5-rD-Nc9"/>
                                                     <constraint firstAttribute="height" constant="50" id="Tr4-YS-27W"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.23137254901960785" green="0.30196078431372547" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="pie3"/>
                                                 <connections>
                                                     <action selector="preFireDurationSelected:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="cQz-p0-nLF"/>
@@ -122,7 +122,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="MUe-o1-SoQ"/>
                                                     <constraint firstAttribute="width" constant="50" id="zzc-To-h9j"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.23137254901960785" green="0.30196078431372547" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="pie4"/>
                                                 <connections>
                                                     <action selector="preFireDurationSelected:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="dRS-gb-4Ac"/>
@@ -199,7 +199,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-bW-Zkq" customClass="DesignableTextField" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="16" y="89" width="343" height="57"/>
-                                <color key="backgroundColor" white="0.25" alpha="0.55432988558028173" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.30196078430000001" blue="0.40784313729999999" alpha="0.83126100349999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="T4h-xm-zhN"/>
@@ -238,6 +238,8 @@
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="centerX" secondItem="hfB-gV-Zyv" secondAttribute="centerX" id="OET-in-MR4"/>
                             <constraint firstItem="p3s-0H-qLQ" firstAttribute="top" secondItem="MXL-6U-kCl" secondAttribute="bottom" constant="28" id="RFl-KD-DWp"/>
                             <constraint firstItem="lIe-70-sn2" firstAttribute="top" secondItem="5gf-MD-VMJ" secondAttribute="bottom" constant="37" id="VYY-kd-PrW"/>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="top" secondItem="5iY-WR-PcU" secondAttribute="top" id="Xf2-uK-Nwh"/>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="bottom" secondItem="5iY-WR-PcU" secondAttribute="bottom" id="Z0S-rk-nBi"/>
                             <constraint firstItem="0kc-iL-HnP" firstAttribute="top" secondItem="5iY-WR-PcU" secondAttribute="top" id="Zfq-sU-XM0"/>
                             <constraint firstItem="MXL-6U-kCl" firstAttribute="leading" secondItem="hfB-gV-Zyv" secondAttribute="leading" id="aqn-Of-M7r"/>
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="top" secondItem="p3s-0H-qLQ" secondAttribute="top" id="b3g-Y2-eSr"/>
@@ -247,9 +249,11 @@
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="leading" secondItem="p3s-0H-qLQ" secondAttribute="leading" id="fts-1s-yGU"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="top" secondItem="8i1-UJ-CJl" secondAttribute="bottom" constant="7" id="gDK-IM-0A6"/>
                             <constraint firstItem="nLU-W2-6Mb" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="77" id="hQ7-iM-K9w"/>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" id="iN0-As-yrg"/>
                             <constraint firstItem="lIe-70-sn2" firstAttribute="baseline" secondItem="a2q-qC-vWI" secondAttribute="firstBaseline" id="jcv-LH-u2b"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="trailing" secondItem="8i1-UJ-CJl" secondAttribute="trailing" constant="32" id="l2c-T5-aDt"/>
                             <constraint firstItem="MXL-6U-kCl" firstAttribute="trailing" secondItem="a2q-qC-vWI" secondAttribute="trailing" id="lBu-HP-AR2"/>
+                            <constraint firstItem="0kc-iL-HnP" firstAttribute="trailing" secondItem="5iY-WR-PcU" secondAttribute="trailing" id="mtQ-SJ-pYz"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="centerX" secondItem="gHe-xc-y4g" secondAttribute="centerX" constant="-1" id="pyE-YW-vm0"/>
                             <constraint firstItem="a2q-qC-vWI" firstAttribute="leading" secondItem="lIe-70-sn2" secondAttribute="trailing" constant="73" id="qUn-dk-AYv"/>
                             <constraint firstItem="hfB-gV-Zyv" firstAttribute="leading" secondItem="lIe-70-sn2" secondAttribute="leading" id="qy0-NU-bi9"/>
@@ -278,7 +282,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="asphalt2" width="2712" height="3313"/>
+        <image name="bonfire" width="3248" height="4872"/>
         <image name="pie1" width="77" height="77"/>
         <image name="pie2" width="77" height="77"/>
         <image name="pie3" width="77" height="77"/>

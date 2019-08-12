@@ -13,13 +13,24 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var soundView: UIViewX!
     @IBOutlet weak var generalView: UIViewX!
     @IBOutlet weak var closeButton: FloatingActionButton!
+    @IBOutlet weak var debugSwitch: UISwitch!
+    
+    var defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        debugSwitch.isOn = defaults.bool(forKey: "debugValue")
         closeButton.transform = CGAffineTransform(translationX: view.frame.width - 260, y: 0)
         soundView.addShadowAndRoundedCorners()
         generalView.addShadowAndRoundedCorners()
+        print("\(String(describing: debugSwitch.value(forKey: "debugValue")))")
         
     }
+    
+    @IBAction func debugAction(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: "debugValue")
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         moveButton()

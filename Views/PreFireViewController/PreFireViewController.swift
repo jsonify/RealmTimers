@@ -11,12 +11,13 @@ import UIKit
 
 class PreFireViewController: UIViewController {
     
+    @IBOutlet weak var characterImage: UIImageView!
+    @IBOutlet weak var pfDuration: UILabel!
+    
     var timerPreFire = Timer()
     var timerDuration = Timer()
     var preFireTime: Int!
     var fireDuration = 0
-    @IBOutlet weak var characterImage: UIImageView!
-    @IBOutlet weak var pfDuration: UILabel!
     let preFireDurationLabel: UILabel = {
         let label = UILabel()
         return label
