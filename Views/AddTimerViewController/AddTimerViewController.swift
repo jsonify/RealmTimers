@@ -80,7 +80,10 @@ class AddTimerViewController: UIViewController {
                 return button.tag
             }
         }
+//        turn on for testing
+//        return 1
         
+//        turn on for prod
         return 30
     }
 }
