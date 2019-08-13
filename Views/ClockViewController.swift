@@ -22,8 +22,6 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     var timerTime = Date()
     var wakerTimer: Timer?
     
-    var rainSound: AVAudioPlayer?
-    
     var preFireDuration = 0
     var fireDuration = 0
     var multiplier = ClockStyle.debug.rawValue
@@ -46,7 +44,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         super.viewDidLoad()
         getTimerData()
         wakerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
-        playRainSound()
+        Sound.shared.startSound()
     }
     
     // MARK:- Gradient Stuff
@@ -151,38 +149,13 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         wakerTimer?.invalidate()
     }
     
-    //MARK: - Audio/Visual Methods
-//    func playSoundFile() {
-//        if let rainUrl = Bundle.main.url(forResource: "rain", withExtension: "mp3") {
-//            rainSound = Sound(url: rainUrl)
-//        } else {
-//            print("url not found")
-//            return
-//        }
-//        Sound.play(file: "rain", fileExtension: "mp3", numberOfLoops: -1)
-//    }
-    
-    func playRainSound() {
-        let path = Bundle.main.path(forResource: "rain", ofType: "mp3")!
-        let url = URL(fileURLWithPath: path)
-
-        do {
-            rainSound = try AVAudioPlayer(contentsOf: url)
-            rainSound?.numberOfLoops = -1
-            rainSound?.play()
-        } catch {
-            print(error)
-            // couldn't load file :(
-        }
-    }
-    
     func formatTime(date:Date) -> String {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         return formatter.string(from: date)
     }
     @IBAction func closeTapped(_ sender: UIButton) {
-        rainSound?.stop()
+        Sound.shared.stopSound()
         dismiss(animated: true, completion: nil)
     }
 }

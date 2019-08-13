@@ -118,6 +118,7 @@ class PreFireViewController: UIViewController {
         fireDuration = fireDuration - 1
         if fireDuration == 0 {
             timerDuration.invalidate()
+            Sound.shared.stopSound()
             dismiss(animated: true)
         }
     }
@@ -149,6 +150,7 @@ class PreFireViewController: UIViewController {
     
     @IBAction func closeTapped(_ sender: UIButton) {
         timerPreFire.invalidate()
+        Sound.shared.stopSound()
         dismiss(animated: true, completion: nil)
     }
     
