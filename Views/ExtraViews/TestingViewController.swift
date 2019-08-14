@@ -12,20 +12,11 @@ class TestingViewController: UIViewController {
     
     var cells = [String: UIView]()
     var preFireTime: Int!
-    let numViewPerRow = 2
-    var numViewPerCol = 2
+    let numViewPerRow = 6
+    var numViewPerCol = 9
     var cellTotal = 0
-    
-    /* Strategy:
-     When a cell is clicked,
-        the cell turns clear
-        the cell position gets added to the clickedCells array.
-     Underneath is a math puzzle that can only be be solved (and opens YouTube) after all the
-     cells have been removed
-     During each of the quadrants of time, the color of the cells have a tint of related
-     that quadrant and if have not been clicked on, will continue to change color
-     until the full preFireTime has ended
-    */
+    var timer = Timer()
+
     var clickedCells = 0
     
     override func viewDidLoad() {
@@ -33,7 +24,7 @@ class TestingViewController: UIViewController {
         cellTotal = numViewPerCol * numViewPerRow
         let width = view.frame.width / CGFloat(numViewPerRow)
         
-        for j in 0...5 {
+        for j in 0...numViewPerCol {
             for i in 0...numViewPerRow {
                 let cellView = UIView()
                 cellView.backgroundColor = randomColor()
@@ -94,28 +85,28 @@ class TestingViewController: UIViewController {
             clickedCells += 1
             
             print(clickedCells)
-            if clickedCells == cellTotal {
-                dismiss(animated: true, completion: nil)
+            if clickedCells == (cellTotal + 2) {
+                timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
         }
-        
-        /* var loopCount = 0
-        for subview in view.subviews {
-            if subview.frame.contains(location) {
-                subview.backgroundColor = .black
-//                print("loopCount", loopCount)
-            }
-            loopCount += 1
-        } */
     }
     
+    
+    
     func randomColor() -> UIColor {
-        let red = CGFloat(drand48())
-        let green = CGFloat(drand48())
-        let blue = CGFloat(drand48())
-        return UIColor(displayP3Red: red, green: green, blue: blue, alpha: 1)
+        let red = CGFloat(Float.random(in: 0.1..<0.9))
+        let green = CGFloat(Float.random(in: 0.1..<0.9))
+        let blue = CGFloat(Float.random(in: 0.1..<0.9))
+        return UIColor(displayP3Red: red, green: 0, blue: 0, alpha: 1)
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
+    }
+    
     @IBAction func closeTapped(_ sender: UIButtonX) {
         dismiss(animated: true, completion: nil)
     }
