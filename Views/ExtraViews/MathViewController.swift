@@ -111,6 +111,17 @@ class MathViewController: UIViewController {
         submitButton.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
         self.view.addSubview(submitButton)
 
+        let resetScoreButton:UIButton = UIButton(frame: CGRect(x: 100, y: 480, width: 100, height: 50))
+        resetScoreButton.backgroundColor = .black
+        resetScoreButton.setTitle("Reset Score", for: .normal)
+        resetScoreButton.addTarget(self, action:#selector(resetScoreButtonClicked), for: .touchUpInside)
+        self.view.addSubview(resetScoreButton)
+        
+        let closeButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height - 100, width: 50, height: 50))
+        closeButton.backgroundColor = .red
+        closeButton.setTitle("X", for: .normal)
+        closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
+        self.view.addSubview(closeButton)
     }
     
     @objc func buttonClicked() {
@@ -140,38 +151,17 @@ class MathViewController: UIViewController {
         return false
     }
     
-//    @IBAction func submitTapped(_ sender: UIButton) {
-//        guard let answer = Int(answerTextField.text!) else { return }
-//        let ans = checkAnswer(num1: firstNumber, num2: secondNumber, answer: answer)
-//        if ans {
-//            view.backgroundColor = .green
-//            score += 1
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                self.newEquation()
-//            }
-//        } else {
-//            view.backgroundColor = .red
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                self.reset()
-//            }
-//        }
-//        if highScoreValue < score {
-//        highScoreValue = score
-//        }
-//    }
-    
     func reset() {
         answerTextField.text = ""
         view.backgroundColor = .lightGray
         
     }
     
-    @IBAction func resetScore(_ sender: UIButton) {
-//        scoreLabel.removeFromSuperview()
+    @objc func resetScoreButtonClicked(_ sender: UIButton) {
         score = 0
-        
     }
-    @IBAction func closeTapped(_ sender: FloatingActionButton) {
+    
+    @objc func closeTapped(_ sender: FloatingActionButton) {
         dismiss(animated: true, completion: nil)
     }
 }
