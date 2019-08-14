@@ -10,6 +10,13 @@ import UIKit
 
 class MathViewController: UIViewController {
 
+    var highScoreLabel = CustomLabel()
+    var highScoreValue = 0 {
+        didSet {
+            highScoreLabel.text = "High Score: \(highScoreValue)"
+        }
+    }
+    
     @IBOutlet weak var scoreLabel: UILabel!
     var score = 0 {
         didSet {
@@ -35,9 +42,16 @@ class MathViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-
         newEquation()
+        showHighScore()
     }
+    
+    func showHighScore() {
+        highScoreLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 50, width: 200, height: 20))
+        view.addSubview(highScoreLabel)
+        highScoreLabel.text = "High Score: \(score)"
+    }
+    
     func checkAnswer(num1: Int, num2: Int, answer: Int) -> Bool {
         if answer == (num1 + num2) {
             return true
@@ -60,6 +74,9 @@ class MathViewController: UIViewController {
                 self.reset()
             }
         }
+        if highScoreValue < score {
+        highScoreValue = score
+        }
     }
     
     func newEquation() {
@@ -73,6 +90,9 @@ class MathViewController: UIViewController {
         view.backgroundColor = .lightGray
     }
     
+    @IBAction func resetScore(_ sender: UIButton) {
+        score = 0
+    }
     @IBAction func closeTapped(_ sender: FloatingActionButton) {
         dismiss(animated: true, completion: nil)
     }
