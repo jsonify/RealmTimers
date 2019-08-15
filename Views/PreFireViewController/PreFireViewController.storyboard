@@ -35,18 +35,19 @@
                                 <rect key="frame" x="19" y="195" width="337" height="234"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="present" translatesAutoresizingMaskIntoConstraints="NO" id="0hj-Mw-lyv">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="present" translatesAutoresizingMaskIntoConstraints="NO" id="0hj-Mw-lyv">
                                 <rect key="frame" x="5" y="154" width="374" height="375"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1DX-qp-Xhc">
                                 <rect key="frame" x="67" y="213" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-ww-Qqc">
-                                <rect key="frame" x="0.0" y="268" width="375" height="131"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-ww-Qqc">
+                                <rect key="frame" x="0.0" y="0.0" width="263" height="131"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="glU-zD-XYv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="LibreBaskerville-Regular" family="Libre Baskerville" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -55,8 +56,15 @@
                         <color key="backgroundColor" name="PreViolet"/>
                         <constraints>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="centerY" secondItem="pNa-rg-xRu" secondAttribute="centerY" constant="-21.5" id="2WS-0r-ytT"/>
+                            <constraint firstItem="sAG-ww-Qqc" firstAttribute="leading" secondItem="UqN-PK-VlO" secondAttribute="leading" id="ICT-Yr-tdV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0hj-Mw-lyv" secondAttribute="trailing" constant="-20" id="KvK-mz-x18"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="leading" secondItem="UqN-PK-VlO" secondAttribute="leading" constant="19" id="MNm-eT-ccX"/>
+                            <constraint firstItem="sAG-ww-Qqc" firstAttribute="top" secondItem="UqN-PK-VlO" secondAttribute="top" id="Viu-Vu-qG4"/>
+                            <constraint firstItem="0hj-Mw-lyv" firstAttribute="leading" secondItem="UqN-PK-VlO" secondAttribute="leading" constant="5" id="Vst-ST-ryK"/>
+                            <constraint firstItem="UqN-PK-VlO" firstAttribute="trailing" secondItem="sAG-ww-Qqc" secondAttribute="trailing" constant="112" id="bWN-bh-VdK"/>
+                            <constraint firstItem="UqN-PK-VlO" firstAttribute="bottom" secondItem="0hj-Mw-lyv" secondAttribute="bottom" constant="138" id="cOK-ra-Bth"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="centerX" secondItem="pNa-rg-xRu" secondAttribute="centerX" id="fYk-0W-uIZ"/>
+                            <constraint firstItem="0hj-Mw-lyv" firstAttribute="top" secondItem="sAG-ww-Qqc" secondAttribute="bottom" constant="23" id="l70-te-Aoz"/>
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="top" secondItem="UqN-PK-VlO" secondAttribute="top" constant="195" id="xzu-Ky-Kvv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UqN-PK-VlO"/>
@@ -70,7 +78,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTh-b3-Mk4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="zcS-op-PAE"/>
             </objects>
-            <point key="canvasLocation" x="6255.072463768116" y="108.48214285714285"/>
+            <point key="canvasLocation" x="6253.6000000000004" y="108.39580209895054"/>
         </scene>
     </scenes>
     <resources>

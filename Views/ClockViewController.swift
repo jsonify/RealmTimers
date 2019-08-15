@@ -24,7 +24,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     var preFireDuration = 0
     var fireDuration = 0
-    var multiplier = ClockStyle.debug.rawValue
+    var multiplier = ClockStyle.seconds.rawValue
     
     let gradient = CAGradientLayer()
     // list of array holding 2 colors
@@ -135,8 +135,8 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     }
     
     @IBAction func showPreFireTapped(_ sender: Any) {
-//        showPreFireVC()
-        showTestVC()
+        showPreFireVC()
+//        showTestVC()
     }
     
     func showTestVC() {

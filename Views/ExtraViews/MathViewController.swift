@@ -9,7 +9,10 @@
 import UIKit
 
 class MathViewController: UIViewController {
-
+    
+    var defaults = UserDefaults.standard
+    var highScoreAmount = "highScoreAmount"
+    
     var highScoreLabel = CustomLabel()
     var highScoreValue = 0 {
         didSet {
@@ -52,6 +55,7 @@ class MathViewController: UIViewController {
         showScore()
         showAnswerTextField()
         showButtons()
+        
     }
     
     fileprivate func showAnswerTextField() {
@@ -110,7 +114,7 @@ class MathViewController: UIViewController {
         submitButton.setTitle("Try it!", for: .normal)
         submitButton.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
         self.view.addSubview(submitButton)
-
+        
         let resetScoreButton:UIButton = UIButton(frame: CGRect(x: 100, y: 480, width: 100, height: 50))
         resetScoreButton.backgroundColor = .black
         resetScoreButton.setTitle("Reset Score", for: .normal)
@@ -140,7 +144,7 @@ class MathViewController: UIViewController {
             }
         }
         if highScoreValue < score {
-        highScoreValue = score
+            highScoreValue = score
         }
     }
     
@@ -164,59 +168,62 @@ class MathViewController: UIViewController {
     @objc func closeTapped(_ sender: FloatingActionButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    
 }
 
 
 // MARK:- ---> UITextFieldDelegate
 
 extension MathViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // return NO to disallow editing.
         print("TextField should begin editing method called")
         return true
     }
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // became first responder
         print("TextField did begin editing method called")
     }
-
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
         print("TextField should snd editing method called")
         return true
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
         print("TextField did end editing method called")
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         // if implemented, called in place of textFieldDidEndEditing:
         print("TextField did end editing with reason method called")
     }
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // return NO to not change text
         print("While entering the characters this method gets called")
         return true
     }
-
+    
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         // called when clear button pressed. return NO to ignore (no notifications)
         print("TextField should clear method called")
         return true
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // called when 'return' key pressed. return NO to ignore.
         print("TextField should return method called")
         // may be useful: textField.resignFirstResponder()
         return true
     }
-
+    
 }
 
 // MARK: UITextFieldDelegate <---
