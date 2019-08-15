@@ -161,11 +161,11 @@
                                 <color key="textColor" name="PrimaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8k-Io-cAo">
-                                <rect key="frame" x="25" y="618" width="43" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8k-Io-cAo">
+                                <rect key="frame" x="22" y="618" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Maths">
+                                <state key="normal" title="TestVC">
                                     <color key="titleColor" name="PreRed"/>
                                 </state>
                                 <connections>
@@ -173,7 +173,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="DarkBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eeg-5G-SLO" firstAttribute="top" secondItem="Cox-pl-ndX" secondAttribute="top" constant="43" id="3Pa-dC-lmT"/>
                             <constraint firstItem="eeg-5G-SLO" firstAttribute="centerX" secondItem="QbN-O3-kLB" secondAttribute="centerX" id="5q5-8o-l0n"/>
@@ -189,6 +189,11 @@
                             <constraint firstItem="Ish-16-9vX" firstAttribute="leading" secondItem="gzK-32-aT1" secondAttribute="leading" id="zIU-Hj-XdQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cox-pl-ndX"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="P8k-Io-cAo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="mcE-ub-lW8"/>
                     <connections>
@@ -249,9 +254,6 @@
         <image name="fab" width="60" height="60"/>
         <image name="settings" width="28" height="24"/>
         <image name="trash" width="26" height="28"/>
-        <namedColor name="DarkBackgroundColor">
-            <color red="0.0078431372549019607" green="0.054901960784313725" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="PreRed">
             <color red="0.89803921568627454" green="0.011764705882352941" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

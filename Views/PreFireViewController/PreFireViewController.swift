@@ -13,7 +13,7 @@ class PreFireViewController: UIViewController {
     
     //Math vars
     var highScoreLabel = CustomLabel()
-    var highScoreValue = UserDefaults.standard.integer(forKey: "highScoreAmount") {
+    var highScoreValue = 0 {
         didSet {
             highScoreLabel.text = "High Score: \(highScoreValue)"
             UserDefaults.standard.set(highScoreValue, forKey: "highScoreAmount")
@@ -123,10 +123,10 @@ class PreFireViewController: UIViewController {
     }
     
     func showHighScore() {
-//        highScoreValue = defaults.integer(forKey: highScoreAmount)
+        highScoreValue = UserDefaults.standard.integer(forKey: "highScoreAmount")
         highScoreLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 50, width: 200, height: 20))
         view.addSubview(highScoreLabel)
-        highScoreLabel.text = "High Score: \(score)"
+        highScoreLabel.text = "High Score: \(highScoreValue)"
     }
     
     func showScore() {
@@ -172,11 +172,11 @@ class PreFireViewController: UIViewController {
         resetScoreButton.addTarget(self, action:#selector(resetScoreButtonClicked), for: .touchUpInside)
         self.view.addSubview(resetScoreButton)
         
-//        let closeButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height - 100, width: 50, height: 50))
-//        closeButton.backgroundColor = .red
-//        closeButton.setTitle("X", for: .normal)
-//        closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
-//        self.view.addSubview(closeButton)
+        let closeButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height - 100, width: 50, height: 50))
+        closeButton.backgroundColor = .red
+        closeButton.setTitle("X", for: .normal)
+        closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
+        self.view.addSubview(closeButton)
     }
     
     @objc func buttonClicked() {
@@ -216,9 +216,9 @@ class PreFireViewController: UIViewController {
         score = 0
     }
     
-//    @objc func closeTapped(_ sender: FloatingActionButton) {
-//        dismiss(animated: true, completion: nil)
-//    }
+    @objc func closeTapped(_ sender: FloatingActionButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // MARK:- Circle Option
     
@@ -252,9 +252,6 @@ class PreFireViewController: UIViewController {
             shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             timerPreFire.invalidate()
-            
-            // if text is ever needed to show
-//            pfDuration.text = "\(fireDuration)"
             showPresent()
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
         }
@@ -271,13 +268,10 @@ class PreFireViewController: UIViewController {
         
     }
     @objc func imageTapped(gesture: UIGestureRecognizer) {
-            // if the tapped view is a UIImageView then set it to imageview
             if (gesture.view as? UIImageView) != nil {
                 print("Image Tapped")
                 presentView.removeFromSuperview()
                 randomlyPickCharacter()
-                //Here you can initiate your new ViewController
-
             }
         }
     
@@ -309,23 +303,9 @@ class PreFireViewController: UIViewController {
         let imageName = "character_\(random)"
         if characterPicked == false {
             characterImage.image = UIImage(named: imageName)
-            print("\(String(describing: characterImage.image))")
-//            characterButton.setImage(myImage, for: UIControlState.normal)
-            
             characterPicked = true
         }
     }
-    
-    @IBAction func closeTapped(_ sender: UIButton) {
-        timerPreFire.invalidate()
-        Sound.shared.stopSound()
-//        saveHighScore()
-        dismiss(animated: true, completion: nil)
-    }
-    
-//    func saveHighScore() {
-//        defaults.set(highScoreValue, forKey: highScoreAmount)
-//    }
 }
 
 
