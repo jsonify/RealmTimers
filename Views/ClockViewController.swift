@@ -145,7 +145,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     }
     
     func showTestVC() {
-        let testVC = self.storyboard?.instantiateViewController(withIdentifier: "test") as! TestingViewController
+        let testVC = self.storyboard?.instantiateViewController(withIdentifier: "test") as! TilesViewController
         testVC.preFireTime = preFireDuration * multiplier
         self.present(testVC, animated: true)
     }

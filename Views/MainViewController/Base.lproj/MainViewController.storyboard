@@ -161,7 +161,7 @@
                                 <color key="textColor" name="PrimaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8k-Io-cAo">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8k-Io-cAo">
                                 <rect key="frame" x="22" y="618" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,7 +169,7 @@
                                     <color key="titleColor" name="PreRed"/>
                                 </state>
                                 <connections>
-                                    <segue destination="oCW-hT-13s" kind="show" id="faj-cO-3gl"/>
+                                    <segue destination="5im-gG-lGA" kind="show" id="HCf-YU-w5v"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -189,11 +189,6 @@
                             <constraint firstItem="Ish-16-9vX" firstAttribute="leading" secondItem="gzK-32-aT1" secondAttribute="leading" id="zIU-Hj-XdQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cox-pl-ndX"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="P8k-Io-cAo"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="mcE-ub-lW8"/>
                     <connections>
@@ -216,28 +211,28 @@
             </objects>
             <point key="canvasLocation" x="4159" y="-175"/>
         </scene>
-        <!--Math View Controller-->
-        <scene sceneID="LBb-0b-zpE">
-            <objects>
-                <viewController id="oCW-hT-13s" customClass="MathViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ep5-wX-Wt3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="qwU-Y3-TUV"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hED-x1-LFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2629.5999999999999" y="115.59220389805098"/>
-        </scene>
         <!--AddTimerViewController-->
         <scene sceneID="qf5-Ea-Lwl">
             <objects>
                 <viewControllerPlaceholder storyboardName="AddTimerViewController" id="1hk-cg-xd8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Nm-1l-gc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3825" y="644"/>
+            <point key="canvasLocation" x="3001" y="577"/>
+        </scene>
+        <!--Testing View Controller-->
+        <scene sceneID="U3o-w9-NH0">
+            <objects>
+                <viewController id="5im-gG-lGA" customClass="TestingViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eR6-3C-Ubw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="W3f-wc-rCB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Vh-qd-Xqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3538" y="864"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="qrT-FR-v0y">
