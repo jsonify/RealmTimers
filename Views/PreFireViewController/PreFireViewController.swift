@@ -46,9 +46,11 @@ class PreFireViewController: UIViewController {
     var answerTextField = UITextField()
     var answer = 0
     // Math vars end
-//
-//    var defaults = UserDefaults.standard
-//    var highScoreAmount = "highScoreAmount"
+    //
+    //    var defaults = UserDefaults.standard
+    //    var highScoreAmount = "highScoreAmount"
+    
+    var submitButton = UIButton()
     
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var pfDuration: UILabel!
@@ -80,9 +82,9 @@ class PreFireViewController: UIViewController {
         pfDuration.numberOfLines = 0
         self.view.addSubview(pfDuration)
         
-//        pfDuration.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-//        pfDuration.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        pfDuration.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        //        pfDuration.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        //        pfDuration.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //        pfDuration.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         pfDurTime = preFireTime
     }
     
@@ -93,7 +95,7 @@ class PreFireViewController: UIViewController {
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
         startMath()
         
-//        drawPreFireCircle1(color: UIColor.green)
+        //        drawPreFireCircle1(color: UIColor.green)
         
     }
     
@@ -109,9 +111,9 @@ class PreFireViewController: UIViewController {
     }
     
     fileprivate func showAnswerTextField() {
-        answerTextField =  UITextField(frame: CGRect(x: 20, y: view.frame.size.height/2, width: 300, height: 40))
+        answerTextField =  UITextField(frame: CGRect(x: (view.frame.size.width/2) - 75, y: view.frame.size.height/2 - 35, width: 150, height: 70))
         answerTextField.placeholder = "Enter text here"
-        answerTextField.font = UIFont.systemFont(ofSize: 15)
+        answerTextField.font = UIFont.systemFont(ofSize: 40)
         answerTextField.borderStyle = UITextField.BorderStyle.roundedRect
         answerTextField.autocorrectionType = UITextAutocorrectionType.no
         answerTextField.keyboardType = UIKeyboardType.numberPad
@@ -139,20 +141,20 @@ class PreFireViewController: UIViewController {
         reset()
         
         firstNumberLabel.text = ""
-        firstNumberLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/4, y: 185, width: 200, height: 120))
+        firstNumberLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/4, y: 185, width: 100, height: 120))
         view.addSubview(firstNumberLabel)
         firstNumberLabel.text = "\(firstNumber)"
-        firstNumberLabel.font = UIFont(name: "Helvetica", size: 50)
+        firstNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
         
         secondNumberLabel.text = ""
-        secondNumberLabel = CustomLabel(frame: CGRect(x: ((view.frame.size.width/2) + (view.frame.size.width/4) - 50), y: 185, width: 200, height: 120))
+        secondNumberLabel = CustomLabel(frame: CGRect(x: ((view.frame.size.width/2) + (view.frame.size.width/4) - 20), y: 185, width: 100, height: 120))
         view.addSubview(secondNumberLabel)
         secondNumberLabel.text = "\(secondNumber)"
-        secondNumberLabel.font = UIFont(name: "Helvetica", size: 50)
+        secondNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
         
         operatorLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 185, width: 200, height: 120))
-        view.addSubview(operatorLabel)
         operatorLabel.text = "+"
+        view.addSubview(operatorLabel)
         operatorLabel.font = UIFont(name: "Helvetica", size: 50)
         
         firstNumber = Int.random(in: 1..<11)
@@ -160,23 +162,26 @@ class PreFireViewController: UIViewController {
     }
     
     func showButtons() {
-        let submitButton:UIButton = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 50))
+        submitButton = UIButton(frame: CGRect(x: view.frame.size.width/2 - 50, y: 400, width: 100, height: 50))
         submitButton.backgroundColor = .black
         submitButton.setTitle("Try it!", for: .normal)
+        submitButton.layer.cornerRadius = 10
         submitButton.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
         self.view.addSubview(submitButton)
         
-        let resetScoreButton:UIButton = UIButton(frame: CGRect(x: 100, y: 480, width: 100, height: 50))
+        let resetScoreButton:UIButton = UIButton(frame: CGRect(x: (view.frame.size.width/2) - 50, y: 480, width: 100, height: 50))
+        resetScoreButton.layer.cornerRadius = 10
         resetScoreButton.backgroundColor = .black
         resetScoreButton.setTitle("Reset Score", for: .normal)
         resetScoreButton.addTarget(self, action:#selector(resetScoreButtonClicked), for: .touchUpInside)
-        self.view.addSubview(resetScoreButton)
         
         let closeButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height - 100, width: 50, height: 50))
         closeButton.backgroundColor = .red
         closeButton.setTitle("X", for: .normal)
         closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
-        self.view.addSubview(closeButton)
+        //        Used for testing
+        //        self.view.addSubview(resetScoreButton)
+        //        self.view.addSubview(closeButton)
     }
     
     @objc func buttonClicked() {
@@ -239,18 +244,19 @@ class PreFireViewController: UIViewController {
         pfDurTime = pfDurTime - 1
         pfDuration.text = "\(pfDurTime)"
         if pfDurTime == (preFireTime - (preFireTime/4)) {
-//            shapeLayer.strokeColor = #colorLiteral(red: 0.7568627596, green: 0.6892270425, blue: 0.2031356938, alpha: 1)
-//            view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.3803921569, blue: 0.8901960784, alpha: 1)
+            //            shapeLayer.strokeColor = #colorLiteral(red: 0.7568627596, green: 0.6892270425, blue: 0.2031356938, alpha: 1)
+            //            view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.3803921569, blue: 0.8901960784, alpha: 1)
         } else if pfDurTime == (preFireTime - (preFireTime/2)) {
-//            shapeLayer.strokeColor = #colorLiteral(red: 0.07886815806, green: 0.8549019694, blue: 0.7889860416, alpha: 1)
-//            view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.01176470588, blue: 0.01960784314, alpha: 1)
+            //            shapeLayer.strokeColor = #colorLiteral(red: 0.07886815806, green: 0.8549019694, blue: 0.7889860416, alpha: 1)
+            //            view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.01176470588, blue: 0.01960784314, alpha: 1)
         } else if pfDurTime == (preFireTime - (preFireTime/2 + preFireTime/4)) {
-//            shapeLayer.strokeColor = #colorLiteral(red: 0.1550070187, green: 0.2095842698, blue: 0.9921568627, alpha: 1)
-//            view.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.05882352941, alpha: 1)
+            //            shapeLayer.strokeColor = #colorLiteral(red: 0.1550070187, green: 0.2095842698, blue: 0.9921568627, alpha: 1)
+            //            view.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.05882352941, alpha: 1)
         }
         if pfDurTime == 0 {
-            shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+//            shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            removeViews()
             timerPreFire.invalidate()
             showPresent()
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
@@ -263,24 +269,32 @@ class PreFireViewController: UIViewController {
         presentView.isUserInteractionEnabled = true
         presentView.isHidden = false
         view.bringSubviewToFront(presentView)
+        
+    }
+    func removeViews() {
         shapeLayer.removeFromSuperlayer()
         pfDuration.removeFromSuperview()
+        firstNumberLabel.removeFromSuperview()
+        secondNumberLabel.removeFromSuperview()
+        operatorLabel.removeFromSuperview()
+        answerTextField.removeFromSuperview()
+        submitButton.removeFromSuperview()
         
     }
     @objc func imageTapped(gesture: UIGestureRecognizer) {
-            if (gesture.view as? UIImageView) != nil {
-                print("Image Tapped")
-                presentView.removeFromSuperview()
-                randomlyPickCharacter()
-            }
+        if (gesture.view as? UIImageView) != nil {
+            print("Image Tapped")
+            presentView.removeFromSuperview()
+            randomlyPickCharacter()
         }
+    }
     
     @objc func fireTime() {
         fireDuration = fireDuration - 1
         if fireDuration == 0 {
             timerDuration.invalidate()
             Sound.shared.stopSound()
-//            saveHighScore()
+            //            saveHighScore()
             dismiss(animated: true)
         }
     }

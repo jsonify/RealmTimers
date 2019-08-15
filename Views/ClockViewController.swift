@@ -17,6 +17,8 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     @IBOutlet weak var preFireTimeLabel: UILabel!
     @IBOutlet weak var fireTimeLabel: UILabel!
     
+    var defaults = UserDefaults.standard
+    
     var hasFired = false
     var timerIndexToEdit: Int?
     var timerTime = Date()
@@ -44,7 +46,10 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         super.viewDidLoad()
         getTimerData()
         wakerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
-        Sound.shared.startSound()
+        print(defaults.bool(forKey: "soundEnabledKey"))
+        if defaults.bool(forKey: "soundEnabledKey") {
+            Sound.shared.startSound()
+        }
     }
     
     // MARK:- Gradient Stuff
