@@ -19,20 +19,21 @@ class SettingsViewController: UIViewController {
     
     var defaults = UserDefaults.standard
     
-    @IBAction func soundEnabled(_ sender: UISwitch) {
-        if soundSwitch.isOn {
-            defaults.set(true, forKey: "soundEnabledKey")
-        } else {
-            defaults.set(false, forKey: "soundEnabledKey")
-        }
-    }
+//    @IBAction func soundEnabled(_ sender: UISwitch) {
+//        if soundSwitch.isOn {
+//            defaults.set(true, forKey: "soundEnabledKey")
+//        } else {
+//            defaults.set(false, forKey: "soundEnabledKey")
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         closeButton.transform = CGAffineTransform(translationX: view.frame.width - 260, y: 0)
         soundView.addShadowAndRoundedCorners()
         generalView.addShadowAndRoundedCorners()
-        soundSwitch.isOn = defaults.bool(forKey: "soundEnabledKey")
+//        soundSwitch.isOn = defaults.bool(forKey: "soundEnabledKey")
 //        setupDropDownButton()
+        
     }
     
     fileprivate func setupDropDownButton() {

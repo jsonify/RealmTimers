@@ -6,12 +6,16 @@
 //  Copyright © 2019 Jason. All rights reserved.
 //
 
-import AVFoundation
 import SwiftDate
 import RealmSwift
 import UIKit
 
 class ClockViewController: UIViewController, CAAnimationDelegate {
+    
+    var multiplier = ClockStyle.debug.rawValue
+//    var multiplier = ClockStyle.seconds.rawValue
+    
+    @IBOutlet weak var soundIndicatorButton: SoundToggleButton!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var preFireTimeLabel: UILabel!
@@ -26,7 +30,6 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     var preFireDuration = 0
     var fireDuration = 0
-    var multiplier = ClockStyle.debug.rawValue
     
     let gradient = CAGradientLayer()
     var gradientSet = [[CGColor]]()
@@ -43,8 +46,25 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         wakerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
         print(defaults.bool(forKey: "soundEnabledKey"))
         if defaults.bool(forKey: "soundEnabledKey") {
+            soundIndicatorButton.setImage(UIImage(named: "sound-on"), for: .normal)
             Sound.shared.startSound()
+        } else {
+            soundIndicatorButton.setImage(UIImage(named: "sound-off"), for: .normal)
+            Sound.shared.stopSound()
         }
+    }
+    
+    // MARK:- Sound Option
+    func setupSoundButton() {
+//        let soundButton = UIButton(frame: CGRect(x: (view.frame.size.width) - 60, y: 16, width: 44, height: 44))
+//        soundButton.backgroundColor = .black
+//        soundButton.imageView = UIImage()
+//        soundButton.setTitle("Reset Score", for: .normal)
+//        soundButton.addTarget(self, action:#selector(resetScoreButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func resetScoreButtonClicked(_ sender: UIButton) {
+        
     }
     
     // MARK:- Gradient Stuff

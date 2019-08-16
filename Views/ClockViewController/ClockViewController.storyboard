@@ -69,8 +69,15 @@
                                             <action selector="closeTapped:" destination="ljv-3F-WUT" eventType="touchUpInside" id="1VW-qZ-jrZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-b6-xXm" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0c-xf-DTY" customClass="SoundToggleButton" customModule="RealmTimers" customModuleProvider="target">
+                                        <rect key="frame" x="350" y="52" width="44" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.25" alpha="0.55432988559999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="sound-off"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-b6-xXm" customClass="AppUIButton" customModule="RealmTimers" customModuleProvider="target">
                                         <rect key="frame" x="316" y="794" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="fab">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,10 +89,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Orr-b6-xXm" secondAttribute="trailing" constant="38" id="3nB-gi-Sr6"/>
                                     <constraint firstItem="Z2H-YE-C1V" firstAttribute="centerX" secondItem="RKx-wT-q4g" secondAttribute="centerX" id="7Pa-sy-9qz"/>
                                     <constraint firstItem="Z2H-YE-C1V" firstAttribute="centerY" secondItem="RKx-wT-q4g" secondAttribute="centerY" id="MRC-wM-zix"/>
-                                    <constraint firstItem="Orr-b6-xXm" firstAttribute="bottom" secondItem="RKx-wT-q4g" secondAttribute="bottomMargin" id="bK6-4o-yaH"/>
                                     <constraint firstItem="RIf-gP-UIZ" firstAttribute="leading" secondItem="RKx-wT-q4g" secondAttribute="leading" constant="14" id="tiP-AJ-yvY"/>
                                     <constraint firstItem="RIf-gP-UIZ" firstAttribute="top" secondItem="RKx-wT-q4g" secondAttribute="top" constant="55" id="wWv-CM-OIL"/>
                                 </constraints>
@@ -96,7 +101,6 @@
                                         <exclude reference="8Ix-XJ-pQ7"/>
                                         <exclude reference="SWg-yh-sBe"/>
                                         <exclude reference="qce-0C-2IT"/>
-                                        <exclude reference="Orr-b6-xXm"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -114,6 +118,7 @@
                         <outlet property="backgroundView" destination="RKx-wT-q4g" id="OYL-hU-MV4"/>
                         <outlet property="fireTimeLabel" destination="SWg-yh-sBe" id="EhB-l9-f1g"/>
                         <outlet property="preFireTimeLabel" destination="ebR-mN-Zx3" id="jgZ-3G-jNg"/>
+                        <outlet property="soundIndicatorButton" destination="n0c-xf-DTY" id="hrs-aj-EIn"/>
                         <outlet property="timeLabel" destination="Z2H-YE-C1V" id="Xv3-ME-jrB"/>
                     </connections>
                 </viewController>
@@ -138,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOY-3x-aFi" customClass="FloatingActionButton" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="281" y="757" width="120" height="120"/>
+                                <rect key="frame" x="341" y="817" width="60" height="60"/>
                                 <color key="backgroundColor" name="PreRed"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="fab"/>
@@ -163,6 +168,7 @@
     <resources>
         <image name="delete" width="50" height="50"/>
         <image name="fab" width="60" height="60"/>
+        <image name="sound-off" width="74" height="57"/>
         <namedColor name="PreRed">
             <color red="0.89803921568627454" green="0.011764705882352941" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
