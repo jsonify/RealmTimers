@@ -13,25 +13,16 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var soundView: UIViewX!
     @IBOutlet weak var generalView: UIViewX!
     @IBOutlet weak var closeButton: FloatingActionButton!
-    @IBOutlet weak var soundSwitch: UISwitch!
     
     var soundSelectionButton = DropDownButton()
     
     var defaults = UserDefaults.standard
-    
-//    @IBAction func soundEnabled(_ sender: UISwitch) {
-//        if soundSwitch.isOn {
-//            defaults.set(true, forKey: "soundEnabledKey")
-//        } else {
-//            defaults.set(false, forKey: "soundEnabledKey")
-//        }
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         closeButton.transform = CGAffineTransform(translationX: view.frame.width - 260, y: 0)
         soundView.addShadowAndRoundedCorners()
         generalView.addShadowAndRoundedCorners()
-//        soundSwitch.isOn = defaults.bool(forKey: "soundEnabledKey")
 //        setupDropDownButton()
         
     }
