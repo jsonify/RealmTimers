@@ -29,18 +29,13 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     var multiplier = ClockStyle.debug.rawValue
     
     let gradient = CAGradientLayer()
-    // list of array holding 2 colors
     var gradientSet = [[CGColor]]()
-    // current gradient index
     var currentGradient: Int = 0
     
     // colors to be added to the set
     let colorOne = #colorLiteral(red: 0.007843137255, green: 0.05490196078, blue: 0.2078431373, alpha: 1).cgColor
     let colorTwo = #colorLiteral(red: 0.01960784314, green: 0.1803921569, blue: 0.2078431373, alpha: 1).cgColor
     let colorThree = #colorLiteral(red: 0.1098039216, green: 0.05098039216, blue: 0.2078431373, alpha: 1).cgColor
-//    let colorOne = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor
-//    let colorTwo = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).cgColor
-//    let colorThree = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1).cgColor
     
     override func viewDidLoad() {
         super.viewDidLoad()

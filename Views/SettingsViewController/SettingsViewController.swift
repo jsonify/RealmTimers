@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         soundView.addShadowAndRoundedCorners()
         generalView.addShadowAndRoundedCorners()
         soundSwitch.isOn = defaults.bool(forKey: "soundEnabledKey")
-        setupDropDownButton()
+//        setupDropDownButton()
     }
     
     fileprivate func setupDropDownButton() {
