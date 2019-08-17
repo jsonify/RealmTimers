@@ -23,4 +23,8 @@ class TimerModel: Object {
         self.preFireDuration = preFireDuration
     }
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
 }

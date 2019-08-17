@@ -125,12 +125,22 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     // TODO: V2.1 Future feature that allows to edit timer:
 //    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let timerName = timerItem[indexPath.row]
 //        let edit = UIContextualAction(style: .normal, title: "") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
-//            self.timerIndexToEdit = indexPath.row
+//            print("\(self.realm.objects(TimerModel.self))")
+////            self.realm.objects(TimerModel.self)
+////            self.timerIndexToEdit = realm.objects(timerItem.self)
+//            try! self.realm.write {
+//                self.realm?.add(timerItem, value: [timerName: "damn"], update: .modified)
+//
+////                self.realm?.create(TimerModel.self, value: [timerName: "damn"], update: .modified)
+//            }
+//            //            timerName.timerName = "Hello"
+////            self.timerItem[indexPath.row].timerName = "hello"
 //            self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
 //            actionPerformed(true)
 //        }
-//        edit.image = #imageLiteral(resourceName: "pencil")
+//        edit.image = #imageLiteral(resourceName: "settings")
 //        edit.backgroundColor = Theme.edit
 //        return UISwipeActionsConfiguration(actions: [edit])
 //    }
@@ -140,7 +150,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let delete = UIContextualAction(style: .destructive, title: "") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             
-            let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete \(timerName.timerTime)?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete Waker", message: "Are you sure you want to delete \(timerName.timerName)?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction) in
                 actionPerformed(false)
