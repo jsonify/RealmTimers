@@ -45,13 +45,13 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         getTimerData()
         wakerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
         print(defaults.bool(forKey: "soundEnabledKey"))
-        if defaults.bool(forKey: "soundEnabledKey") {
-            soundIndicatorButton.setImage(UIImage(named: "sound-on"), for: .normal)
-            Sound.shared.startSound()
-        } else {
-            soundIndicatorButton.setImage(UIImage(named: "sound-off"), for: .normal)
-            Sound.shared.stopSound()
-        }
+//        if defaults.bool(forKey: "soundEnabledKey") {
+//            soundIndicatorButton.setImage(UIImage(named: "sound-on"), for: .normal)
+//            Sound.shared.startSound()
+//        } else {
+//            soundIndicatorButton.setImage(UIImage(named: "sound-off"), for: .normal)
+//            Sound.shared.stopSound()
+//        }
     }
     
     // MARK:- Sound Option
@@ -160,9 +160,9 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     }
     
     func showTestVC() {
-        let testVC = self.storyboard?.instantiateViewController(withIdentifier: "test") as! TilesViewController
-        testVC.preFireTime = preFireDuration * multiplier
-        self.present(testVC, animated: true)
+//        let testVC = self.storyboard?.instantiateViewController(withIdentifier: "test") as! TilesViewController
+//        testVC.preFireTime = preFireDuration * multiplier
+//        self.present(testVC, animated: true)
     }
     
     func showPreFireVC() {
