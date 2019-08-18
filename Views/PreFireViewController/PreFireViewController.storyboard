@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXq-iY-LHb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXq-iY-LHb">
                                 <rect key="frame" x="20" y="44" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,6 +68,11 @@
                             <constraint firstItem="wJV-zb-dMd" firstAttribute="top" secondItem="UqN-PK-VlO" secondAttribute="top" constant="195" id="xzu-Ky-Kvv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UqN-PK-VlO"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CXq-iY-LHb"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="characterImage" destination="1DX-qp-Xhc" id="pKA-eh-cFk"/>

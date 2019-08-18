@@ -97,8 +97,18 @@ class PreFireViewController: UIViewController {
         self.view.addSubview(confettiView)
     }
     
+    var defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataTimer.shared.check()
+        let now = Date()
+        let lastDayCheck: Date = UserDefaults.standard.object(forKey: "kStartDate") as! Date
+        if now < lastDayCheck {
+            print("less than today's date")
+        } else {
+            print("\(lastDayCheck)")
+        }
         setupDurationLabel()
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
@@ -184,10 +194,10 @@ class PreFireViewController: UIViewController {
         resetScoreButton.setTitle("Reset Score", for: .normal)
         resetScoreButton.addTarget(self, action:#selector(resetScoreButtonClicked), for: .touchUpInside)
         
-        let closeButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height - 100, width: 50, height: 50))
-        closeButton.backgroundColor = .red
-        closeButton.setTitle("X", for: .normal)
-        closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
+//        let closeButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height - 100, width: 50, height: 50))
+//        closeButton.backgroundColor = .red
+//        closeButton.setTitle("X", for: .normal)
+//        closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
         //        Used for testing
         //        self.view.addSubview(resetScoreButton)
         //        self.view.addSubview(closeButton)
