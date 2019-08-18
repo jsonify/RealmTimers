@@ -6,6 +6,7 @@
 //  Copyright © 2019 Jason. All rights reserved.
 //
 
+import SAConfettiView
 import RealmSwift
 import UIKit
 
@@ -86,6 +87,14 @@ class PreFireViewController: UIViewController {
         //        pfDuration.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         //        pfDuration.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         pfDurTime = preFireTime
+    }
+    
+    var confettiView = SAConfettiView()
+    
+    fileprivate func createConfetti() {
+        confettiView = SAConfettiView(frame: self.view.bounds)
+        confettiView.type = .Confetti
+        self.view.addSubview(confettiView)
     }
     
     override func viewDidLoad() {
@@ -199,9 +208,7 @@ class PreFireViewController: UIViewController {
                 self.reset()
             }
         }
-        if highScoreValue < score {
-            highScoreValue = score
-        }
+        
     }
     
     func checkAnswer(num1: Int, num2: Int, answer: Int) -> Bool {
@@ -258,6 +265,15 @@ class PreFireViewController: UIViewController {
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             removeViews()
             timerPreFire.invalidate()
+            if highScoreValue < score {
+                highScoreValue = score
+                createConfetti()
+                confettiView.startConfetti()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.confettiView.stopConfetti()
+                    print("confetti should stop now")
+                }
+            }
             showPresent()
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
         }
@@ -283,7 +299,6 @@ class PreFireViewController: UIViewController {
     }
     @objc func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
-            print("Image Tapped")
             presentView.removeFromSuperview()
             randomlyPickCharacter()
         }
@@ -329,46 +344,46 @@ extension PreFireViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // return NO to disallow editing.
-        print("TextField should begin editing method called")
+//        print("TextField should begin editing method called")
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // became first responder
-        print("TextField did begin editing method called")
+//        print("TextField did begin editing method called")
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-        print("TextField should snd editing method called")
+//        print("TextField should snd editing method called")
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-        print("TextField did end editing method called")
+//        print("TextField did end editing method called")
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         // if implemented, called in place of textFieldDidEndEditing:
-        print("TextField did end editing with reason method called")
+//        print("TextField did end editing with reason method called")
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // return NO to not change text
-        print("While entering the characters this method gets called")
+//        print("While entering the characters this method gets called")
         return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         // called when clear button pressed. return NO to ignore (no notifications)
-        print("TextField should clear method called")
+//        print("TextField should clear method called")
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // called when 'return' key pressed. return NO to ignore.
-        print("TextField should return method called")
+//        print("TextField should return method called")
         // may be useful: textField.resignFirstResponder()
         return true
     }
