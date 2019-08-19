@@ -9,6 +9,14 @@
 import UIKit
 import RealmSwift
 
+enum Environment: String {
+    case development = "Development"
+    case production = "Production"
+    case none = "None"
+}
+
+var environment: Environment = .none
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        switch environment {
+        case .none:
+             print("Environment is: none")
+        case .development:
+            print("Environment is: development")
+        case .production:
+            print("Environment is: production")
+        }
+        
+        print("Environment is: ", environment)
         
 //        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
