@@ -25,17 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
+        #if DEVELOPMENT
+        environment = .development
+        #else
+        environment = .production
+        #endif
+        
         switch environment {
         case .none:
-             print("Environment is: none")
+            print("Environment is: none")
         case .development:
             print("Environment is: development")
         case .production:
             print("Environment is: production")
         }
-        
-        print("Environment is: ", environment)
-        
 //        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         return true

@@ -12,8 +12,13 @@ import UIKit
 
 class ClockViewController: UIViewController, CAAnimationDelegate {
     
+    #if DEVELOPMENT
     var multiplier = ClockStyle.debug.rawValue
-//    var multiplier = ClockStyle.seconds.rawValue
+    
+    #else
+    var multiplier = ClockStyle.seconds.rawValue
+    
+    #endif
     
     @IBOutlet weak var soundIndicatorButton: SoundToggleButton!
     @IBOutlet weak var backgroundView: UIView!

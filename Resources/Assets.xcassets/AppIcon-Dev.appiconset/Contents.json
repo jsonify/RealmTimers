@@ -213,7 +213,6 @@
     {
       "size" : "98x98",
       "idiom" : "watch",
-      "filename" : "watch.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
@@ -229,21 +228,6 @@
       "size" : "1024x1024",
       "idiom" : "watch-marketing",
       "filename" : "1024.png",
-      "scale" : "1x"
-    },
-    {
-      "size" : "44x44",
-      "idiom" : "watch",
-      "filename" : "watch.png",
-      "scale" : "2x",
-      "role" : "longLook",
-      "subtype" : "42mm"
-    },
-    {
-      "size" : "1024x1024",
-      "idiom" : "ios-marketing",
-      "filename" : "1024.png",
-      "unassigned" : true,
       "scale" : "1x"
     }
   ],
