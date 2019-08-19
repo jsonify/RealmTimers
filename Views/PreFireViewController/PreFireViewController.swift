@@ -188,19 +188,21 @@ class PreFireViewController: UIViewController {
         submitButton.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
         self.view.addSubview(submitButton)
         
+        #if DEVELOPMENT
         let resetScoreButton:UIButton = UIButton(frame: CGRect(x: (view.frame.size.width/2) - 50, y: 480, width: 100, height: 50))
         resetScoreButton.layer.cornerRadius = 10
         resetScoreButton.backgroundColor = .black
         resetScoreButton.setTitle("Reset Score", for: .normal)
         resetScoreButton.addTarget(self, action:#selector(resetScoreButtonClicked), for: .touchUpInside)
         
-//        let closeButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height - 100, width: 50, height: 50))
-//        closeButton.backgroundColor = .red
-//        closeButton.setTitle("X", for: .normal)
-//        closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
-        //        Used for testing
-        //        self.view.addSubview(resetScoreButton)
-        //        self.view.addSubview(closeButton)
+        let closeButton:UIButton = UIButton(frame: CGRect(x: view.center.x, y: view.frame.size.height - 100, width: 50, height: 50))
+        closeButton.backgroundColor = .red
+        closeButton.setTitle("X", for: .normal)
+        closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
+        self.view.addSubview(closeButton)
+        self.view.addSubview(resetScoreButton)
+        #endif
+        
     }
     
     @objc func buttonClicked() {
@@ -271,7 +273,7 @@ class PreFireViewController: UIViewController {
             //            view.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.05882352941, alpha: 1)
         }
         if pfDurTime == 0 {
-//            shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            //            shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             removeViews()
             timerPreFire.invalidate()
@@ -354,46 +356,46 @@ extension PreFireViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // return NO to disallow editing.
-//        print("TextField should begin editing method called")
+        //        print("TextField should begin editing method called")
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // became first responder
-//        print("TextField did begin editing method called")
+        //        print("TextField did begin editing method called")
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-//        print("TextField should snd editing method called")
+        //        print("TextField should snd editing method called")
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-//        print("TextField did end editing method called")
+        //        print("TextField did end editing method called")
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         // if implemented, called in place of textFieldDidEndEditing:
-//        print("TextField did end editing with reason method called")
+        //        print("TextField did end editing with reason method called")
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // return NO to not change text
-//        print("While entering the characters this method gets called")
+        //        print("While entering the characters this method gets called")
         return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         // called when clear button pressed. return NO to ignore (no notifications)
-//        print("TextField should clear method called")
+        //        print("TextField should clear method called")
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // called when 'return' key pressed. return NO to ignore.
-//        print("TextField should return method called")
+        //        print("TextField should return method called")
         // may be useful: textField.resignFirstResponder()
         return true
     }
