@@ -16,7 +16,7 @@ class PreFireViewController: UIViewController {
     var highScoreLabel = CustomLabel()
     var highScoreValue = 0 {
         didSet {
-            highScoreLabel.text = "High Score: \(highScoreValue)"
+            highScoreLabel.text = "Daily High Score: \(highScoreValue)"
             UserDefaults.standard.set(highScoreValue, forKey: "highScoreAmount")
         }
     }
@@ -82,10 +82,6 @@ class PreFireViewController: UIViewController {
         pfDuration.lineBreakMode = .byWordWrapping
         pfDuration.numberOfLines = 0
         self.view.addSubview(pfDuration)
-        
-        //        pfDuration.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        //        pfDuration.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        //        pfDuration.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         pfDurTime = preFireTime
     }
     
@@ -147,7 +143,7 @@ class PreFireViewController: UIViewController {
         highScoreValue = UserDefaults.standard.integer(forKey: "highScoreAmount")
         highScoreLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 50, width: 200, height: 20))
         view.addSubview(highScoreLabel)
-        highScoreLabel.text = "High Score: \(highScoreValue)"
+        highScoreLabel.text = "Daily High Score: \(highScoreValue)"
     }
     
     func showScore() {
@@ -189,21 +185,29 @@ class PreFireViewController: UIViewController {
         self.view.addSubview(submitButton)
         
         #if DEVELOPMENT
-        let resetScoreButton:UIButton = UIButton(frame: CGRect(x: (view.frame.size.width/2) - 50, y: 480, width: 100, height: 50))
+        let resetScoreButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width - 150, y: 480, width: 100, height: 50))
         resetScoreButton.layer.cornerRadius = 10
         resetScoreButton.backgroundColor = .black
-        resetScoreButton.setTitle("Reset Score", for: .normal)
+        resetScoreButton.setTitle("r Score", for: .normal)
         resetScoreButton.addTarget(self, action:#selector(resetScoreButtonClicked), for: .touchUpInside)
+        self.view.addSubview(resetScoreButton)
+        
+        let resetHighScoreButton:UIButton = UIButton(frame: CGRect(x: 50, y: 480, width: 100, height: 50))
+        resetHighScoreButton.layer.cornerRadius = 10
+        resetHighScoreButton.backgroundColor = .blue
+        resetHighScoreButton.setTitle("r High Score", for: .normal)
+        resetHighScoreButton.addTarget(self, action:#selector(resetHighScoreButtonClicked), for: .touchUpInside)
+        self.view.addSubview(resetHighScoreButton)
         
         let closeButton:UIButton = UIButton(frame: CGRect(x: view.center.x, y: view.frame.size.height - 100, width: 50, height: 50))
         closeButton.backgroundColor = .red
         closeButton.setTitle("X", for: .normal)
         closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
         self.view.addSubview(closeButton)
-        self.view.addSubview(resetScoreButton)
         #endif
-        
     }
+    
+
     
     @objc func buttonClicked() {
         guard let answer = Int(answerTextField.text!) else { return }
@@ -220,7 +224,6 @@ class PreFireViewController: UIViewController {
                 self.reset()
             }
         }
-        
     }
     
     func checkAnswer(num1: Int, num2: Int, answer: Int) -> Bool {
@@ -233,11 +236,14 @@ class PreFireViewController: UIViewController {
     func reset() {
         answerTextField.text = ""
         view.backgroundColor = .lightGray
-        
     }
     
     @objc func resetScoreButtonClicked(_ sender: UIButton) {
         score = 0
+    }
+    
+    @objc func resetHighScoreButtonClicked(_ sender: UIButton) {
+        highScoreValue = 0
     }
     
     @objc func closeTapped(_ sender: FloatingActionButton) {
@@ -259,6 +265,23 @@ class PreFireViewController: UIViewController {
         drawCircle()
     }
     
+    fileprivate func highScoreReached() {
+        if highScoreValue < score {
+            highScoreValue = score
+            createConfetti()
+            confettiView.startConfetti()
+            highScoreLabel.transform = CGAffineTransform(scaleX: 5, y: 5)
+//            highScoreLabel.transform = CGAffineTransform(translationX: 20, y: 0)
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: .curveEaseInOut, animations: {
+                self.highScoreLabel.transform = .identity
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.confettiView.stopConfetti()
+                print("confetti should stop now")
+            }
+        }
+    }
+    
     @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDuration.text = "\(pfDurTime)"
@@ -277,15 +300,7 @@ class PreFireViewController: UIViewController {
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             removeViews()
             timerPreFire.invalidate()
-            if highScoreValue < score {
-                highScoreValue = score
-                createConfetti()
-                confettiView.startConfetti()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.confettiView.stopConfetti()
-                    print("confetti should stop now")
-                }
-            }
+            highScoreReached()
             showPresent()
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
         }

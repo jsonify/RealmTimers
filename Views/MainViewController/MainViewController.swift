@@ -12,6 +12,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var testVCButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var settingsButton: AppUIButton!
     @IBOutlet weak var newTimerButton: UIButton!
@@ -29,13 +30,33 @@ class MainViewController: UIViewController {
         return .lightContent
     }
     
+    fileprivate func setupDevButtons() {
+        let testVCButton: UIButton = UIButton(frame: CGRect(x: 20, y: 400, width: 100, height: 50))
+        testVCButton.backgroundColor = .black
+        testVCButton.setTitle("Test VC", for: .normal)
+        testVCButton.addTarget(self, action:#selector(goToTestVC), for: .touchUpInside)
+        self.view.addSubview(testVCButton)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         realm = try! Realm()
         menuConfigure()
+//        setupDevButtons()
+        
+        #if DEVELOPMENT
+        testVCButton.isHidden = false
+        #else
+        testVCButton.isHidden = true
+        #endif
     }
+    
+    @objc func goToTestVC() {
+        print("Go to goToTestVC")
+    }
+    
     func menuConfigure() {
         closeMenu()
     }
@@ -80,6 +101,8 @@ class MainViewController: UIViewController {
 //            timer.timerIndexToEdit = self.timerIndexToEdit
 //        }
     }
+    
+    
     
     @IBAction func deleteTapped(_ sender: UIButton) {
         try! self.realm.write {

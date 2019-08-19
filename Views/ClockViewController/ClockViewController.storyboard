@@ -62,7 +62,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIf-gP-UIZ">
-                                        <rect key="frame" x="14" y="55" width="50" height="50"/>
+                                        <rect key="frame" x="14" y="55" width="100" height="100"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="delete"/>
                                         <connections>
@@ -78,7 +78,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-b6-xXm">
                                         <rect key="frame" x="316" y="794" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="DeleteColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="fab">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -118,6 +119,7 @@
                         <outlet property="backgroundView" destination="RKx-wT-q4g" id="OYL-hU-MV4"/>
                         <outlet property="fireTimeLabel" destination="SWg-yh-sBe" id="EhB-l9-f1g"/>
                         <outlet property="preFireTimeLabel" destination="ebR-mN-Zx3" id="jgZ-3G-jNg"/>
+                        <outlet property="preFireVCButton" destination="Orr-b6-xXm" id="uhL-32-hYB"/>
                         <outlet property="soundIndicatorButton" destination="n0c-xf-DTY" id="hrs-aj-EIn"/>
                         <outlet property="timeLabel" destination="Z2H-YE-C1V" id="Xv3-ME-jrB"/>
                     </connections>
@@ -169,6 +171,9 @@
         <image name="delete" width="50" height="50"/>
         <image name="fab" width="60" height="60"/>
         <image name="sound-off" width="74" height="57"/>
+        <namedColor name="DeleteColor">
+            <color red="0.90980392156862744" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PreRed">
             <color red="0.89803921568627454" green="0.011764705882352941" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

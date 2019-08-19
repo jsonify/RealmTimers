@@ -197,6 +197,7 @@
                         <outlet property="newTimerButton" destination="8z2-om-aJo" id="hth-ik-zHb"/>
                         <outlet property="settingsButton" destination="dJx-Ns-lcb" id="mXj-Cb-hnu"/>
                         <outlet property="tableView" destination="gzK-32-aT1" id="OOv-7L-RZz"/>
+                        <outlet property="testVCButton" destination="P8k-Io-cAo" id="pW3-kB-1uE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EW-Iv-hnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,7 +223,7 @@
         <!--Testing View Controller-->
         <scene sceneID="U3o-w9-NH0">
             <objects>
-                <viewController id="5im-gG-lGA" customClass="TestingViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Testing View Controller" id="5im-gG-lGA" customClass="TestingViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eR6-3C-Ubw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

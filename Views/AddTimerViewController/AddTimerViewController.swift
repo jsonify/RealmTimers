@@ -78,6 +78,9 @@ class AddTimerViewController: UIViewController {
         for (_, button) in preFireDurationButtons.enumerated() {
             if button.tintColor == Theme.primaryColor {
                 return button.tag
+            } else {
+                //TODO:- Fix this color icon
+//                button.tintColor = .darkGray
             }
         }
 //        turn on for testing
