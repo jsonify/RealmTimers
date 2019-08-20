@@ -44,7 +44,7 @@ class AddTimerViewController: UIViewController {
     }
     
     @IBAction func preFireDurationSelected(_ sender: UIButton) {
-        preFireDurationButtons.forEach({ $0.tintColor = Theme.tintColor })
+        preFireDurationButtons.forEach({ $0.tintColor = UIColor.darkGray })
         
         sender.tintColor = Theme.primaryColor
     }
@@ -80,7 +80,8 @@ class AddTimerViewController: UIViewController {
                 return button.tag
             } else {
                 //TODO:- Fix this color icon
-//                button.tintColor = .darkGray
+                button.tintColor = .darkGray
+                print(".darkGray used")
             }
         }
 //        turn on for testing
