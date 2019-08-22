@@ -131,6 +131,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.timerNameLabel.text = item.timerName
         cell.nameLabel.text = "\(formatTime(date: item.timerTime))"
         cell.preFireLabel.text = "\(item.preFireDuration) min"
+        cell.preFireStyle.text = "\(item.preFireStyle)"
         
         return cell
     }

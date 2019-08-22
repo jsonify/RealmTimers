@@ -14,7 +14,7 @@ class MainCell: UITableViewCell {
     @IBOutlet weak var timerNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var preFireLabel: UILabel!
-    @IBOutlet weak var fireDuration: UILabel!
+    @IBOutlet weak var preFireStyle: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

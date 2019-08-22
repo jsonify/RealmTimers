@@ -14,13 +14,15 @@ class TimerModel: Object {
     @objc dynamic var timerName = ""
     @objc dynamic var timerTime = Date()
     @objc dynamic var preFireDuration = ""
+    @objc dynamic var preFireStyle = ""
     
-    convenience init(timerName: String,timerTime: Date, preFireDuration: String) {
+    convenience init(timerName: String, timerTime: Date, preFireDuration: String, preFireStyle: String) {
         self.init()
         id = UUID().uuidString
         self.timerName = timerName
         self.timerTime = timerTime
         self.preFireDuration = preFireDuration
+        self.preFireStyle = preFireStyle
     }
     
     override static func primaryKey() -> String? {

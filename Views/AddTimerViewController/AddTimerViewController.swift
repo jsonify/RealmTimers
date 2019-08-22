@@ -13,6 +13,7 @@ class AddTimerViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var fireTimePicker: UIDatePicker!
+    @IBOutlet weak var preFireDurationSegment: UISegmentedControl!
     @IBOutlet var preFireDurationButtons: [UIButton]!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -22,6 +23,7 @@ class AddTimerViewController: UIViewController {
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
     var timerModel: Results<TimerModel>?
+    var preFireStyle = "Math"
     
     var preFireDuration = 0
     var timerName: String!
@@ -35,7 +37,6 @@ class AddTimerViewController: UIViewController {
             
         }
     }
-    
     
     fileprivate func configureTimePicker() {
         fireTimePicker.setDate(NSDate(timeIntervalSinceNow: 60) as Date, animated: false)
@@ -64,9 +65,8 @@ class AddTimerViewController: UIViewController {
             timerName = nameTextField.text
         }
         let preFireAmount = getSelectedPreFireDuration()
-        
-        timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration:
-            "\(preFireAmount)"))
+        timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration: "\(preFireAmount)", preFireStyle: preFireStyle))
+//        timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration: "\(preFireAmount)"))
         if let doneSaving = doneSaving {
             doneSaving()
         }
@@ -79,17 +79,15 @@ class AddTimerViewController: UIViewController {
             if button.tintColor == Theme.primaryColor {
                 return button.tag
             } else {
-                //TODO:- Fix this color icon
                 button.tintColor = .darkGray
-                print(".darkGray used")
             }
         }
-//        turn on for testing
-//        return 1
-        
-//        turn on for prod
         return 30
     }
+    
+    @IBAction func preFireDurationSegmentIndexChanged(_ sender: UISegmentedControl) {
+    }
+    
 }
 
 extension UITextField{
