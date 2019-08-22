@@ -217,19 +217,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="GrG-Og-rmc">
-                                <rect key="frame" x="33" y="581" width="309" height="29"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gw0-Zd-jNB" customClass="CustomSegmentedControl" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="15" y="588" width="343" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="15"/>
-                                    <segment title="30"/>
-                                    <segment title="45"/>
-                                    <segment title="60"/>
-                                </segments>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="15, 30, 45, 60"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorTextColor">
+                                        <color key="value" name="BackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="preFireDurationSegmentIndexChanged:" destination="DPZ-sQ-GOm" eventType="valueChanged" id="Osa-Q7-TuD"/>
+                                    <action selector="wtf:" destination="DPZ-sQ-GOm" eventType="valueChanged" id="xBc-Wo-Gyd"/>
                                 </connections>
-                            </segmentedControl>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.070588235289999995" green="0.078431372550000003" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -279,9 +292,9 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="lIe-70-sn2" id="SiF-WC-Zax"/>
+                        <outlet property="customSegmentedController" destination="Gw0-Zd-jNB" id="vkk-t4-lgq"/>
                         <outlet property="fireTimePicker" destination="nLU-W2-6Mb" id="Acw-8g-eDG"/>
                         <outlet property="nameTextField" destination="PYf-bW-Zkq" id="RKf-b2-Po2"/>
-                        <outlet property="preFireDurationSegment" destination="GrG-Og-rmc" id="Jid-jb-gLu"/>
                         <outlet property="saveButton" destination="a2q-qC-vWI" id="KxB-JW-1wN"/>
                         <outletCollection property="preFireDurationButtons" destination="g5h-Kr-gj2" collectionClass="NSMutableArray" id="ZIR-JG-03H"/>
                         <outletCollection property="preFireDurationButtons" destination="tlu-hJ-hay" collectionClass="NSMutableArray" id="Bqq-3V-jFa"/>
