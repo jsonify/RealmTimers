@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .production:
             print("Environment is: production")
         }
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         return true
     }

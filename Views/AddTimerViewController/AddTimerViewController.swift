@@ -11,6 +11,7 @@ import UIKit
 
 class AddTimerViewController: UIViewController {
     
+    @IBOutlet weak var customSegmentedController: CustomSegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var fireTimePicker: UIDatePicker!
     @IBOutlet weak var preFireDurationSegment: UISegmentedControl!
@@ -25,7 +26,7 @@ class AddTimerViewController: UIViewController {
     var timerModel: Results<TimerModel>?
     var preFireStyle = "Math"
     
-    var preFireDuration = 0
+    var preFireDuration = 15
     var timerName: String!
     
     override func viewDidLoad() {
@@ -64,9 +65,9 @@ class AddTimerViewController: UIViewController {
         } else {
             timerName = nameTextField.text
         }
-        let preFireAmount = getSelectedPreFireDuration()
-        timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration: "\(preFireAmount)", preFireStyle: preFireStyle))
-//        timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration: "\(preFireAmount)"))
+//        let preFireAmount = getSelectedPreFireDuration()
+        
+        timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration: "\(preFireDuration)", preFireStyle: preFireStyle))
         if let doneSaving = doneSaving {
             doneSaving()
         }
@@ -88,6 +89,24 @@ class AddTimerViewController: UIViewController {
     @IBAction func preFireDurationSegmentIndexChanged(_ sender: UISegmentedControl) {
     }
     
+//    @IBAction func customSegmentValueChanged(_ sender: CustomSegmentedControl) {
+//        print("hello")
+//    }
+    var segmentTime = 0
+    @IBAction func wtf(_ sender: CustomSegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            preFireDuration = 15
+        case 1:
+            preFireDuration = 30
+        case 2:
+            preFireDuration = 45
+        case 3:
+            preFireDuration = 60
+        default:
+            preFireDuration = 15
+        }
+    }
 }
 
 extension UITextField{
