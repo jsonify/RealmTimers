@@ -15,10 +15,12 @@ class FloatingActionButton: UIButtonX {
         UIView.animate(withDuration: 0.3) {
             if self.transform == .identity {
                 self.transform = CGAffineTransform(rotationAngle: 45 * (.pi/180))
-                self.backgroundColor = Theme.darkTintColor
+//                self.backgroundColor = Theme.darkTintColor
+                self.backgroundColor = Theme.fabDarkRed
             } else {
                 self.transform = .identity
-                self.backgroundColor = Theme.tintColor
+//                self.backgroundColor = Theme.tintColor
+                self.backgroundColor = Theme.fabRed
             }
         }
         

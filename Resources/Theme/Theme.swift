@@ -19,6 +19,12 @@ class Theme {
     static let tintColor = UIColor(named: "TintColor")
     static let darkTintColor = UIColor(named: "DarkTintColor")
     
+    static let fabLightGreen = UIColor(named: "FABLightGreen")
+    static let fabDarkGreen = UIColor(named: "FABDarkGreen")
+    static let fabRed = UIColor(named: "PreRed")
+    static let fabDarkRed = UIColor(named: "DarkRed")
+    
+    
     static let accentColor = UIColor(named: "AccentColor")
     static let backgroundColor = UIColor(named: "BackgroundColor")
     static let edit = UIColor(named: "EditColor")
