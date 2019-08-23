@@ -11,7 +11,7 @@ import UIKit
 extension UIButton {
     
     func createFloatingActionButton() {
-        backgroundColor = Theme.accentColor
+        backgroundColor = Theme.darkTintColor
         layer.cornerRadius = frame.height/2
         layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 0, blur: 25, spread: -9)
     }
