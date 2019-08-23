@@ -14,8 +14,8 @@ extension UIView {
 //        layer.shadowOpacity = 1
 //        layer.shadowOffset = CGSize.zero
 //        layer.shadowColor = UIColor.black.cgColor
-        layer.cornerRadius = 15
-        layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 0, blur: 25, spread: -9)
+//        layer.cornerRadius = 15
+        layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 0, blur: 20, spread: -13)
     }
 }
 

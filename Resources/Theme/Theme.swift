@@ -25,16 +25,10 @@ class Theme {
     static let fabDarkRed = UIColor(named: "DarkRed")
     
     
-    static let accentColor = UIColor(named: "AccentColor")
-    static let backgroundColor = UIColor(named: "BackgroundColor")
+    static let cellBackgroundColor = UIColor(named: "CellBackgroundColor")
+    static let mainBackgroundColor = UIColor(named: "MainBackgroundColor")
     static let edit = UIColor(named: "EditColor")
     static let delete = UIColor(named: "DeleteColor")
-    
-    static let darkBackgroundColor = UIColor(named: "DarkBackgroundColor")
-    static let pinkTintColor = UIColor(named: "PinkTintColor")
-    static let darkBlueColor = UIColor(named: "DarkBlueColor")
-    static let pastelOrange = UIColor(named: "PastelOrangeColor")
-    static let pastelGreenColor = UIColor(named: "PastelGreenColor")
-    static let pastelBlueColor = UIColor(named: "PastelBlueColor")
+
 
 }
