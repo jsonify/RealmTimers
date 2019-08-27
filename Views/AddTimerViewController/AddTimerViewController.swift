@@ -12,12 +12,13 @@ import UIKit
 class AddTimerViewController: UIViewController {
     
     @IBOutlet weak var customSegmentedController: CustomSegmentedControl!
+    @IBOutlet weak var preFireStyleSegmentedController: CustomSegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var fireTimePicker: UIDatePicker!
     @IBOutlet weak var preFireDurationSegment: UISegmentedControl!
     @IBOutlet var preFireDurationButtons: [UIButton]!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet var menuButtons: [UIButton]!
+    
     @IBOutlet var menuItemView: [UIView]!
     
     var timer = TimerModel()
@@ -33,6 +34,9 @@ class AddTimerViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         configureTimePicker()
+        for button in menuButtons {
+            button.addShadowAndRoundedCorners()
+        }
         for item in menuItemView {
             item.addShadowAndRoundedCorners()
             
@@ -44,12 +48,12 @@ class AddTimerViewController: UIViewController {
         fireTimePicker.setValue(UIColor.white, forKeyPath: "textColor")
         fireTimePicker.setValue(0.7, forKeyPath: "alpha")
     }
-    
-    @IBAction func preFireDurationSelected(_ sender: UIButton) {
-        preFireDurationButtons.forEach({ $0.tintColor = UIColor.darkGray })
-        
-        sender.tintColor = Theme.primaryColor
-    }
+//
+//    @IBAction func preFireDurationSelected(_ sender: UIButton) {
+//        preFireDurationButtons.forEach({ $0.tintColor = UIColor.darkGray })
+//
+//        sender.tintColor = Theme.primaryColor
+//    }
     
     @IBAction func cancelTapped(_ sender: Any) {
         dismiss(animated: true)
@@ -74,25 +78,37 @@ class AddTimerViewController: UIViewController {
         
         dismiss(animated: true)
     }
-    
-    func getSelectedPreFireDuration() -> Int {
-        for (_, button) in preFireDurationButtons.enumerated() {
-            if button.tintColor == Theme.primaryColor {
-                return button.tag
-            } else {
-                button.tintColor = .darkGray
-            }
-        }
-        return 30
-    }
+//
+//    func getSelectedPreFireDuration() -> Int {
+//        for (_, button) in preFireDurationButtons.enumerated() {
+//            if button.tintColor == Theme.primaryColor {
+//                return button.tag
+//            } else {
+//                button.tintColor = .darkGray
+//            }
+//        }
+//        return 30
+//    }
     
     @IBAction func preFireDurationSegmentIndexChanged(_ sender: UISegmentedControl) {
     }
+
+//    var segmentStyle = "Math"
     
-//    @IBAction func customSegmentValueChanged(_ sender: CustomSegmentedControl) {
-//        print("hello")
-//    }
-    var segmentTime = 0
+    @IBAction func preFireStyleSegmentSelected(_ sender: CustomSegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            preFireStyle = "Bars"
+        case 1:
+            preFireStyle = "Math"
+        case 2:
+            preFireStyle = "Circle"
+        default:
+            preFireStyle = "Math"
+        }
+    }
+    
+//    var segmentTime = 0
     @IBAction func wtf(_ sender: CustomSegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:

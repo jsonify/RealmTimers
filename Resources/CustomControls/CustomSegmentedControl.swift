@@ -58,6 +58,10 @@ class CustomSegmentedControl: UIControl {
         for buttonTitle in buttonTitles {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
+            
+            //TODO: get this horizontal alignment working for the preFireStyle
+            button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
+            
             button.setTitleColor(textColor, for: .normal)
             button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
             buttons.append(button)
