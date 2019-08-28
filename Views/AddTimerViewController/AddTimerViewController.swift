@@ -25,7 +25,7 @@ class AddTimerViewController: UIViewController {
     var doneSaving: (() -> ())?
     var timerFunctions = TimerFunctions()
     var timerModel: Results<TimerModel>?
-    var preFireStyle = "Math"
+    var preFireStyle = "Bars"
     
     var preFireDuration = 15
     var timerName: String!
@@ -78,22 +78,9 @@ class AddTimerViewController: UIViewController {
         
         dismiss(animated: true)
     }
-//
-//    func getSelectedPreFireDuration() -> Int {
-//        for (_, button) in preFireDurationButtons.enumerated() {
-//            if button.tintColor == Theme.primaryColor {
-//                return button.tag
-//            } else {
-//                button.tintColor = .darkGray
-//            }
-//        }
-//        return 30
-//    }
     
     @IBAction func preFireDurationSegmentIndexChanged(_ sender: UISegmentedControl) {
     }
-
-//    var segmentStyle = "Math"
     
     @IBAction func preFireStyleSegmentSelected(_ sender: CustomSegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -104,7 +91,7 @@ class AddTimerViewController: UIViewController {
         case 2:
             preFireStyle = "Circle"
         default:
-            preFireStyle = "Math"
+            break
         }
     }
     
@@ -120,7 +107,7 @@ class AddTimerViewController: UIViewController {
         case 3:
             preFireDuration = 60
         default:
-            preFireDuration = 15
+            break
         }
     }
 }

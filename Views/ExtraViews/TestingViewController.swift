@@ -12,12 +12,28 @@ class TestingViewController: UIViewController {
     
     var preFireTime: Int!
     
+    let presentImageView: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "present"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DataTimer.shared.check()
         showButtons()
+        showPresent()
+        
         }
+    
+    func showPresent() {
+        view.addSubview(presentImageView)
+        
+        presentImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        presentImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        presentImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        presentImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+    }
 
     func showButtons() {
         let closeViewButton: UIButton = UIButton(frame: CGRect(x: view.frame.size.width - 110, y: view.frame.size.height - 100, width: 100, height: 50))
