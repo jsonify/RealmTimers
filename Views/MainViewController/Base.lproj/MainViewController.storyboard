@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="3001" y="577"/>
         </scene>
-        <!--Testing View Controller-->
+        <!--Bars Staging-->
         <scene sceneID="U3o-w9-NH0">
             <objects>
-                <viewController storyboardIdentifier="Testing View Controller" id="5im-gG-lGA" customClass="TestingViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BarsPreFireViewController" title="Bars Staging" id="5im-gG-lGA" customClass="BarsPreFireViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eR6-3C-Ubw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
