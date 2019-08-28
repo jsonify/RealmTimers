@@ -54,6 +54,7 @@ class MathPreFireViewController: UIViewController {
         @IBOutlet weak var characterImage: UIImageView!
         
     @IBOutlet weak var pfDurationLabel: UILabel!
+    
     var timerPreFire = Timer()
         var timerDuration = Timer()
         var preFireTime: Int!
