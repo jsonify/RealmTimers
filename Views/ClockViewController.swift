@@ -33,6 +33,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     var timerIndexToEdit: Int?
     var timerTime = Date()
     var wakerTimer: Timer?
+    var preFireStyle = ""
     
     var preFireDuration = 0
     var fireDuration = 0
@@ -124,6 +125,7 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
             fireTimeLabel.text = formatTime(date: timerTime)
             
             // PreFire Work
+            preFireStyle = timer[index].preFireStyle
             preFireDuration = Int(timer[index].preFireDuration)!
             let preFiredTime = timerTime - preFireDuration.minutes
             preFireTimeLabel.text = formatTime(date: preFiredTime)
@@ -146,15 +148,20 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     }
     
     @IBAction func showPreFireTapped(_ sender: Any) {
-        showPreFireVC()
-//        showTestVC()
+        if preFireStyle == "Math" {
+            showPreFireVC()
+        } else {
+            showTestVC()
+        }
     }
     
     func showTestVC() {
-//        let testVC = self.storyboard?.instantiateViewController(withIdentifier: "test") as! TilesViewController
-//        testVC.preFireTime = preFireDuration * multiplier
-//        self.present(testVC, animated: true)
+        let testVC = self.storyboard?.instantiateViewController(withIdentifier: "test") as! TestingViewController
+        testVC.preFireTime = preFireDuration * multiplier
+        self.present(testVC, animated: true)
     }
+    
+    
     
     func showPreFireVC() {
         let preFireVC = self.storyboard?.instantiateViewController(withIdentifier: "boom") as! PreFireViewController

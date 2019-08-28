@@ -10,6 +10,7 @@ import UIKit
 
 class TestingViewController: UIViewController {
     
+    var preFireTime: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
