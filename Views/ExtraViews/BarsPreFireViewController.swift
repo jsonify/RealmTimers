@@ -9,7 +9,7 @@
 import UIKit
 
 class BarsPreFireViewController: UIViewController {
-
+    
     var preFireTime: Int!
     var timerPreFire = Timer()
     var timerDuration = Timer()
@@ -27,9 +27,9 @@ class BarsPreFireViewController: UIViewController {
     
     var characterPicked = false
     
-    var shapeLayer1 = CAShapeLayer()
-    var shapeLayer2 = CAShapeLayer()
-    var shapeLayer3 = CAShapeLayer()
+    var bar1 = MyCustomView()
+    var bar2 = MyCustomView()
+    var bar3 = MyCustomView()
     
     let presentImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "present"))
@@ -52,24 +52,30 @@ class BarsPreFireViewController: UIViewController {
         showLabel()
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-        }
-
+    }
+    
     func drawPreFireBars1(color: UIColor) {
         let barWidth = view.frame.size.width/3
-        shapeLayer1.fillColor = color.cgColor
-        shapeLayer1.path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: barWidth, height: view.frame.size.height)).cgPath
-        shapeLayer2.fillColor = color.cgColor
-        shapeLayer2.path = UIBezierPath(rect: CGRect(x: barWidth, y: 0, width: barWidth, height: view.frame.size.height)).cgPath
-        shapeLayer3.fillColor = color.cgColor
-        shapeLayer3.path = UIBezierPath(rect: CGRect(x: barWidth * 2, y: 0, width: barWidth, height: view.frame.size.height)).cgPath
-        view.layer.addSublayer(shapeLayer1)
-        view.layer.addSublayer(shapeLayer2)
-        view.layer.addSublayer(shapeLayer3)
+        let barHeight = view.frame.size.height
+//        let screenSize: CGRect = UIScreen.main.bounds
+        bar1 = MyCustomView(frame: CGRect(x: 0, y: 0, width: barWidth, height: barHeight))
+        bar1.backgroundColor = .red
+        
+        bar2 = MyCustomView(frame: CGRect(x: barWidth, y: 0, width: barWidth, height: barHeight))
+        bar2.backgroundColor = .red
+        
+        bar3 = MyCustomView(frame: CGRect(x: barWidth * 2, y: 0, width: barWidth, height: barHeight))
+        bar3.backgroundColor = .red
+        
+        self.view.addSubview(bar1)
+        self.view.addSubview(bar2)
+        self.view.addSubview(bar3)
+
     }
     
     func showLabel() {
         pfDurationLabel = UILabel(frame: CGRect(x: 0, y: 50, width: 400, height: 50))
-//        pfDurationLabel.text = title
+        //        pfDurationLabel.text = title
         pfDurationLabel.textAlignment = .center
         pfDurationLabel.font = UIFont(name: "Avenir", size: 25)
         self.view.addSubview(pfDurationLabel)
@@ -88,20 +94,66 @@ class BarsPreFireViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
+    
     @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "\(pfDurTime)"
-        if pfDurTime == (preFireTime - (preFireTime/4)) {
-            //            shapeLayer.strokeColor = #colorLiteral(red: 0.7568627596, green: 0.6892270425, blue: 0.2031356938, alpha: 1)
-            //            view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.3803921569, blue: 0.8901960784, alpha: 1)
-        } else if pfDurTime == (preFireTime - (preFireTime/2)) {
-            //            shapeLayer.strokeColor = #colorLiteral(red: 0.07886815806, green: 0.8549019694, blue: 0.7889860416, alpha: 1)
-            //            view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.01176470588, blue: 0.01960784314, alpha: 1)
-        } else if pfDurTime == (preFireTime - (preFireTime/2 + preFireTime/4)) {
-            //            shapeLayer.strokeColor = #colorLiteral(red: 0.1550070187, green: 0.2095842698, blue: 0.9921568627, alpha: 1)
-            //            view.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.05882352941, alpha: 1)
+        let duration = Double(preFireTime/12)
+        print(duration)
+//        UIView.animate(withDuration: TimeInterval(preFireTime/12), animations: {
+//            self.bar1.frame.size.height = 0.01
+//        }) { _ in
+//            self.bar1.removeFromSuperview()
+//        }
+        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+            self.bar1.frame.size.height = 0.01
+        }) { _ in
+            
+//            UIView.animate(withDuration: duration, delay: duration - 1.5, options: .curveLinear, animations: {
+//                    self.bar2.frame.size.height = 0.01
+//                }) { _ in
+//                    UIView.animate(withDuration: duration, delay: (duration - 1.5) * 2, options: .curveLinear, animations: {
+//                            self.bar3.frame.size.height = 0.01
+//                        }) { _ in
+//
+//                            }
+//                    }
+            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+            UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+                self.bar2.frame.size.height = 0.01
+            })
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration * 2) {
+            UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+                self.bar3.frame.size.height = 0.01
+            })
+        }
+//        if pfDurTime == preFireTime {
+//        }
+//        if pfDurTime == (preFireTime - (preFireTime/4)) {
+//            print("1/4 done")
+//            UIView.animate(withDuration: 3, animations: {
+//                self.bar1.frame.size.height = 0.01
+//            }) { _ in
+//                self.bar1.removeFromSuperview()
+//            }
+//            shapeLayer1.position = CGPoint(x: 0, y: 0)
+//            shapeLayer1.anchorPoint = CGPoint(x: 0, y: 0.5)
+//            let layerAnimation = CABasicAnimation(keyPath: "bounds.size.height")
+//            layerAnimation.duration = 2
+//            layerAnimation.fromValue = 0
+//            layerAnimation.toValue = 0
+//            shapeLayer1.add(layerAnimation, forKey: "anim")
+//            shapeLayer1.strokeColor = #colorLiteral(red: 0.7568627596, green: 0.6892270425, blue: 0.2031356938, alpha: 1)
+//            view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.3803921569, blue: 0.8901960784, alpha: 1)
+//        } else if pfDurTime == (preFireTime - (preFireTime/2)) {
+//            //            shapeLayer.strokeColor = #colorLiteral(red: 0.07886815806, green: 0.8549019694, blue: 0.7889860416, alpha: 1)
+//            //            view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.01176470588, blue: 0.01960784314, alpha: 1)
+//        } else if pfDurTime == (preFireTime - (preFireTime/2 + preFireTime/4)) {
+//            //            shapeLayer.strokeColor = #colorLiteral(red: 0.1550070187, green: 0.2095842698, blue: 0.9921568627, alpha: 1)
+//            //            view.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.05882352941, alpha: 1)
+//        }
         if pfDurTime == 0 {
             //            shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -128,7 +180,7 @@ class BarsPreFireViewController: UIViewController {
         
     }
     func removeViews() {
-//        shapeLayer.removeFromSuperlayer()
+        //        shapeLayer.removeFromSuperlayer()
         pfDurationLabel.removeFromSuperview()
         
         
@@ -165,5 +217,5 @@ class BarsPreFireViewController: UIViewController {
             dismiss(animated: true)
         }
     }
-
+    
 }
