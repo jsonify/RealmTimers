@@ -11,6 +11,7 @@ import UIKit
 class BarsPreFireViewController: UIViewController {
     
     var preFireTime: Int!
+    var duration: Double!
     var timerPreFire = Timer()
     var timerDuration = Timer()
     var fireDuration = 0
@@ -27,9 +28,11 @@ class BarsPreFireViewController: UIViewController {
     
     var characterPicked = false
     
-    var bar1 = MyCustomView()
-    var bar2 = MyCustomView()
-    var bar3 = MyCustomView()
+    var barWave = 1
+    var bars = [MyCustomView]()
+//    var bar1 = MyCustomView()
+//    var bar2 = MyCustomView()
+//    var bar3 = MyCustomView()
     
     let presentImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "present"))
@@ -47,29 +50,53 @@ class BarsPreFireViewController: UIViewController {
         super.viewDidLoad()
         
         showButtons()
+        duration = Double(preFireTime/12)
         
-        drawPreFireBars1(color: .red)
+        drawPreFireBars1(color: .red, duration: duration)
         showLabel()
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
     }
     
-    func drawPreFireBars1(color: UIColor) {
+    func drawPreFireBars1(color: UIColor, duration: Double) {
         let barWidth = view.frame.size.width/3
         let barHeight = view.frame.size.height
-//        let screenSize: CGRect = UIScreen.main.bounds
-        bar1 = MyCustomView(frame: CGRect(x: 0, y: 0, width: barWidth, height: barHeight))
+
+        let bar1 = MyCustomView(frame: CGRect(x: 0, y: 0, width: barWidth, height: barHeight))
         bar1.backgroundColor = .red
-        
-        bar2 = MyCustomView(frame: CGRect(x: barWidth, y: 0, width: barWidth, height: barHeight))
+
+        bars.append(bar1)
+
+        let bar2 = MyCustomView(frame: CGRect(x: barWidth, y: 0, width: barWidth, height: barHeight))
         bar2.backgroundColor = .red
-        
-        bar3 = MyCustomView(frame: CGRect(x: barWidth * 2, y: 0, width: barWidth, height: barHeight))
+        bars.append(bar2)
+
+        let bar3 = MyCustomView(frame: CGRect(x: barWidth * 2, y: 0, width: barWidth, height: barHeight))
         bar3.backgroundColor = .red
+        bars.append(bar3)
+
+        for bar in bars {
+            setAnchorPoint(anchorPoint: CGPoint(x: 0, y: 0), forView: bar)
+            self.view.addSubview(bar)
+        }
         
-        self.view.addSubview(bar1)
-        self.view.addSubview(bar2)
-        self.view.addSubview(bar3)
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeCubic, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration) {
+                UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+                    self.bars[0].transform = CGAffineTransform(translationX: 0, y: self.bars[0].frame.size.height)
+                })
+            }
+            UIView.addKeyframe(withRelativeStartTime: duration, relativeDuration: duration) {
+                UIView.animate(withDuration: duration, delay: duration, options: .curveLinear, animations: {
+                    self.bars[1].transform = CGAffineTransform(translationX: 0, y: self.bars[1].frame.size.height)
+                })
+            }
+            UIView.addKeyframe(withRelativeStartTime: duration * 2, relativeDuration: duration) {
+                UIView.animate(withDuration: duration, delay: duration * 2, options: .curveLinear, animations: {
+                    self.bars[2].transform = CGAffineTransform(translationX: 0, y: self.bars[2].frame.size.height)
+                })
+            }
+        })
 
     }
     
@@ -94,43 +121,74 @@ class BarsPreFireViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    fileprivate func scaleBarsUp(_ duration: Double) {
+
+//        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeCubic, animations: {
+//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration) {
+//                UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+//                    self.bars[0].transform = CGAffineTransform(translationX: 0, y: self.bars[0].frame.size.height)
+//                })
+//            }
+//            UIView.addKeyframe(withRelativeStartTime: duration, relativeDuration: duration) {
+//                UIView.animate(withDuration: duration, delay: duration, options: .curveLinear, animations: {
+//                    self.bars[1].transform = CGAffineTransform(translationX: 0, y: self.bars[1].frame.size.height)
+//                })
+//            }
+//            UIView.addKeyframe(withRelativeStartTime: duration * 2, relativeDuration: duration) {
+//                UIView.animate(withDuration: duration, delay: duration * 2, options: .curveLinear, animations: {
+//                    self.bars[2].transform = CGAffineTransform(translationX: 0, y: self.bars[2].frame.size.height)
+//                })
+//            }
+//        })
+    }
     
     @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "\(pfDurTime)"
-        let duration = Double(preFireTime/12)
-        print(duration)
-//        UIView.animate(withDuration: TimeInterval(preFireTime/12), animations: {
-//            self.bar1.frame.size.height = 0.01
-//        }) { _ in
-//            self.bar1.removeFromSuperview()
-//        }
-        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
-            self.bar1.frame.size.height = 0.01
-        }) { _ in
-            
-//            UIView.animate(withDuration: duration, delay: duration - 1.5, options: .curveLinear, animations: {
-//                    self.bar2.frame.size.height = 0.01
-//                }) { _ in
-//                    UIView.animate(withDuration: duration, delay: (duration - 1.5) * 2, options: .curveLinear, animations: {
-//                            self.bar3.frame.size.height = 0.01
-//                        }) { _ in
-//
+        
+        
+//        scaleBarsUp(duration)
+        
+        
+//        UIView.animate(withDuration: 15, delay: 0, options: .curveLinear, animations: {
+//            self.bars[0].transform = CGAffineTransform(scaleX: 0, y: 0.01)
+////            self.bars[0].transform = CGAffineTransform(translationX: 0, y: self.bars[0].frame.size.height)
+//        }) { (finished) in
+//            if finished {
+//                UIView.animate(withDuration: duration, delay: duration, options: .curveLinear, animations: {
+//                    self.bars[1].transform = CGAffineTransform(translationX: 0, y: self.bars[1].frame.size.height)
+//                }) { (finished) in
+//                    if finished {
+//                        UIView.animate(withDuration: duration, delay: duration * 2, options: .curveLinear, animations: {
+//                            self.bars[2].transform = CGAffineTransform(translationX: 0, y: self.bars[2].frame.size.height)
+//                        }) { (finished) in
+//                            if finished {
+//                                print("Done")
 //                            }
+//                        }
 //                    }
-            }
-        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-            UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
-                self.bar2.frame.size.height = 0.01
-            })
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + duration * 2) {
-            UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
-                self.bar3.frame.size.height = 0.01
-            })
-        }
-//        if pfDurTime == preFireTime {
+//                }
+//            }
 //        }
+        
+//        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeCubic, animations: {
+//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration) {
+//                UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+//                    self.bars[0].transform = CGAffineTransform(translationX: 0, y: self.bars[0].frame.size.height)
+//                })
+//            }
+//            UIView.addKeyframe(withRelativeStartTime: duration, relativeDuration: duration) {
+//                UIView.animate(withDuration: duration, delay: duration, options: .curveLinear, animations: {
+//                    self.bars[1].transform = CGAffineTransform(translationX: 0, y: self.bars[1].frame.size.height)
+//                })
+//            }
+//            UIView.addKeyframe(withRelativeStartTime: duration * 2, relativeDuration: duration) {
+//                UIView.animate(withDuration: duration, delay: duration * 2, options: .curveLinear, animations: {
+//                    self.bars[2].transform = CGAffineTransform(translationX: 0, y: self.bars[2].frame.size.height)
+//                })
+//            }
+//        })
+
 //        if pfDurTime == (preFireTime - (preFireTime/4)) {
 //            print("1/4 done")
 //            UIView.animate(withDuration: 3, animations: {
@@ -218,4 +276,25 @@ class BarsPreFireViewController: UIViewController {
         }
     }
     
+    func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
+        var newPoint = CGPoint(x: view.bounds.size.width * anchorPoint.x,
+                               y: view.bounds.size.height * anchorPoint.y)
+
+
+        var oldPoint = CGPoint(x: view.bounds.size.width * view.layer.anchorPoint.x,
+                               y: view.bounds.size.height * view.layer.anchorPoint.y)
+
+        newPoint = newPoint.applying(view.transform)
+        oldPoint = oldPoint.applying(view.transform)
+
+        var position = view.layer.position
+        position.x -= oldPoint.x
+        position.x += newPoint.x
+
+        position.y -= oldPoint.y
+        position.y += newPoint.y
+
+        view.layer.position = position
+        view.layer.anchorPoint = anchorPoint
+    }
 }
