@@ -12,9 +12,23 @@ class CirclePreFireViewController: UIViewController {
     
     var preFireTime: Int!
     @IBOutlet weak var characterImage: UIImageView!
-    @IBOutlet weak var pfDurationLabel: UILabel!
     
-    var presentView: UIImageView!
+    var pfDurationLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let presentImageView: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "present"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let characterImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     var timerPreFire = Timer()
     var timerDuration = Timer()
@@ -36,10 +50,13 @@ class CirclePreFireViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Showing Circle from within MathPreFireVC")
+        print("Showing Circle from within CirclPreFireVC")
         view.backgroundColor = .black
         showButtons()
         drawPreFireCircle1(color: UIColor.green)
+        showLabel()
+        fireDuration = pfDurTime
+        timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
     }
     
     func showButtons() {
@@ -49,6 +66,15 @@ class CirclePreFireViewController: UIViewController {
         closeViewButton.setTitle("Close", for: .normal)
         closeViewButton.addTarget(self, action:#selector(closeView), for: .touchUpInside)
         self.view.addSubview(closeViewButton)
+    }
+    
+    func showLabel() {
+        pfDurationLabel = UILabel(frame: CGRect(x: 0, y: 50, width: 400, height: 50))
+        pfDurationLabel.textAlignment = .center
+        pfDurationLabel.textColor = .red
+        pfDurationLabel.font = UIFont(name: "Avenir", size: 25)
+        self.view.addSubview(pfDurationLabel)
+        pfDurTime = preFireTime
     }
     
     @objc func closeView() {
@@ -72,10 +98,17 @@ class CirclePreFireViewController: UIViewController {
     
     func showPresent() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
-        presentView.addGestureRecognizer(tapGesture)
-        presentView.isUserInteractionEnabled = true
-        presentView.isHidden = false
-        view.bringSubviewToFront(presentView)
+        view.addSubview(presentImageView)
+        
+        presentImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        presentImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        presentImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        presentImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        presentImageView.addGestureRecognizer(tapGesture)
+        presentImageView.isUserInteractionEnabled = true
+        presentImageView.isHidden = false
+        view.bringSubviewToFront(presentImageView)
         
     }
     func removeViews() {
@@ -85,7 +118,7 @@ class CirclePreFireViewController: UIViewController {
     
     @objc func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
-            presentView.removeFromSuperview()
+            presentImageView.removeFromSuperview()
             randomlyPickCharacter()
         }
     }
@@ -117,7 +150,13 @@ class CirclePreFireViewController: UIViewController {
         let random = arc4random_uniform(numberOfImages)
         let imageName = "character_\(random)"
         if characterPicked == false {
-            characterImage.image = UIImage(named: imageName)
+            characterImageView.image = UIImage(named: imageName)
+            view.addSubview(characterImageView)
+            
+            characterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            characterImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            characterImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            characterImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
             characterPicked = true
         }
     }
@@ -126,6 +165,7 @@ class CirclePreFireViewController: UIViewController {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "\(pfDurTime)"
         if pfDurTime == (preFireTime - (preFireTime/4)) {
+            print("quarter1")
                         shapeLayer.strokeColor = #colorLiteral(red: 0.7568627596, green: 0.6892270425, blue: 0.2031356938, alpha: 1)
                         view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.3803921569, blue: 0.8901960784, alpha: 1)
         } else if pfDurTime == (preFireTime - (preFireTime/2)) {
