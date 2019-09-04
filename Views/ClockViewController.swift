@@ -149,38 +149,26 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     
     @IBAction func showPreFireTapped(_ sender: Any) {
         showPreFireVC()
-        
-        
-//        vc.preFireTime = preFireDuration * multiplier
-        
-//        if preFireStyle == "Math" {
-//            showPreFireVC()
-//        } else {
-//            showTestVC()
-//        }
     }
-    
-//    func showTestVC() {
-//        let testVC = self.storyboard?.instantiateViewController(withIdentifier: "test") as! TestingViewController
-//        testVC.preFireTime = preFireDuration * multiplier
-//        self.present(testVC, animated: true)
-//    }
-    
-    
     
     func showPreFireVC() {
         switch preFireStyle {
         case "Math":
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MathPreFireViewController") as! MathPreFireViewController
             vc.preFireTime = preFireDuration * multiplier
+            print("Showing Math from non-clicked")
             self.present(vc, animated: true)
         case "Circle":
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "CirclePreFireViewController") as! CirclePreFireViewController
             vc.preFireTime = preFireDuration * multiplier
+            print("Showing Circle from non-clicked")
             self.present(vc, animated: true)
         case "Bars":
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "BarsPreFireViewController") as! BarsPreFireViewController
+            print("Showing Bars from non-clicked")
             vc.preFireTime = preFireDuration * multiplier
+            
+            
             self.present(vc, animated: true)
         default:
             break

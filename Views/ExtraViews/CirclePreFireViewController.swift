@@ -36,6 +36,7 @@ class CirclePreFireViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Showing Circle from within MathPreFireVC")
         view.backgroundColor = .black
         showButtons()
         drawPreFireCircle1(color: UIColor.green)

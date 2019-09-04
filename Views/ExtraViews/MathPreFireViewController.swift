@@ -107,6 +107,7 @@ class MathPreFireViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Showing Math from within MathPreFireVC")
         DataTimer.shared.check()
         let now = Date()
         let lastDayCheck: Date = UserDefaults.standard.object(forKey: "kStartDate") as! Date
