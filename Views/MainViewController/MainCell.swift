@@ -5,7 +5,6 @@
 //  Created by Jason on 6/27/19.
 //  Copyright © 2019 Jason. All rights reserved.
 //
-
 import UIKit
 
 class MainCell: UITableViewCell {
@@ -15,15 +14,25 @@ class MainCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var preFireLabel: UILabel!
     @IBOutlet weak var preFireStyle: UILabel!
+    @IBOutlet weak var avatarImage: UIImageViewX!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         cardView.addShadowAndRoundedCorners()
         
-        // figure out how to get custom font override to work
-//        nameLabel.font = UIFont(name: Theme.timerFontName, size: 25)
-//        preFireLabel.font = UIFont(name: Theme.titleFontName, size: 2)
     }
 
+//   func randomlyPickAvatar() {
+//          let numberOfImages: UInt32 = 2
+//          let random = arc4random_uniform(numberOfImages)
+//          let imageName = "avatar_\(random)"
+//          avatarImage.image = UIImage(named: imageName)
+//      }
+//
+//      func setAvatarImage() {
+//          print("\(String(describing: timerTimeHour))")
+//      }
 }

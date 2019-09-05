@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         realm = try! Realm()
         menuConfigure()
-//        setupDevButtons()
+        //        setupDevButtons()
         
         #if DEVELOPMENT
         testVCButton.isHidden = false
@@ -85,7 +85,6 @@ class MainViewController: UIViewController {
             self.settingsButton.transform = CGAffineTransform(translationX: 0, y: 15)
             self.newTimerButton.transform = CGAffineTransform(translationX: 11, y: 11)
             self.deleteTimersButton.transform = CGAffineTransform(translationX: 15, y: 0)
-            
         })
     }
     
@@ -96,13 +95,7 @@ class MainViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-//        else if segue.identifier == "toClockSegue" {
-//            let timer = segue.destination as! ClockViewController
-//            timer.timerIndexToEdit = self.timerIndexToEdit
-//        }
     }
-    
-    
     
     @IBAction func deleteTapped(_ sender: UIButton) {
         try! self.realm.write {
@@ -110,8 +103,6 @@ class MainViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    
-    
 }
 
 // Mark:- TableView Functions
@@ -133,9 +124,30 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.preFireLabel.text = "\(item.preFireDuration) min"
         cell.preFireStyle.text = "\(item.preFireStyle)"
         
+        // Day/Night Phase Avatar
+        let hourString = Int(formatHour(date: item.timerTime))!
+        var phase = ""
+        switch hourString {
+        case let hour where hour < 5:
+            phase = "nighttime"
+        case 5...8:
+            phase = "sunrise"
+        case 9...16:
+            phase = "daytime"
+        case 17...18:
+            phase = "sunset"
+        case 19...20:
+            phase = "dusk"
+        case 21...24:
+            phase = "nighttime"
+        default:
+            print("Time does not exist here")
+        }
+        cell.avatarImage.image = UIImage(named: phase)
+        
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Clock") as? ClockViewController {
             vc.timerIndexToEdit = indexPath.row
@@ -148,26 +160,26 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     // TODO: V2.1 Future feature that allows to edit timer:
-//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let timerName = timerItem[indexPath.row]
-//        let edit = UIContextualAction(style: .normal, title: "") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
-//            print("\(self.realm.objects(TimerModel.self))")
-////            self.realm.objects(TimerModel.self)
-////            self.timerIndexToEdit = realm.objects(timerItem.self)
-//            try! self.realm.write {
-//                self.realm?.add(timerItem, value: [timerName: "damn"], update: .modified)
-//
-////                self.realm?.create(TimerModel.self, value: [timerName: "damn"], update: .modified)
-//            }
-//            //            timerName.timerName = "Hello"
-////            self.timerItem[indexPath.row].timerName = "hello"
-//            self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
-//            actionPerformed(true)
-//        }
-//        edit.image = #imageLiteral(resourceName: "settings")
-//        edit.backgroundColor = Theme.edit
-//        return UISwipeActionsConfiguration(actions: [edit])
-//    }
+    //    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    //        let timerName = timerItem[indexPath.row]
+    //        let edit = UIContextualAction(style: .normal, title: "") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+    //            print("\(self.realm.objects(TimerModel.self))")
+    ////            self.realm.objects(TimerModel.self)
+    ////            self.timerIndexToEdit = realm.objects(timerItem.self)
+    //            try! self.realm.write {
+    //                self.realm?.add(timerItem, value: [timerName: "damn"], update: .modified)
+    //
+    ////                self.realm?.create(TimerModel.self, value: [timerName: "damn"], update: .modified)
+    //            }
+    //            //            timerName.timerName = "Hello"
+    ////            self.timerItem[indexPath.row].timerName = "hello"
+    //            self.performSegue(withIdentifier: "toAddTimerSegue", sender: nil)
+    //            actionPerformed(true)
+    //        }
+    //        edit.image = #imageLiteral(resourceName: "settings")
+    //        edit.backgroundColor = Theme.edit
+    //        return UISwipeActionsConfiguration(actions: [edit])
+    //    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let timerName = timerItem[indexPath.row]
@@ -199,6 +211,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func formatTime(date:Date) -> String {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
+        return formatter.string(from: date)
+    }
+    
+    func formatHour(date:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
         return formatter.string(from: date)
     }
 }

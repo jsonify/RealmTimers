@@ -120,9 +120,6 @@ class MathPreFireViewController: UIViewController {
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
         startMath()
-        
-        //        drawPreFireCircle1(color: UIColor.green)
-        
     }
     
     // MARK:- Math Game
