@@ -38,6 +38,13 @@ class MathPreFireViewController: UIViewController {
     
     var operatorLabel = CustomLabel()
     
+    var equationLabel = CustomLabel()
+    var equationText = "" {
+        didSet {
+            equationLabel.text = "\(firstNumber) + \(secondNumber)"
+        }
+    }
+    
     var secondNumberLabel = CustomLabel()
     var secondNumber = 0 {
         didSet {
@@ -162,26 +169,33 @@ class MathPreFireViewController: UIViewController {
     
     func newEquation() {
         reset()
-        
-        firstNumberLabel.text = ""
-        firstNumberLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/4, y: 185, width: 100, height: 120))
-        view.addSubview(firstNumberLabel)
-        firstNumberLabel.text = "\(firstNumber)"
-        firstNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
-        
-        secondNumberLabel.text = ""
-        secondNumberLabel = CustomLabel(frame: CGRect(x: ((view.frame.size.width/2) + (view.frame.size.width/4) - 20), y: 185, width: 100, height: 120))
-        view.addSubview(secondNumberLabel)
-        secondNumberLabel.text = "\(secondNumber)"
-        secondNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
-        
-        operatorLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 185, width: 200, height: 120))
-        operatorLabel.text = "+"
-        view.addSubview(operatorLabel)
-        operatorLabel.font = UIFont(name: "Helvetica", size: 50)
+//
+//        firstNumberLabel.text = ""
+//        firstNumberLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/4, y: 185, width: 100, height: 120))
+//        view.addSubview(firstNumberLabel)
+//        firstNumberLabel.text = "\(firstNumber)"
+//        firstNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
+//
+//        secondNumberLabel.text = ""
+//        secondNumberLabel = CustomLabel(frame: CGRect(x: ((view.frame.size.width/2) + (view.frame.size.width/4) - 20), y: 185, width: 100, height: 120))
+//        view.addSubview(secondNumberLabel)
+//        secondNumberLabel.text = "\(secondNumber)"
+//        secondNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
+//
+//        operatorLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 185, width: 200, height: 120))
+//        operatorLabel.text = "+"
+//        view.addSubview(operatorLabel)
+//        operatorLabel.font = UIFont(name: "Helvetica", size: 50)
         
         firstNumber = Int.random(in: 1..<11)
         secondNumber = Int.random(in: 1..<11)
+        
+        equationLabel.text = ""
+        equationLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/4, y: 185,  width: 300, height: 120))
+        view.addSubview(equationLabel)
+        equationLabel.text = "\(firstNumber) + \(secondNumber)"
+        equationLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
+        
     }
     
     func showButtons() {
@@ -265,7 +279,6 @@ class MathPreFireViewController: UIViewController {
             createConfetti()
             confettiView.startConfetti()
             highScoreLabel.transform = CGAffineTransform(scaleX: 5, y: 5)
-            //            highScoreLabel.transform = CGAffineTransform(translationX: 20, y: 0)
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: .curveEaseInOut, animations: {
                 self.highScoreLabel.transform = .identity
             })
@@ -279,18 +292,7 @@ class MathPreFireViewController: UIViewController {
     @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "\(pfDurTime)"
-        if pfDurTime == (preFireTime - (preFireTime/4)) {
-            //            shapeLayer.strokeColor = #colorLiteral(red: 0.7568627596, green: 0.6892270425, blue: 0.2031356938, alpha: 1)
-            //            view.backgroundColor = #colorLiteral(red: 0.1725490196, green: 0.3803921569, blue: 0.8901960784, alpha: 1)
-        } else if pfDurTime == (preFireTime - (preFireTime/2)) {
-            //            shapeLayer.strokeColor = #colorLiteral(red: 0.07886815806, green: 0.8549019694, blue: 0.7889860416, alpha: 1)
-            //            view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.01176470588, blue: 0.01960784314, alpha: 1)
-        } else if pfDurTime == (preFireTime - (preFireTime/2 + preFireTime/4)) {
-            //            shapeLayer.strokeColor = #colorLiteral(red: 0.1550070187, green: 0.2095842698, blue: 0.9921568627, alpha: 1)
-            //            view.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.05882352941, alpha: 1)
-        }
         if pfDurTime == 0 {
-            //            shapeLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             removeViews()
             timerPreFire.invalidate()
@@ -368,11 +370,7 @@ class MathPreFireViewController: UIViewController {
             characterPicked = true
         }
     }
-    
-    
-    
 }
-
 
 // MARK:- ---> UITextFieldDelegate
 
