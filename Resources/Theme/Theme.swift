@@ -23,6 +23,7 @@ class Theme {
     static let fabDarkGreen = UIColor(named: "FABDarkGreen")
     static let fabRed = UIColor(named: "PreRed")
     static let fabDarkRed = UIColor(named: "DarkRed")
+//    static let mathBackground = UIColor
     
     
     static let cellBackgroundColor = UIColor(named: "CellBackgroundColor")

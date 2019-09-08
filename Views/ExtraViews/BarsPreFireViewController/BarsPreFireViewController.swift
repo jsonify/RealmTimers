@@ -51,9 +51,9 @@ class BarsPreFireViewController: UIViewController {
         showButtons()
         #endif
         drawPreFireBars4(color: .brown)
-        drawPreFireBars3(color: .systemOrange)
+        drawPreFireBars3(color: .orange)
         drawPreFireBars2(color: UIColor.blue)
-        drawPreFireBars1(color: .systemPurple)
+        drawPreFireBars1(color: .purple)
         showLabel()
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)

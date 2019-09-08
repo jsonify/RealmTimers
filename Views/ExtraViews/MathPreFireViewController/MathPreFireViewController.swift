@@ -12,51 +12,46 @@ import UIKit
 
 class MathPreFireViewController: UIViewController {
     
+    @IBOutlet weak var firstNumberView: UIView!
+    @IBOutlet weak var operatorView: UIView!
+    @IBOutlet weak var secondNumberView: UIView!
+    @IBOutlet weak var highScoreView: UIView!
+    @IBOutlet weak var scoreView: UIView!
     
     //Math vars
-    var highScoreLabel = CustomLabel()
+    @IBOutlet weak var highScoreLabel: UILabel!
     var highScoreValue = 0 {
         didSet {
-            highScoreLabel.text = "Daily High Score: \(highScoreValue)"
+            highScoreLabel.text = "\(highScoreValue)"
             UserDefaults.standard.set(highScoreValue, forKey: "highScoreAmount")
         }
     }
     
-    var scoreLabel = CustomLabel()
+    @IBOutlet weak var scoreLabel: UILabel!
     var score = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            scoreLabel.text = "\(score)"
         }
     }
     
-    var firstNumberLabel = CustomLabel()
+    @IBOutlet weak var firstNumberLabel: UILabel!
     var firstNumber = 0 {
         didSet {
             firstNumberLabel.text = "\(firstNumber)"
         }
     }
     
-    var operatorLabel = CustomLabel()
-    
-    var equationLabel = CustomLabel()
-    var equationText = "" {
-        didSet {
-            equationLabel.text = "\(firstNumber) + \(secondNumber)"
-        }
-    }
-    
-    var secondNumberLabel = CustomLabel()
+    @IBOutlet weak var secondNumberLabel: UILabel!
     var secondNumber = 0 {
         didSet {
             secondNumberLabel.text = "\(secondNumber)"
         }
     }
+    @IBOutlet weak var submitButton: UIButton!
     
-    var answerTextField = UITextField()
+    @IBOutlet weak var answerTextField: UITextField!
     var answer = 0
     // Math vars end
-    
-    var submitButton = UIButton()
     
     let presentImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "present"))
@@ -89,9 +84,7 @@ class MathPreFireViewController: UIViewController {
     }
     
     var characterPicked = false
-    
-    var shapeLayer = CAShapeLayer()
-    @IBOutlet weak var presentView: UIImageView!
+//    @IBOutlet weak var presentView: UIImageView!
     
     fileprivate func setupDurationLabel() {
         pfDurationLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -114,6 +107,8 @@ class MathPreFireViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
+        view.backgroundColor = UIColor(named: "MathBackground")
         print("Showing Math from within MathPreFireVC")
         DataTimer.shared.check()
         let now = Date()
@@ -135,77 +130,21 @@ class MathPreFireViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         newEquation()
         showHighScore()
-        showScore()
-        showAnswerTextField()
         showButtons()
-    }
-    
-    fileprivate func showAnswerTextField() {
-        answerTextField =  UITextField(frame: CGRect(x: (view.frame.size.width/2) - 75, y: view.frame.size.height/2 - 35, width: 150, height: 70))
-        answerTextField.placeholder = "Enter text here"
-        answerTextField.font = UIFont.systemFont(ofSize: 40)
-        answerTextField.borderStyle = UITextField.BorderStyle.roundedRect
-        answerTextField.autocorrectionType = UITextAutocorrectionType.no
-        answerTextField.keyboardType = UIKeyboardType.numberPad
-        answerTextField.returnKeyType = UIReturnKeyType.done
-        answerTextField.clearButtonMode = UITextField.ViewMode.whileEditing
-        answerTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        answerTextField.delegate = self
-        self.view.addSubview(answerTextField)
     }
     
     func showHighScore() {
         highScoreValue = UserDefaults.standard.integer(forKey: "highScoreAmount")
-        highScoreLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 50, width: 200, height: 20))
-        view.addSubview(highScoreLabel)
-        highScoreLabel.text = "Daily High Score: \(highScoreValue)"
-    }
-    
-    func showScore() {
-        scoreLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 75, width: 200, height: 20))
-        view.addSubview(scoreLabel)
-        scoreLabel.text = "Score: \(score)"
+        highScoreLabel.text = "\(highScoreValue)"
     }
     
     func newEquation() {
         reset()
-//
-//        firstNumberLabel.text = ""
-//        firstNumberLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/4, y: 185, width: 100, height: 120))
-//        view.addSubview(firstNumberLabel)
-//        firstNumberLabel.text = "\(firstNumber)"
-//        firstNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
-//
-//        secondNumberLabel.text = ""
-//        secondNumberLabel = CustomLabel(frame: CGRect(x: ((view.frame.size.width/2) + (view.frame.size.width/4) - 20), y: 185, width: 100, height: 120))
-//        view.addSubview(secondNumberLabel)
-//        secondNumberLabel.text = "\(secondNumber)"
-//        secondNumberLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
-//
-//        operatorLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/2, y: 185, width: 200, height: 120))
-//        operatorLabel.text = "+"
-//        view.addSubview(operatorLabel)
-//        operatorLabel.font = UIFont(name: "Helvetica", size: 50)
-        
         firstNumber = Int.random(in: 1..<11)
         secondNumber = Int.random(in: 1..<11)
-        
-        equationLabel.text = ""
-        equationLabel = CustomLabel(frame: CGRect(x: view.frame.size.width/4, y: 185,  width: 300, height: 120))
-        view.addSubview(equationLabel)
-        equationLabel.text = "\(firstNumber) + \(secondNumber)"
-        equationLabel.font = UIFont(name: "LibreBaskerville-Regular", size: 75)
-        
     }
     
     func showButtons() {
-        submitButton = UIButton(frame: CGRect(x: view.frame.size.width/2 - 50, y: 400, width: 100, height: 50))
-        submitButton.backgroundColor = .black
-        submitButton.setTitle("Try it!", for: .normal)
-        submitButton.layer.cornerRadius = 10
-        submitButton.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
-        self.view.addSubview(submitButton)
-        
         #if DEVELOPMENT
         let resetScoreButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width - 150, y: 480, width: 100, height: 50))
         resetScoreButton.layer.cornerRadius = 10
@@ -229,14 +168,13 @@ class MathPreFireViewController: UIViewController {
         #endif
     }
     
-    
-    
-    @objc func buttonClicked() {
+    @IBAction func submitAnswer(_ sender: UIButton) {
         guard let answer = Int(answerTextField.text!) else { return }
         let ans = checkAnswer(num1: firstNumber, num2: secondNumber, answer: answer)
         if ans {
             view.backgroundColor = .green
             score += 1
+            answerTextField.resignFirstResponder()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.newEquation()
             }
@@ -257,7 +195,7 @@ class MathPreFireViewController: UIViewController {
     
     func reset() {
         answerTextField.text = ""
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(named: "MathBackground")
     }
     
     @objc func resetScoreButtonClicked(_ sender: UIButton) {
@@ -278,11 +216,11 @@ class MathPreFireViewController: UIViewController {
             highScoreValue = score
             createConfetti()
             confettiView.startConfetti()
-            highScoreLabel.transform = CGAffineTransform(scaleX: 5, y: 5)
+            highScoreView.transform = CGAffineTransform(scaleX: 5, y: 5)
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: .curveEaseInOut, animations: {
-                self.highScoreLabel.transform = .identity
+                self.highScoreView.transform = .identity
             })
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.confettiView.stopConfetti()
                 print("confetti should stop now")
             }
@@ -294,8 +232,8 @@ class MathPreFireViewController: UIViewController {
         pfDurationLabel.text = "\(pfDurTime)"
         if pfDurTime == 0 {
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-            removeViews()
             timerPreFire.invalidate()
+            removeViews()
             highScoreReached()
             showPresent()
             timerDuration = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTime), userInfo: nil, repeats: true)
@@ -318,19 +256,37 @@ class MathPreFireViewController: UIViewController {
         
     }
     func removeViews() {
-        shapeLayer.removeFromSuperlayer()
         pfDurationLabel.removeFromSuperview()
-        firstNumberLabel.removeFromSuperview()
-        secondNumberLabel.removeFromSuperview()
-        operatorLabel.removeFromSuperview()
+        firstNumberView.removeFromSuperview()
+        secondNumberView.removeFromSuperview()
+        operatorView.removeFromSuperview()
         answerTextField.removeFromSuperview()
         submitButton.removeFromSuperview()
         
     }
     @objc func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
-            presentImageView.removeFromSuperview()
-            randomlyPickCharacter()
+                rotateView(targetView: presentImageView, duration: 0.2)
+//            UIView.animate(withDuration: 0.5) {
+//                self.presentImageView.transform = CGAffineTransform(rotationAngle: .pi)
+//            }
+            createConfetti()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.confettiView.startConfetti()
+                self.presentImageView.removeFromSuperview()
+                self.randomlyPickCharacter()
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.confettiView.stopConfetti()
+            }
+        }
+    }
+    
+    func rotateView(targetView: UIView, duration: Double = 1.0) {
+        UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
+            targetView.transform = targetView.transform.rotated(by: CGFloat(Double.pi))
+        }) { finished in
+            self.rotateView(targetView: targetView, duration: duration)
         }
     }
     
@@ -341,17 +297,6 @@ class MathPreFireViewController: UIViewController {
             Sound.shared.stopSound()
             dismiss(animated: true)
         }
-    }
-    
-    func drawCircle() {
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        basicAnimation.toValue = 1
-        basicAnimation.duration = CFTimeInterval(preFireTime)
-        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        basicAnimation.isRemovedOnCompletion = false
-        basicAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        shapeLayer.add(basicAnimation, forKey: nil)
     }
     
     func randomlyPickCharacter() {

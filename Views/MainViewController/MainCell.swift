@@ -24,15 +24,4 @@ class MainCell: UITableViewCell {
         cardView.addShadowAndRoundedCorners()
         
     }
-
-//   func randomlyPickAvatar() {
-//          let numberOfImages: UInt32 = 2
-//          let random = arc4random_uniform(numberOfImages)
-//          let imageName = "avatar_\(random)"
-//          avatarImage.image = UIImage(named: imageName)
-//      }
-//
-//      func setAvatarImage() {
-//          print("\(String(describing: timerTimeHour))")
-//      }
 }

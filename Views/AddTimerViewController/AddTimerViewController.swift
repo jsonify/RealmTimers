@@ -9,7 +9,7 @@
 import RealmSwift
 import UIKit
 
-class AddTimerViewController: UIViewController {
+class AddTimerViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var customSegmentedController: CustomSegmentedControl!
     @IBOutlet weak var preFireStyleSegmentedController: CustomSegmentedControl!
@@ -32,7 +32,8 @@ class AddTimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
+        nameTextField.delegate = self
         configureTimePicker()
         for button in menuButtons {
             button.addShadowAndRoundedCorners()
@@ -48,12 +49,6 @@ class AddTimerViewController: UIViewController {
         fireTimePicker.setValue(UIColor.white, forKeyPath: "textColor")
         fireTimePicker.setValue(0.7, forKeyPath: "alpha")
     }
-//
-//    @IBAction func preFireDurationSelected(_ sender: UIButton) {
-//        preFireDurationButtons.forEach({ $0.tintColor = UIColor.darkGray })
-//
-//        sender.tintColor = Theme.primaryColor
-//    }
     
     @IBAction func cancelTapped(_ sender: Any) {
         dismiss(animated: true)
@@ -95,7 +90,6 @@ class AddTimerViewController: UIViewController {
         }
     }
     
-//    var segmentTime = 0
     @IBAction func wtf(_ sender: CustomSegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -110,6 +104,16 @@ class AddTimerViewController: UIViewController {
             break
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
 }
 
 extension UITextField{
@@ -122,3 +126,5 @@ extension UITextField{
         }
     }
 }
+
+
