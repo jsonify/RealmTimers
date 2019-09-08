@@ -20,8 +20,8 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ili-1G-iPT">
                                 <rect key="frame" x="158" y="462" width="60" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-qH-fMa">
@@ -75,7 +75,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Answer Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hds-3g-CAb">
-                                <rect key="frame" x="22" y="206" width="330" height="106"/>
+                                <rect key="frame" x="22" y="206" width="330" height="112.5"/>
                                 <color key="backgroundColor" name="PrimaryColor"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
@@ -149,7 +149,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="MathBackground"/>
                         <constraints>
                             <constraint firstItem="hDB-Y3-8WW" firstAttribute="top" secondItem="TPr-Z2-Dvt" secondAttribute="top" id="0cI-7P-E70"/>
                             <constraint firstItem="DVd-qH-fMa" firstAttribute="top" secondItem="lHf-ow-eAO" secondAttribute="top" id="0ph-PM-UQt"/>
@@ -203,6 +203,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="MathBackground">
+            <color red="0.29411764705882354" green="0.16078431372549021" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryColor">
             <color red="0.75686274509803919" green="0.76078431372549016" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

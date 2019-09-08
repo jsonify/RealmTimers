@@ -72,11 +72,6 @@ class MathPreFireViewController: UIViewController {
     var timerDuration = Timer()
     var preFireTime: Int!
     var fireDuration = 0
-    let preFireDurationLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    var pfLabel: UILabel!
     var pfDurTime = 0 {
         didSet {
             pfDurationLabel.text = "\(pfDurTime)"
@@ -91,6 +86,7 @@ class MathPreFireViewController: UIViewController {
         pfDurationLabel.textAlignment = .center
         pfDurationLabel.lineBreakMode = .byWordWrapping
         pfDurationLabel.numberOfLines = 0
+        
         self.view.addSubview(pfDurationLabel)
         pfDurTime = preFireTime
     }
@@ -122,14 +118,72 @@ class MathPreFireViewController: UIViewController {
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
         startMath()
+        
+        viewsSetup()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateViews()
     }
     
+    fileprivate func animateViews() {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.firstNumberView.transform = .identity
+            self.firstNumberView.alpha = 1
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0.2, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.operatorView.transform = .identity
+            self.operatorView.alpha = 1
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.secondNumberView.transform = .identity
+            self.secondNumberView.alpha = 1
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.highScoreView.transform = .identity
+            self.highScoreView.alpha = 1
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.scoreView.transform = .identity
+            self.scoreView.alpha = 1
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.answerTextField.transform = .identity
+            self.answerTextField.alpha = 1
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0.4, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.submitButton.transform = .identity
+            self.submitButton.alpha = 1
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, delay: 0.4, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.pfDurationLabel.transform = .identity
+            self.pfDurationLabel.alpha = 1
+        }, completion: nil)
+    }
+    
+    func viewsSetup() {
+        viewToChange(view: firstNumberView)
+        viewToChange(view: operatorView)
+        viewToChange(view: secondNumberView)
+        viewToChange(view: highScoreView)
+        viewToChange(view: scoreView)
+        viewToChange(view: answerTextField)
+        viewToChange(view: submitButton)
+        viewToChange(view: pfDurationLabel)
+    }
+    func viewToChange(view: UIView) {
+        view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        view.alpha = 0
+        view.addCornerRadius(radius: 10)
+    }
     // MARK:- Math Game
     
     func startMath() {
         self.hideKeyboardWhenTappedAround()
         newEquation()
         showHighScore()
+        
+        
         showButtons()
     }
     
@@ -144,8 +198,7 @@ class MathPreFireViewController: UIViewController {
         secondNumber = Int.random(in: 1..<11)
     }
     
-    func showButtons() {
-        #if DEVELOPMENT
+    fileprivate func scoreingButtons() {
         let resetScoreButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width - 150, y: 480, width: 100, height: 50))
         resetScoreButton.layer.cornerRadius = 10
         resetScoreButton.backgroundColor = .black
@@ -159,12 +212,19 @@ class MathPreFireViewController: UIViewController {
         resetHighScoreButton.setTitle("r High Score", for: .normal)
         resetHighScoreButton.addTarget(self, action:#selector(resetHighScoreButtonClicked), for: .touchUpInside)
         self.view.addSubview(resetHighScoreButton)
+    }
+    
+    func showButtons() {
+        #if DEVELOPMENT
+        //Turn on for dev work on the scoring
+//        scoreingButtons()
         
         let closeButton:UIButton = UIButton(frame: CGRect(x: view.center.x, y: view.frame.size.height - 100, width: 50, height: 50))
         closeButton.backgroundColor = .red
         closeButton.setTitle("X", for: .normal)
         closeButton.addTarget(self, action:#selector(closeTapped), for: .touchUpInside)
         self.view.addSubview(closeButton)
+        view.bringSubviewToFront(closeButton)
         #endif
     }
     
@@ -230,6 +290,13 @@ class MathPreFireViewController: UIViewController {
     @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "\(pfDurTime)"
+//        pfDurationLabel.transform = .identity
+//        while pfDurTime < 5 {
+//            UIView.animate(withDuration: 0.2) {
+//                self.pfDurationLabel.transform = CGAffineTransform(scaleX: 5, y: 5)
+//                self.pfDurationLabel.alpha = 0
+//            }
+//        }
         if pfDurTime == 0 {
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             timerPreFire.invalidate()

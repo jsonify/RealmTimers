@@ -17,7 +17,12 @@ extension UIView {
 //        layer.cornerRadius = 15
         layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 0, blur: 20, spread: -13)
     }
+    
+    func addCornerRadius(radius: CGFloat) {
+        layer.cornerRadius = radius
+    }
 }
+
 
 extension CALayer {
     func applySketchShadow(
