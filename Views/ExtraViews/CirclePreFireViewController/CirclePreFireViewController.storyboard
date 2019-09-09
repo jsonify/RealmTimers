@@ -18,8 +18,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="yJT-wx-lYR"/>
                     </view>
+                    <connections>
+                        <segue destination="Chr-Mw-2ET" kind="unwind" identifier="unwindSegueToVC1" unwindAction="unwindToVC1WithSegue:" id="ewb-nU-lSC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQk-MZ-nYE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Chr-Mw-2ET" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5135" y="-453"/>
         </scene>

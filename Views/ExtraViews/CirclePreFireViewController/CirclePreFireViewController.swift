@@ -78,7 +78,8 @@ class CirclePreFireViewController: UIViewController {
     }
     
     @objc func closeView() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
     // MARK:- Circle Option
@@ -128,8 +129,8 @@ class CirclePreFireViewController: UIViewController {
         if fireDuration == 0 {
             timerDuration.invalidate()
             Sound.shared.stopSound()
-            //            saveHighScore()
-            dismiss(animated: true)
+//            dismiss(animated: true)
+            performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         }
     }
     

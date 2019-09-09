@@ -118,16 +118,16 @@ class MathPreFireViewController: UIViewController {
         fireDuration = pfDurTime
         timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
         startMath()
-        
         viewsSetup()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateViews()
     }
+   
     
     fileprivate func animateViews() {
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.firstNumberView.transform = .identity
             self.firstNumberView.alpha = 1
         }, completion: nil)
@@ -135,7 +135,7 @@ class MathPreFireViewController: UIViewController {
             self.operatorView.transform = .identity
             self.operatorView.alpha = 1
         }, completion: nil)
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.secondNumberView.transform = .identity
             self.secondNumberView.alpha = 1
         }, completion: nil)
@@ -267,7 +267,8 @@ class MathPreFireViewController: UIViewController {
     }
     
     @objc func closeTapped(_ sender: FloatingActionButton) {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
     
@@ -362,7 +363,10 @@ class MathPreFireViewController: UIViewController {
         if fireDuration == 0 {
             timerDuration.invalidate()
             Sound.shared.stopSound()
-            dismiss(animated: true)
+            characterImageView.removeFromSuperview()
+            confettiView.removeFromSuperview()
+//            dismiss(animated: true)
+            performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         }
     }
     

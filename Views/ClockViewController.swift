@@ -50,6 +50,8 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         getTimerData()
+        
+        print("hasFired: \(hasFired)")
         wakerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTimerData), userInfo: nil, repeats: true)
         #if DEVELOPMENT
         preFireVCButton.isHidden = false
@@ -58,6 +60,11 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
         #endif
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        hasFired = true
+//        print("hasFired: \(hasFired)")
+    }
     
     // MARK:- Gradient Stuff
     override func viewDidLayoutSubviews() {
@@ -138,6 +145,8 @@ class ClockViewController: UIViewController, CAAnimationDelegate {
             
             if formatter.string(from: preFiredTime) == formatter.string(from: now) && !hasFired {
                 // show wake prefire sequence
+                hasFired = true
+                print("hasFired: \(hasFired)")
                 showPreFireVC()
                 // need to add timer that changes the hasFired as a bool for 1 minute
                 // so that if someone clicks the X, the timer doesn't fire again

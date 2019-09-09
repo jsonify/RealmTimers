@@ -170,7 +170,8 @@ class BarsPreFireViewController: UIViewController {
     }
     
     @objc func closeView() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
     func drain1() {
@@ -299,7 +300,8 @@ class BarsPreFireViewController: UIViewController {
         if fireDuration == 0 {
             timerDuration.invalidate()
             Sound.shared.stopSound()
-            dismiss(animated: true)
+//            dismiss(animated: true)
+            performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         }
     }
     
