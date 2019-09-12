@@ -82,8 +82,8 @@ class MainViewController: UIViewController {
     
     fileprivate func closeMenu() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
-            self.menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: 15)
+//            self.menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+//            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: 15)
             self.newTimerButton.transform = CGAffineTransform(translationX: 11, y: 11)
             self.deleteTimersButton.transform = CGAffineTransform(translationX: 15, y: 0)
         })
