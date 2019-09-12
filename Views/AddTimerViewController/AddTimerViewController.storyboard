@@ -54,12 +54,10 @@
                                 <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-70-sn2" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-70-sn2" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="16" y="575" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" name="DarkRed"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="uSQ-G9-tf0"/>
-                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="cancel">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,8 +71,9 @@
                                     <action selector="cancelTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="KkQ-p4-Pl7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-qC-vWI" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-qC-vWI" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
                                 <rect key="frame" x="301" y="575" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" name="FABLightGreen"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="Check">
@@ -139,7 +138,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOU-Rd-zsU" userLabel="PreFireDurationView">
-                                <rect key="frame" x="14" y="476" width="345" height="87"/>
+                                <rect key="frame" x="14" y="476" width="345" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PreFire Style" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snl-wR-nmR">
                                         <rect key="frame" x="18" y="0.0" width="309" height="32"/>
@@ -151,7 +150,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBI-TQ-dkv" customClass="CustomSegmentedControl" customModule="RealmTimers" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="40" width="309" height="32"/>
+                                        <rect key="frame" x="18" y="40" width="309" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -218,19 +217,15 @@
                         </subviews>
                         <color key="backgroundColor" name="MainBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5iY-WR-PcU" firstAttribute="bottom" secondItem="lIe-70-sn2" secondAttribute="bottom" constant="32" id="25L-cM-6Qa"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" id="31k-hS-vHD"/>
-                            <constraint firstItem="lIe-70-sn2" firstAttribute="top" secondItem="uOU-Rd-zsU" secondAttribute="bottom" constant="12" id="4q6-tE-gnn"/>
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="top" secondItem="MXL-6U-kCl" secondAttribute="bottom" constant="15" id="7Ts-Qo-Hx7"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="top" secondItem="5iY-WR-PcU" secondAttribute="top" constant="40" id="9fg-0g-sXn"/>
-                            <constraint firstItem="5iY-WR-PcU" firstAttribute="trailing" secondItem="a2q-qC-vWI" secondAttribute="trailing" constant="14" id="9lV-Xs-TCK"/>
                             <constraint firstItem="MXL-6U-kCl" firstAttribute="trailing" secondItem="5gf-MD-VMJ" secondAttribute="trailing" id="AaX-TF-lWm"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="trailing" secondItem="MXL-6U-kCl" secondAttribute="trailing" id="AsS-I5-bp2"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="33" id="BcN-Bk-hFi"/>
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="trailing" secondItem="uOU-Rd-zsU" secondAttribute="trailing" id="D5m-r6-ObI"/>
                             <constraint firstItem="MXL-6U-kCl" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="183" id="F4c-zE-D5B"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="centerX" secondItem="1t9-F4-vJ1" secondAttribute="centerX" id="MPh-Km-RrN"/>
-                            <constraint firstItem="lIe-70-sn2" firstAttribute="top" secondItem="a2q-qC-vWI" secondAttribute="top" id="PT9-jf-VnV"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="centerX" secondItem="8i1-UJ-CJl" secondAttribute="centerX" id="Q1x-lF-luq"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="leading" secondItem="MXL-6U-kCl" secondAttribute="leading" id="Q22-eS-bag"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="trailing" secondItem="gHe-xc-y4g" secondAttribute="trailingMargin" id="S10-X7-Waa"/>
@@ -242,7 +237,6 @@
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="370" id="lJr-BW-vjU"/>
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="leading" secondItem="uOU-Rd-zsU" secondAttribute="leading" id="qeF-Vr-PhQ"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="leading" secondItem="gHe-xc-y4g" secondAttribute="leadingMargin" id="tY8-44-KXZ"/>
-                            <constraint firstItem="MXL-6U-kCl" firstAttribute="leading" secondItem="lIe-70-sn2" secondAttribute="leading" id="u2e-NP-Prt"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="top" secondItem="4Pc-FS-lWW" secondAttribute="bottom" constant="37.5" id="wSF-eb-0Bh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5iY-WR-PcU"/>
