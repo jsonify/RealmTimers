@@ -49,9 +49,8 @@ class MathPreFireViewController: UIViewController {
     }
     @IBOutlet weak var submitButton: UIButton!
     
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var answerTextField: UITextField?
     var answer = 0
-    // Math vars end
     
     let presentImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "present"))
@@ -59,7 +58,6 @@ class MathPreFireViewController: UIViewController {
         return imageView
     }()
     
-    //        @IBOutlet weak var characterImage: UIImageView!
     let characterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,18 +72,17 @@ class MathPreFireViewController: UIViewController {
     var fireDuration = 0
     var pfDurTime = 0 {
         didSet {
-            pfDurationLabel.text = "\(pfDurTime)"
+            pfDurationLabel.text = "Time left\n\(pfDurTime)"
         }
     }
     
     var characterPicked = false
-//    @IBOutlet weak var presentView: UIImageView!
     
     fileprivate func setupDurationLabel() {
         pfDurationLabel.translatesAutoresizingMaskIntoConstraints = false
         pfDurationLabel.textAlignment = .center
         pfDurationLabel.lineBreakMode = .byWordWrapping
-        pfDurationLabel.numberOfLines = 0
+//        pfDurationLabel.numberOfLines = 0
         
         self.view.addSubview(pfDurationLabel)
         pfDurTime = preFireTime
@@ -148,8 +145,8 @@ class MathPreFireViewController: UIViewController {
             self.scoreView.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.answerTextField.transform = .identity
-            self.answerTextField.alpha = 1
+            self.answerTextField?.transform = .identity
+            self.answerTextField?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.4, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.submitButton.transform = .identity
@@ -167,7 +164,7 @@ class MathPreFireViewController: UIViewController {
         viewToChange(view: secondNumberView)
         viewToChange(view: highScoreView)
         viewToChange(view: scoreView)
-        viewToChange(view: answerTextField)
+        viewToChange(view: answerTextField!)
         viewToChange(view: submitButton)
         viewToChange(view: pfDurationLabel)
     }
@@ -214,7 +211,7 @@ class MathPreFireViewController: UIViewController {
         self.view.addSubview(resetHighScoreButton)
     }
     
-    func showButtons() {
+    fileprivate func showButtons() {
         #if DEVELOPMENT
         //Turn on for dev work on the scoring
 //        scoreingButtons()
@@ -229,12 +226,12 @@ class MathPreFireViewController: UIViewController {
     }
     
     @IBAction func submitAnswer(_ sender: UIButton) {
-        guard let answer = Int(answerTextField.text!) else { return }
+        guard let answer = Int(answerTextField?.text! ?? "0") else { return }
         let ans = checkAnswer(num1: firstNumber, num2: secondNumber, answer: answer)
         if ans {
             view.backgroundColor = .green
             score += 1
-            answerTextField.resignFirstResponder()
+            answerTextField?.resignFirstResponder()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.newEquation()
             }
@@ -254,7 +251,7 @@ class MathPreFireViewController: UIViewController {
     }
     
     func reset() {
-        answerTextField.text = ""
+        answerTextField?.text? = ""
         view.backgroundColor = UIColor(named: "MathBackground")
     }
     
@@ -267,7 +264,6 @@ class MathPreFireViewController: UIViewController {
     }
     
     @objc func closeTapped(_ sender: FloatingActionButton) {
-//        dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
@@ -290,7 +286,7 @@ class MathPreFireViewController: UIViewController {
     
     @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
-        pfDurationLabel.text = "\(pfDurTime)"
+        pfDurationLabel.text = "Time left\n\(pfDurTime)"
 //        pfDurationLabel.transform = .identity
 //        while pfDurTime < 5 {
 //            UIView.animate(withDuration: 0.2) {
@@ -328,7 +324,7 @@ class MathPreFireViewController: UIViewController {
         firstNumberView.removeFromSuperview()
         secondNumberView.removeFromSuperview()
         operatorView.removeFromSuperview()
-        answerTextField.removeFromSuperview()
+        answerTextField!.removeFromSuperview()
         submitButton.removeFromSuperview()
         
     }
@@ -365,7 +361,6 @@ class MathPreFireViewController: UIViewController {
             Sound.shared.stopSound()
             characterImageView.removeFromSuperview()
             confettiView.removeFromSuperview()
-//            dismiss(animated: true)
             performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         }
     }

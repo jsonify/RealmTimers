@@ -55,7 +55,6 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveTapped(_ sender: UIButton) {
-//        print("\(String(describing: nameTextField.text))")
         let currentDateTime = fireTimePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
@@ -64,7 +63,6 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         } else {
             timerName = nameTextField.text
         }
-//        let preFireAmount = getSelectedPreFireDuration()
         
         timerFunctions.createTimer(timerModel: TimerModel(timerName: timerName, timerTime: currentDateTime, preFireDuration: "\(preFireDuration)", preFireStyle: preFireStyle))
         if let doneSaving = doneSaving {
@@ -74,8 +72,8 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true)
     }
     
-    @IBAction func preFireDurationSegmentIndexChanged(_ sender: UISegmentedControl) {
-    }
+//    @IBAction func preFireDurationSegmentIndexChanged(_ sender: UISegmentedControl) {
+//    }
     
     @IBAction func preFireStyleSegmentSelected(_ sender: CustomSegmentedControl) {
         switch sender.selectedSegmentIndex {
