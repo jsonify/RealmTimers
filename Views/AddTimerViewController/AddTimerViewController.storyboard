@@ -17,6 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXL-6U-kCl">
+                                <rect key="frame" x="16" y="183" width="343" height="172"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLU-W2-6Mb">
+                                        <rect key="frame" x="11" y="17" width="320" height="143"/>
+                                        <color key="tintColor" name="BackgroundColor"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="583739304.03653204">
+                                            <!--2019-07-02 05:48:24 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" name="CellBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="top" secondItem="MXL-6U-kCl" secondAttribute="top" constant="17" id="6PF-lC-8SO"/>
+                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="leading" secondItem="MXL-6U-kCl" secondAttribute="leading" constant="11" id="DxP-JU-sCO"/>
+                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="centerX" secondItem="MXL-6U-kCl" secondAttribute="centerX" id="Ymw-Ng-tf6"/>
+                                    <constraint firstAttribute="bottom" secondItem="nLU-W2-6Mb" secondAttribute="bottom" constant="12" id="jNh-R8-do6"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-UJ-CJl">
+                                <rect key="frame" x="33" y="192" width="309" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="M3b-jg-SP1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1t9-F4-vJ1">
                                 <rect key="frame" x="16" y="109" width="343" height="57"/>
                                 <subviews>
@@ -54,40 +82,6 @@
                                 <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-70-sn2" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="16" y="575" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" name="DarkRed"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="cancel">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="cancelTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="KkQ-p4-Pl7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-qC-vWI" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="301" y="575" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" name="FABLightGreen"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="Check">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="zjw-r8-Bkg"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gf-MD-VMJ" userLabel="PreFireDurationView">
                                 <rect key="frame" x="14" y="370" width="345" height="87"/>
                                 <subviews>
@@ -186,34 +180,46 @@
                                     <constraint firstItem="snl-wR-nmR" firstAttribute="top" secondItem="uOU-Rd-zsU" secondAttribute="top" id="wWu-io-tT4"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXL-6U-kCl">
-                                <rect key="frame" x="16" y="183" width="343" height="172"/>
-                                <subviews>
-                                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLU-W2-6Mb">
-                                        <rect key="frame" x="11" y="17" width="320" height="143"/>
-                                        <color key="tintColor" name="BackgroundColor"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="583739304.03653204">
-                                            <!--2019-07-02 05:48:24 +0000-->
-                                        </date>
-                                    </datePicker>
-                                </subviews>
-                                <color key="backgroundColor" name="CellBackgroundColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-70-sn2" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="16" y="591" width="60" height="60"/>
+                                <color key="backgroundColor" name="DarkRed"/>
                                 <constraints>
-                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="top" secondItem="MXL-6U-kCl" secondAttribute="top" constant="17" id="6PF-lC-8SO"/>
-                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="leading" secondItem="MXL-6U-kCl" secondAttribute="leading" constant="11" id="DxP-JU-sCO"/>
-                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="centerX" secondItem="MXL-6U-kCl" secondAttribute="centerX" id="Ymw-Ng-tf6"/>
-                                    <constraint firstAttribute="bottom" secondItem="nLU-W2-6Mb" secondAttribute="bottom" constant="12" id="jNh-R8-do6"/>
+                                    <constraint firstAttribute="width" constant="60" id="6SR-tt-4Pv"/>
+                                    <constraint firstAttribute="height" constant="60" id="lfK-Ta-731"/>
                                 </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-UJ-CJl">
-                                <rect key="frame" x="33" y="192" width="309" height="32"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="cancel">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="KkQ-p4-Pl7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-qC-vWI" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="299" y="591" width="60" height="60"/>
+                                <color key="backgroundColor" name="FABLightGreen"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="M3b-jg-SP1"/>
+                                    <constraint firstAttribute="width" constant="60" id="PJV-CF-0sc"/>
+                                    <constraint firstAttribute="height" constant="60" id="tDp-sM-zri"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="Check">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="zjw-r8-Bkg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="MainBackgroundColor"/>
                         <constraints>
@@ -226,15 +232,19 @@
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="trailing" secondItem="uOU-Rd-zsU" secondAttribute="trailing" id="D5m-r6-ObI"/>
                             <constraint firstItem="MXL-6U-kCl" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="183" id="F4c-zE-D5B"/>
                             <constraint firstItem="4Pc-FS-lWW" firstAttribute="centerX" secondItem="1t9-F4-vJ1" secondAttribute="centerX" id="MPh-Km-RrN"/>
+                            <constraint firstItem="lIe-70-sn2" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="16" id="OBk-s1-04u"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="centerX" secondItem="8i1-UJ-CJl" secondAttribute="centerX" id="Q1x-lF-luq"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="leading" secondItem="MXL-6U-kCl" secondAttribute="leading" id="Q22-eS-bag"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="trailing" secondItem="gHe-xc-y4g" secondAttribute="trailingMargin" id="S10-X7-Waa"/>
+                            <constraint firstItem="5iY-WR-PcU" firstAttribute="bottom" secondItem="a2q-qC-vWI" secondAttribute="bottom" constant="16" id="SyG-mH-M3v"/>
                             <constraint firstItem="uOU-Rd-zsU" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="476" id="W3H-4S-4Is"/>
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="14" id="Xn0-dV-eVK"/>
                             <constraint firstItem="uOU-Rd-zsU" firstAttribute="top" secondItem="5gf-MD-VMJ" secondAttribute="bottom" constant="19" id="bx4-un-RWh"/>
                             <constraint firstItem="MXL-6U-kCl" firstAttribute="top" secondItem="1t9-F4-vJ1" secondAttribute="bottom" constant="17" id="h7f-lt-Ker"/>
                             <constraint firstItem="8i1-UJ-CJl" firstAttribute="top" secondItem="1t9-F4-vJ1" secondAttribute="bottom" constant="26" id="hUf-pK-lRY"/>
+                            <constraint firstItem="5iY-WR-PcU" firstAttribute="trailing" secondItem="a2q-qC-vWI" secondAttribute="trailing" constant="16" id="hxw-n9-UcP"/>
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="370" id="lJr-BW-vjU"/>
+                            <constraint firstItem="5iY-WR-PcU" firstAttribute="bottom" secondItem="lIe-70-sn2" secondAttribute="bottom" constant="16" id="mwG-9v-lYy"/>
                             <constraint firstItem="5gf-MD-VMJ" firstAttribute="leading" secondItem="uOU-Rd-zsU" secondAttribute="leading" id="qeF-Vr-PhQ"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="leading" secondItem="gHe-xc-y4g" secondAttribute="leadingMargin" id="tY8-44-KXZ"/>
                             <constraint firstItem="1t9-F4-vJ1" firstAttribute="top" secondItem="4Pc-FS-lWW" secondAttribute="bottom" constant="37.5" id="wSF-eb-0Bh"/>
