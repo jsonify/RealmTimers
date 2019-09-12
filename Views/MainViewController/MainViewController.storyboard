@@ -36,10 +36,10 @@
                                                     <rect key="frame" x="15" y="11" width="367" height="108"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVK-k7-25m">
-                                                            <rect key="frame" x="22" y="1" width="323" height="106"/>
+                                                            <rect key="frame" x="22" y="-39" width="323" height="186"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mars" translatesAutoresizingMaskIntoConstraints="NO" id="OLY-w3-1Nc" customClass="UIImageViewX" customModule="RealmTimers" customModuleProvider="target">
-                                                                    <rect key="frame" x="-22" y="13" width="80" height="80"/>
+                                                                    <rect key="frame" x="-22" y="13" width="160" height="160"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                             <real key="value" value="40"/>
@@ -47,7 +47,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brZ-7e-haJ">
-                                                                    <rect key="frame" x="74" y="0.0" width="249" height="106"/>
+                                                                    <rect key="frame" x="154" y="40" width="169" height="106"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GQF-PU-Vg8">
                                                                             <rect key="frame" x="16" y="14" width="117" height="78"/>
@@ -177,7 +177,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-om-aJo" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="158" y="589" width="60" height="60"/>
+                                <rect key="frame" x="127.5" y="529" width="120" height="120"/>
                                 <color key="backgroundColor" name="DarkBlue"/>
                                 <color key="tintColor" name="PrimaryColor"/>
                                 <state key="normal" image="fab">
@@ -261,14 +261,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vh-qd-Xqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3538" y="864"/>
-        </scene>
-        <!--SettingsViewController-->
-        <scene sceneID="qrT-FR-v0y">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SettingsViewController" id="iuz-tj-7Tv" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f1m-gx-HrU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4558" y="214"/>
         </scene>
     </scenes>
     <resources>
