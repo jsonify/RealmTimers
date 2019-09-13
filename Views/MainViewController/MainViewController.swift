@@ -44,15 +44,15 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         realm = try! Realm()
         menuConfigure()
-        //        setupDevButtons()
         
         #if DEVELOPMENT
         testVCButton.isHidden = false
+        deleteTimersButton.isHidden = false
         #else
         testVCButton.isHidden = true
+        deleteTimersButton.isHidden = true
         #endif
     }
-    
     
     @objc func goToTestVC() {
         print("Go to goToTestVC")

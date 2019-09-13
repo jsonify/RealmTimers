@@ -69,10 +69,10 @@ class CirclePreFireViewController: UIViewController {
     }
     
     func showLabel() {
-        pfDurationLabel = UILabel(frame: CGRect(x: 0, y: 50, width: 400, height: 50))
+        pfDurationLabel = UILabel(frame: CGRect(x: 150, y: view.center.y, width: 400, height: 50))
         pfDurationLabel.textAlignment = .center
-        pfDurationLabel.textColor = .red
-        pfDurationLabel.font = UIFont(name: "Avenir", size: 25)
+        pfDurationLabel.textColor = .white
+        pfDurationLabel.font = UIFont(name: "Avenir", size: 55)
         self.view.addSubview(pfDurationLabel)
         pfDurTime = preFireTime
     }
