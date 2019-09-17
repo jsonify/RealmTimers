@@ -30,6 +30,7 @@
 		7960E27C22E97BE4001552AC /* PreFireEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E27B22E97BE4001552AC /* PreFireEnum.swift */; };
 		796A04A922EC1971007F662B /* PreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796A04A822EC1971007F662B /* PreFireViewController.storyboard */; };
 		796ABDF523310F4C0029605A /* ClockViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ABDF423310F4C0029605A /* ClockViewControllerTests.swift */; };
+		796ABDF723311C160029605A /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 796ABDF623311C160029605A /* Readme.md */; };
 		7979F319232A0E2500D2F088 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7979F318232A0E2400D2F088 /* MainViewController.storyboard */; };
 		7979F31A232A0E2500D2F088 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7979F318232A0E2400D2F088 /* MainViewController.storyboard */; };
 		798A631D231650F400AAA2AD /* CirclePreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */; };
@@ -143,6 +144,7 @@
 		7960E27B22E97BE4001552AC /* PreFireEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreFireEnum.swift; sourceTree = "<group>"; };
 		796A04A822EC1971007F662B /* PreFireViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PreFireViewController.storyboard; sourceTree = "<group>"; };
 		796ABDF423310F4C0029605A /* ClockViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewControllerTests.swift; sourceTree = "<group>"; };
+		796ABDF623311C160029605A /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		7979F317232A0C4200D2F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewController.storyboard; sourceTree = "<group>"; };
 		7979F318232A0E2400D2F088 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
 		798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePreFireViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		9657075D22C47EB500BAEF21 = {
 			isa = PBXGroup;
 			children = (
+				796ABDF623311C160029605A /* Readme.md */,
 				9657076822C47EB600BAEF21 /* RealmTimers */,
 				79D609DB2320155A007127DF /* RealmTimersTests */,
 				9657076722C47EB600BAEF21 /* Products */,
@@ -595,6 +598,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796ABDF723311C160029605A /* Readme.md in Resources */,
 				96D9BECC22C653450032ECB3 /* Colors.xcassets in Resources */,
 				9657077422C47EB900BAEF21 /* LaunchScreen.storyboard in Resources */,
 				9657077122C47EB900BAEF21 /* Assets.xcassets in Resources */,
