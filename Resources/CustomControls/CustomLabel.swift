@@ -21,11 +21,9 @@ class CustomLabel: UILabel {
     }
 
     func initializeLabel() {
-
         self.textAlignment = .left
         self.font = UIFont(name: "Helvetica", size: 17)
         self.textColor = UIColor.black
-
     }
 
 }

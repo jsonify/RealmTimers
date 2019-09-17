@@ -15,7 +15,6 @@ enum ClockStyle: Int {
 }
 
 class TimerFunctions {
-    
     var realm = try! Realm()
     
     func createTimer(timerModel: TimerModel) {

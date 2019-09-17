@@ -9,9 +9,7 @@
 import UIKit
 
 class SoundToggleButton: UIButton {
-    
-//    var isOn = false
-        var isOn = UserDefaults.standard.bool(forKey: "soundEnabledKey")
+    var isOn = UserDefaults.standard.bool(forKey: "soundEnabledKey")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,17 +21,16 @@ class SoundToggleButton: UIButton {
         initButton()
     }
     
-    func initButton() {
+    fileprivate func initButton() {
         addTarget(self, action: #selector(SoundToggleButton.buttonPressed), for: .touchUpInside)
         
     }
     
-    @objc func buttonPressed() {
+    @objc fileprivate func buttonPressed() {
         activateButton(bool: !isOn)
     }
     
-    func activateButton(bool: Bool) {
-        
+    fileprivate func activateButton(bool: Bool) {
         isOn = bool
         let image = bool ? UIImage(named: "sound-on") : UIImage(named: "sound-off")
         if isOn {
@@ -43,7 +40,6 @@ class SoundToggleButton: UIButton {
             Sound.shared.stopSound()
             UserDefaults.standard.set(isOn, forKey: "soundEnabledKey")
         }
-        print(bool)
         setImage(image, for: .normal)
     }
 }

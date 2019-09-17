@@ -19,7 +19,7 @@ class DataTimer {
         check()
     }
     
-    func check() {
+    fileprivate func check() {
         guard
             let startDate = UserDefaults.standard.object(forKey: "kStartDate") as? Date,
             let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)
@@ -37,8 +37,6 @@ class DataTimer {
         
         self.startDate = startDate
         self.endDate = endDate
-        
-        // log remaining time
         interval = abs(interval)
         let log: [Int] = [3600.0, 60.0].map { value in
             guard interval > value else { return 0 }

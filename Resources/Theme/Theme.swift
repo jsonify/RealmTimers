@@ -18,14 +18,10 @@ class Theme {
     static let primaryColor = UIColor(named: "PrimaryColor")
     static let tintColor = UIColor(named: "TintColor")
     static let darkTintColor = UIColor(named: "DarkTintColor")
-    
     static let fabLightGreen = UIColor(named: "FABLightGreen")
     static let fabDarkGreen = UIColor(named: "FABDarkGreen")
     static let fabRed = UIColor(named: "PreRed")
     static let fabDarkRed = UIColor(named: "DarkRed")
-//    static let mathBackground = UIColor
-    
-    
     static let cellBackgroundColor = UIColor(named: "CellBackgroundColor")
     static let mainBackgroundColor = UIColor(named: "MainBackgroundColor")
     static let edit = UIColor(named: "EditColor")

@@ -15,10 +15,7 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var preFireStyleSegmentedController: CustomSegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var fireTimePicker: UIDatePicker!
-    @IBOutlet weak var preFireDurationSegment: UISegmentedControl!
-    @IBOutlet var preFireDurationButtons: [UIButton]!
     @IBOutlet var menuButtons: [UIButton]!
-    
     @IBOutlet var menuItemView: [UIView]!
     
     var timer = TimerModel()
@@ -71,9 +68,6 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         
         dismiss(animated: true)
     }
-    
-//    @IBAction func preFireDurationSegmentIndexChanged(_ sender: UISegmentedControl) {
-//    }
     
     @IBAction func preFireStyleSegmentSelected(_ sender: CustomSegmentedControl) {
         switch sender.selectedSegmentIndex {

@@ -24,9 +24,7 @@ class BarsPreFireViewController: UIViewController {
             pfDurationLabel.text = "\(pfDurTime)"
         }
     }
-    
     var characterPicked = false
-    
     var bars1 = [MyCustomView]()
     var bars2 = [MyCustomView]()
     var bars3 = [MyCustomView]()
@@ -37,7 +35,6 @@ class BarsPreFireViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
     let characterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +58,7 @@ class BarsPreFireViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        drain1()
+        scaleDownBars1()
     }
     
     func drawPreFireBars1(color: UIColor) {
@@ -170,11 +167,11 @@ class BarsPreFireViewController: UIViewController {
     }
     
     @objc func closeView() {
-//        dismiss(animated: true, completion: nil)
+        //        dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
-    func drain1() {
+    fileprivate func scaleDownBars1() {
         UIView.animate(withDuration: TimeInterval(preFireTime/12), delay: 0, options: .curveLinear, animations: {
             self.bars1[0].transform = CGAffineTransform(translationX: 0, y: self.bars1[0].frame.size.height)
         }) { (true) in
@@ -185,13 +182,13 @@ class BarsPreFireViewController: UIViewController {
                     self.bars1[2].transform = CGAffineTransform(translationX: 0, y: self.bars1[2].frame.size.height)
                 }) { (true) in
                     self.bars1.removeAll()
-                    self.drain2()
+                    self.scaleDownBars2()
                 }
             }
         }
     }
     
-    func drain2() {
+    fileprivate func scaleDownBars2() {
         UIView.animate(withDuration: TimeInterval(preFireTime/12), delay: 0, options: .curveLinear, animations: {
             self.bars2[0].transform = CGAffineTransform(translationX: 0, y: self.bars2[0].frame.size.height)
         }) { (true) in
@@ -202,13 +199,13 @@ class BarsPreFireViewController: UIViewController {
                     self.bars2[2].transform = CGAffineTransform(translationX: 0, y: self.bars2[2].frame.size.height)
                 }) { (true) in
                     self.bars2.removeAll()
-                    self.drain3()
+                    self.scaleDownBars3()
                 }
             }
         }
     }
     
-    func drain3() {
+    fileprivate func scaleDownBars3() {
         UIView.animate(withDuration: TimeInterval(preFireTime/12), delay: 0, options: .curveLinear, animations: {
             self.bars3[0].transform = CGAffineTransform(translationX: 0, y: self.bars3[0].frame.size.height)
         }) { (true) in
@@ -219,13 +216,13 @@ class BarsPreFireViewController: UIViewController {
                     self.bars3[2].transform = CGAffineTransform(translationX: 0, y: self.bars3[2].frame.size.height)
                 }) { (true) in
                     self.bars3.removeAll()
-                    self.drain4()
+                    self.scaleDownBars4()
                 }
             }
         }
     }
     
-    func drain4() {
+    fileprivate func scaleDownBars4() {
         UIView.animate(withDuration: TimeInterval(preFireTime/12), delay: 0, options: .curveLinear, animations: {
             self.bars4[0].transform = CGAffineTransform(translationX: 0, y: self.bars4[0].frame.size.height)
         }) { (true) in
@@ -246,12 +243,12 @@ class BarsPreFireViewController: UIViewController {
         }
     }
     
-    @objc func countDownDuration() {
+    @objc fileprivate func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "\(pfDurTime)"
     }
     
-    func showPresent() {
+    fileprivate func showPresent() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
         view.addSubview(presentImageView)
         
@@ -259,26 +256,24 @@ class BarsPreFireViewController: UIViewController {
         presentImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         presentImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         presentImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
         presentImageView.addGestureRecognizer(tapGesture)
         presentImageView.isUserInteractionEnabled = true
         presentImageView.isHidden = false
         view.bringSubviewToFront(presentImageView)
-        
     }
     
-    func removeViews() {
+    fileprivate func removeViews() {
         pfDurationLabel.removeFromSuperview()
     }
     
-    @objc func imageTapped(gesture: UIGestureRecognizer) {
+    @objc fileprivate func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
             presentImageView.removeFromSuperview()
             randomlyPickCharacter()
         }
     }
     
-    func randomlyPickCharacter() {
+    fileprivate func randomlyPickCharacter() {
         characterPicked = false
         let numberOfImages: UInt32 = 12
         let random = arc4random_uniform(numberOfImages)
@@ -286,7 +281,6 @@ class BarsPreFireViewController: UIViewController {
         if characterPicked == false {
             characterImageView.image = UIImage(named: imageName)
             view.addSubview(characterImageView)
-            
             characterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             characterImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             characterImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -295,31 +289,26 @@ class BarsPreFireViewController: UIViewController {
         }
     }
     
-    @objc func fireTime() {
+    @objc fileprivate func fireTime() {
         fireDuration = fireDuration - 1
         if fireDuration == 0 {
             timerDuration.invalidate()
             Sound.shared.stopSound()
-//            dismiss(animated: true)
             performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         }
     }
     
-    func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
-        var newPoint = CGPoint(x: view.bounds.size.width * anchorPoint.x,
-                               y: view.bounds.size.height * anchorPoint.y)
+    fileprivate func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
+        var newPoint = CGPoint(x: view.bounds.size.width * anchorPoint.x, y: view.bounds.size.height * anchorPoint.y)
         
         
-        var oldPoint = CGPoint(x: view.bounds.size.width * view.layer.anchorPoint.x,
-                               y: view.bounds.size.height * view.layer.anchorPoint.y)
-        
+        var oldPoint = CGPoint(x: view.bounds.size.width * view.layer.anchorPoint.x, y: view.bounds.size.height * view.layer.anchorPoint.y)
         newPoint = newPoint.applying(view.transform)
         oldPoint = oldPoint.applying(view.transform)
         
         var position = view.layer.position
         position.x -= oldPoint.x
         position.x += newPoint.x
-        
         position.y -= oldPoint.y
         position.y += newPoint.y
         

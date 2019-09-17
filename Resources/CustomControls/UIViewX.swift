@@ -37,7 +37,7 @@ class UIViewX: UIView {
         }
     }
     
-    func updateView() {
+    fileprivate func updateView() {
         let layer = self.layer as! CAGradientLayer
         layer.colors = [ firstColor.cgColor, secondColor.cgColor ]
         

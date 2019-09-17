@@ -49,7 +49,7 @@ class CustomSegmentedControl: UIControl {
         }
     }
     
-    func updateView() {
+    fileprivate func updateView() {
         buttons.removeAll()
         subviews.forEach { $0.removeFromSuperview() }
         
@@ -85,7 +85,7 @@ class CustomSegmentedControl: UIControl {
         sv.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         sv.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
     }
-    @objc func buttonTapped(button: UIButton) {
+    @objc fileprivate func buttonTapped(button: UIButton) {
         for (buttonIndex, btn) in buttons.enumerated() {
             btn.setTitleColor(textColor, for: .normal)
             

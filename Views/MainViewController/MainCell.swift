@@ -16,12 +16,8 @@ class MainCell: UITableViewCell {
     @IBOutlet weak var preFireStyle: UILabel!
     @IBOutlet weak var avatarImage: UIImageViewX!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         cardView.addShadowAndRoundedCorners()
-        
     }
 }

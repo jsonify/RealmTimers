@@ -17,40 +17,48 @@ class MathPreFireViewController: UIViewController {
     @IBOutlet weak var secondNumberView: UIView!
     @IBOutlet weak var highScoreView: UIView!
     @IBOutlet weak var scoreView: UIView!
-    
-    //Math vars
     @IBOutlet weak var highScoreLabel: UILabel!
-    var highScoreValue = 0 {
-        didSet {
-            highScoreLabel.text = "\(highScoreValue)"
-            UserDefaults.standard.set(highScoreValue, forKey: "highScoreAmount")
-        }
-    }
-    
     @IBOutlet weak var scoreLabel: UILabel!
-    var score = 0 {
-        didSet {
-            scoreLabel.text = "\(score)"
-        }
-    }
-    
     @IBOutlet weak var firstNumberLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var answerTextField: UITextField?
+    @IBOutlet weak var secondNumberLabel: UILabel!
+    @IBOutlet weak var pfDurationLabel: UILabel!
+    
     var firstNumber = 0 {
         didSet {
             firstNumberLabel.text = "\(firstNumber)"
         }
     }
     
-    @IBOutlet weak var secondNumberLabel: UILabel!
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "\(score)"
+        }
+    }
+    var highScoreValue = 0 {
+        didSet {
+            highScoreLabel.text = "\(highScoreValue)"
+            UserDefaults.standard.set(highScoreValue, forKey: "highScoreAmount")
+        }
+    }
     var secondNumber = 0 {
         didSet {
             secondNumberLabel.text = "\(secondNumber)"
         }
     }
-    @IBOutlet weak var submitButton: UIButton!
     
-    @IBOutlet weak var answerTextField: UITextField?
     var answer = 0
+    var characterPicked = false
+    var timerPreFire = Timer()
+    var timerDuration = Timer()
+    var preFireTime: Int!
+    var fireDuration = 0
+    var pfDurTime = 0 {
+        didSet {
+            pfDurationLabel.text = "Time left\n\(pfDurTime)"
+        }
+    }
     
     let presentImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "present"))
@@ -64,46 +72,35 @@ class MathPreFireViewController: UIViewController {
         return imageView
     }()
     
-    @IBOutlet weak var pfDurationLabel: UILabel!
+    var confettiView = SAConfettiView()
     
-    var timerPreFire = Timer()
-    var timerDuration = Timer()
-    var preFireTime: Int!
-    var fireDuration = 0
-    var pfDurTime = 0 {
-        didSet {
-            pfDurationLabel.text = "Time left\n\(pfDurTime)"
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fireDuration = pfDurTime
+        view.backgroundColor = UIColor(named: "MathBackground")
+        timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
+        hideKeyboardWhenTappedAround()
+        DataTimer.shared.check()
+        dateCheck()
+        setupDurationLabel()
+        viewsSetup()
+        startMath()
     }
     
-    var characterPicked = false
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateViews()
+    }
     
     fileprivate func setupDurationLabel() {
         pfDurationLabel.translatesAutoresizingMaskIntoConstraints = false
         pfDurationLabel.textAlignment = .center
         pfDurationLabel.lineBreakMode = .byWordWrapping
-//        pfDurationLabel.numberOfLines = 0
-        
         self.view.addSubview(pfDurationLabel)
         pfDurTime = preFireTime
     }
     
-    var confettiView = SAConfettiView()
-    
-    fileprivate func createConfetti() {
-        confettiView = SAConfettiView(frame: self.view.bounds)
-        confettiView.type = .Confetti
-        self.view.addSubview(confettiView)
-    }
-    
-    var defaults = UserDefaults.standard
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        hideKeyboardWhenTappedAround()
-        view.backgroundColor = UIColor(named: "MathBackground")
-        print("Showing Math from within MathPreFireVC")
-        DataTimer.shared.check()
+    fileprivate func dateCheck() {
         let now = Date()
         let lastDayCheck: Date = UserDefaults.standard.object(forKey: "kStartDate") as! Date
         if now < lastDayCheck {
@@ -111,17 +108,13 @@ class MathPreFireViewController: UIViewController {
         } else {
             print("\(lastDayCheck)")
         }
-        setupDurationLabel()
-        fireDuration = pfDurTime
-        timerPreFire = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDuration), userInfo: nil, repeats: true)
-        startMath()
-        viewsSetup()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        animateViews()
+    
+    fileprivate func createConfetti() {
+        confettiView = SAConfettiView(frame: self.view.bounds)
+        confettiView.type = .Confetti
+        self.view.addSubview(confettiView)
     }
-   
     
     fileprivate func animateViews() {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
@@ -158,7 +151,7 @@ class MathPreFireViewController: UIViewController {
         }, completion: nil)
     }
     
-    func viewsSetup() {
+    fileprivate func viewsSetup() {
         viewToChange(view: firstNumberView)
         viewToChange(view: operatorView)
         viewToChange(view: secondNumberView)
@@ -168,28 +161,26 @@ class MathPreFireViewController: UIViewController {
         viewToChange(view: submitButton)
         viewToChange(view: pfDurationLabel)
     }
-    func viewToChange(view: UIView) {
+    
+    fileprivate func viewToChange(view: UIView) {
         view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         view.alpha = 0
         view.addCornerRadius(radius: 10)
     }
-    // MARK:- Math Game
     
-    func startMath() {
+    fileprivate func startMath() {
         self.hideKeyboardWhenTappedAround()
         newEquation()
         showHighScore()
-        
-        
         showButtons()
     }
     
-    func showHighScore() {
+    fileprivate func showHighScore() {
         highScoreValue = UserDefaults.standard.integer(forKey: "highScoreAmount")
         highScoreLabel.text = "\(highScoreValue)"
     }
     
-    func newEquation() {
+    fileprivate func newEquation() {
         reset()
         firstNumber = Int.random(in: 1..<11)
         secondNumber = Int.random(in: 1..<11)
@@ -213,9 +204,6 @@ class MathPreFireViewController: UIViewController {
     
     fileprivate func showButtons() {
         #if DEVELOPMENT
-        //Turn on for dev work on the scoring
-//        scoreingButtons()
-        
         let closeButton:UIButton = UIButton(frame: CGRect(x: view.center.x, y: view.frame.size.height - 100, width: 50, height: 50))
         closeButton.backgroundColor = .red
         closeButton.setTitle("X", for: .normal)
@@ -243,30 +231,29 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    func checkAnswer(num1: Int, num2: Int, answer: Int) -> Bool {
+    fileprivate func checkAnswer(num1: Int, num2: Int, answer: Int) -> Bool {
         if answer == (num1 + num2) {
             return true
         }
         return false
     }
     
-    func reset() {
+    fileprivate func reset() {
         answerTextField?.text? = ""
         view.backgroundColor = UIColor(named: "MathBackground")
     }
     
-    @objc func resetScoreButtonClicked(_ sender: UIButton) {
+    @objc fileprivate func resetScoreButtonClicked(_ sender: UIButton) {
         score = 0
     }
     
-    @objc func resetHighScoreButtonClicked(_ sender: UIButton) {
+    @objc fileprivate func resetHighScoreButtonClicked(_ sender: UIButton) {
         highScoreValue = 0
     }
     
-    @objc func closeTapped(_ sender: FloatingActionButton) {
+    @objc fileprivate func closeTapped(_ sender: FloatingActionButton) {
         performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
-    
     
     fileprivate func highScoreReached() {
         if highScoreValue < score {
@@ -284,16 +271,9 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    @objc func countDownDuration() {
+    @objc fileprivate func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "Time left\n\(pfDurTime)"
-//        pfDurationLabel.transform = .identity
-//        while pfDurTime < 5 {
-//            UIView.animate(withDuration: 0.2) {
-//                self.pfDurationLabel.transform = CGAffineTransform(scaleX: 5, y: 5)
-//                self.pfDurationLabel.alpha = 0
-//            }
-//        }
         if pfDurTime == 0 {
             view.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             timerPreFire.invalidate()
@@ -304,22 +284,19 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    func showPresent() {
+    fileprivate func showPresent() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
         view.addSubview(presentImageView)
-        
         presentImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         presentImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         presentImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         presentImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
         presentImageView.addGestureRecognizer(tapGesture)
         presentImageView.isUserInteractionEnabled = true
         presentImageView.isHidden = false
         view.bringSubviewToFront(presentImageView)
-        
     }
-    func removeViews() {
+    fileprivate func removeViews() {
         pfDurationLabel.removeFromSuperview()
         firstNumberView.removeFromSuperview()
         secondNumberView.removeFromSuperview()
@@ -328,12 +305,9 @@ class MathPreFireViewController: UIViewController {
         submitButton.removeFromSuperview()
         
     }
-    @objc func imageTapped(gesture: UIGestureRecognizer) {
+    @objc fileprivate func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
-                rotateView(targetView: presentImageView, duration: 0.2)
-//            UIView.animate(withDuration: 0.5) {
-//                self.presentImageView.transform = CGAffineTransform(rotationAngle: .pi)
-//            }
+            rotateView(targetView: presentImageView, duration: 0.2)
             createConfetti()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.confettiView.startConfetti()
@@ -346,7 +320,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    func rotateView(targetView: UIView, duration: Double = 1.0) {
+    fileprivate func rotateView(targetView: UIView, duration: Double = 1.0) {
         UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
             targetView.transform = targetView.transform.rotated(by: CGFloat(Double.pi))
         }) { finished in
@@ -354,7 +328,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    @objc func fireTime() {
+    @objc fileprivate func fireTime() {
         fireDuration = fireDuration - 1
         if fireDuration == 0 {
             timerDuration.invalidate()
@@ -365,7 +339,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    func randomlyPickCharacter() {
+    fileprivate func randomlyPickCharacter() {
         characterPicked = false
         let numberOfImages: UInt32 = 12
         let random = arc4random_uniform(numberOfImages)
@@ -373,7 +347,6 @@ class MathPreFireViewController: UIViewController {
         if characterPicked == false {
             characterImageView.image = UIImage(named: imageName)
             view.addSubview(characterImageView)
-            
             characterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             characterImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             characterImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true

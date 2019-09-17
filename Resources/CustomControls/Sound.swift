@@ -24,7 +24,6 @@ class Sound {
             audioPlayer?.play()
         } catch {
             print(error)
-            // couldn't load file :(
         }
     }
     
