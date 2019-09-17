@@ -15,7 +15,7 @@ For the more advance preschool aged child, there is the Math Equations Indicator
 
 The Waker app can also be used as a quick timer for short activities such as:
 
-  • Getting dressed
+  + Getting dressed
   • Play time
   • Bath time
   • Eating sessions
