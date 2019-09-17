@@ -21,12 +21,11 @@ class SoundToggleButton: UIButton {
         initButton()
     }
     
-    fileprivate func initButton() {
+    func initButton() {
         addTarget(self, action: #selector(SoundToggleButton.buttonPressed), for: .touchUpInside)
-        
     }
     
-    @objc fileprivate func buttonPressed() {
+    @objc func buttonPressed() {
         activateButton(bool: !isOn)
     }
     

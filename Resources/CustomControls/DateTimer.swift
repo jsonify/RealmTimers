@@ -19,7 +19,7 @@ class DataTimer {
         check()
     }
     
-    fileprivate func check() {
+    func check() {
         guard
             let startDate = UserDefaults.standard.object(forKey: "kStartDate") as? Date,
             let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)

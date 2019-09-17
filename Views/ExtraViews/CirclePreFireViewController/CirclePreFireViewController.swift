@@ -121,7 +121,6 @@ class CirclePreFireViewController: UIViewController {
         if fireDuration == 0 {
             timerDuration.invalidate()
             Sound.shared.stopSound()
-            //            dismiss(animated: true)
             performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         }
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,7 +73,7 @@
                                         <rect key="frame" x="311" y="52" width="44" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="0.25" alpha="0.55432988559999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="sound-off"/>
+                                        <state key="normal" image="sound-on"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-b6-xXm">
                                         <rect key="frame" x="277" y="653" width="60" height="60"/>
@@ -128,14 +128,6 @@
             </objects>
             <point key="canvasLocation" x="5460.8695652173919" y="115.84821428571428"/>
         </scene>
-        <!--boom-->
-        <scene sceneID="wYg-A0-C8j">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="boom" storyboardName="PreFireViewController" referencedIdentifier="boom" id="wrM-ry-hMI" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F8g-Ec-4Lm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5888" y="38"/>
-        </scene>
         <!--CirclePreFireViewController-->
         <scene sceneID="abd-af-h2l">
             <objects>
@@ -164,7 +156,7 @@
     <resources>
         <image name="delete" width="50" height="50"/>
         <image name="fab" width="60" height="60"/>
-        <image name="sound-off" width="74" height="57"/>
+        <image name="sound-on" width="64" height="57"/>
         <namedColor name="DeleteColor">
             <color red="0.90980392156862744" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
