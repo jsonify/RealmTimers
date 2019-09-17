@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DPZ-sQ-GOm">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Timer View Controller-->
+        <scene sceneID="plB-Ii-LA6">
+            <objects>
+                <viewController id="DPZ-sQ-GOm" customClass="AddTimerViewController" customModule="RealmTimers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gHe-xc-y4g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXL-6U-kCl">
+                                <rect key="frame" x="16" y="183" width="343" height="172"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLU-W2-6Mb">
+                                        <rect key="frame" x="11" y="17" width="320" height="143"/>
+                                        <color key="tintColor" name="BackgroundColor"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="583739304.03653204">
+                                            <!--2019-07-02 05:48:24 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" name="CellBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="top" secondItem="MXL-6U-kCl" secondAttribute="top" constant="17" id="6PF-lC-8SO"/>
+                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="leading" secondItem="MXL-6U-kCl" secondAttribute="leading" constant="11" id="DxP-JU-sCO"/>
+                                    <constraint firstItem="nLU-W2-6Mb" firstAttribute="centerX" secondItem="MXL-6U-kCl" secondAttribute="centerX" id="Ymw-Ng-tf6"/>
+                                    <constraint firstAttribute="bottom" secondItem="nLU-W2-6Mb" secondAttribute="bottom" constant="12" id="jNh-R8-do6"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-UJ-CJl">
+                                <rect key="frame" x="33" y="192" width="309" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="M3b-jg-SP1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1t9-F4-vJ1">
+                                <rect key="frame" x="16" y="109" width="343" height="57"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Timer Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-bW-Zkq" customClass="DesignableTextField" customModule="RealmTimers" customModuleProvider="target">
+                                        <rect key="frame" x="19" y="0.0" width="324" height="57"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="CellBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="PYf-bW-Zkq" firstAttribute="leading" secondItem="1t9-F4-vJ1" secondAttribute="leading" constant="19" id="R54-l2-Eks"/>
+                                    <constraint firstAttribute="trailing" secondItem="PYf-bW-Zkq" secondAttribute="trailing" id="YoR-9T-I9l"/>
+                                    <constraint firstItem="PYf-bW-Zkq" firstAttribute="top" secondItem="1t9-F4-vJ1" secondAttribute="top" id="jCe-Qt-iUU"/>
+                                    <constraint firstItem="PYf-bW-Zkq" firstAttribute="centerY" secondItem="1t9-F4-vJ1" secondAttribute="centerY" id="uw9-Kc-zNh"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pc-FS-lWW">
+                                <rect key="frame" x="0.0" y="40" width="375" height="31.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31.5" id="78K-gd-UI2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gf-MD-VMJ" userLabel="PreFireDurationView">
+                                <rect key="frame" x="14" y="370" width="345" height="87"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PreFire Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3s-0H-qLQ">
+                                        <rect key="frame" x="18" y="0.0" width="309" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="Jnn-Eh-Td7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gw0-Zd-jNB" customClass="CustomSegmentedControl" customModule="RealmTimers" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="40" width="309" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="15, 30, 45, 60"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectorTextColor">
+                                                <color key="value" name="BackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="wtf:" destination="DPZ-sQ-GOm" eventType="valueChanged" id="xBc-Wo-Gyd"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="CellBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="p3s-0H-qLQ" firstAttribute="centerX" secondItem="5gf-MD-VMJ" secondAttribute="centerX" id="8Nh-cn-acR"/>
+                                    <constraint firstItem="p3s-0H-qLQ" firstAttribute="trailing" secondItem="Gw0-Zd-jNB" secondAttribute="trailing" id="8aS-Ul-kXc"/>
+                                    <constraint firstItem="p3s-0H-qLQ" firstAttribute="leading" secondItem="Gw0-Zd-jNB" secondAttribute="leading" id="AE8-h7-cYZ"/>
+                                    <constraint firstItem="Gw0-Zd-jNB" firstAttribute="top" secondItem="p3s-0H-qLQ" secondAttribute="bottom" constant="8" id="FmK-Up-ofD"/>
+                                    <constraint firstItem="p3s-0H-qLQ" firstAttribute="top" secondItem="5gf-MD-VMJ" secondAttribute="top" id="Rzd-R5-wD7"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gw0-Zd-jNB" secondAttribute="bottom" constant="15" id="f03-Vo-vTH"/>
+                                    <constraint firstItem="p3s-0H-qLQ" firstAttribute="leading" secondItem="5gf-MD-VMJ" secondAttribute="leading" constant="18" id="h5p-p5-ayv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOU-Rd-zsU" userLabel="PreFireDurationView">
+                                <rect key="frame" x="14" y="476" width="345" height="85"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PreFire Style" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snl-wR-nmR">
+                                        <rect key="frame" x="18" y="0.0" width="309" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="SSP-pO-muS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBI-TQ-dkv" customClass="CustomSegmentedControl" customModule="RealmTimers" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="40" width="309" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="Bars, Math, Circle"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectorTextColor">
+                                                <color key="value" name="BackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="preFireStyleSegmentSelected:" destination="DPZ-sQ-GOm" eventType="valueChanged" id="y4J-cV-hha"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="CellBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="snl-wR-nmR" firstAttribute="centerX" secondItem="uOU-Rd-zsU" secondAttribute="centerX" id="37d-UU-Ibi"/>
+                                    <constraint firstAttribute="bottom" secondItem="yBI-TQ-dkv" secondAttribute="bottom" constant="15" id="5Qb-dG-hJb"/>
+                                    <constraint firstItem="snl-wR-nmR" firstAttribute="leading" secondItem="uOU-Rd-zsU" secondAttribute="leading" constant="18" id="Fby-32-zFS"/>
+                                    <constraint firstItem="yBI-TQ-dkv" firstAttribute="top" secondItem="snl-wR-nmR" secondAttribute="bottom" constant="8" id="SSX-Qe-M9X"/>
+                                    <constraint firstItem="snl-wR-nmR" firstAttribute="leading" secondItem="yBI-TQ-dkv" secondAttribute="leading" id="lYe-oC-FbN"/>
+                                    <constraint firstItem="snl-wR-nmR" firstAttribute="trailing" secondItem="yBI-TQ-dkv" secondAttribute="trailing" id="o0k-fT-Yed"/>
+                                    <constraint firstItem="snl-wR-nmR" firstAttribute="top" secondItem="uOU-Rd-zsU" secondAttribute="top" id="wWu-io-tT4"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-70-sn2" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="16" y="591" width="60" height="60"/>
+                                <color key="backgroundColor" name="DarkRed"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="6SR-tt-4Pv"/>
+                                    <constraint firstAttribute="height" constant="60" id="lfK-Ta-731"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="cancel">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="KkQ-p4-Pl7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-qC-vWI" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
+                                <rect key="frame" x="299" y="591" width="60" height="60"/>
+                                <color key="backgroundColor" name="FABLightGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="PJV-CF-0sc"/>
+                                    <constraint firstAttribute="height" constant="60" id="tDp-sM-zri"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="Check">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveTapped:" destination="DPZ-sQ-GOm" eventType="touchUpInside" id="zjw-r8-Bkg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="MainBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Pc-FS-lWW" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" id="31k-hS-vHD"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="top" secondItem="MXL-6U-kCl" secondAttribute="bottom" constant="15" id="7Ts-Qo-Hx7"/>
+                            <constraint firstItem="4Pc-FS-lWW" firstAttribute="top" secondItem="5iY-WR-PcU" secondAttribute="top" constant="40" id="9fg-0g-sXn"/>
+                            <constraint firstItem="MXL-6U-kCl" firstAttribute="trailing" secondItem="5gf-MD-VMJ" secondAttribute="trailing" id="AaX-TF-lWm"/>
+                            <constraint firstItem="1t9-F4-vJ1" firstAttribute="trailing" secondItem="MXL-6U-kCl" secondAttribute="trailing" id="AsS-I5-bp2"/>
+                            <constraint firstItem="8i1-UJ-CJl" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="33" id="BcN-Bk-hFi"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="trailing" secondItem="uOU-Rd-zsU" secondAttribute="trailing" id="D5m-r6-ObI"/>
+                            <constraint firstItem="MXL-6U-kCl" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="183" id="F4c-zE-D5B"/>
+                            <constraint firstItem="4Pc-FS-lWW" firstAttribute="centerX" secondItem="1t9-F4-vJ1" secondAttribute="centerX" id="MPh-Km-RrN"/>
+                            <constraint firstItem="lIe-70-sn2" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="16" id="OBk-s1-04u"/>
+                            <constraint firstItem="1t9-F4-vJ1" firstAttribute="centerX" secondItem="8i1-UJ-CJl" secondAttribute="centerX" id="Q1x-lF-luq"/>
+                            <constraint firstItem="1t9-F4-vJ1" firstAttribute="leading" secondItem="MXL-6U-kCl" secondAttribute="leading" id="Q22-eS-bag"/>
+                            <constraint firstItem="1t9-F4-vJ1" firstAttribute="trailing" secondItem="gHe-xc-y4g" secondAttribute="trailingMargin" id="S10-X7-Waa"/>
+                            <constraint firstItem="5iY-WR-PcU" firstAttribute="bottom" secondItem="a2q-qC-vWI" secondAttribute="bottom" constant="16" id="SyG-mH-M3v"/>
+                            <constraint firstItem="uOU-Rd-zsU" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="476" id="W3H-4S-4Is"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="leading" secondItem="5iY-WR-PcU" secondAttribute="leading" constant="14" id="Xn0-dV-eVK"/>
+                            <constraint firstItem="uOU-Rd-zsU" firstAttribute="top" secondItem="5gf-MD-VMJ" secondAttribute="bottom" constant="19" id="bx4-un-RWh"/>
+                            <constraint firstItem="MXL-6U-kCl" firstAttribute="top" secondItem="1t9-F4-vJ1" secondAttribute="bottom" constant="17" id="h7f-lt-Ker"/>
+                            <constraint firstItem="8i1-UJ-CJl" firstAttribute="top" secondItem="1t9-F4-vJ1" secondAttribute="bottom" constant="26" id="hUf-pK-lRY"/>
+                            <constraint firstItem="5iY-WR-PcU" firstAttribute="trailing" secondItem="a2q-qC-vWI" secondAttribute="trailing" constant="16" id="hxw-n9-UcP"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="top" secondItem="gHe-xc-y4g" secondAttribute="top" constant="370" id="lJr-BW-vjU"/>
+                            <constraint firstItem="5iY-WR-PcU" firstAttribute="bottom" secondItem="lIe-70-sn2" secondAttribute="bottom" constant="16" id="mwG-9v-lYy"/>
+                            <constraint firstItem="5gf-MD-VMJ" firstAttribute="leading" secondItem="uOU-Rd-zsU" secondAttribute="leading" id="qeF-Vr-PhQ"/>
+                            <constraint firstItem="1t9-F4-vJ1" firstAttribute="leading" secondItem="gHe-xc-y4g" secondAttribute="leadingMargin" id="tY8-44-KXZ"/>
+                            <constraint firstItem="1t9-F4-vJ1" firstAttribute="top" secondItem="4Pc-FS-lWW" secondAttribute="bottom" constant="37.5" id="wSF-eb-0Bh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5iY-WR-PcU"/>
+                    </view>
+                    <connections>
+                        <outlet property="customSegmentedController" destination="Gw0-Zd-jNB" id="vkk-t4-lgq"/>
+                        <outlet property="fireTimePicker" destination="nLU-W2-6Mb" id="Acw-8g-eDG"/>
+                        <outlet property="nameTextField" destination="PYf-bW-Zkq" id="RKf-b2-Po2"/>
+                        <outlet property="preFireStyleSegmentedController" destination="yBI-TQ-dkv" id="RQK-dG-vdv"/>
+                        <outletCollection property="menuItemView" destination="MXL-6U-kCl" collectionClass="NSMutableArray" id="5Sl-9i-aqc"/>
+                        <outletCollection property="menuItemView" destination="5gf-MD-VMJ" collectionClass="NSMutableArray" id="oJb-QA-qaN"/>
+                        <outletCollection property="menuButtons" destination="lIe-70-sn2" collectionClass="NSMutableArray" id="h5x-3W-HHs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="apL-mN-cN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5892" y="190.25487256371815"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Check" width="60" height="60"/>
+        <image name="cancel" width="60" height="60"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CellBackgroundColor">
+            <color red="0.21176470588235294" green="0.28235294117647058" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DarkRed">
+            <color red="0.40000000000000002" green="0.12549019607843137" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="FABLightGreen">
+            <color red="0.49803921568627452" green="0.72156862745098038" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainBackgroundColor">
+            <color red="0.15686274509803921" green="0.21568627450980393" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,1127 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		790348B9230928C60024B379 /* SoundToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790348B8230928C60024B379 /* SoundToggleButton.swift */; };
+		790348BB23092ED60024B379 /* DateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790348BA23092ED60024B379 /* DateTimer.swift */; };
+		790348F5230A04D80024B379 /* ClockViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965D392822D6F72A00D568CD /* ClockViewController.storyboard */; };
+		7907F98C22FE2D4D00ADB784 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F98922FE2D4C00ADB784 /* DesignableTextField.swift */; };
+		7907F99522FE303D00ADB784 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F99122FE303C00ADB784 /* UIViewX.swift */; };
+		7907F99722FE303D00ADB784 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F99322FE303D00ADB784 /* UIButtonX.swift */; };
+		7907F99822FE303D00ADB784 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F99422FE303D00ADB784 /* FloatingActionButton.swift */; };
+		790DCAC223033C6900D2FE5F /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790DCAC123033C6900D2FE5F /* Sound.swift */; };
+		79160634230277F9002D833A /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79160633230277F9002D833A /* LibreBaskerville-Regular.ttf */; };
+		791B52922303D43A00FAB362 /* MathPreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791B52912303D43A00FAB362 /* MathPreFireViewController.swift */; };
+		791B529423044B4600FAB362 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791B529323044B4600FAB362 /* CustomLabel.swift */; };
+		791FBADE230DE81200E03919 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791FBADD230DE81200E03919 /* UIImageViewX.swift */; };
+		7920F8572326F96E008E22AB /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9657076E22C47EB600BAEF21 /* Base.lproj */; };
+		7920F8582326F96E008E22AB /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9657076E22C47EB600BAEF21 /* Base.lproj */; };
+		7920F8612326FB57008E22AB /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7920F8602326FB57008E22AB /* TestingViewController.swift */; };
+		7920F8622326FB57008E22AB /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7920F8602326FB57008E22AB /* TestingViewController.swift */; };
+		79218C8822F38586008E2106 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79218C8722F38586008E2106 /* rain.mp3 */; };
+		7923D17C22ED531B006EE1EE /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923D17B22ED531B006EE1EE /* PresentView.swift */; };
+		795A61AF22FE9EBD007C6FEF /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795A61AE22FE9EBD007C6FEF /* SettingsViewController.storyboard */; };
+		7960E27522E8F25A001552AC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E27422E8F25A001552AC /* SettingsViewController.swift */; };
+		7960E27C22E97BE4001552AC /* PreFireEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E27B22E97BE4001552AC /* PreFireEnum.swift */; };
+		796A04A922EC1971007F662B /* PreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796A04A822EC1971007F662B /* PreFireViewController.storyboard */; };
+		796ABDF523310F4C0029605A /* ClockViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796ABDF423310F4C0029605A /* ClockViewControllerTests.swift */; };
+		7979F319232A0E2500D2F088 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7979F318232A0E2400D2F088 /* MainViewController.storyboard */; };
+		7979F31A232A0E2500D2F088 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7979F318232A0E2400D2F088 /* MainViewController.storyboard */; };
+		798A631D231650F400AAA2AD /* CirclePreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */; };
+		798A631E231650F400AAA2AD /* CirclePreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */; };
+		798A63202316522C00AAA2AD /* BarsPreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631F2316522C00AAA2AD /* BarsPreFireViewController.swift */; };
+		798A63212316522C00AAA2AD /* BarsPreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631F2316522C00AAA2AD /* BarsPreFireViewController.swift */; };
+		798A6323231700FF00AAA2AD /* CirclePreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798A6322231700FF00AAA2AD /* CirclePreFireViewController.storyboard */; };
+		798A6324231700FF00AAA2AD /* CirclePreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798A6322231700FF00AAA2AD /* CirclePreFireViewController.storyboard */; };
+		798A63262317015B00AAA2AD /* BarsPreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798A63252317015B00AAA2AD /* BarsPreFireViewController.storyboard */; };
+		798A63272317015B00AAA2AD /* BarsPreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798A63252317015B00AAA2AD /* BarsPreFireViewController.storyboard */; };
+		798A63292317025A00AAA2AD /* MathPreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798A63282317025A00AAA2AD /* MathPreFireViewController.storyboard */; };
+		798A632A2317025A00AAA2AD /* MathPreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798A63282317025A00AAA2AD /* MathPreFireViewController.storyboard */; };
+		798A632C2317918000AAA2AD /* MyCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A632B2317918000AAA2AD /* MyCustomView.swift */; };
+		798A632D2317918000AAA2AD /* MyCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A632B2317918000AAA2AD /* MyCustomView.swift */; };
+		79D609DD2320155A007127DF /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D609DC2320155A007127DF /* MainViewControllerTests.swift */; };
+		7E140F8FF54B274D0CB15DDB /* Pods_RealmTimers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A9D16D19B8223A2B8222C0 /* Pods_RealmTimers.framework */; };
+		9657076A22C47EB600BAEF21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657076922C47EB600BAEF21 /* AppDelegate.swift */; };
+		9657076C22C47EB600BAEF21 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657076B22C47EB600BAEF21 /* MainViewController.swift */; };
+		9657077122C47EB900BAEF21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9657077022C47EB900BAEF21 /* Assets.xcassets */; };
+		9657077422C47EB900BAEF21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657077222C47EB900BAEF21 /* LaunchScreen.storyboard */; };
+		9657077F22C483A400BAEF21 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657077E22C483A400BAEF21 /* TimerModel.swift */; };
+		9657078622C5794600BAEF21 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657078522C5794600BAEF21 /* MainCell.swift */; };
+		9657078922C57AA400BAEF21 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657078822C57AA400BAEF21 /* UIViewExtension.swift */; };
+		9657078B22C5DF5300BAEF21 /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657078A22C5DF5300BAEF21 /* ClockViewController.swift */; };
+		965C282622C5E3B5001BAB46 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C282522C5E3B5001BAB46 /* UIViewControllerExtension.swift */; };
+		967A95E922CA47E0007C7556 /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A95E822CA47E0007C7556 /* TimerFunctions.swift */; };
+		96B196312315B920001A982B /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791B529323044B4600FAB362 /* CustomLabel.swift */; };
+		96B196322315B920001A982B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9BEC322C651820032ECB3 /* Theme.swift */; };
+		96B196332315B920001A982B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F377A922C656AF000EFE54 /* UIButtonExtension.swift */; };
+		96B196342315B920001A982B /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F99322FE303D00ADB784 /* UIButtonX.swift */; };
+		96B196352315B920001A982B /* MathPreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791B52912303D43A00FAB362 /* MathPreFireViewController.swift */; };
+		96B196362315B920001A982B /* PreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F795FF22E102F100B9578B /* PreFireViewController.swift */; };
+		96B196372315B920001A982B /* TimerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A95E822CA47E0007C7556 /* TimerFunctions.swift */; };
+		96B196382315B920001A982B /* AppUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F377AB22C6579D000EFE54 /* AppUIButton.swift */; };
+		96B196392315B920001A982B /* AddTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9BEC022C63F670032ECB3 /* AddTimerViewController.swift */; };
+		96B1963A2315B920001A982B /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D27445230F135C00618494 /* CustomSegmentedControl.swift */; };
+		96B1963B2315B920001A982B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657078822C57AA400BAEF21 /* UIViewExtension.swift */; };
+		96B1963C2315B920001A982B /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F98922FE2D4C00ADB784 /* DesignableTextField.swift */; };
+		96B1963D2315B920001A982B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E27422E8F25A001552AC /* SettingsViewController.swift */; };
+		96B1963E2315B920001A982B /* PopupUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F377AE22C65CC5000EFE54 /* PopupUIView.swift */; };
+		96B1963F2315B920001A982B /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F99422FE303D00ADB784 /* FloatingActionButton.swift */; };
+		96B196402315B920001A982B /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790DCAC123033C6900D2FE5F /* Sound.swift */; };
+		96B196422315B920001A982B /* PreFireEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7960E27B22E97BE4001552AC /* PreFireEnum.swift */; };
+		96B196432315B920001A982B /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923D17B22ED531B006EE1EE /* PresentView.swift */; };
+		96B196442315B920001A982B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657076B22C47EB600BAEF21 /* MainViewController.swift */; };
+		96B196452315B920001A982B /* DateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790348BA23092ED60024B379 /* DateTimer.swift */; };
+		96B196462315B920001A982B /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791FBADD230DE81200E03919 /* UIImageViewX.swift */; };
+		96B196472315B920001A982B /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7907F99122FE303C00ADB784 /* UIViewX.swift */; };
+		96B196482315B920001A982B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7770422D401B300FE5790 /* StringExtension.swift */; };
+		96B196492315B920001A982B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657076922C47EB600BAEF21 /* AppDelegate.swift */; };
+		96B1964A2315B920001A982B /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657078A22C5DF5300BAEF21 /* ClockViewController.swift */; };
+		96B1964B2315B920001A982B /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657078522C5794600BAEF21 /* MainCell.swift */; };
+		96B1964C2315B920001A982B /* SoundToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790348B8230928C60024B379 /* SoundToggleButton.swift */; };
+		96B1964D2315B920001A982B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C282522C5E3B5001BAB46 /* UIViewControllerExtension.swift */; };
+		96B1964E2315B920001A982B /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657077E22C483A400BAEF21 /* TimerModel.swift */; };
+		96B196502315B920001A982B /* Pods_RealmTimers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A9D16D19B8223A2B8222C0 /* Pods_RealmTimers.framework */; };
+		96B196522315B920001A982B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BECB22C653450032ECB3 /* Colors.xcassets */; };
+		96B196532315B920001A982B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9657077222C47EB900BAEF21 /* LaunchScreen.storyboard */; };
+		96B196542315B920001A982B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9657077022C47EB900BAEF21 /* Assets.xcassets */; };
+		96B196552315B920001A982B /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795A61AE22FE9EBD007C6FEF /* SettingsViewController.storyboard */; };
+		96B196562315B920001A982B /* PreFireViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796A04A822EC1971007F662B /* PreFireViewController.storyboard */; };
+		96B196582315B920001A982B /* AddTimerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BEBE22C63F080032ECB3 /* AddTimerViewController.storyboard */; };
+		96B196592315B920001A982B /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79218C8722F38586008E2106 /* rain.mp3 */; };
+		96B1965A2315B920001A982B /* ClockViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965D392822D6F72A00D568CD /* ClockViewController.storyboard */; };
+		96B1965B2315B920001A982B /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BEC522C652180032ECB3 /* SourceSansPro-Regular.ttf */; };
+		96B1965C2315B920001A982B /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79160633230277F9002D833A /* LibreBaskerville-Regular.ttf */; };
+		96B1965D2315B920001A982B /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BEC722C652190032ECB3 /* AbrilFatface-Regular.ttf */; };
+		96D27446230F135C00618494 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D27445230F135C00618494 /* CustomSegmentedControl.swift */; };
+		96D9BEBF22C63F080032ECB3 /* AddTimerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BEBE22C63F080032ECB3 /* AddTimerViewController.storyboard */; };
+		96D9BEC122C63F670032ECB3 /* AddTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9BEC022C63F670032ECB3 /* AddTimerViewController.swift */; };
+		96D9BEC422C651820032ECB3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9BEC322C651820032ECB3 /* Theme.swift */; };
+		96D9BEC822C652190032ECB3 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BEC522C652180032ECB3 /* SourceSansPro-Regular.ttf */; };
+		96D9BECA22C652190032ECB3 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BEC722C652190032ECB3 /* AbrilFatface-Regular.ttf */; };
+		96D9BECC22C653450032ECB3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D9BECB22C653450032ECB3 /* Colors.xcassets */; };
+		96F377AA22C656AF000EFE54 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F377A922C656AF000EFE54 /* UIButtonExtension.swift */; };
+		96F377AC22C6579D000EFE54 /* AppUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F377AB22C6579D000EFE54 /* AppUIButton.swift */; };
+		96F377AF22C65CC5000EFE54 /* PopupUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F377AE22C65CC5000EFE54 /* PopupUIView.swift */; };
+		96F7770522D401B300FE5790 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7770422D401B300FE5790 /* StringExtension.swift */; };
+		96F7960022E102F200B9578B /* PreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F795FF22E102F100B9578B /* PreFireViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79D609DF2320155A007127DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9657075E22C47EB600BAEF21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9657076522C47EB600BAEF21;
+			remoteInfo = RealmTimers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		203B12FE10A019C193E8DCC4 /* Pods-RealmTimers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmTimers.debug.xcconfig"; path = "Target Support Files/Pods-RealmTimers/Pods-RealmTimers.debug.xcconfig"; sourceTree = "<group>"; };
+		36A9D16D19B8223A2B8222C0 /* Pods_RealmTimers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmTimers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		790348B8230928C60024B379 /* SoundToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundToggleButton.swift; sourceTree = "<group>"; };
+		790348BA23092ED60024B379 /* DateTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimer.swift; sourceTree = "<group>"; };
+		7907F98922FE2D4C00ADB784 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		7907F99122FE303C00ADB784 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		7907F99322FE303D00ADB784 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
+		7907F99422FE303D00ADB784 /* FloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		790DCAC123033C6900D2FE5F /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		79160633230277F9002D833A /* LibreBaskerville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Regular.ttf"; sourceTree = "<group>"; };
+		791B52912303D43A00FAB362 /* MathPreFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathPreFireViewController.swift; sourceTree = "<group>"; };
+		791B529323044B4600FAB362 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		791FBADD230DE81200E03919 /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
+		7920F8602326FB57008E22AB /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestingViewController.swift; path = RealmTimers/Views/ExtraViews/TestingViewController.swift; sourceTree = SOURCE_ROOT; };
+		79218C8722F38586008E2106 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
+		7923D17B22ED531B006EE1EE /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
+		795A61AE22FE9EBD007C6FEF /* SettingsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
+		7960E27422E8F25A001552AC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7960E27B22E97BE4001552AC /* PreFireEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreFireEnum.swift; sourceTree = "<group>"; };
+		796A04A822EC1971007F662B /* PreFireViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PreFireViewController.storyboard; sourceTree = "<group>"; };
+		796ABDF423310F4C0029605A /* ClockViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewControllerTests.swift; sourceTree = "<group>"; };
+		7979F317232A0C4200D2F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewController.storyboard; sourceTree = "<group>"; };
+		7979F318232A0E2400D2F088 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
+		798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePreFireViewController.swift; sourceTree = "<group>"; };
+		798A631F2316522C00AAA2AD /* BarsPreFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsPreFireViewController.swift; sourceTree = "<group>"; };
+		798A6322231700FF00AAA2AD /* CirclePreFireViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CirclePreFireViewController.storyboard; sourceTree = "<group>"; };
+		798A63252317015B00AAA2AD /* BarsPreFireViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BarsPreFireViewController.storyboard; sourceTree = "<group>"; };
+		798A63282317025A00AAA2AD /* MathPreFireViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MathPreFireViewController.storyboard; sourceTree = "<group>"; };
+		798A632B2317918000AAA2AD /* MyCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomView.swift; sourceTree = "<group>"; };
+		79D0F45922E7C811008DAAED /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		79D609DA2320155A007127DF /* RealmTimersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmTimersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79D609DC2320155A007127DF /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
+		79D609DE2320155A007127DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79E96702230A64C2004A86FF /* RealmTimers copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RealmTimers copy-Info.plist"; path = "/Volumes/Macintosh HD/Users/jason/code/iOS/RealmTimers/RealmTimers copy-Info.plist"; sourceTree = "<absolute>"; };
+		9655FCEE23156B79002D5F87 /* Pods_RealmTimers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_RealmTimers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9657076622C47EB600BAEF21 /* RealmTimers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmTimers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9657076922C47EB600BAEF21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9657076B22C47EB600BAEF21 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9657076E22C47EB600BAEF21 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = ../Views/MainViewController/Base.lproj; sourceTree = "<group>"; };
+		9657077022C47EB900BAEF21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9657077322C47EB900BAEF21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9657077522C47EB900BAEF21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9657077E22C483A400BAEF21 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		9657078522C5794600BAEF21 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		9657078822C57AA400BAEF21 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		9657078A22C5DF5300BAEF21 /* ClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClockViewController.swift; path = ../ClockViewController.swift; sourceTree = "<group>"; };
+		965C282522C5E3B5001BAB46 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		965D392822D6F72A00D568CD /* ClockViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ClockViewController.storyboard; sourceTree = "<group>"; };
+		967A95E822CA47E0007C7556 /* TimerFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFunctions.swift; sourceTree = "<group>"; };
+		96B196622315B920001A982B /* RealmTimers DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RealmTimers DEV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B196632315B921001A982B /* RealmTimers copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RealmTimers copy2-Info.plist"; path = "/Users/jason/code/iOS/RealmTimers/RealmTimers copy2-Info.plist"; sourceTree = "<absolute>"; };
+		96D27445230F135C00618494 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		96D9BEBE22C63F080032ECB3 /* AddTimerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTimerViewController.storyboard; sourceTree = "<group>"; };
+		96D9BEC022C63F670032ECB3 /* AddTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerViewController.swift; sourceTree = "<group>"; };
+		96D9BEC322C651820032ECB3 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		96D9BEC522C652180032ECB3 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		96D9BEC722C652190032ECB3 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
+		96D9BECB22C653450032ECB3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		96F377A922C656AF000EFE54 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		96F377AB22C6579D000EFE54 /* AppUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIButton.swift; sourceTree = "<group>"; };
+		96F377AE22C65CC5000EFE54 /* PopupUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupUIView.swift; sourceTree = "<group>"; };
+		96F7770422D401B300FE5790 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		96F795FF22E102F100B9578B /* PreFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreFireViewController.swift; sourceTree = "<group>"; };
+		9B2D23030CC4D3EBCF5EC246 /* Pods-RealmTimers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmTimers.release.xcconfig"; path = "Target Support Files/Pods-RealmTimers/Pods-RealmTimers.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79D609D72320155A007127DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9657076322C47EB600BAEF21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E140F8FF54B274D0CB15DDB /* Pods_RealmTimers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96B1964F2315B920001A982B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B196502315B920001A982B /* Pods_RealmTimers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CB24ACDE571D487B0927F6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9655FCEE23156B79002D5F87 /* Pods_RealmTimers.framework */,
+				36A9D16D19B8223A2B8222C0 /* Pods_RealmTimers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79218C8622F38578008E2106 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				79218C8722F38586008E2106 /* rain.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		7923D17822ED5236006EE1EE /* ExtraViews */ = {
+			isa = PBXGroup;
+			children = (
+				794E1B7B2326F508007AFEC1 /* TestingViewController */,
+				7923D17B22ED531B006EE1EE /* PresentView.swift */,
+				965809B52324AD7900E250D7 /* MathPreFireViewController */,
+				965809B62324ADB000E250D7 /* CirclePreFireViewController */,
+				965809B72324ADCA00E250D7 /* BarsPreFireViewController */,
+			);
+			path = ExtraViews;
+			sourceTree = "<group>";
+		};
+		794E1B7B2326F508007AFEC1 /* TestingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7920F8602326FB57008E22AB /* TestingViewController.swift */,
+			);
+			path = TestingViewController;
+			sourceTree = "<group>";
+		};
+		7960E27322E8F243001552AC /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				795A61AE22FE9EBD007C6FEF /* SettingsViewController.storyboard */,
+				7960E27422E8F25A001552AC /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		7960E27922E97BA4001552AC /* PreFire */ = {
+			isa = PBXGroup;
+			children = (
+				7960E27B22E97BE4001552AC /* PreFireEnum.swift */,
+			);
+			path = PreFire;
+			sourceTree = "<group>";
+		};
+		7960E27A22E97BB4001552AC /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				9657077E22C483A400BAEF21 /* TimerModel.swift */,
+				967A95E822CA47E0007C7556 /* TimerFunctions.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		79D609DB2320155A007127DF /* RealmTimersTests */ = {
+			isa = PBXGroup;
+			children = (
+				79D609DC2320155A007127DF /* MainViewControllerTests.swift */,
+				79D609DE2320155A007127DF /* Info.plist */,
+				796ABDF423310F4C0029605A /* ClockViewControllerTests.swift */,
+			);
+			path = RealmTimersTests;
+			sourceTree = "<group>";
+		};
+		9657075D22C47EB500BAEF21 = {
+			isa = PBXGroup;
+			children = (
+				9657076822C47EB600BAEF21 /* RealmTimers */,
+				79D609DB2320155A007127DF /* RealmTimersTests */,
+				9657076722C47EB600BAEF21 /* Products */,
+				B0921AB52539EA9C5C265549 /* Pods */,
+				79E96702230A64C2004A86FF /* RealmTimers copy-Info.plist */,
+				1CB24ACDE571D487B0927F6D /* Frameworks */,
+				96B196632315B921001A982B /* RealmTimers copy2-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		9657076722C47EB600BAEF21 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9657076622C47EB600BAEF21 /* RealmTimers.app */,
+				96B196622315B920001A982B /* RealmTimers DEV.app */,
+				79D609DA2320155A007127DF /* RealmTimersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9657076822C47EB600BAEF21 /* RealmTimers */ = {
+			isa = PBXGroup;
+			children = (
+				965C282322C5DFCA001BAB46 /* Resources */,
+				9657078022C483AB00BAEF21 /* Model */,
+				9657077D22C4835900BAEF21 /* Supporting Files */,
+				9657077B22C482F900BAEF21 /* Views */,
+			);
+			path = RealmTimers;
+			sourceTree = "<group>";
+		};
+		9657077B22C482F900BAEF21 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7923D17822ED5236006EE1EE /* ExtraViews */,
+				7960E27322E8F243001552AC /* SettingsViewController */,
+				96F7770622D4642500FE5790 /* PreFireViewController */,
+				96F4F8D822C63EA400860967 /* AddTimerViewController */,
+				9657077C22C4832600BAEF21 /* MainViewController */,
+				9657078C22C5DF5A00BAEF21 /* ClockViewController */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9657077C22C4832600BAEF21 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9657076B22C47EB600BAEF21 /* MainViewController.swift */,
+				7979F318232A0E2400D2F088 /* MainViewController.storyboard */,
+				9657078522C5794600BAEF21 /* MainCell.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		9657077D22C4835900BAEF21 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9657076E22C47EB600BAEF21 /* Base.lproj */,
+				7979F316232A0C4200D2F088 /* MainViewController.storyboard */,
+				9657076922C47EB600BAEF21 /* AppDelegate.swift */,
+				9657077222C47EB900BAEF21 /* LaunchScreen.storyboard */,
+				9657077522C47EB900BAEF21 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9657078022C483AB00BAEF21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7960E27922E97BA4001552AC /* PreFire */,
+				7960E27A22E97BB4001552AC /* Timer */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9657078722C57A7200BAEF21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9657078822C57AA400BAEF21 /* UIViewExtension.swift */,
+				965C282522C5E3B5001BAB46 /* UIViewControllerExtension.swift */,
+				96F377A922C656AF000EFE54 /* UIButtonExtension.swift */,
+				96F7770422D401B300FE5790 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9657078C22C5DF5A00BAEF21 /* ClockViewController */ = {
+			isa = PBXGroup;
+			children = (
+				965D392822D6F72A00D568CD /* ClockViewController.storyboard */,
+				9657078A22C5DF5300BAEF21 /* ClockViewController.swift */,
+			);
+			path = ClockViewController;
+			sourceTree = "<group>";
+		};
+		965809B52324AD7900E250D7 /* MathPreFireViewController */ = {
+			isa = PBXGroup;
+			children = (
+				791B52912303D43A00FAB362 /* MathPreFireViewController.swift */,
+				798A63282317025A00AAA2AD /* MathPreFireViewController.storyboard */,
+			);
+			path = MathPreFireViewController;
+			sourceTree = "<group>";
+		};
+		965809B62324ADB000E250D7 /* CirclePreFireViewController */ = {
+			isa = PBXGroup;
+			children = (
+				798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */,
+				798A6322231700FF00AAA2AD /* CirclePreFireViewController.storyboard */,
+			);
+			path = CirclePreFireViewController;
+			sourceTree = "<group>";
+		};
+		965809B72324ADCA00E250D7 /* BarsPreFireViewController */ = {
+			isa = PBXGroup;
+			children = (
+				798A631F2316522C00AAA2AD /* BarsPreFireViewController.swift */,
+				798A63252317015B00AAA2AD /* BarsPreFireViewController.storyboard */,
+			);
+			path = BarsPreFireViewController;
+			sourceTree = "<group>";
+		};
+		965C282322C5DFCA001BAB46 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79218C8622F38578008E2106 /* Sounds */,
+				96F377AD22C65C98000EFE54 /* CustomControls */,
+				96D9BEC222C651570032ECB3 /* Theme */,
+				9657077022C47EB900BAEF21 /* Assets.xcassets */,
+				9657078722C57A7200BAEF21 /* Extensions */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		96D9BEC222C651570032ECB3 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				96D9BECB22C653450032ECB3 /* Colors.xcassets */,
+				96D9BEC322C651820032ECB3 /* Theme.swift */,
+				79160633230277F9002D833A /* LibreBaskerville-Regular.ttf */,
+				96D9BEC722C652190032ECB3 /* AbrilFatface-Regular.ttf */,
+				96D9BEC522C652180032ECB3 /* SourceSansPro-Regular.ttf */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		96F377AD22C65C98000EFE54 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				790348B8230928C60024B379 /* SoundToggleButton.swift */,
+				7907F98922FE2D4C00ADB784 /* DesignableTextField.swift */,
+				7907F99422FE303D00ADB784 /* FloatingActionButton.swift */,
+				7907F99322FE303D00ADB784 /* UIButtonX.swift */,
+				7907F99122FE303C00ADB784 /* UIViewX.swift */,
+				791FBADD230DE81200E03919 /* UIImageViewX.swift */,
+				96F377AE22C65CC5000EFE54 /* PopupUIView.swift */,
+				79D0F45922E7C811008DAAED /* CircularProgressView.swift */,
+				96F377AB22C6579D000EFE54 /* AppUIButton.swift */,
+				790DCAC123033C6900D2FE5F /* Sound.swift */,
+				791B529323044B4600FAB362 /* CustomLabel.swift */,
+				790348BA23092ED60024B379 /* DateTimer.swift */,
+				96D27445230F135C00618494 /* CustomSegmentedControl.swift */,
+				798A632B2317918000AAA2AD /* MyCustomView.swift */,
+			);
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		96F4F8D822C63EA400860967 /* AddTimerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96D9BEBE22C63F080032ECB3 /* AddTimerViewController.storyboard */,
+				96D9BEC022C63F670032ECB3 /* AddTimerViewController.swift */,
+			);
+			path = AddTimerViewController;
+			sourceTree = "<group>";
+		};
+		96F7770622D4642500FE5790 /* PreFireViewController */ = {
+			isa = PBXGroup;
+			children = (
+				796A04A822EC1971007F662B /* PreFireViewController.storyboard */,
+				96F795FF22E102F100B9578B /* PreFireViewController.swift */,
+			);
+			path = PreFireViewController;
+			sourceTree = "<group>";
+		};
+		B0921AB52539EA9C5C265549 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				203B12FE10A019C193E8DCC4 /* Pods-RealmTimers.debug.xcconfig */,
+				9B2D23030CC4D3EBCF5EC246 /* Pods-RealmTimers.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79D609D92320155A007127DF /* RealmTimersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79D609E32320155B007127DF /* Build configuration list for PBXNativeTarget "RealmTimersTests" */;
+			buildPhases = (
+				79D609D62320155A007127DF /* Sources */,
+				79D609D72320155A007127DF /* Frameworks */,
+				79D609D82320155A007127DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79D609E02320155A007127DF /* PBXTargetDependency */,
+			);
+			name = RealmTimersTests;
+			productName = RealmTimersTests;
+			productReference = 79D609DA2320155A007127DF /* RealmTimersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9657076522C47EB600BAEF21 /* RealmTimers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9657077822C47EB900BAEF21 /* Build configuration list for PBXNativeTarget "RealmTimers" */;
+			buildPhases = (
+				50E1CB7FC32A2DF62A7980BA /* [CP] Check Pods Manifest.lock */,
+				9657076222C47EB600BAEF21 /* Sources */,
+				9657076322C47EB600BAEF21 /* Frameworks */,
+				9657076422C47EB600BAEF21 /* Resources */,
+				63B0DD4BA79FB3B32D3FE8CE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RealmTimers;
+			productName = RealmTimers;
+			productReference = 9657076622C47EB600BAEF21 /* RealmTimers.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96B1962D2315B920001A982B /* RealmTimers DEV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96B1965F2315B920001A982B /* Build configuration list for PBXNativeTarget "RealmTimers DEV" */;
+			buildPhases = (
+				96B1962E2315B920001A982B /* [CP] Check Pods Manifest.lock */,
+				96B1962F2315B920001A982B /* Sources */,
+				96B1964F2315B920001A982B /* Frameworks */,
+				96B196512315B920001A982B /* Resources */,
+				96B1965E2315B920001A982B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RealmTimers DEV";
+			productName = RealmTimers;
+			productReference = 96B196622315B920001A982B /* RealmTimers DEV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9657075E22C47EB600BAEF21 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Jason;
+				TargetAttributes = {
+					79D609D92320155A007127DF = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 9657076522C47EB600BAEF21;
+					};
+					9657076522C47EB600BAEF21 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 9657076122C47EB600BAEF21 /* Build configuration list for PBXProject "RealmTimers" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9657075D22C47EB500BAEF21;
+			productRefGroup = 9657076722C47EB600BAEF21 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9657076522C47EB600BAEF21 /* RealmTimers */,
+				96B1962D2315B920001A982B /* RealmTimers DEV */,
+				79D609D92320155A007127DF /* RealmTimersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79D609D82320155A007127DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9657076422C47EB600BAEF21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96D9BECC22C653450032ECB3 /* Colors.xcassets in Resources */,
+				9657077422C47EB900BAEF21 /* LaunchScreen.storyboard in Resources */,
+				9657077122C47EB900BAEF21 /* Assets.xcassets in Resources */,
+				795A61AF22FE9EBD007C6FEF /* SettingsViewController.storyboard in Resources */,
+				796A04A922EC1971007F662B /* PreFireViewController.storyboard in Resources */,
+				798A6323231700FF00AAA2AD /* CirclePreFireViewController.storyboard in Resources */,
+				7920F8572326F96E008E22AB /* Base.lproj in Resources */,
+				96D9BEBF22C63F080032ECB3 /* AddTimerViewController.storyboard in Resources */,
+				7979F319232A0E2500D2F088 /* MainViewController.storyboard in Resources */,
+				79218C8822F38586008E2106 /* rain.mp3 in Resources */,
+				790348F5230A04D80024B379 /* ClockViewController.storyboard in Resources */,
+				798A63292317025A00AAA2AD /* MathPreFireViewController.storyboard in Resources */,
+				96D9BEC822C652190032ECB3 /* SourceSansPro-Regular.ttf in Resources */,
+				798A63262317015B00AAA2AD /* BarsPreFireViewController.storyboard in Resources */,
+				79160634230277F9002D833A /* LibreBaskerville-Regular.ttf in Resources */,
+				96D9BECA22C652190032ECB3 /* AbrilFatface-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96B196512315B920001A982B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B196522315B920001A982B /* Colors.xcassets in Resources */,
+				96B196532315B920001A982B /* LaunchScreen.storyboard in Resources */,
+				96B196542315B920001A982B /* Assets.xcassets in Resources */,
+				96B196552315B920001A982B /* SettingsViewController.storyboard in Resources */,
+				96B196562315B920001A982B /* PreFireViewController.storyboard in Resources */,
+				798A6324231700FF00AAA2AD /* CirclePreFireViewController.storyboard in Resources */,
+				7920F8582326F96E008E22AB /* Base.lproj in Resources */,
+				96B196582315B920001A982B /* AddTimerViewController.storyboard in Resources */,
+				7979F31A232A0E2500D2F088 /* MainViewController.storyboard in Resources */,
+				96B196592315B920001A982B /* rain.mp3 in Resources */,
+				96B1965A2315B920001A982B /* ClockViewController.storyboard in Resources */,
+				798A632A2317025A00AAA2AD /* MathPreFireViewController.storyboard in Resources */,
+				96B1965B2315B920001A982B /* SourceSansPro-Regular.ttf in Resources */,
+				798A63272317015B00AAA2AD /* BarsPreFireViewController.storyboard in Resources */,
+				96B1965C2315B920001A982B /* LibreBaskerville-Regular.ttf in Resources */,
+				96B1965D2315B920001A982B /* AbrilFatface-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50E1CB7FC32A2DF62A7980BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RealmTimers-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63B0DD4BA79FB3B32D3FE8CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RealmTimers/Pods-RealmTimers-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RealmTimers/Pods-RealmTimers-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RealmTimers/Pods-RealmTimers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96B1962E2315B920001A982B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RealmTimers-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96B1965E2315B920001A982B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RealmTimers/Pods-RealmTimers-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RealmTimers/Pods-RealmTimers-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RealmTimers/Pods-RealmTimers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79D609D62320155A007127DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79D609DD2320155A007127DF /* MainViewControllerTests.swift in Sources */,
+				796ABDF523310F4C0029605A /* ClockViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9657076222C47EB600BAEF21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				791B529423044B4600FAB362 /* CustomLabel.swift in Sources */,
+				96D9BEC422C651820032ECB3 /* Theme.swift in Sources */,
+				96F377AA22C656AF000EFE54 /* UIButtonExtension.swift in Sources */,
+				7907F99722FE303D00ADB784 /* UIButtonX.swift in Sources */,
+				791B52922303D43A00FAB362 /* MathPreFireViewController.swift in Sources */,
+				96F7960022E102F200B9578B /* PreFireViewController.swift in Sources */,
+				967A95E922CA47E0007C7556 /* TimerFunctions.swift in Sources */,
+				96F377AC22C6579D000EFE54 /* AppUIButton.swift in Sources */,
+				96D9BEC122C63F670032ECB3 /* AddTimerViewController.swift in Sources */,
+				96D27446230F135C00618494 /* CustomSegmentedControl.swift in Sources */,
+				9657078922C57AA400BAEF21 /* UIViewExtension.swift in Sources */,
+				7907F98C22FE2D4D00ADB784 /* DesignableTextField.swift in Sources */,
+				7960E27522E8F25A001552AC /* SettingsViewController.swift in Sources */,
+				798A631D231650F400AAA2AD /* CirclePreFireViewController.swift in Sources */,
+				96F377AF22C65CC5000EFE54 /* PopupUIView.swift in Sources */,
+				7907F99822FE303D00ADB784 /* FloatingActionButton.swift in Sources */,
+				790DCAC223033C6900D2FE5F /* Sound.swift in Sources */,
+				7960E27C22E97BE4001552AC /* PreFireEnum.swift in Sources */,
+				7920F8612326FB57008E22AB /* TestingViewController.swift in Sources */,
+				7923D17C22ED531B006EE1EE /* PresentView.swift in Sources */,
+				9657076C22C47EB600BAEF21 /* MainViewController.swift in Sources */,
+				790348BB23092ED60024B379 /* DateTimer.swift in Sources */,
+				791FBADE230DE81200E03919 /* UIImageViewX.swift in Sources */,
+				7907F99522FE303D00ADB784 /* UIViewX.swift in Sources */,
+				96F7770522D401B300FE5790 /* StringExtension.swift in Sources */,
+				9657076A22C47EB600BAEF21 /* AppDelegate.swift in Sources */,
+				9657078B22C5DF5300BAEF21 /* ClockViewController.swift in Sources */,
+				9657078622C5794600BAEF21 /* MainCell.swift in Sources */,
+				798A632C2317918000AAA2AD /* MyCustomView.swift in Sources */,
+				790348B9230928C60024B379 /* SoundToggleButton.swift in Sources */,
+				965C282622C5E3B5001BAB46 /* UIViewControllerExtension.swift in Sources */,
+				9657077F22C483A400BAEF21 /* TimerModel.swift in Sources */,
+				798A63202316522C00AAA2AD /* BarsPreFireViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96B1962F2315B920001A982B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B196312315B920001A982B /* CustomLabel.swift in Sources */,
+				96B196322315B920001A982B /* Theme.swift in Sources */,
+				96B196332315B920001A982B /* UIButtonExtension.swift in Sources */,
+				96B196342315B920001A982B /* UIButtonX.swift in Sources */,
+				96B196352315B920001A982B /* MathPreFireViewController.swift in Sources */,
+				96B196362315B920001A982B /* PreFireViewController.swift in Sources */,
+				96B196372315B920001A982B /* TimerFunctions.swift in Sources */,
+				96B196382315B920001A982B /* AppUIButton.swift in Sources */,
+				96B196392315B920001A982B /* AddTimerViewController.swift in Sources */,
+				96B1963A2315B920001A982B /* CustomSegmentedControl.swift in Sources */,
+				96B1963B2315B920001A982B /* UIViewExtension.swift in Sources */,
+				96B1963C2315B920001A982B /* DesignableTextField.swift in Sources */,
+				96B1963D2315B920001A982B /* SettingsViewController.swift in Sources */,
+				798A631E231650F400AAA2AD /* CirclePreFireViewController.swift in Sources */,
+				96B1963E2315B920001A982B /* PopupUIView.swift in Sources */,
+				96B1963F2315B920001A982B /* FloatingActionButton.swift in Sources */,
+				96B196402315B920001A982B /* Sound.swift in Sources */,
+				96B196422315B920001A982B /* PreFireEnum.swift in Sources */,
+				7920F8622326FB57008E22AB /* TestingViewController.swift in Sources */,
+				96B196432315B920001A982B /* PresentView.swift in Sources */,
+				96B196442315B920001A982B /* MainViewController.swift in Sources */,
+				96B196452315B920001A982B /* DateTimer.swift in Sources */,
+				96B196462315B920001A982B /* UIImageViewX.swift in Sources */,
+				96B196472315B920001A982B /* UIViewX.swift in Sources */,
+				96B196482315B920001A982B /* StringExtension.swift in Sources */,
+				96B196492315B920001A982B /* AppDelegate.swift in Sources */,
+				96B1964A2315B920001A982B /* ClockViewController.swift in Sources */,
+				96B1964B2315B920001A982B /* MainCell.swift in Sources */,
+				798A632D2317918000AAA2AD /* MyCustomView.swift in Sources */,
+				96B1964C2315B920001A982B /* SoundToggleButton.swift in Sources */,
+				96B1964D2315B920001A982B /* UIViewControllerExtension.swift in Sources */,
+				96B1964E2315B920001A982B /* TimerModel.swift in Sources */,
+				798A63212316522C00AAA2AD /* BarsPreFireViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79D609E02320155A007127DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9657076522C47EB600BAEF21 /* RealmTimers */;
+			targetProxy = 79D609DF2320155A007127DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7979F316232A0C4200D2F088 /* MainViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7979F317232A0C4200D2F088 /* Base */,
+			);
+			name = MainViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		9657077222C47EB900BAEF21 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9657077322C47EB900BAEF21 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79D609E12320155B007127DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZD57UD8UQ;
+				INFOPLIST_FILE = RealmTimersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptomist.RealmTimersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealmTimers.app/RealmTimers";
+			};
+			name = Debug;
+		};
+		79D609E22320155B007127DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZD57UD8UQ;
+				INFOPLIST_FILE = RealmTimersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptomist.RealmTimersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealmTimers.app/RealmTimers";
+			};
+			name = Release;
+		};
+		9657077622C47EB900BAEF21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9657077722C47EB900BAEF21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9657077922C47EB900BAEF21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 203B12FE10A019C193E8DCC4 /* Pods-RealmTimers.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZD57UD8UQ;
+				INFOPLIST_FILE = "$(SRCROOT)/RealmTimers/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DPRODUCTION $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptomist.RealmTimers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9657077A22C47EB900BAEF21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B2D23030CC4D3EBCF5EC246 /* Pods-RealmTimers.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZD57UD8UQ;
+				INFOPLIST_FILE = "$(SRCROOT)/RealmTimers/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DPRODUCTION $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptomist.RealmTimers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		96B196602315B920001A982B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 203B12FE10A019C193E8DCC4 /* Pods-RealmTimers.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Dev";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZD57UD8UQ;
+				INFOPLIST_FILE = "RealmTimers copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DDEVELOPMENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptomist.RealmTimers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96B196612315B920001A982B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B2D23030CC4D3EBCF5EC246 /* Pods-RealmTimers.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Dev";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZD57UD8UQ;
+				INFOPLIST_FILE = "RealmTimers copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DDEVELOPMENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptomist.RealmTimers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79D609E32320155B007127DF /* Build configuration list for PBXNativeTarget "RealmTimersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79D609E12320155B007127DF /* Debug */,
+				79D609E22320155B007127DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9657076122C47EB600BAEF21 /* Build configuration list for PBXProject "RealmTimers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9657077622C47EB900BAEF21 /* Debug */,
+				9657077722C47EB900BAEF21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9657077822C47EB900BAEF21 /* Build configuration list for PBXNativeTarget "RealmTimers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9657077922C47EB900BAEF21 /* Debug */,
+				9657077A22C47EB900BAEF21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96B1965F2315B920001A982B /* Build configuration list for PBXNativeTarget "RealmTimers DEV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96B196602315B920001A982B /* Debug */,
+				96B196612315B920001A982B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9657075E22C47EB600BAEF21 /* Project object */;
+}
