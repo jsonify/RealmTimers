@@ -19,15 +19,15 @@ class MathPreFireViewController: UIViewController {
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var firstNumberLabel: UILabel!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var firstNumberLabel: UILabel?
     @IBOutlet weak var answerTextField: UITextField?
-    @IBOutlet weak var secondNumberLabel: UILabel!
+    @IBOutlet weak var secondNumberLabel: UILabel?
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var pfDurationLabel: UILabel!
     
     var firstNumber = 0 {
         didSet {
-            firstNumberLabel.text = "\(firstNumber)"
+            firstNumberLabel?.text = "\(firstNumber)"
         }
     }
     
@@ -44,7 +44,7 @@ class MathPreFireViewController: UIViewController {
     }
     var secondNumber = 0 {
         didSet {
-            secondNumberLabel.text = "\(secondNumber)"
+            secondNumberLabel?.text = "\(secondNumber)"
         }
     }
     
@@ -92,7 +92,7 @@ class MathPreFireViewController: UIViewController {
         animateViews()
     }
     
-    fileprivate func setupDurationLabel() {
+    func setupDurationLabel() {
         pfDurationLabel.translatesAutoresizingMaskIntoConstraints = false
         pfDurationLabel.textAlignment = .center
         pfDurationLabel.lineBreakMode = .byWordWrapping
@@ -100,7 +100,7 @@ class MathPreFireViewController: UIViewController {
         pfDurTime = preFireTime
     }
     
-    fileprivate func dateCheck() {
+    func dateCheck() {
         let now = Date()
         let lastDayCheck: Date = UserDefaults.standard.object(forKey: "kStartDate") as! Date
         if now < lastDayCheck {
@@ -110,48 +110,48 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    fileprivate func createConfetti() {
+    func createConfetti() {
         confettiView = SAConfettiView(frame: self.view.bounds)
         confettiView.type = .Confetti
         self.view.addSubview(confettiView)
     }
     
-    fileprivate func animateViews() {
+    func animateViews() {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.firstNumberView.transform = .identity
-            self.firstNumberView.alpha = 1
+            self.firstNumberView?.transform = .identity
+            self.firstNumberView?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.2, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.operatorView.transform = .identity
-            self.operatorView.alpha = 1
+            self.operatorView?.transform = .identity
+            self.operatorView?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.secondNumberView.transform = .identity
-            self.secondNumberView.alpha = 1
+            self.secondNumberView?.transform = .identity
+            self.secondNumberView?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.highScoreView.transform = .identity
-            self.highScoreView.alpha = 1
+            self.highScoreView?.transform = .identity
+            self.highScoreView?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.scoreView.transform = .identity
-            self.scoreView.alpha = 1
+            self.scoreView?.transform = .identity
+            self.scoreView?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.answerTextField?.transform = .identity
             self.answerTextField?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.4, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.submitButton.transform = .identity
-            self.submitButton.alpha = 1
+            self.submitButton?.transform = .identity
+            self.submitButton?.alpha = 1
         }, completion: nil)
         UIView.animate(withDuration: 0.3, delay: 0.4, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.pfDurationLabel.transform = .identity
-            self.pfDurationLabel.alpha = 1
+            self.pfDurationLabel?.transform = .identity
+            self.pfDurationLabel?.alpha = 1
         }, completion: nil)
     }
     
-    fileprivate func viewsSetup() {
+    func viewsSetup() {
         viewToChange(view: firstNumberView)
         viewToChange(view: operatorView)
         viewToChange(view: secondNumberView)
@@ -162,31 +162,31 @@ class MathPreFireViewController: UIViewController {
         viewToChange(view: pfDurationLabel)
     }
     
-    fileprivate func viewToChange(view: UIView) {
+    func viewToChange(view: UIView) {
         view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         view.alpha = 0
         view.addCornerRadius(radius: 10)
     }
     
-    fileprivate func startMath() {
+    func startMath() {
         self.hideKeyboardWhenTappedAround()
         newEquation()
         showHighScore()
         showButtons()
     }
     
-    fileprivate func showHighScore() {
+    func showHighScore() {
         highScoreValue = UserDefaults.standard.integer(forKey: "highScoreAmount")
         highScoreLabel.text = "\(highScoreValue)"
     }
     
-    fileprivate func newEquation() {
+    func newEquation() {
         reset()
         firstNumber = Int.random(in: 1..<11)
         secondNumber = Int.random(in: 1..<11)
     }
     
-    fileprivate func scoreingButtons() {
+    func scoreingButtons() {
         let resetScoreButton:UIButton = UIButton(frame: CGRect(x: view.frame.size.width - 150, y: 480, width: 100, height: 50))
         resetScoreButton.layer.cornerRadius = 10
         resetScoreButton.backgroundColor = .black
@@ -202,7 +202,7 @@ class MathPreFireViewController: UIViewController {
         self.view.addSubview(resetHighScoreButton)
     }
     
-    fileprivate func showButtons() {
+    func showButtons() {
         #if DEVELOPMENT
         let closeButton:UIButton = UIButton(frame: CGRect(x: view.center.x, y: view.frame.size.height - 100, width: 50, height: 50))
         closeButton.backgroundColor = .red
@@ -215,7 +215,7 @@ class MathPreFireViewController: UIViewController {
     
     @IBAction func submitAnswer(_ sender: UIButton) {
         guard let answer = Int(answerTextField?.text! ?? "0") else { return }
-        let ans = checkAnswer(num1: firstNumber, num2: secondNumber, answer: answer)
+        let ans = checkAnswer(firstNumber, secondNumber, answer)
         if ans {
             view.backgroundColor = .green
             score += 1
@@ -231,31 +231,31 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    fileprivate func checkAnswer(num1: Int, num2: Int, answer: Int) -> Bool {
+     func checkAnswer(_ num1: Int, _ num2: Int, _ answer: Int) -> Bool {
         if answer == (num1 + num2) {
             return true
         }
         return false
     }
     
-    fileprivate func reset() {
+    func reset() {
         answerTextField?.text? = ""
         view.backgroundColor = UIColor(named: "MathBackground")
     }
     
-    @objc fileprivate func resetScoreButtonClicked(_ sender: UIButton) {
+    @objc func resetScoreButtonClicked(_ sender: UIButton) {
         score = 0
     }
     
-    @objc fileprivate func resetHighScoreButtonClicked(_ sender: UIButton) {
+    @objc func resetHighScoreButtonClicked(_ sender: UIButton) {
         highScoreValue = 0
     }
     
-    @objc fileprivate func closeTapped(_ sender: FloatingActionButton) {
+    @objc func closeTapped(_ sender: FloatingActionButton) {
         performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
-    fileprivate func highScoreReached() {
+    func highScoreReached() {
         if highScoreValue < score {
             highScoreValue = score
             createConfetti()
@@ -271,7 +271,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    @objc fileprivate func countDownDuration() {
+    @objc func countDownDuration() {
         pfDurTime = pfDurTime - 1
         pfDurationLabel.text = "Time left\n\(pfDurTime)"
         if pfDurTime == 0 {
@@ -284,7 +284,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    fileprivate func showPresent() {
+    func showPresent() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
         view.addSubview(presentImageView)
         presentImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -296,7 +296,7 @@ class MathPreFireViewController: UIViewController {
         presentImageView.isHidden = false
         view.bringSubviewToFront(presentImageView)
     }
-    fileprivate func removeViews() {
+    func removeViews() {
         pfDurationLabel.removeFromSuperview()
         firstNumberView.removeFromSuperview()
         secondNumberView.removeFromSuperview()
@@ -305,7 +305,7 @@ class MathPreFireViewController: UIViewController {
         submitButton.removeFromSuperview()
         
     }
-    @objc fileprivate func imageTapped(gesture: UIGestureRecognizer) {
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
             rotateView(targetView: presentImageView, duration: 0.2)
             createConfetti()
@@ -320,7 +320,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    fileprivate func rotateView(targetView: UIView, duration: Double = 1.0) {
+    func rotateView(targetView: UIView, duration: Double = 1.0) {
         UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
             targetView.transform = targetView.transform.rotated(by: CGFloat(Double.pi))
         }) { finished in
@@ -328,7 +328,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    @objc fileprivate func fireTime() {
+    @objc func fireTime() {
         fireDuration = fireDuration - 1
         if fireDuration == 0 {
             timerDuration.invalidate()
@@ -339,7 +339,7 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    fileprivate func randomlyPickCharacter() {
+    func randomlyPickCharacter() {
         characterPicked = false
         let numberOfImages: UInt32 = 12
         let random = arc4random_uniform(numberOfImages)

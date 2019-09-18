@@ -33,6 +33,7 @@
 		796ABDF723311C160029605A /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 796ABDF623311C160029605A /* Readme.md */; };
 		7979F319232A0E2500D2F088 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7979F318232A0E2400D2F088 /* MainViewController.storyboard */; };
 		7979F31A232A0E2500D2F088 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7979F318232A0E2400D2F088 /* MainViewController.storyboard */; };
+		79852ADC2331DC01003E1DFB /* MathPreFireViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79852ADB2331DC01003E1DFB /* MathPreFireViewControllerTests.swift */; };
 		798A631D231650F400AAA2AD /* CirclePreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */; };
 		798A631E231650F400AAA2AD /* CirclePreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */; };
 		798A63202316522C00AAA2AD /* BarsPreFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798A631F2316522C00AAA2AD /* BarsPreFireViewController.swift */; };
@@ -147,6 +148,7 @@
 		796ABDF623311C160029605A /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		7979F317232A0C4200D2F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewController.storyboard; sourceTree = "<group>"; };
 		7979F318232A0E2400D2F088 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
+		79852ADB2331DC01003E1DFB /* MathPreFireViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MathPreFireViewControllerTests.swift; path = RealmTimersTests/MathPreFireViewControllerTests.swift; sourceTree = SOURCE_ROOT; };
 		798A631C231650F400AAA2AD /* CirclePreFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePreFireViewController.swift; sourceTree = "<group>"; };
 		798A631F2316522C00AAA2AD /* BarsPreFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsPreFireViewController.swift; sourceTree = "<group>"; };
 		798A6322231700FF00AAA2AD /* CirclePreFireViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CirclePreFireViewController.storyboard; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		79D609DB2320155A007127DF /* RealmTimersTests */ = {
 			isa = PBXGroup;
 			children = (
+				79852ADB2331DC01003E1DFB /* MathPreFireViewControllerTests.swift */,
 				79D609DC2320155A007127DF /* MainViewControllerTests.swift */,
 				79D609DE2320155A007127DF /* Info.plist */,
 				796ABDF423310F4C0029605A /* ClockViewControllerTests.swift */,
@@ -729,6 +732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79852ADC2331DC01003E1DFB /* MathPreFireViewControllerTests.swift in Sources */,
 				79D609DD2320155A007127DF /* MainViewControllerTests.swift in Sources */,
 				796ABDF523310F4C0029605A /* ClockViewControllerTests.swift in Sources */,
 			);
