@@ -6,7 +6,7 @@
 //  Copyright © 2019 Jason. All rights reserved.
 //
 
-import SAConfettiView
+//import SAConfettiView
 import RealmSwift
 import UIKit
 
@@ -72,7 +72,7 @@ class MathPreFireViewController: UIViewController {
         return imageView
     }()
     
-    var confettiView = SAConfettiView()
+//    var confettiView = SAConfettiView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,11 +110,11 @@ class MathPreFireViewController: UIViewController {
         }
     }
     
-    func createConfetti() {
-        confettiView = SAConfettiView(frame: self.view.bounds)
-        confettiView.type = .Confetti
-        self.view.addSubview(confettiView)
-    }
+//    func createConfetti() {
+//        confettiView = SAConfettiView(frame: self.view.bounds)
+//        confettiView.type = .Confetti
+//        self.view.addSubview(confettiView)
+//    }
     
     func animateViews() {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
@@ -258,16 +258,16 @@ class MathPreFireViewController: UIViewController {
     func highScoreReached() {
         if highScoreValue < score {
             highScoreValue = score
-            createConfetti()
-            confettiView.startConfetti()
+//            createConfetti()
+//            confettiView.startConfetti()
             highScoreView.transform = CGAffineTransform(scaleX: 5, y: 5)
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: .curveEaseInOut, animations: {
                 self.highScoreView.transform = .identity
             })
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.confettiView.stopConfetti()
-                print("confetti should stop now")
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                self.confettiView.stopConfetti()
+//                print("confetti should stop now")
+//            }
         }
     }
     
@@ -308,15 +308,15 @@ class MathPreFireViewController: UIViewController {
     @objc func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
             rotateView(targetView: presentImageView, duration: 0.2)
-            createConfetti()
+//            createConfetti()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.confettiView.startConfetti()
+//                self.confettiView.startConfetti()
                 self.presentImageView.removeFromSuperview()
                 self.randomlyPickCharacter()
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.confettiView.stopConfetti()
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                self.confettiView.stopConfetti()
+//            }
         }
     }
     
@@ -334,7 +334,7 @@ class MathPreFireViewController: UIViewController {
             timerDuration.invalidate()
             Sound.shared.stopSound()
             characterImageView.removeFromSuperview()
-            confettiView.removeFromSuperview()
+//            confettiView.removeFromSuperview()
             performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         }
     }

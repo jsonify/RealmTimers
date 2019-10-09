@@ -4,15 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>RealmTimers DEV-old.xcscheme_^#shared#^_</key>
+		<key>RealmTimers - D.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>RealmTimers DEV.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>6</integer>
 		</dict>
 		<key>RealmTimers.xcscheme_^#shared#^_</key>
 		<dict>
@@ -23,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>790348FC230A0D6C0024B379</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79D609D92320155A007127DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
