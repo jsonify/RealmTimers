@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
             return realm.objects(TimerModel.self)
         }
     }
+    var minRowHeight: CGFloat = 0
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -34,6 +35,9 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         realm = try! Realm()
         
+        minRowHeight = 50.0
+        
+        setGradientToTableView(tableView: tableView, UIColor(red:0.00, green:0.57, blue:0.85, alpha:1.0), UIColor(red:0.40, green:0.00, blue:0.80, alpha:1.0))
         #if DEVELOPMENT
         testVCButton.isHidden = false
         deleteTimersButton.isHidden = false
@@ -41,6 +45,22 @@ class MainViewController: UIViewController {
         testVCButton.isHidden = true
         deleteTimersButton.isHidden = true
         #endif
+    }
+    
+    func setGradientToTableView(tableView: UITableView, _ topColor:UIColor, _ bottomColor:UIColor) {
+
+        let gradientBackgroundColors = [topColor.cgColor, bottomColor.cgColor]
+
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientBackgroundColors
+        gradientLayer.locations = [0.0,1.0]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.frame = tableView.bounds
+        let backgroundView = UIView(frame: tableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        tableView.backgroundView = backgroundView
     }
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
@@ -70,9 +90,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return timerItem.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        let tHeight = tableView.frame.height
+        if (timerItem.count > 1) {
+            let temp = tHeight / CGFloat(timerItem.count)
+            return temp > minRowHeight ? temp : minRowHeight
+        } else {
+            return tHeight
+        }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
         let item = timerItem[indexPath.row]
@@ -80,26 +109,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.nameLabel.text = "\(formatTime(date: item.timerTime))"
         cell.preFireLabel.text = "\(item.preFireDuration) min"
         cell.preFireStyle.text = "\(item.preFireStyle)"
-        
-        let hourString = Int(formatHour(date: item.timerTime))!
-        var phase = ""
-        switch hourString {
-        case let hour where hour < 5:
-            phase = "nighttime"
-        case 5...8:
-            phase = "sunrise"
-        case 9...16:
-            phase = "daytime"
-        case 17...18:
-            phase = "sunset"
-        case 19...20:
-            phase = "dusk"
-        case 21...24:
-            phase = "nighttime"
-        default:
-            print("Time does not exist here")
-        }
-        cell.avatarImage.image = UIImage(named: phase)
+
         
         return cell
     }
