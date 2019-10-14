@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         realm = try! Realm()
         
         minRowHeight = 50.0
-        
+        tableView.tableFooterView = UIView(frame: .zero)
         setGradientToTableView(tableView: tableView, UIColor(red:0.00, green:0.57, blue:0.85, alpha:1.0), UIColor(red:0.40, green:0.00, blue:0.80, alpha:1.0))
         #if DEVELOPMENT
         testVCButton.isHidden = false

@@ -159,7 +159,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-om-aJo" customClass="UIButtonX" customModule="RealmTimers" customModuleProvider="target">
-                                <rect key="frame" x="157.5" y="589" width="60" height="60"/>
+                                <rect key="frame" x="127.5" y="529" width="120" height="120"/>
                                 <color key="backgroundColor" name="DarkBlue"/>
                                 <color key="tintColor" name="PrimaryColor"/>
                                 <state key="normal" image="fab">

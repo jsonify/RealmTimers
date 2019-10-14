@@ -24,7 +24,10 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     var timerModel: Results<TimerModel>?
     var preFireStyle = "Bars"
     
+    //TODO:- Fix this to use a set arrary of times like HWSUI:
+    // https://youtu.be/PyYQchAbjmE?t=96
     var preFireDuration = 15
+    
     var timerName: String!
     
     override func viewDidLoad() {
